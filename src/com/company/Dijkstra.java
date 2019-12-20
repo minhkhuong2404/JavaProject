@@ -1,7 +1,6 @@
 package com.company;
 
 import static com.company.Main.vertexNum;
-import org.w3c.dom.*;
 
 import java.util.*;
 
