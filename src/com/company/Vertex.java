@@ -1,21 +1,19 @@
 package com.company;
 
-public class Vertex {
+public class Vertex extends Abstract{
     final private String id;
     private String name;
 
     // create a vertex with id and name
     public Vertex(String id, String name) {
+        super(id);
         this.id = id;
         this.name = name;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
+    @Override
+    public String getID() {
+        return super.getID();
     }
 
     @Override
@@ -36,5 +34,10 @@ public class Vertex {
     @Override
     public String toString() {
         return name;
+    }
+
+    @Override
+    public void printMe() {
+        System.out.println("Vertex " + id);
     }
 }

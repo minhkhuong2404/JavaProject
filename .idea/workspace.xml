@@ -6,7 +6,15 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35e51c40-6e70-41d8-a8de-bccf3328d98f" name="Default Changelist" comment="" />
+    <list default="true" id="35e51c40-6e70-41d8-a8de-bccf3328d98f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/Abstract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Interface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Edge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Vertex.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,7 +101,7 @@
       <updated>1576267303801</updated>
       <workItem from="1576267305128" duration="5016000" />
       <workItem from="1576512904958" duration="39808000" />
-      <workItem from="1576707135588" duration="1325000" />
+      <workItem from="1576707135588" duration="4787000" />
     </task>
     <servers />
   </component>
@@ -109,6 +117,10 @@
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
     <state x="611" y="380" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/44.23.1636.1027@44.23.1636.1027" timestamp="1576533870627" />
+    <state x="676" y="253" key="#com.intellij.ide.util.MemberChooser" timestamp="1576922201214">
+      <screen x="44" y="23" width="1636" height="1027" />
+    </state>
+    <state x="676" y="253" key="#com.intellij.ide.util.MemberChooser/44.23.1636.1027@44.23.1636.1027" timestamp="1576922201214" />
     <state x="601" y="327" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1576534124928">
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
@@ -117,22 +129,22 @@
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
     <state x="550" y="271" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/44.23.1636.1027@44.23.1636.1027" timestamp="1576267817322" />
-    <state width="1538" height="253" key="GridCell.Tab.0.bottom" timestamp="1576846794085">
+    <state width="1538" height="252" key="GridCell.Tab.0.bottom" timestamp="1576924925130">
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
-    <state width="1538" height="253" key="GridCell.Tab.0.bottom/44.23.1636.1027@44.23.1636.1027" timestamp="1576846794085" />
-    <state width="1538" height="253" key="GridCell.Tab.0.center" timestamp="1576846794084">
+    <state width="1538" height="252" key="GridCell.Tab.0.bottom/44.23.1636.1027@44.23.1636.1027" timestamp="1576924925130" />
+    <state width="1538" height="252" key="GridCell.Tab.0.center" timestamp="1576924925129">
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
-    <state width="1538" height="253" key="GridCell.Tab.0.center/44.23.1636.1027@44.23.1636.1027" timestamp="1576846794084" />
-    <state width="1538" height="253" key="GridCell.Tab.0.left" timestamp="1576846794084">
+    <state width="1538" height="252" key="GridCell.Tab.0.center/44.23.1636.1027@44.23.1636.1027" timestamp="1576924925129" />
+    <state width="1538" height="252" key="GridCell.Tab.0.left" timestamp="1576924925129">
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
-    <state width="1538" height="253" key="GridCell.Tab.0.left/44.23.1636.1027@44.23.1636.1027" timestamp="1576846794084" />
-    <state width="1538" height="253" key="GridCell.Tab.0.right" timestamp="1576846794085">
+    <state width="1538" height="252" key="GridCell.Tab.0.left/44.23.1636.1027@44.23.1636.1027" timestamp="1576924925129" />
+    <state width="1538" height="252" key="GridCell.Tab.0.right" timestamp="1576924925130">
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
-    <state width="1538" height="253" key="GridCell.Tab.0.right/44.23.1636.1027@44.23.1636.1027" timestamp="1576846794085" />
+    <state width="1538" height="252" key="GridCell.Tab.0.right/44.23.1636.1027@44.23.1636.1027" timestamp="1576924925130" />
     <state x="351" y="118" key="SettingsEditor" timestamp="1576707389666">
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
@@ -145,5 +157,9 @@
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
     <state x="574" y="437" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/44.23.1636.1027@44.23.1636.1027" timestamp="1576267665357" />
+    <state x="625" y="150" key="refactoring.ChangeSignatureDialog" timestamp="1576922324863">
+      <screen x="44" y="23" width="1636" height="1027" />
+    </state>
+    <state x="625" y="150" key="refactoring.ChangeSignatureDialog/44.23.1636.1027@44.23.1636.1027" timestamp="1576922324863" />
   </component>
 </project>

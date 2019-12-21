@@ -56,6 +56,7 @@ public class Main {
         Graph graph_first = new Graph(Nodes, Edges);
         Charset encoding = Charset.defaultCharset();
         // open and read a new file
+
         File file = new File(args[0]);
         handleFile(file, encoding);
         buildGraph();

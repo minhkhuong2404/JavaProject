@@ -1,5 +1,4 @@
 package com.company;
-import org.w3c.dom.*;
 
 import java.util.*;
 
@@ -13,7 +12,7 @@ public class Graph {
         this.edges = edges;
         for (int i = 0; i < 100000;i++) {
             if (adjacencyList[i] == null)
-                adjacencyList[i] = new LinkedList<Edge>();
+                adjacencyList[i] = new LinkedList<>();
         }
     }
 
