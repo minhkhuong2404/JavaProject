@@ -3,6 +3,7 @@ package com.company;
 import static com.company.Main.vertexNum;
 
 import java.util.*;
+import java.util.logging.*;
 
 public class Dijkstra {
 
@@ -12,25 +13,22 @@ public class Dijkstra {
     private Set<Vertex> unVisitedNodes;
     private Map<Vertex, Vertex> predecessors;
     private Map<Vertex, Integer> distance;
-    private boolean[] visited;
-    private ArrayList<MakePair<Vertex,Integer>> multiplie_distance = new ArrayList<MakePair<Vertex,Integer>>();
-    private static int count=0;
+    private ArrayList<MakePair<Vertex,Integer>> multiplie_distance = new ArrayList<>();
 
     public Dijkstra(Graph graph) {
         // create a copy of the array so that we can operate on this array
-        this.nodes = new ArrayList<Vertex>(graph.getVertexes());
-        this.edges = new ArrayList<Edge>(graph.getEdges());
+        this.nodes = new ArrayList<>(graph.getVertexes());
+        this.edges = new ArrayList<>(graph.getEdges());
     }
 
     public void executeDijkstra(Vertex source) {
-        count = 0;
-        visitedNodes = new HashSet<Vertex>();
-        unVisitedNodes = new HashSet<Vertex>();
+        visitedNodes = new HashSet<>();
+        unVisitedNodes = new HashSet<>();
 
         // contains the shortest distance from the source Vertex
-        distance = new HashMap<Vertex, Integer>();
+        distance = new HashMap<>();
         // contains the previous vertex that will create the shortest path
-        predecessors = new HashMap<Vertex, Vertex>();
+        predecessors = new HashMap<>();
 
         distance.put(source, 0);
         unVisitedNodes.add(source);
@@ -52,7 +50,6 @@ public class Dijkstra {
     // find the minimal distances to get to a node
     private void findMinimalDistances(Vertex node) {
         List<Vertex> adjacentNodes = getNeighbors(node);
-        int i = 0;
         for (Vertex target : adjacentNodes) {
             if (getShortestDistance(target) > getShortestDistance(node) + getDistance(node, target)) {
                 distance.put(target, getShortestDistance(node) + getDistance(node, target));
@@ -61,10 +58,7 @@ public class Dijkstra {
                 unVisitedNodes.add(target);
                 multiplie_distance.add( new MakePair<>(target,getShortestDistance(node) + getDistance(node, target)));
             }
-
         }
-//        System.out.println(count + " graphs");
-//        System.out.println(adjacentNodes + " nodes");
     }
 
     // calculate the distance between 2 node by calling its weight
@@ -80,13 +74,13 @@ public class Dijkstra {
 
     // take out all the neighbor vertices
     private List<Vertex> getNeighbors(Vertex node) {
-        List<Vertex> neighbors = new ArrayList<Vertex>();
+        List<Vertex> neighbors = new ArrayList<>();
         for (Edge edge : edges) {
             if (edge.getSource().equals(node) && !isVisited(edge.getDestination())) {
                 neighbors.add(edge.getDestination());
             }
         }
-//        System.out.println("Neighbors: " + neighbors);
+        LOG.fine("Neighbors: " + neighbors);
         return neighbors;
     }
 
@@ -104,10 +98,12 @@ public class Dijkstra {
         }
         return minimum;
     }
+
     // check if a vertex has been visited
     private boolean isVisited(Vertex vertex) {
         return visitedNodes.contains(vertex);
     }
+
     // get the shortest distance to get to a vertex
     private int getShortestDistance(Vertex destination) {
         Integer d = distance.get(destination);
@@ -120,7 +116,7 @@ public class Dijkstra {
      */
     // add all the predecessors vertex to a linked list
     public LinkedList<Vertex> getPath(Vertex target) {
-        LinkedList<Vertex> path = new LinkedList<Vertex>();
+        LinkedList<Vertex> path = new LinkedList<>();
         Vertex step = target;
         // check if a path exists
         if (predecessors.get(target) == null) {
@@ -131,6 +127,7 @@ public class Dijkstra {
         while (predecessors.get(step) != null) {
             step = predecessors.get(step);
             path.add(step);
+            LOG.fine("adding step");
         }
         // Put it into the correct order
         Collections.reverse(path);
@@ -138,9 +135,11 @@ public class Dijkstra {
     }
 
     // check if all vertices are visited by comparing the visitedNodes size
-    public boolean connected(){
+    public boolean isConnected(){
         return visitedNodes.size() == vertexNum;
     }
+
+    private static final Logger LOG = Logger.getLogger(Main.class.getName());
 
 }
 

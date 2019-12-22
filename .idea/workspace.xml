@@ -7,13 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35e51c40-6e70-41d8-a8de-bccf3328d98f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/Abstract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Interface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output_graph.graphml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Edge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final_Java_Project/com/company/Dijkstra.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Java_Project/com/company/Dijkstra.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final_Java_Project/com/company/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Java_Project/com/company/Graph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final_Java_Project/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Java_Project/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final_Java_Project/com/company/Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Java_Project/com/company/Vertex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Dijkstra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Dijkstra.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Graph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Vertex.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,13 +44,16 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1UwUldgCAKgTe2Lh93vvBNgjBPC" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -101,18 +106,22 @@
       <updated>1576267303801</updated>
       <workItem from="1576267305128" duration="5016000" />
       <workItem from="1576512904958" duration="39808000" />
-      <workItem from="1576707135588" duration="4787000" />
+      <workItem from="1576707135588" duration="5512000" />
+      <workItem from="1577020213168" duration="10096000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="367" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576682019684">
+    <state x="367" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577045949395">
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
-    <state x="367" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog/44.23.1636.1027@44.23.1636.1027" timestamp="1576682019684" />
+    <state x="367" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog/44.23.1636.1027@44.23.1636.1027" timestamp="1577045949395" />
     <state x="611" y="380" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1576533870627">
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
@@ -129,26 +138,30 @@
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
     <state x="550" y="271" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/44.23.1636.1027@44.23.1636.1027" timestamp="1576267817322" />
-    <state width="1538" height="252" key="GridCell.Tab.0.bottom" timestamp="1576924925130">
+    <state width="1538" height="251" key="GridCell.Tab.0.bottom" timestamp="1577047808859">
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
-    <state width="1538" height="252" key="GridCell.Tab.0.bottom/44.23.1636.1027@44.23.1636.1027" timestamp="1576924925130" />
-    <state width="1538" height="252" key="GridCell.Tab.0.center" timestamp="1576924925129">
+    <state width="1538" height="251" key="GridCell.Tab.0.bottom/44.23.1636.1027@44.23.1636.1027" timestamp="1577047808859" />
+    <state width="1538" height="251" key="GridCell.Tab.0.center" timestamp="1577047808858">
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
-    <state width="1538" height="252" key="GridCell.Tab.0.center/44.23.1636.1027@44.23.1636.1027" timestamp="1576924925129" />
-    <state width="1538" height="252" key="GridCell.Tab.0.left" timestamp="1576924925129">
+    <state width="1538" height="251" key="GridCell.Tab.0.center/44.23.1636.1027@44.23.1636.1027" timestamp="1577047808858" />
+    <state width="1538" height="251" key="GridCell.Tab.0.left" timestamp="1577047808857">
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
-    <state width="1538" height="252" key="GridCell.Tab.0.left/44.23.1636.1027@44.23.1636.1027" timestamp="1576924925129" />
-    <state width="1538" height="252" key="GridCell.Tab.0.right" timestamp="1576924925130">
+    <state width="1538" height="251" key="GridCell.Tab.0.left/44.23.1636.1027@44.23.1636.1027" timestamp="1577047808857" />
+    <state width="1538" height="251" key="GridCell.Tab.0.right" timestamp="1577047808858">
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
-    <state width="1538" height="252" key="GridCell.Tab.0.right/44.23.1636.1027@44.23.1636.1027" timestamp="1576924925130" />
+    <state width="1538" height="251" key="GridCell.Tab.0.right/44.23.1636.1027@44.23.1636.1027" timestamp="1577047808858" />
     <state x="351" y="118" key="SettingsEditor" timestamp="1576707389666">
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
     <state x="351" y="118" key="SettingsEditor/44.23.1636.1027@44.23.1636.1027" timestamp="1576707389666" />
+    <state x="715" y="459" key="VCS.ChangelistChooser" timestamp="1577030392792">
+      <screen x="44" y="23" width="1636" height="1027" />
+    </state>
+    <state x="715" y="459" key="VCS.ChangelistChooser/44.23.1636.1027@44.23.1636.1027" timestamp="1577030392792" />
     <state x="307" y="282" key="caller.chooser.dialog" timestamp="1576588044747">
       <screen x="44" y="23" width="1636" height="1027" />
     </state>

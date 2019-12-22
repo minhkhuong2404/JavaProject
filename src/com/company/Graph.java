@@ -10,6 +10,10 @@ public class Graph {
     public Graph(List<Vertex> vertexes, List<Edge> edges) {
         this.vertexes = vertexes;
         this.edges = edges;
+        creatingNewLinkedList();
+    }
+
+    public void creatingNewLinkedList(){
         for (int i = 0; i < 100000;i++) {
             if (adjacencyList[i] == null)
                 adjacencyList[i] = new LinkedList<>();
