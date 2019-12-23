@@ -168,7 +168,7 @@ public class Dijkstra {
      * and its end vertex has been visited
      *
      * @param node node needs to find its neighbor
-     * @return
+     * @return neighbor of the vertex, which are the vertices that have the same edge
      */
     private List<Vertex> getNeighbors(Vertex node) {
         List<Vertex> neighbors = new ArrayList<>();
