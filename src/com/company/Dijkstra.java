@@ -88,6 +88,41 @@ public class Dijkstra {
         return distance.get(destination);
     }
 
+
+    /**
+     * Returns the path from the source to the selected target and
+     * NULL if no path exists
+     * add all the predecessors vertex to a linked list
+     *
+     * @param target vertex needs to be reached
+     */
+    public LinkedList<Vertex> getPath(Vertex target) {
+        LinkedList<Vertex> path = new LinkedList<>();
+        Vertex step = target;
+        // check if a path exists
+        if (predecessors.get(target) == null) {
+            return null;
+        }
+        path.add(target);
+        // add Vertex to check the shortest path
+        while (predecessors.get(step) != null) {
+            step = predecessors.get(step);
+            path.add(step);
+            LOG.fine("adding step");
+        }
+        // Put it into the correct order
+        Collections.reverse(path);
+        return path;
+    }
+
+    /**
+     * check if all vertices are visited by comparing the visitedNodes size
+     * @return true is the size of visitedNodes are the same as the number of vertex
+     */
+    public boolean isConnected(){
+        return visitedNodes.size() == vertexNum;
+    }
+
     /**
      * find the minimal distances to get to a vertex by comparing the shortest distance to reach them
      * using all neighbors, which mean other vertices when combine with this vertex will create an edge
@@ -185,43 +220,9 @@ public class Dijkstra {
     }
 
     /**
-     * Returns the path from the source to the selected target and
-     * NULL if no path exists
-     * add all the predecessors vertex to a linked list
-     *
-     * @param target vertex needs to be reached
-     */
-    public LinkedList<Vertex> getPath(Vertex target) {
-        LinkedList<Vertex> path = new LinkedList<>();
-        Vertex step = target;
-        // check if a path exists
-        if (predecessors.get(target) == null) {
-            return null;
-        }
-        path.add(target);
-        // add Vertex to check the shortest path
-        while (predecessors.get(step) != null) {
-            step = predecessors.get(step);
-            path.add(step);
-            LOG.fine("adding step");
-        }
-        // Put it into the correct order
-        Collections.reverse(path);
-        return path;
-    }
-
-    /**
-     * check if all vertices are visited by comparing the visitedNodes size
-     * @return true is the size of visitedNodes are the same as the number of vertex
-     */
-    public boolean isConnected(){
-        return visitedNodes.size() == vertexNum;
-    }
-
-    /**
      * This function is to create a Logger for further use
      */
-    private static final Logger LOG = Logger.getLogger(Main.class.getName());
+    private final Logger LOG = Logger.getLogger(Main.class.getName());
 
 }
 

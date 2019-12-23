@@ -11,8 +11,8 @@ public class Vertex extends Abstract{
 
     /**
      * Constructor for the vertex with id and name
-     * @param id
-     * @param name
+     * @param id id of Vertex
+     * @param name name of Vertex
      */
     public Vertex(String id, String name) {
         super(id);

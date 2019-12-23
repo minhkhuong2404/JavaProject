@@ -8,7 +8,7 @@ import java.util.*;
  * @version 1.0
  */
 public class Graph {
-    public final List<Vertex> vertexes;
+    private final List<Vertex> vertexes;
     private final List<Edge> edges;
     public static LinkedList<Edge>[] adjacencyList = new LinkedList[100000];
 
@@ -20,7 +20,6 @@ public class Graph {
     public Graph(List<Vertex> vertexes, List<Edge> edges) {
         this.vertexes = vertexes;
         this.edges = edges;
-        creatingNewLinkedList();
     }
 
     /**

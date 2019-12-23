@@ -19,28 +19,6 @@ import java.util.logging.*;
 
 public class Main extends Thread{
     /**
-     * The "Nodes" List is used to contain all vertices in the Graph
-     * The "Edges" List is used to contain all edges in the Graph
-     * @see com.company.Graph
-     */
-    private static List<Vertex> Nodes = new ArrayList<>();
-    private static List<Edge> Edges = new ArrayList<>();
-
-    /**
-     * Replaces some string in the .graphml file
-     * The String edgeID replaces for the "e_id"
-     * The String nodeID replaces for the "v_id"
-     * The String edgeWeight replaces for the "e_we"
-     * The String sourceOfEdge replaces for the "sour"
-     * Reason for doing this is checking 4 characters at the same time when reading a file
-     * @see com.company.Main#handleCharacters
-     */
-    final static String edgeId = "e_id";
-    final static String nodeID = "v_id";
-    final static String edgeWeight = "e_we";
-    final static String sourceOfEdge = "sour";
-
-    /**
      * The integerValues here are used to store number of Edges, Vertices and Weight of Edges
      * all set to 0 at first
      */
@@ -52,10 +30,10 @@ public class Main extends Thread{
      * The ArrayLists edgeIDs stores all the ID of edges
      * The ArrayLists edgeWeights stores only the weight of edges
      */
-    static ArrayList<MakePair<String,String>> edges = new ArrayList<>();
-    static ArrayList<String> nodeIDs = new ArrayList<>();
-    static ArrayList<String> edgeIDs = new ArrayList<>();
-    static ArrayList<String> edgeWeights = new ArrayList<>();
+    private static ArrayList<MakePair<String,String>> edges = new ArrayList<>();
+    private static ArrayList<String> nodeIDs = new ArrayList<>();
+    private static ArrayList<String> edgeIDs = new ArrayList<>();
+    private static ArrayList<String> edgeWeights = new ArrayList<>();
 
     /**
      * The two-dimension integer array stores all possible weight of all edges
@@ -122,14 +100,28 @@ public class Main extends Thread{
      * which may not be the shortest one
      */
     static String[] allPaths = new String[10000];
+
     /**
-     * These two values are storing the temporary path for calculating the shortest path
-     * whether it passes through a node or not
-     * @see com.company.Main#shortestPathPassThroughNodes
-     * @see com.company.Main#shortestPath
+     * Replaces some string in the .graphml file
+     * The String edgeID replaces for the "e_id"
+     * The String nodeID replaces for the "v_id"
+     * The String edgeWeight replaces for the "e_we"
+     * The String sourceOfEdge replaces for the "sour"
+     * Reason for doing this is checking 4 characters at the same time when reading a file
+     * @see com.company.Main#handleCharacters
      */
-    static int shortestPathPassThroughNodes;
-    static int shortestPath;
+    final static String edgeId = "e_id";
+    final static String nodeID = "v_id";
+    final static String edgeWeight = "e_we";
+    final static String sourceOfEdge = "sour";
+
+    /**
+     * The "Nodes" List is used to contain all vertices in the Graph
+     * The "Edges" List is used to contain all edges in the Graph
+     * @see com.company.Graph
+     */
+    private static List<Vertex> Nodes = new ArrayList<>();
+    private static List<Edge> Edges = new ArrayList<>();
 
     /**
      * The main method used to distinguish the input argument that the user types in
@@ -143,7 +135,8 @@ public class Main extends Thread{
      * @throws IOException if stream to file cannot be written
      */
     public static void main(String[] args) throws IOException {
-        readFileAndBuildGraph(args[0]);
+        Main graph = new Main();
+        graph.readFileAndBuildGraph(args[0]);
 
         // checking how many arguments are pasted in order to choose the right operation
         if (args.length == 1) {
@@ -153,20 +146,20 @@ public class Main extends Thread{
             LOG.info("The properties of the graph are: ");
 
             // print out the nodeIDs
-            printNodeIDs(nodeIDs);
+            graph.printNodeIDs(nodeIDs);
             // print out the edgeIDS
-            printEdgeIDs(edgeIDs);
+            graph.printEdgeIDs(edgeIDs);
             // print out the edges source and target
-            printMapOut(edges);
+            graph.printMapOut(edges);
 
             // use Dijkstra to check the connectivity and the diameter of the graph
-            DijkstraCall(Nodes.get(1), Nodes.get(2));
+            graph.DijkstraCall(Nodes.get(1), Nodes.get(2));
 
         } else if (args.length == 3){
             if (args[1].equals("-b")) {
                 int passVertex = Integer.parseInt(args[2]);
                 // calculate betweenness centrality measure for a specific node
-                CalculateBetweennessCentrality(Nodes.get(passVertex));
+                graph.CalculateBetweennessCentrality(Nodes.get(passVertex));
             }
             else if (args[1].equals("-a")){
                 try{
@@ -184,7 +177,7 @@ public class Main extends Thread{
 
                 LOG.info("Deletion old file successful.");
                 LOG.info("Output file has been created");
-                writeFile(args[2]);
+                graph.writeFile(args[2]);
             }
         }
         else {
@@ -194,7 +187,7 @@ public class Main extends Thread{
                 sourceNode = Integer.parseInt(args[2]);
                 targetNode = Integer.parseInt(args[3]);
                 // call the Dijkstra algorithms
-                DijkstraCall(Nodes.get(sourceNode), Nodes.get(targetNode));
+                graph.DijkstraCall(Nodes.get(sourceNode), Nodes.get(targetNode));
             }
         }
     }
@@ -204,7 +197,7 @@ public class Main extends Thread{
      * @param nameOfFile which is the args[0]
      * @exception java.io.IOException if stream to file cannot be written to or closed.
      */
-    private static void readFileAndBuildGraph(String nameOfFile) throws IOException {
+    private void readFileAndBuildGraph(String nameOfFile) throws IOException {
         Charset encoding = Charset.defaultCharset();
         LOG.info("Reading the .graphml file");
         // open and read a new file
@@ -217,11 +210,15 @@ public class Main extends Thread{
     /**
      * This function used to build the graph for further calculation
      * which contains vertices and edges
+     * this also creates new linked list to store the weight of the start vertex
+     * to calculate all paths between 2 nodes
      */
-    private static void buildGraph() {
+    private void buildGraph() {
         Graph graph_first = new Graph(Nodes, Edges); // don't DELETE this line. Error
         Nodes = new ArrayList<>();
         Edges = new ArrayList<>();
+
+        graph_first.creatingNewLinkedList();
 
         buildVertex();
         buildEdge();
@@ -232,7 +229,7 @@ public class Main extends Thread{
      * which are the same according to the .graphml file, from the nodeIDS ArrayList.
      * ID and name are the same so we just add 2 identical nodeIDs
      */
-    private static void buildVertex(){
+    private void buildVertex(){
         for (int i = 0; i < vertexNum; i++) {
             Vertex location = new Vertex(nodeIDs.get(i), nodeIDs.get(i));
             Nodes.add(location);
@@ -252,7 +249,7 @@ public class Main extends Thread{
      * @see com.company.Main#countShortestPath()
      * @see com.company.Main#countShortestPathPassThroughNodes()
      */
-    private static void buildEdge(){
+    private void buildEdge(){
         for(int i = 0; i < edgeNum;i++) {
             addEdge(edgeIDs.get(i), edges.get(i).getL(), edges.get(i).getR(), edgeWeights.get(i));
             addEdge(edgeIDs.get(i), edges.get(i).getR(), edges.get(i).getL(), edgeWeights.get(i));
@@ -269,7 +266,7 @@ public class Main extends Thread{
      * @param encoding using the defauft charset encoding
      * @exception  IOException if the stream of file cannot be written
      */
-    static void handleFile(File file, Charset encoding) throws IOException {
+    private void handleFile(File file, Charset encoding) throws IOException {
         if (file == null){
             LOG.warning("File does not exist. Please try again");
         }
@@ -292,7 +289,7 @@ public class Main extends Thread{
      * @throws IOException if the stream of file cannot be written
      * @see com.company.Main@compareFourCharacterToFindItsCharacteristics()
      */
-    private static void handleCharacters(Reader reader) throws IOException {
+    private void handleCharacters(Reader reader) throws IOException {
         // error handling if file does not have any character
         if (reader == null){
             LOG.warning("File does not have any characters. Type something");
@@ -317,7 +314,7 @@ public class Main extends Thread{
      *
      * using switch to compare whether it should add an edgeID, a vertexID, a weight or an edge
      */
-    private static void compareFourCharacterToFindItsCharacteristics(){
+    private void compareFourCharacterToFindItsCharacteristics(){
         // change charArray to String for comparison
         String allCharString = new String(allChar);
 
@@ -383,7 +380,7 @@ public class Main extends Thread{
      * @see Main#countShortestPathPassThroughNodes()
      * @see Main#countShortestPath()
      */
-    private static void CalculateBetweennessCentrality(Vertex pass){
+    private void CalculateBetweennessCentrality(Vertex pass){
         Graph graph = new Graph(Nodes, Edges);
         // calculate betweenness centrality
         float betweenness = 0;
@@ -439,7 +436,7 @@ public class Main extends Thread{
      * @see Main#storingAllPathsPassThroughNode(String)
      * @see Main#findingMinimalLength(int)
      */
-    public static void print(Graph graph, Vertex start, Vertex end, String path, boolean[] visited, Vertex pass){
+    private void print(Graph graph, Vertex start, Vertex end, String path, boolean[] visited, Vertex pass){
         String newPath = path.trim() + "-" + start.toString().trim();
         int indexOfStart = Integer.parseInt(start.toString().trim());
 
@@ -488,7 +485,7 @@ public class Main extends Thread{
      * @param end the end vertex
      * @param pass the vertex needs to be passed
      */
-    public static void printAllPaths(Graph graph, Vertex start, Vertex end, Vertex pass){
+    private void printAllPaths(Graph graph, Vertex start, Vertex end, Vertex pass){
         boolean[] visited = new boolean[100000];
         visited[Integer.parseInt(start.toString().trim())] = true;
         // starting calculate all possible path from start to end
@@ -500,7 +497,7 @@ public class Main extends Thread{
      * that passes through a node is the shortest path
      * @param weightOfPath is the weight of the current checked path
      */
-    public static void checkingIfAPathPassIsMinimal(int weightOfPath){
+    private void checkingIfAPathPassIsMinimal(int weightOfPath){
         if (weightOfPath == minn){
             numberOfShortestPathPass++;
         }
@@ -511,7 +508,7 @@ public class Main extends Thread{
      * is the shortest path
      * @param weightOfPath is the weight of the current checked path
      */
-    public static void checkingIfAPathIsMinimal(int weightOfPath){
+    private void checkingIfAPathIsMinimal(int weightOfPath){
         if (weightOfPath == minn){
             numberOfShortestPath++;
         }
@@ -521,7 +518,7 @@ public class Main extends Thread{
      * This function is used to check if the weight of the path is the smallest one or not
      * @param weightOfPath is the weight of the current checked path
      */
-    public static void findingMinimalLength(int weightOfPath){
+    private void findingMinimalLength(int weightOfPath){
         if (weightOfPath <= minn){
             // finding the minimal length from start to node
             minn = weightOfPath;
@@ -532,7 +529,7 @@ public class Main extends Thread{
      * add the path that have a vertex that needs to go pass and store into an array
      * @param complete the String that store the path between 2 nodes
      */
-    public static void storingAllPathsPassThroughNode(String complete){
+    private void storingAllPathsPassThroughNode(String complete){
         allPathsPass[(int) numberPathsPass] = complete;
         numberPathsPass++;
     }
@@ -541,7 +538,7 @@ public class Main extends Thread{
      * add the path between 2 nodes and store into an array
      * @param complete the String that store the path between 2 nodes
      */
-    public static void storingAllPaths(String complete){
+    private void storingAllPaths(String complete){
         allPaths[(int)numberOfPaths] = complete;
         numberOfPaths++;
     }
@@ -552,7 +549,7 @@ public class Main extends Thread{
      * @param second the second char needs to be checked
      * @return true if 2 char are not dashes
      */
-    public static boolean checkIfTwoCharAreDashes(char first, char second){
+    private boolean checkIfTwoCharAreDashes(char first, char second){
         return first != '-' && second != '-';
     }
 
@@ -565,7 +562,8 @@ public class Main extends Thread{
      * the following function has a kind of same function
      * @see com.company.Main#countShortestPathPassThroughNodes()
      */
-    public static void countShortestPath(){
+    private void countShortestPath(){
+        int shortestPath;
         for (int j = 0; j < numberOfPaths;j++) { //number of shortest paths between 2 nodes
             shortestPath = 0;
             for (int a  = 0; a < allPaths[j].length()-2;a++){
@@ -576,17 +574,16 @@ public class Main extends Thread{
                     shortestPath += storeWeigh[Integer.parseInt(String.valueOf(first))][Integer.parseInt(String.valueOf(second))];
                 }
             }
-//            System.out.println(temp_weight + " temp");
             checkingIfAPathIsMinimal(shortestPath);
         }
-//        System.out.println(minn + " minn");
     }
 
     /**
      * this function is apply to check for all the paths between 2 nodes that pass through a vertex
      * also check if that path is the smallest one
      */
-    public static void countShortestPathPassThroughNodes(){
+    private void countShortestPathPassThroughNodes(){
+        int shortestPathPassThroughNodes;
         for (int i = 0; i < numberPathsPass;i++) { //number of shortest paths that passed through 1 vertex
             shortestPathPassThroughNodes = 0;
             for (int a  = 0; a < allPathsPass[i].length()-2;a++){
@@ -597,7 +594,6 @@ public class Main extends Thread{
                     shortestPathPassThroughNodes += storeWeigh[Integer.parseInt(String.valueOf(first))][Integer.parseInt(String.valueOf(second))];
                 }
             }
-//            System.out.println(temp_weight + " temp");
             checkingIfAPathPassIsMinimal(shortestPathPassThroughNodes);
         }
     }
@@ -612,8 +608,9 @@ public class Main extends Thread{
      *
      * @param sourceNode the start vertex
      * @param targetNode the end vertex
+     * @throws java.lang.NullPointerException if the graph is unconnected
      */
-    private static void DijkstraCall(Vertex sourceNode, Vertex targetNode){
+    private void DijkstraCall(Vertex sourceNode, Vertex targetNode){
         // Create a graph from the Nodes and Edges list above
         Graph graph = new Graph(Nodes, Edges);
         Dijkstra dijkstra = new Dijkstra(graph);
@@ -655,10 +652,10 @@ public class Main extends Thread{
      * @param graph the graph that needs to be calculate
      * @return the maximum paths, which is the diameter
      */
-    public static int findingTheLongestShortestPath(Graph graph){
-        int maxPath = -1;
+    private int findingTheLongestShortestPath(Graph graph){
         Dijkstra findShortestPath = new Dijkstra(graph);
         // call Dijkstra from all pairs of vertices
+        int maxPath = -1;
         for (Vertex start : Nodes) {
             for (Vertex destination : Nodes) {
                 if (start != destination) {
@@ -679,7 +676,7 @@ public class Main extends Thread{
      * print out the path more readable
      * @param path linked list to store all vertices goes through
      */
-    public static void outputAShortestPath(LinkedList<Vertex> path){
+    private void outputAShortestPath(LinkedList<Vertex> path){
         for (Vertex vertex : path) {
             LOG.info(vertex + " -> ");
         }
@@ -695,8 +692,7 @@ public class Main extends Thread{
      * @param weight the weight of the edge
      * @throws java.lang.NullPointerException if the adjacencyList hasn't been created yet
      */
-    private static void addEdge(String laneId, String sourceLocNo, String destLocNo, String weight) {
-        // add a new edge into Edges list
+    private void addEdge(String laneId, String sourceLocNo, String destLocNo, String weight) {
         Edge lane = new Edge(laneId, Nodes.get(Integer.parseInt(sourceLocNo)), Nodes.get(Integer.parseInt(destLocNo)), weight );
         Edges.add(lane);
         try {
@@ -714,7 +710,7 @@ public class Main extends Thread{
      * @param fileName is the file in the args[0]
      * @throws IOException if stream of a file cannot be written
      */
-    private static void writeFile(String fileName) throws IOException{
+    private void writeFile(String fileName) throws IOException{
         String str = "world";
         PrintWriter writer =  new PrintWriter(new FileWriter(fileName, true));
         writer.print(str);
@@ -725,7 +721,7 @@ public class Main extends Thread{
      * print out all edges'ID
      * @param listEdgeIDs store all edgeIDs
      */
-    static void printEdgeIDs(ArrayList<String> listEdgeIDs){
+    private void printEdgeIDs(ArrayList<String> listEdgeIDs){
         LOG.info("There are " + edgeNum + " edges. ");
         LOG.fine("The edge IDS are: ");
 
@@ -736,7 +732,7 @@ public class Main extends Thread{
      * print out all nodes'ID
      * @param listNodeIDs store all nodeIDs
      */
-    static void printNodeIDs(ArrayList<String> listNodeIDs){
+    private void printNodeIDs(ArrayList<String> listNodeIDs){
         LOG.info("There are " + vertexNum + " nodes. ");
         LOG.fine("The vertex IDS are: ");
 
@@ -747,7 +743,7 @@ public class Main extends Thread{
      * print all things that others need as an ArrayList
      * @param list list of anything
      */
-    static void printAll(ArrayList<String> list){
+    private void printAll(ArrayList<String> list){
         for (String a : list) {
             LOG.fine(a + " ");
         }
@@ -757,7 +753,7 @@ public class Main extends Thread{
      * print out all pair of source and target vertices in an edge
      * @param listSourceTarget list of all edges
      */
-    static void printMapOut(List<MakePair<String, String>> listSourceTarget){
+    private void printMapOut(List<MakePair<String, String>> listSourceTarget){
         LOG.fine("The source and target node of every edges: ");
 
         for (MakePair<String, String> a : listSourceTarget) {
