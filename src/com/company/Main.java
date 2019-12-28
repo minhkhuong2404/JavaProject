@@ -124,6 +124,7 @@ public class Main extends Thread{
     private static List<Edge> Edges = new ArrayList<>();
 
     /**
+     * first check the extension of file whether it is .graphml or not
      * The main method used to distinguish the input argument that the user types in
      * to choose which needs to be print out or doing
      * divide the number of arguments are used when calling .jar file 1,3 or 4
@@ -134,8 +135,15 @@ public class Main extends Thread{
      * @param args which are all arguments when calling the .jar file
      * @throws IOException if stream to file cannot be written
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, IncorrectFileExtensionException {
         Main graph = new Main();
+
+        try {
+            graph.isCorrectFileExtension(args[0]);
+        } catch (IllegalArgumentException err){
+            LOG.info("Wrong file extension " + err);
+        }
+
         graph.readFileAndBuildGraph(args[0]);
 
         // checking how many arguments are pasted in order to choose the right operation
@@ -175,7 +183,7 @@ public class Main extends Thread{
                     LOG.warning("Invalid permissions.");
                 }
 
-                LOG.info("Deletion old file successful.");
+                LOG.info("Delete old file successful.");
                 LOG.info("Output file has been created");
                 graph.writeFile(args[2]);
             }
@@ -193,13 +201,25 @@ public class Main extends Thread{
     }
 
     /**
+     * check if the extension of the file is correct
+     * @param fileExtension a *.graphml file
+     */
+    private void isCorrectFileExtension(String fileExtension){
+        if (!fileExtension.contains(".graphml")){
+            throw new IncorrectFileExtensionException(
+                    "Enter a valid *.graphml file. " + fileExtension + " is detected");
+        }else{
+            LOG.info("Correct file extension");
+        }
+    }
+
+    /**
      * The function readFileAndBuildGraph will read the file
      * @param nameOfFile which is the args[0]
      * @exception java.io.IOException if stream to file cannot be written to or closed.
      */
     private void readFileAndBuildGraph(String nameOfFile) throws IOException {
         Charset encoding = Charset.defaultCharset();
-        LOG.info("Reading the .graphml file");
         // open and read a new file
         File file = new File(nameOfFile);
         handleFile(file, encoding);
@@ -270,6 +290,7 @@ public class Main extends Thread{
         if (file == null){
             LOG.warning("File does not exist. Please try again");
         }
+
         // error handling if file does not exist
         assert file != null;
         try (InputStream in = new FileInputStream(file);
@@ -320,7 +341,7 @@ public class Main extends Thread{
 
         boolean startCheck = false;
 
-        LOG.info("Start reading the file");
+        LOG.info("Start reading the .graphml file");
         for(int i = 0; i < indexOfChar-30;i++) {
             String fourInATime = allCharString.substring(i, i + 4);
 
@@ -421,7 +442,7 @@ public class Main extends Thread{
      * if that end's vertex is the same as the end vertex in the parameter
      * if no, keeping calling the print() function recursively
      * otherwise, check the complete path and calculate the weight of each edges to find the weight of that path
-     * In the meantime, saving all paths between 2 nodes and all paths between 2 nodes that goes throught the vertex pass
+     * In the meantime, saving all paths between 2 nodes and all paths between 2 nodes that goes through the vertex pass
      * in to 2 different array list.
      *
      * And also finding the minimal weight to find the shortest path later.
