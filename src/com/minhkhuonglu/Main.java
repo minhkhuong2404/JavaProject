@@ -1,6 +1,6 @@
-package com.company;
+package com.minhkhuonglu;
 
-import static com.company.Graph.*;
+import static com.minhkhuonglu.Graph.*;
 import static org.junit.Assert.*;
 
 import java.io.*;
@@ -69,7 +69,7 @@ public class Main extends Thread{
     /**
      * The integer value weightOfPath for calculating the weight of a path between 2 nodes
      * this value will be reset after calculating 1 path
-     * @see com.company.Main#print
+     * @see com.minhkhuonglu.Main#print
      */
     static int weightOfPath = 0;
     /**
@@ -85,8 +85,8 @@ public class Main extends Thread{
     /**
      * This minn is used to calculate the smallest weight of the path between 2 nodes
      * this is also used to find the shortest paths for the 2 above float value
-     * @see com.company.Main#checkingIfAPathIsMinimal
-     * @see com.company.Main#checkingIfAPathPassIsMinimal
+     * @see com.minhkhuonglu.Main#checkingIfAPathIsMinimal
+     * @see com.minhkhuonglu.Main#checkingIfAPathPassIsMinimal
      */
     static int minn = 2000000; // careful with large weight
 
@@ -108,7 +108,7 @@ public class Main extends Thread{
      * The String edgeWeight replaces for the "e_we"
      * The String sourceOfEdge replaces for the "sour"
      * Reason for doing this is checking 4 characters at the same time when reading a file
-     * @see com.company.Main#handleCharacters
+     * @see com.minhkhuonglu.Main#handleCharacters
      */
     final static String edgeId = "e_id";
     final static String nodeID = "v_id";
@@ -118,7 +118,7 @@ public class Main extends Thread{
     /**
      * The "Nodes" List is used to contain all vertices in the Graph
      * The "Edges" List is used to contain all edges in the Graph
-     * @see com.company.Graph
+     * @see com.minhkhuonglu.Graph
      */
     private static List<Vertex> Nodes = new ArrayList<>();
     private static List<Edge> Edges = new ArrayList<>();
@@ -266,8 +266,8 @@ public class Main extends Thread{
      * Below is 2 lines which do almost same things.
      * But it will store in the storeWeigh 2-dimension String
      * to calculate the shortestPath
-     * @see com.company.Main#countShortestPath()
-     * @see com.company.Main#countShortestPathPassThroughNodes()
+     * @see com.minhkhuonglu.Main#countShortestPath()
+     * @see com.minhkhuonglu.Main#countShortestPathPassThroughNodes()
      */
     private void buildEdge(){
         for(int i = 0; i < edgeNum;i++) {
@@ -308,7 +308,7 @@ public class Main extends Thread{
      *
      * @param reader uses to read character by character
      * @throws IOException if the stream of file cannot be written
-     * @see com.company.Main@compareFourCharacterToFindItsCharacteristics()
+     * @see com.minhkhuonglu.Main@compareFourCharacterToFindItsCharacteristics()
      */
     private void handleCharacters(Reader reader) throws IOException {
         // error handling if file does not have any character
@@ -581,7 +581,7 @@ public class Main extends Thread{
      *
      * this function is to check for all the paths between 2 nodes
      * the following function has a kind of same function
-     * @see com.company.Main#countShortestPathPassThroughNodes()
+     * @see com.minhkhuonglu.Main#countShortestPathPassThroughNodes()
      */
     private void countShortestPath(){
         int shortestPath;

@@ -1,4 +1,4 @@
-package com.company;
+package com.minhkhuonglu;
 /**
  * Class for the edge and vertex object to extends from
  * @author minhkhuonglu

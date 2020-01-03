@@ -1,4 +1,4 @@
-package com.company;
+package com.minhkhuonglu;
 /**
  * Class to create a Vertex object
  * @author minhkhuonglu

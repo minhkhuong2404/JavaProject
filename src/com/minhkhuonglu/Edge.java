@@ -1,4 +1,4 @@
-package com.company;
+package com.minhkhuonglu;
 /**
  * Class for creating an Edge object
  * @author minhkhuonglu

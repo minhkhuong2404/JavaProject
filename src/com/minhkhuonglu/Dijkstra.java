@@ -1,6 +1,6 @@
-package com.company;
+package com.minhkhuonglu;
 
-import static com.company.Main.vertexNum;
+import static com.minhkhuonglu.Main.vertexNum;
 
 import java.util.*;
 import java.util.logging.*;

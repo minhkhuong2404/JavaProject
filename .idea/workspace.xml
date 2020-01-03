@@ -7,12 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35e51c40-6e70-41d8-a8de-bccf3328d98f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/small_graph.graph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/IncorrectFileExtensionException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Java_Project/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Java_Project/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Final_Java_Project_jar/Final_Java_Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Final_Java_Project_jar/Final_Java_Project.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,14 +53,14 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
+      <option name="MAIN_CLASS_NAME" value="com.minhkhuonglu.Main" />
       <module name="Final_Java_Project" />
       <option name="PROGRAM_PARAMETERS" value="small_graph.graphml" />
       <RunnerSettings RunnerId="Run" />
@@ -107,7 +103,9 @@
       <workItem from="1577020213168" duration="16684000" />
       <workItem from="1577054929058" duration="15482000" />
       <workItem from="1577140281439" duration="239000" />
-      <workItem from="1577526986843" duration="4411000" />
+      <workItem from="1577526986843" duration="4946000" />
+      <workItem from="1578043629391" duration="381000" />
+      <workItem from="1578044765864" duration="584000" />
     </task>
     <servers />
   </component>
@@ -127,9 +125,10 @@
     </state>
     <state x="366" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog/43.23.1637.1027@43.23.1637.1027" timestamp="1577574046895" />
     <state x="367" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog/44.23.1636.1027@44.23.1636.1027" timestamp="1577099052011" />
-    <state x="611" y="380" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1576533870627">
-      <screen x="44" y="23" width="1636" height="1027" />
+    <state x="610" y="380" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1578043684822">
+      <screen x="43" y="23" width="1637" height="1027" />
     </state>
+    <state x="610" y="380" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/43.23.1637.1027@43.23.1637.1027" timestamp="1578043684822" />
     <state x="611" y="380" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/44.23.1636.1027@44.23.1636.1027" timestamp="1576533870627" />
     <state x="676" y="253" key="#com.intellij.ide.util.MemberChooser" timestamp="1576922201214">
       <screen x="44" y="23" width="1636" height="1027" />
@@ -147,29 +146,30 @@
       <screen x="44" y="23" width="1636" height="1027" />
     </state>
     <state x="611" y="276" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/44.23.1636.1027@44.23.1636.1027" timestamp="1577048063658" />
-    <state width="1538" height="248" key="GridCell.Tab.0.bottom" timestamp="1577574254071">
+    <state width="1538" height="247" key="GridCell.Tab.0.bottom" timestamp="1578045873311">
       <screen x="43" y="23" width="1637" height="1027" />
     </state>
-    <state width="1538" height="248" key="GridCell.Tab.0.bottom/43.23.1637.1027@43.23.1637.1027" timestamp="1577574254071" />
+    <state width="1538" height="247" key="GridCell.Tab.0.bottom/43.23.1637.1027@43.23.1637.1027" timestamp="1578045873311" />
     <state width="1538" height="250" key="GridCell.Tab.0.bottom/44.23.1636.1027@44.23.1636.1027" timestamp="1577123736465" />
-    <state width="1538" height="248" key="GridCell.Tab.0.center" timestamp="1577574254070">
+    <state width="1538" height="247" key="GridCell.Tab.0.center" timestamp="1578045873310">
       <screen x="43" y="23" width="1637" height="1027" />
     </state>
-    <state width="1538" height="248" key="GridCell.Tab.0.center/43.23.1637.1027@43.23.1637.1027" timestamp="1577574254070" />
+    <state width="1538" height="247" key="GridCell.Tab.0.center/43.23.1637.1027@43.23.1637.1027" timestamp="1578045873310" />
     <state width="1538" height="250" key="GridCell.Tab.0.center/44.23.1636.1027@44.23.1636.1027" timestamp="1577123736465" />
-    <state width="1538" height="248" key="GridCell.Tab.0.left" timestamp="1577574254070">
+    <state width="1538" height="247" key="GridCell.Tab.0.left" timestamp="1578045873310">
       <screen x="43" y="23" width="1637" height="1027" />
     </state>
-    <state width="1538" height="248" key="GridCell.Tab.0.left/43.23.1637.1027@43.23.1637.1027" timestamp="1577574254070" />
+    <state width="1538" height="247" key="GridCell.Tab.0.left/43.23.1637.1027@43.23.1637.1027" timestamp="1578045873310" />
     <state width="1538" height="250" key="GridCell.Tab.0.left/44.23.1636.1027@44.23.1636.1027" timestamp="1577123736464" />
-    <state width="1538" height="248" key="GridCell.Tab.0.right" timestamp="1577574254071">
+    <state width="1538" height="247" key="GridCell.Tab.0.right" timestamp="1578045873311">
       <screen x="43" y="23" width="1637" height="1027" />
     </state>
-    <state width="1538" height="248" key="GridCell.Tab.0.right/43.23.1637.1027@43.23.1637.1027" timestamp="1577574254071" />
+    <state width="1538" height="247" key="GridCell.Tab.0.right/43.23.1637.1027@43.23.1637.1027" timestamp="1578045873311" />
     <state width="1538" height="250" key="GridCell.Tab.0.right/44.23.1636.1027@44.23.1636.1027" timestamp="1577123736465" />
-    <state x="351" y="118" key="SettingsEditor" timestamp="1577092201248">
-      <screen x="44" y="23" width="1636" height="1027" />
+    <state x="350" y="118" key="SettingsEditor" timestamp="1578045779596">
+      <screen x="43" y="23" width="1637" height="1027" />
     </state>
+    <state x="350" y="118" key="SettingsEditor/43.23.1637.1027@43.23.1637.1027" timestamp="1578045779596" />
     <state x="351" y="118" key="SettingsEditor/44.23.1636.1027@44.23.1636.1027" timestamp="1577092201248" />
     <state x="715" y="459" key="VCS.ChangelistChooser" timestamp="1577030392792">
       <screen x="44" y="23" width="1636" height="1027" />

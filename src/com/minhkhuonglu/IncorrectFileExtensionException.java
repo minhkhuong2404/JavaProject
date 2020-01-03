@@ -1,4 +1,4 @@
-package com.company;
+package com.minhkhuonglu;
 
 /**
  * extends the RuntimeException in order to check error during runtime

@@ -1,4 +1,4 @@
-package com.company;
+package com.minhkhuonglu;
 /**
  * Class for creating a Pair to store the value for the source and target vertex in the Edge
  * @author minhkhuonglu
