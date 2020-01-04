@@ -17,7 +17,7 @@ import java.util.logging.*;
  * @version 1.0
  */
 
-public class Main extends Thread{
+public class Main{
     /**
      * The integerValues here are used to store number of Edges, Vertices and Weight of Edges
      * all set to 0 at first
@@ -120,8 +120,8 @@ public class Main extends Thread{
      * The "Edges" List is used to contain all edges in the Graph
      * @see com.minhkhuonglu.Graph
      */
-    private static List<Vertex> Nodes = new ArrayList<>();
-    private static List<Edge> Edges = new ArrayList<>();
+    public static List<Vertex> Nodes = new ArrayList<>();
+    public static List<Edge> Edges = new ArrayList<>();
 
     /**
      * first check the extension of file whether it is .graphml or not
@@ -135,9 +135,31 @@ public class Main extends Thread{
      * @param args which are all arguments when calling the .jar file
      * @throws IOException if stream to file cannot be written
      */
-    public static void main(String[] args) throws IOException, IncorrectFileExtensionException {
+    public static void main(String[] args) throws IOException, IncorrectFileExtensionException, InterruptedException {
         Main graph = new Main();
+        ParallelThread t1 = new ParallelThread(1,3,true);
+        ParallelThread t2 = new ParallelThread(1,5,true);
+        ParallelThread t3 = new ParallelThread(1,1, false);
+        ParallelThread t4 = new ParallelThread(10,8,true);
 
+        Thread first = new Thread(t1);
+        Thread second = new Thread(t2);
+        Thread third = new Thread(t3);
+        Thread fourth = new Thread(t4);
+
+        LOG.info("Preparing to build and display the properties of the graph: ");
+        first.start();
+        fourth.start();
+        first.join();
+        fourth.join();
+        LOG.info("System crashed, trying to prepare again.");
+
+        second.start();
+        second.join();
+        LOG.info("Done preparing! ");
+        /*
+        ==================================================================
+         */
         try {
             graph.isCorrectFileExtension(args[0]);
         } catch (IllegalArgumentException err){
@@ -146,6 +168,7 @@ public class Main extends Thread{
 
         graph.readFileAndBuildGraph(args[0]);
 
+        third.start();
         // checking how many arguments are pasted in order to choose the right operation
         if (args.length == 1) {
             onlyConnected =  true; // to choose whether to print out properties or just the Dijkstra of 2 nodes
@@ -198,6 +221,7 @@ public class Main extends Thread{
                 graph.DijkstraCall(Nodes.get(sourceNode), Nodes.get(targetNode));
             }
         }
+
     }
 
     /**
@@ -405,9 +429,10 @@ public class Main extends Thread{
         Graph graph = new Graph(Nodes, Edges);
         // calculate betweenness centrality
         float betweenness = 0;
-
-        for (Vertex start : Nodes) {
-            for (Vertex destination : Nodes) {
+        for(int i = 0 ;i < vertexNum; i++) {
+            for( int j  = 0; j < vertexNum; j++) {
+                Vertex start = Nodes.get(i);
+                Vertex destination = Nodes.get(j);
                 // find paths from node that is not the same and also not start or end with the pass node
                 if (start != destination && start != pass && destination != pass) {
                     // these variable are reset after calculate a pair of start and destination node
@@ -418,7 +443,7 @@ public class Main extends Thread{
                     numberOfShortestPath = 0;
                     minn = 1000000;
 
-                    LOG.info("Find and counting all shortest paths between node " + start.toString().trim() + " and " + destination.toString().trim());
+                    LOG.fine("Find and counting all shortest paths between node " + start.toString().trim() + " and " + destination.toString().trim());
                     printAllPaths(graph,start, destination, pass);
 
                     countShortestPathPassThroughNodes();
@@ -431,6 +456,7 @@ public class Main extends Thread{
                 }
             }
         }
+
         LOG.info("Betweenness centrality measure for node " + pass + " is: " + betweenness);
     }
 
@@ -785,5 +811,5 @@ public class Main extends Thread{
     /**
      * This function is to create a Logger for further use
      */
-    private static final Logger LOG = Logger.getLogger(Main.class.getName());
+    public static final Logger LOG = Logger.getLogger(Main.class.getName());
 }
