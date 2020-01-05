@@ -17,17 +17,17 @@ public class ParallelThread implements Runnable {
         if (print) {
             if ( start < end) {
                 for (int i = start; i <= end; i++) {
-                    LOG.info(String.valueOf(i) + " ...");
+                    LOG.info(i + " ...");
                     try {
-                        Thread.sleep(500);
+                        Thread.sleep(100);
                     } catch (InterruptedException e) {
                     }
                 }
             } else{
                 for (int i = start; i >= end; i--) {
-                    LOG.info(String.valueOf(i) + " ...");
+                    LOG.info(i / 3 + " ...");
                     try {
-                        Thread.sleep(500);
+                        Thread.sleep(100);
                     } catch (InterruptedException e) {
                     }
                 }

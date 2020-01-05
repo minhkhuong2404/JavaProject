@@ -137,25 +137,25 @@ public class Main{
      */
     public static void main(String[] args) throws IOException, IncorrectFileExtensionException, InterruptedException {
         Main graph = new Main();
-        ParallelThread t1 = new ParallelThread(1,3,true);
-        ParallelThread t2 = new ParallelThread(1,5,true);
-        ParallelThread t3 = new ParallelThread(1,1, false);
-        ParallelThread t4 = new ParallelThread(10,8,true);
+        ParallelThread countUp = new ParallelThread(1,3,true);
+        ParallelThread countDown = new ParallelThread(10,8,true);
+        ParallelThread countAgain = new ParallelThread(1,5,true);
+        ParallelThread startDoCalculation = new ParallelThread(1,1, false);
 
-        Thread first = new Thread(t1);
-        Thread second = new Thread(t2);
-        Thread third = new Thread(t3);
-        Thread fourth = new Thread(t4);
+        Thread cUp = new Thread(countUp);
+        Thread cDown = new Thread(countDown);
+        Thread cAgain = new Thread(countAgain);
+        Thread startCal = new Thread(startDoCalculation);
 
         LOG.info("Preparing to build and display the properties of the graph: ");
-        first.start();
-        fourth.start();
-        first.join();
-        fourth.join();
+        cUp.start();
+        cDown.start();
+        cUp.join();
+        cDown.join();
         LOG.info("System crashed, trying to prepare again.");
 
-        second.start();
-        second.join();
+        cAgain.start();
+        cAgain.join();
         LOG.info("Done preparing! ");
         /*
         ==================================================================
@@ -168,7 +168,7 @@ public class Main{
 
         graph.readFileAndBuildGraph(args[0]);
 
-        third.start();
+        startCal.start();
         // checking how many arguments are pasted in order to choose the right operation
         if (args.length == 1) {
             onlyConnected =  true; // to choose whether to print out properties or just the Dijkstra of 2 nodes
