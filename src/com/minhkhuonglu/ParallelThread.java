@@ -12,6 +12,11 @@ public class ParallelThread implements Runnable {
         this.print = print;
     }
 
+    /**
+     * the first thread will count up from start to end
+     * the second thread will count down from end to start, but its value will be divided by 3
+     * there will be 100ms sleep between each loop
+     */
     @Override
     public void run() {
         if (print) {
