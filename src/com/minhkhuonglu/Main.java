@@ -239,6 +239,9 @@ public class Main{
                                 System.out.print("      <dijkstra to=\"n" + j + "\">" + graph.onlyDijkstra(Nodes.get(i),Nodes.get(j)) + "</dijkstra>\n");
                             }
                         }
+                        if (i == vertexNum/2) {
+                            LOG.info("Please be patient!");
+                        }
                         System.out.print("      <betweenness of=\"n" + i + "\">" + graph.CalculateBetweennessCentrality(Nodes.get(i)) + "</betweenness>\n");
                         System.out.print("    </node>\n");
                     }
