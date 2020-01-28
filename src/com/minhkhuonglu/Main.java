@@ -69,7 +69,6 @@ public class Main{
     /**
      * The integer value weightOfPath for calculating the weight of a path between 2 nodes
      * this value will be reset after calculating 1 path
-     * @see com.minhkhuonglu.Main#print
      */
     static int weightOfPath = 0;
     /**
@@ -88,16 +87,7 @@ public class Main{
      */
     static int minn = 2000000; // careful with large weight
 
-    /**
-     * This String array allPathsPass stores all paths between 2 nodes that passed through 1 node
-     * which may not be the shortest one
-     */
-    static String[] allPathsPass = new String[10000];
-    /**
-     * This String array allPathsPass stores all paths between 2 nodes ONLY
-     * which may not be the shortest one
-     */
-    static String[] allPaths = new String[10000];
+    static int maxWeight = -1;
 
     /**
      * Replaces some string in the .graphml file
@@ -138,7 +128,7 @@ public class Main{
      */
     public static void main(String[] args) throws IOException, IncorrectFileExtensionException, InterruptedException {
         Main graph = new Main();
-
+        long start = System.currentTimeMillis();
         ParallelThread countUp = new ParallelThread(1,3,true);
         ParallelThread countDown = new ParallelThread(10,8,true);
         ParallelThread countAgain = new ParallelThread(1,5,true);
@@ -196,7 +186,6 @@ public class Main{
 
             }
             else if (args[1].equals("-a")){
-                Graph calculateGraph = new Graph(Nodes, Edges);
                 try{
                     Files.deleteIfExists(Paths.get("/" + args[2]));
                 }
@@ -231,12 +220,20 @@ public class Main{
                     System.out.print("    <node id=\"total\">\n");
                     System.out.print("      <data key=\"total_node\">" + vertexNum + "</data>\n");
                     System.out.print("    </node>\n");
+                    int [][] storing = new int[vertexNum][vertexNum];
+
                     for(int i = 0; i < vertexNum; i++){
                         System.out.print("    <node id=\"n" + i + "\">\n");
                         System.out.print("      <data key=\"v_id\">" + i + "</data>\n");
                         for (int j = 0; j < vertexNum;j++){
-                            if (i!=j){
-                                System.out.print("      <dijkstra to=\"n" + j + "\">" + graph.onlyDijkstra(Nodes.get(i),Nodes.get(j)) + "</dijkstra>\n");
+                            if (i < j){
+                                int temp = graph.onlyDijkstra(Nodes.get(i),Nodes.get(j));
+                                System.out.print("      <dijkstra to=\"n" + j + "\">" + temp + "</dijkstra>\n");
+                                storing[i][j] = temp;
+                            } else if (i == j){
+                                System.out.print("      <dijkstra to=\"n" + j + "\">0</dijkstra>\n");
+                            } else{
+                                System.out.print("      <dijkstra to=\"n" + j + "\">" + storing[j][i] + "</dijkstra>\n");
                             }
                         }
                         if (i == vertexNum/2) {
@@ -258,7 +255,7 @@ public class Main{
                     System.out.print("      <data key=\"connected\">" + graph.onlyConnectedGraph(Nodes.get(1),Nodes.get(2)) + "</data>\n");
                     System.out.print("    </edge>\n");
                     System.out.print("    <edge source=\"all\" target=\"all\">\n");
-                    System.out.print("      <data key=\"diameter\">" + graph.findingTheLongestShortestPath(calculateGraph)+"</data>\n");
+                    System.out.print("      <data key=\"diameter\">" + maxWeight +"</data>\n");
                     System.out.print("    </edge>\n");
                     System.out.print("  </graph>\n");
                     System.out.print("</graphml>\n");
@@ -277,6 +274,10 @@ public class Main{
                 graph.DijkstraCall(Nodes.get(sourceNode), Nodes.get(targetNode));
             }
         }
+
+        long end = System.currentTimeMillis();
+        long elapsed_time = end - start;
+        LOG.info("Running time: " + elapsed_time + " ms");
     }
 
     /**
@@ -345,8 +346,6 @@ public class Main{
      * Below is 2 lines which do almost same things.
      * But it will store in the storeWeigh 2-dimension String
      * to calculate the shortestPath
-     * @see com.minhkhuonglu.Main#countShortestPath()
-     * @see com.minhkhuonglu.Main#countShortestPathPassThroughNodes()
      */
     private void buildEdge(){
         for(int i = 0; i < edgeNum;i++) {
@@ -476,230 +475,50 @@ public class Main{
      * also shortest paths between 2 nodes that go through the node needs to be passed
      *
      * @param pass which is the node needs to be passed through
-     * @see Main#countShortestPathPassThroughNodes()
-     * @see Main#countShortestPath()
      */
     private float CalculateBetweennessCentrality(Vertex pass){
         Graph graph = new Graph(Nodes, Edges);
+        Dijkstra dijkstra = new Dijkstra(graph);
         // calculate betweenness centrality
         float betweenness = 0;
+        int maxPath = -1;
         for(int i = 0 ;i < vertexNum; i++) {
+            Vertex start = Nodes.get(i);
+            dijkstra.executeDijkstra(start);
             for( int j  = 0; j < vertexNum; j++) {
-                Vertex start = Nodes.get(i);
                 Vertex destination = Nodes.get(j);
-                // find paths from node that is not the same and also not start or end with the pass node
-                if (start != destination && start != pass && destination != pass) {
-                    // these variable are reset after calculate a pair of start and destination node
-                    numberPathsPass = 0;
-                    numberOfPaths = 0;
+                LinkedList<Vertex> paths = dijkstra.getPath(destination);
 
+                // find paths from node that is not the same and also not start or end with the pass node
+                if (start != destination && start != pass && destination != pass && i < j ) {
+
+                    // these variable are reset after calculate a pair of start and destination node
+                    LOG.info("Find and counting all shortest paths between node " + start.toString().trim() + " and " + destination.toString().trim());
                     numberOfShortestPathPass = 0;
                     numberOfShortestPath = 0;
 
-                    minn = 200000;
-                    LOG.fine("Find and counting all shortest paths between node " + start.toString().trim() + " and " + destination.toString().trim());
-                    printAllPaths(graph,start, destination, pass);
-                    countShortestPath();
-                    countShortestPathPassThroughNodes();
+                    numberOfShortestPathPass = dijkstra.calculateShortestPathPass(pass,destination);
+                    numberOfShortestPath = dijkstra.calculateTotalShortestPath(destination);
 
-                    LOG.fine("There are " + (int) numberOfShortestPathPass + " shortest path(s) that passed through " + pass.toString().trim() + " with the length of " + minn);
-                    LOG.fine("And there are " + (int) numberOfShortestPath + " shortest path(s) between 2 nodes");
-                    LOG.fine(numberOfShortestPathPass + " / " + numberOfShortestPath + " = " + numberOfShortestPathPass/numberOfShortestPath +'\n');
+                    LOG.info("Total weight of the path is: " + dijkstra.returnTotal_Weight(destination));
+//                    outputAShortestPath(paths);
+//                    LOG.info((int) numberOfShortestPathPass + " shortest path(s) that passed through " + pass.toString().trim() );
+//                    LOG.info((int) numberOfShortestPath + " shortest path(s) between 2 nodes");
+                    LOG.info(numberOfShortestPathPass + " / " + numberOfShortestPath + " = " + numberOfShortestPathPass/numberOfShortestPath +'\n');
                     betweenness += numberOfShortestPathPass/numberOfShortestPath;
                 }
+
+                if (start != destination) {
+                    // find a longer path size
+                    if (paths.size() > maxPath) {
+                        maxPath = paths.size();
+                        maxWeight = dijkstra.returnTotal_Weight(destination);
+                    }
+                }
             }
         }
+        LOG.info("Betweenness is: " + betweenness);
         return betweenness;
-    }
-
-    /**
-     * This function first creating a newPath separated by a dash between 2 vertices
-     * make the first index of the visited array true then start
-     *
-     * go through all edges and check if its end vertices has been visited also check
-     * if that end's vertex is the same as the end vertex in the parameter
-     * if no, keeping calling the print() function recursively
-     * otherwise, check the complete path and calculate the weight of each edges to find the weight of that path
-     * In the meantime, saving all paths between 2 nodes and all paths between 2 nodes that goes through the vertex pass
-     * in to 2 different array list.
-     *
-     * And also finding the minimal weight to find the shortest path later.
-     *
-     * @param graph passing the graph needs to be calculate
-     * @param start the start vertex
-     * @param end the end (destination) vertex
-     * @param path saving the path from start to end vertex
-     * @param visited checked if a vertex has been visited by using a boolean array
-     * @param pass the vertex needs to check whether it is passed or not
-     * @see Main#storingAllPaths(String)
-     * @see Main#storingAllPathsPassThroughNode(String)
-     */
-    private void print(Graph graph, Vertex start, Vertex end, String path, boolean[] visited, Vertex pass){
-        String newPath = path.trim() + "-" + start.toString().trim();
-        int indexOfStart = Integer.parseInt(start.toString().trim());
-
-        visited[indexOfStart] = true;
-        LinkedList<Edge> list = Graph.adjacencyList[indexOfStart];
-
-        for (Edge edge : list) {
-
-            if (edge.getDestination() != end && !visited[Integer.parseInt(edge.getDestination().toString().trim())]) {
-                visited[Integer.parseInt(edge.getDestination().toString().trim())] = true;
-                print(graph, edge.getDestination(), end, newPath, visited, pass);
-            } else if (edge.getDestination() == end) {
-
-                String complete = newPath.trim() + "-" + edge.getDestination().toString().trim() + "-";
-//                System.out.println(complete + " weight " + weightOfPath );
-                if (complete.contains("-" + pass.toString().trim() + "-")){
-                    // store paths that pass through a node
-                    storingAllPathsPassThroughNode(complete);
-                }
-                // store all paths
-                storingAllPaths(complete);
-                // reset the calculated weight from start to destination for the next combination
-                weightOfPath = 0;
-            }
-        }
-        //remove from path
-        visited[indexOfStart] = false;
-    }
-
-    /**
-     * calling the function print() for the first time to print out all paths
-     * from the start vertex to the end vertex
-     *
-     * @param graph the graph needs to be calculated
-     * @param start the start vertex
-     * @param end the end vertex
-     * @param pass the vertex needs to be passed
-     */
-    private void printAllPaths(Graph graph, Vertex start, Vertex end, Vertex pass){
-        boolean[] visited = new boolean[100000];
-        visited[Integer.parseInt(start.toString().trim())] = true;
-        // starting calculate all possible path from start to end
-        print(graph, start, end, " ", visited, pass);
-    }
-
-    /**
-     * add the path that have a vertex that needs to go pass and store into an array
-     * @param complete the String that store the path between 2 nodes
-     */
-    private void storingAllPathsPassThroughNode(String complete){
-        allPathsPass[(int) numberPathsPass] = complete;
-        numberPathsPass++;
-    }
-
-    /**
-     * add the path between 2 nodes and store into an array
-     * @param complete the String that store the path between 2 nodes
-     */
-    private void storingAllPaths(String complete){
-        allPaths[(int)numberOfPaths] = complete;
-        numberOfPaths++;
-    }
-
-    /**
-     * Because the path has the type -1-2-3-4
-     * we need to choose 2 char at a time in order to calculate its weight
-     * then store all of them into the shortestPath integer value to check if that path is the shortest
-     *
-     * this function is to check for all the paths between 2 nodes
-     * the following function has a kind of same function
-     * @see com.minhkhuonglu.Main#countShortestPathPassThroughNodes()
-     */
-    private void countShortestPath(){
-        int []shortestPath = new int[20000];
-        String []shortestPathString = new String[20000];
-        for (int j = 0; j < numberOfPaths;j++) { //number of shortest paths between 2 nodes
-            shortestPath[j] = 0;
-            int dash = 0;
-            String first = "";
-            String second = "";
-            boolean startCount = false;
-            for (int a  = 0; a < allPaths[j].length()-1;a++){
-                if (allPaths[j].charAt(a) != '-' && dash == 1) {
-                    first += allPaths[j].charAt(a);
-                } else if ( (allPaths[j].charAt(a) != '-' && allPaths[j].charAt(a-1) != '-') || (allPaths[j].charAt(a) != '-' && allPaths[j].charAt(a-1) == '-')  ) {
-                    second += allPaths[j].charAt(a);
-                }
-                if ( allPaths[j].charAt(a) != '-' && allPaths[j].charAt(a+1) == '-' && dash >= 2){
-                    startCount = true;
-                }
-                if (dash >= 2 && startCount){
-                    shortestPath[j] += storeWeigh[Integer.parseInt(first)][Integer.parseInt(second)];
-                    first = second; second = "";
-                    startCount = false;
-                }
-                if (allPaths[j].length() > 4){
-                    if (allPaths[j].charAt(a) == '-' && dash < 2) {
-                        dash++;
-                    }
-                } else{
-                    if (allPaths[j].charAt(a) == '-'){
-                        dash++;
-                    }
-                }
-            }
-            if (shortestPath[j] <= minn){
-                minn = shortestPath[j];
-                shortestPathString[j] = allPaths[j] ;
-            }
-        }
-        for (int j = 0; j < numberOfPaths;j++){
-            if (shortestPath[j] == minn){
-                numberOfShortestPath++;
-            }
-        }
-    }
-
-    /**
-     * this function is apply to check for all the paths between 2 nodes that pass through a vertex
-     * also check if that path is the smallest one
-     */
-    private void countShortestPathPassThroughNodes(){
-        int []shortestPathPassThroughNodes = new int[30000];
-        String []shortestPathPassString = new String[30000];
-        for (int i = 0; i < numberPathsPass;i++) { //number of shortest paths that passed through 1 vertex
-            shortestPathPassThroughNodes[i] = 0;
-            int dash = 0;
-            String first = "";
-            String second = "";
-            boolean startCount = false;
-            for (int a  = 0; a < allPathsPass[i].length()-1;a++){
-                if (allPathsPass[i].charAt(a) != '-' && dash == 1) {
-                    first += allPathsPass[i].charAt(a);
-                } else if ( (allPathsPass[i].charAt(a) != '-' && allPathsPass[i].charAt(a-1) != '-') || (allPathsPass[i].charAt(a) != '-' && allPathsPass[i].charAt(a-1) == '-')  ) {
-                    second += allPathsPass[i].charAt(a);
-                }
-                if ( allPathsPass[i].charAt(a) != '-' && allPathsPass[i].charAt(a+1) == '-' && dash >= 2){
-                    startCount = true;
-                }
-                if (dash >= 2 && startCount){
-                    shortestPathPassThroughNodes[i] += storeWeigh[Integer.parseInt(first)][Integer.parseInt(second)];
-                    first = second; second = "";
-                    startCount = false;
-                }
-                if (allPathsPass[i].length() > 4){
-                    if (allPathsPass[i].charAt(a) == '-' && dash < 2) {
-                        dash++;
-                    }
-                } else{
-                    if (allPathsPass[i].charAt(a) == '-'){
-                        dash++;
-                    }
-                }
-            }
-            if (shortestPathPassThroughNodes[i] <= minn){
-                minn = shortestPathPassThroughNodes[i];
-                shortestPathPassString[i] = allPathsPass[i];
-            }
-
-        }
-        for (int j = 0; j < numberPathsPass;j++){
-            if (shortestPathPassThroughNodes[j] == minn){
-                numberOfShortestPathPass++;
-            }
-        }
     }
 
     /**
@@ -723,6 +542,11 @@ public class Main{
         LOG.info("Calling dijkstra");
         dijkstra.executeDijkstra(sourceNode);
         LinkedList<Vertex> path = dijkstra.getPath(targetNode);
+
+//        numberOfShortestPath = dijkstra.calculateTotalShortestPath(targetNode);
+//        LOG.info("num of shortest path: " + numberOfShortestPath);
+//        numberOfShortestPathPass = dijkstra.calculateShortestPathPass(Nodes.get(5),targetNode);
+//        LOG.info("num of shortest path pass: " + numberOfShortestPathPass);
 
         // check if the path doesn't exist
         assertNotNull(path);
@@ -750,22 +574,23 @@ public class Main{
 
     /**
      * this function is used only for calling dijkstra
-     * @param sourceNode node starts
-     * @param targetNode node ends
+     * @param start node starts
+     * @param destination node ends
      * @return value of shortest path
      */
-    private int onlyDijkstra(Vertex sourceNode, Vertex targetNode){
+    private int onlyDijkstra(Vertex start, Vertex destination){
         Graph graph = new Graph(Nodes, Edges);
         Dijkstra dijkstra = new Dijkstra(graph);
 
         // import the source and target from the user input
-        dijkstra.executeDijkstra(sourceNode);
-        LinkedList<Vertex> path = dijkstra.getPath(targetNode);
+        dijkstra.executeDijkstra(start);
+        LinkedList<Vertex> path = dijkstra.getPath(destination);
 
         // check if the path doesn't exist
         assertNotNull(path);
         assertTrue(path.size() > 0); //  if the size is large than 0
-        return dijkstra.returnTotal_Weight(targetNode);
+
+        return dijkstra.returnTotal_Weight(destination);
     }
 
     /**
@@ -799,15 +624,14 @@ public class Main{
         int maxPath = -1;
         int maxWeight = -1;
         for (Vertex start : Nodes) {
+            findShortestPath.executeDijkstra(start);
             for (Vertex destination : Nodes) {
                 if (start != destination) {
-                    findShortestPath.executeDijkstra(start);
                     LinkedList<Vertex> paths = findShortestPath.getPath(destination);
                     // find a longer path size
                     if (paths.size() > maxPath) {
                         maxPath = paths.size();
                         maxWeight = findShortestPath.returnTotal_Weight(destination);
-                        outputAShortestPath(paths);
                     }
                 }
             }
@@ -821,7 +645,7 @@ public class Main{
      */
     private void outputAShortestPath(LinkedList<Vertex> path){
         for (Vertex vertex : path) {
-            LOG.fine(vertex + " -> ");
+            LOG.info(vertex + " -> ");
         }
         LOG.fine("Done");
     }
