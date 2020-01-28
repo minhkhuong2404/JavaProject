@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+         http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<!-- Created by igraph -->
+  <key id="v_id" for="node" attr.name="id" attr.type="double"/>
+  <key id="e_id" for="edge" attr.name="id" attr.type="double"/>
+  <key id="e_weight" for="edge" attr.name="weight" attr.type="double"/>
+  <key id="total_node" for="node" attr.name="weight" attr.type="double"/>
+  <key id="total" for="node" attr.name="weight" attr.type="double"/>
+  <key id="total_edge" for="edge" attr.name="weight" attr.type="double"/>
+  <key id="connected" for="edge" attr.name="weight" attr.type="boolean"/>
+  <key id="diameter" for="edge" attr.name="weight" attr.type="double"/>
+  <graph id="G" edgedefault="undirected">
+    <node id="total">
+      <data key="total_node">50</data>
+    </node>
+    <node id="n0">
+      <data key="v_id">0</data>
+      <dijkstra to="n1">12</dijkstra>
+      <dijkstra to="n2">7</dijkstra>
+      <dijkstra to="n3">10</dijkstra>
+      <dijkstra to="n4">5</dijkstra>
+      <dijkstra to="n5">7</dijkstra>
+      <dijkstra to="n6">5</dijkstra>
+      <dijkstra to="n7">5</dijkstra>
+      <dijkstra to="n8">6</dijkstra>
+      <dijkstra to="n9">15</dijkstra>
+      <dijkstra to="n10">14</dijkstra>
+      <dijkstra to="n11">5</dijkstra>
+      <dijkstra to="n12">10</dijkstra>
+      <dijkstra to="n13">10</dijkstra>
+      <dijkstra to="n14">5</dijkstra>
+      <dijkstra to="n15">10</dijkstra>
+      <dijkstra to="n16">6</dijkstra>
+      <dijkstra to="n17">10</dijkstra>
+      <dijkstra to="n18">7</dijkstra>
+      <dijkstra to="n19">11</dijkstra>
+      <dijkstra to="n20">7</dijkstra>
+      <dijkstra to="n21">1</dijkstra>
+      <dijkstra to="n22">2</dijkstra>
+      <dijkstra to="n23">10</dijkstra>
+      <dijkstra to="n24">9</dijkstra>
+      <dijkstra to="n25">7</dijkstra>
+      <dijkstra to="n26">12</dijkstra>
+      <dijkstra to="n27">3</dijkstra>
+      <dijkstra to="n28">3</dijkstra>
+      <dijkstra to="n29">3</dijkstra>
+      <dijkstra to="n30">5</dijkstra>
+      <dijkstra to="n31">7</dijkstra>
+      <dijkstra to="n32">13</dijkstra>
+      <dijkstra to="n33">9</dijkstra>
+      <dijkstra to="n34">4</dijkstra>
+      <dijkstra to="n35">10</dijkstra>
+      <dijkstra to="n36">4</dijkstra>
+      <dijkstra to="n37">6</dijkstra>
+      <dijkstra to="n38">9</dijkstra>
+      <dijkstra to="n39">9</dijkstra>
+      <dijkstra to="n40">3</dijkstra>
+      <dijkstra to="n41">12</dijkstra>
+      <dijkstra to="n42">1</dijkstra>
+      <dijkstra to="n43">5</dijkstra>
+      <dijkstra to="n44">9</dijkstra>
+      <dijkstra to="n45">5</dijkstra>
+      <dijkstra to="n46">3</dijkstra>
+      <dijkstra to="n47">4</dijkstra>
+      <dijkstra to="n48">7</dijkstra>
+      <dijkstra to="n49">19</dijkstra>
