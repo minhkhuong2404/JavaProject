@@ -104,6 +104,10 @@ public class Main{
     public static float [][] numberOfShortestPath;
 
     /**
+     * This 2D-array is used to storing 1 path between 2 vertices
+     */
+    public static String [][] APathBetweenTwoVertices;
+    /**
      * check if the extension of the file is correct
      * @param fileExtension a *.graphml file
      */
@@ -547,6 +551,8 @@ public class Main{
         System.out.print("  <graph id=\"G\" edgedefault=\"undirected\">\n");
         System.out.print("    <vertex id=\"total\">\n");
         System.out.print("      <data key=\"total_vertex\">" + vertexNum + "</data>\n");
+        System.out.print("      <data key=\"total_vertex\">" + vertexIDs + "</data>\n");
+
         System.out.print("    </vertex>\n");
 
         for(int startVertex = 0; startVertex < vertexNum; startVertex++){
@@ -556,7 +562,12 @@ public class Main{
             double betweenness = calculateBetweennessCentrality(Vertices.get(startVertex));
 
             for (int endVertex = 0; endVertex < vertexNum;endVertex++){
-                System.out.print("      <dijkstra to=\"n" + endVertex + "\">" + allDijkstra[startVertex][endVertex] + "</dijkstra>\n");
+                if (startVertex != endVertex) {
+                    System.out.print("      <dijkstra to=\"n" + endVertex + "\">" + APathBetweenTwoVertices[startVertex][endVertex] + " = " + allDijkstra[startVertex][endVertex] + "</dijkstra>\n");
+                }else{
+                    System.out.print("      <dijkstra to=\"n" + endVertex + "\">[ " + APathBetweenTwoVertices[startVertex][endVertex] + " ] = " + allDijkstra[startVertex][endVertex] + "</dijkstra>\n");
+                }
+
             }
             if (startVertex == vertexNum/2) {
                 LOG.log(Level.INFO, "Half way now!");
@@ -565,7 +576,8 @@ public class Main{
             System.out.print("    </vertex>\n");
         }
         System.out.print("    <edge source=\"all\" target=\"all\">\n");
-        System.out.print("      <data key=\"total_edge\">" + edgeNum +"</data>\n");
+        System.out.print("      <data key=\"total_edge\">" + edgeNum + "</data>\n");
+        System.out.print("      <data key=\"total_edge\">" + edgeIDs + "</data>\n");
         System.out.print("    </edge>\n");
 
         for (int edgeNumber = 0; edgeNumber < edgeNum;edgeNumber++) {
@@ -646,12 +658,15 @@ public class Main{
         // initialize two 2D-array
         allDijkstra = new int[vertexNum][vertexNum];
         numberOfShortestPath = new float[vertexNum][vertexNum];
+        APathBetweenTwoVertices = new String[vertexNum][vertexNum];
 
         startCalculationThread.start();
 
         // this line is used without thread
 //        calculateAllDijkstra(0,vertexNum);
-
+        if (vertexNum > 150){
+            LOG.log(Level.INFO, "This file is quite large. So it may take a little bit longer. Please be patient");
+        }
         MultiThreading RunningThread1 = new MultiThreading(0,vertexNum/2);
         RunningThread1.start();
         MultiThreading RunningThread2 = new MultiThreading(vertexNum/2, vertexNum);
@@ -712,7 +727,11 @@ public class Main{
                 sourceVertex = Integer.parseInt(args[2]);
                 targetVertex = Integer.parseInt(args[3]);
                 // call the Dijkstra algorithms
-                graph.DijkstraCall(Vertices.get(sourceVertex), Vertices.get(targetVertex));
+                try {
+                    graph.DijkstraCall(Vertices.get(sourceVertex), Vertices.get(targetVertex));
+                } catch (AssertionError e){
+                    LOG.log(Level.INFO, "Oops!! Please choose 2 different vertices.");
+                }
             }
         }
 
@@ -745,6 +764,7 @@ public class Main{
 
                 if (source < target) {
                     allDijkstra[source][target] = dijkstraFirst.returnTotalWeight(destination);
+
                 } else if (source == target) {
                     allDijkstra[source][target] = 0;
                 } else {
@@ -753,11 +773,15 @@ public class Main{
 
                 // take from the findingTheLongestShortestPath
                 if (start != destination) {
+                    APathBetweenTwoVertices[source][target] = String.valueOf(dijkstraFirst.getPath(Vertices.get(target)));
+
                     // find a longer path size
                     if (paths.size() > maxPath) {
                         maxPath = paths.size();
                         diameterOfGraph = dijkstraFirst.returnTotalWeight(destination);
                     }
+                } else{
+                    APathBetweenTwoVertices[source][target] = String.valueOf(source);
                 }
             }
         }
