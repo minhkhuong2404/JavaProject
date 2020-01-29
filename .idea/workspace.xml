@@ -7,13 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35e51c40-6e70-41d8-a8de-bccf3328d98f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Final_Java_Project_jar/Final_Java_Project.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Java_Project/com/minhkhuonglu/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Java_Project/com/minhkhuonglu/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Java_Project/com/minhkhuonglu/MultiThreading.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Java_Project/com/minhkhuonglu/MultiThreading.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputfile_large.graphml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/outputfile.graphml" beforeDir="false" afterPath="$PROJECT_DIR$/outputfile.graphml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minhkhuonglu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minhkhuonglu/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +137,7 @@
       <workItem from="1580065475887" duration="22837000" />
       <workItem from="1580146726758" duration="1207000" />
       <workItem from="1580148898647" duration="68302000" />
-      <workItem from="1580307575677" duration="20428000" />
+      <workItem from="1580307575677" duration="20882000" />
     </task>
     <servers />
   </component>
