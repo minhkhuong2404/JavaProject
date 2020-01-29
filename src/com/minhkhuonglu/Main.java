@@ -19,13 +19,13 @@ import java.util.logging.*;
 
 public class Main{
     /**
-     * The ArrayLists edges stores the start and the destination node of an edge
-     * The ArrayLists nodeIDs stores all the ID of Vertices
+     * The ArrayLists edges stores the start and the destination vertex of an edge
+     * The ArrayLists vertexIDs stores all the ID of Vertices
      * The ArrayLists edgeIDs stores all the ID of edges
      * The ArrayLists edgeWeights stores only the weight of edges
      */
     private static ArrayList<MakePair<String,String>> edges = new ArrayList<>();
-    private static ArrayList<String> nodeIDs = new ArrayList<>();
+    private static ArrayList<String> vertexIDs = new ArrayList<>();
     private static ArrayList<String> edgeIDs = new ArrayList<>();
     private static ArrayList<String> edgeWeights = new ArrayList<>();
 
@@ -57,9 +57,9 @@ public class Main{
     static boolean onlyConnected = false;
 
     /**
-     * The float value calculates all shortest path from all paths between 2 Vertices that passed through a node
-     * this value will be also be reset after calculating a pair of node
-     * @see com.minhkhuonglu.Main#CalculateBetweennessCentrality(Vertex)
+     * The float value calculates all shortest path from all paths between 2 Vertices that passed through a vertex
+     * this value will be also be reset after calculating a pair of vertices
+     * @see com.minhkhuonglu.Main#calculateBetweennessCentrality(Vertex)
      */
     static float numberOfShortestPathPass = 0;
 
@@ -72,14 +72,14 @@ public class Main{
     /**
      * Replaces some string in the .graphml file
      * The String edgeID replaces for the "e_id"
-     * The String nodeID replaces for the "v_id"
+     * The String vertexID replaces for the "v_id"
      * The String edgeWeight replaces for the "e_we"
      * The String sourceOfEdge replaces for the "sour"
      * Reason for doing this is checking 4 characters at the same time when reading a file
      * @see com.minhkhuonglu.Main#handleCharacters
      */
     final static String edgeId = "e_id";
-    final static String nodeID = "v_id";
+    final static String vertexID = "v_id";
     final static String edgeWeight = "e_we";
     final static String sourceOfEdge = "sour";
 
@@ -104,206 +104,10 @@ public class Main{
     public static float [][] numberOfShortestPath;
 
     /**
-     * playing the two parallel threads, one will count up and one will count down and its value
-     * will be divided by three. Then it will count up normally then start doing its task.
-     * first check the extension of file whether it is .graphml or not
-     * then starting reading the input .graphml file to take out the vertex and edge
-     * initializing the allDijkstra and numberOfShortestPath 2D-array for further calculation
-     * open 2 Thread to calculating all necessary information which is 
-     * the shortest path between 2 vertices and the number of shortest path between them
-     * 
-     * The main method used to distinguish the input argument that the user types in
-     * to choose which needs to be print out or doing
-     * divide the number of arguments are used when calling .jar file 1,3 or 4
-     * if length is 1, it will print out properties of the graph
-     * if length is 3, it will calculate the between centrality measure of a node if the second args is -b
-     * otherwise, it will output the whole result into a new .graphml file
-     * if length is 4, it will find the shortest path between 2 Vertices
-     * @param args which are all arguments when calling the .jar file
-     * @throws IOException if stream to file cannot be written
-     */
-    public static void main(String[] args) throws IOException, IncorrectFileExtensionException, InterruptedException {
-        long start = System.currentTimeMillis();
-        
-        Main graph = new Main();
-        ParallelThread countUp = new ParallelThread(1,3,true);
-        ParallelThread countDown = new ParallelThread(10,8,true);
-        ParallelThread countAgain = new ParallelThread(1,5,true);
-        ParallelThread startDoCalculation = new ParallelThread(1,1, false);
-
-        Thread cUp = new Thread(countUp);
-        Thread cDown = new Thread(countDown);
-        Thread cAgain = new Thread(countAgain);
-        Thread startCal = new Thread(startDoCalculation);
-
-        LOG.log(Level.FINE, "Preparing to build and display the properties of the graph: ");
-        cUp.start();
-        cDown.start();
-        cUp.join();
-        cDown.join();
-        LOG.log(Level.FINE, "System crashed, trying to prepare again.");
-
-        cAgain.start();
-        cAgain.join();
-        LOG.log(Level.FINE, "Done preparing! ");
-
-        // check whether it is .graphml file
-        try {
-            graph.isCorrectFileExtension(args[0]);
-        } catch (IllegalArgumentException err){
-            LOG.log(Level.FINE, "Wrong file extension " + err);
-        }
-
-        graph.readFileAndBuildGraph(args[0]);
-
-        // initialize two 2D-array
-        allDijkstra = new int[vertexNum][vertexNum];
-        numberOfShortestPath = new float[vertexNum][vertexNum];
-
-        startCal.start();
-
-        // this line is used without thread
-//        calculateAllDijkstra(0,vertexNum);
-
-        MultiThreading R1 = new MultiThreading(0,vertexNum/2);
-        R1.start();
-        MultiThreading R2 = new MultiThreading(vertexNum/2, vertexNum);
-        R2.start();
-
-        LOG.log(Level.FINE, "Done building");
-        // checking how many arguments are pasted in order to choose the right operation
-        if (args.length == 1) {
-            onlyConnected =  true; // to choose whether to print out properties or just the Dijkstra of 2 Vertices
-
-            // true for the properties
-            LOG.log(Level.FINE, "The properties of the graph are: ");
-
-            // print out the nodeIDs
-            graph.printNodeIDs(nodeIDs);
-            // print out the edgeIDS
-            graph.printEdgeIDs(edgeIDs);
-            // print out the edges source and target
-            graph.printMapOut(edges);
-
-            // use Dijkstra to check the connectivity and the diameter of the graph
-            graph.DijkstraCall(Vertices.get(1), Vertices.get(2));
-
-        } else if (args.length == 3){
-            if (args[1].equals("-b")) {
-                int passVertex = Integer.parseInt(args[2]);
-                // calculate betweenness centrality measure for a specific node
-                graph.CalculateBetweennessCentrality(Vertices.get(passVertex));
-
-            }
-            else if (args[1].equals("-a")){
-                try{
-                    Files.deleteIfExists(Paths.get("/" + args[2]));
-                }
-                catch(NoSuchFileException e) {
-                    LOG.warning("No such file/directory exists");
-                }
-                catch(DirectoryNotEmptyException e) {
-                    LOG.warning("Directory is not empty.");
-                }
-                catch(IOException e) {
-                    LOG.warning("Invalid permissions.");
-                }
-
-                LOG.log(Level.FINE, "Delete old file successful.");
-                LOG.log(Level.FINE, "Output file are being created");
-
-                try{
-                    // output into a file
-                    graph.outputingFile(args[2]);
-                } catch (Exception ignored){}
-                LOG.log(Level.FINE, "File creation is finished!");
-            }
-        }
-        else {
-            if (args[1].equals("-s")) {
-                int sourceNode,targetNode;
-
-                sourceNode = Integer.parseInt(args[2]);
-                targetNode = Integer.parseInt(args[3]);
-                // call the Dijkstra algorithms
-                graph.DijkstraCall(Vertices.get(sourceNode), Vertices.get(targetNode));
-            }
-        }
-
-        long end = System.currentTimeMillis();
-        long elapsed_time = end - start;
-        LOG.log(Level.WARNING, "Running time: " + elapsed_time + " ms");
-    }
-
-    /**
-     * This function will output all the properties of the graph into a new file
-     * @param fileName file .graphml to output
-     */
-    private void outputingFile(String fileName) {
-        try {
-            System.setOut(new PrintStream(new FileOutputStream((fileName))));
-        } catch (FileNotFoundException e){
-            LOG.log(Level.WARNING,"File not found");
-        }
-
-        System.out.print("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-        System.out.print("<graphml xmlns=\"http://graphml.graphdrawing.org/xmlns\"\n");
-        System.out.print("         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n");
-        System.out.print("         xsi:schemaLocation=\"http://graphml.graphdrawing.org/xmlns\n");
-        System.out.print("         http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd\">\n");
-        System.out.print("<!-- Created by igraph -->\n");
-        System.out.print("  <key id=\"v_id\" for=\"node\" attr.name=\"id\" attr.type=\"double\"/>\n");
-        System.out.print("  <key id=\"e_id\" for=\"edge\" attr.name=\"id\" attr.type=\"double\"/>\n");
-        System.out.print("  <key id=\"e_weight\" for=\"edge\" attr.name=\"weight\" attr.type=\"double\"/>\n");
-        System.out.print("  <key id=\"total_node\" for=\"node\" attr.name=\"weight\" attr.type=\"double\"/>\n");                    System.out.print("  <key id=\"total\" for=\"node\" attr.name=\"weight\" attr.type=\"double\"/>\n");
-        System.out.print("  <key id=\"total_edge\" for=\"edge\" attr.name=\"weight\" attr.type=\"double\"/>\n");
-        System.out.print("  <key id=\"connected\" for=\"edge\" attr.name=\"weight\" attr.type=\"boolean\"/>\n");
-        System.out.print("  <key id=\"diameter\" for=\"edge\" attr.name=\"weight\" attr.type=\"double\"/>\n");
-        System.out.print("  <graph id=\"G\" edgedefault=\"undirected\">\n");
-        System.out.print("    <node id=\"total\">\n");
-        System.out.print("      <data key=\"total_node\">" + vertexNum + "</data>\n");
-        System.out.print("    </node>\n");
-
-        for(int i = 0; i < vertexNum; i++){
-            System.out.print("    <node id=\"n" + i + "\">\n");
-            System.out.print("      <data key=\"v_id\">" + i + "</data>\n");
-
-            double betweenness = CalculateBetweennessCentrality(Vertices.get(i));
-
-            for (int j = 0; j < vertexNum;j++){
-                System.out.print("      <dijkstra to=\"n" + j + "\">" + allDijkstra[i][j] + "</dijkstra>\n");
-            }
-            if (i == vertexNum/2) {
-                LOG.log(Level.FINE, "Please be patient!");
-            }
-            System.out.print("      <betweenness of=\"n" + i + "\">" + betweenness + "</betweenness>\n");
-            System.out.print("    </node>\n");
-        }
-        System.out.print("    <edge source=\"all\" target=\"all\">\n");
-        System.out.print("      <data key=\"total_edge\">" + edgeNum +"</data>\n");
-        System.out.print("    </edge>\n");
-
-        for (int i = 0; i < edgeNum;i++) {
-            System.out.print("    <edge source=\"n" + edges.get(i).getL().trim() + "\" target=\"n" + edges.get(i).getR().trim() + "\">\n");
-            System.out.print("      <data key=\"e_id\">"+ edgeIDs.get(i).trim() + "</data>\n");
-            System.out.print("      <data key=\"e_weight\">" + edgeWeights.get(i).trim() + "</data>\n");
-            System.out.print("    </edge>\n");
-        }
-        System.out.print("    <edge source=\"all\" target=\"all\">\n");
-        System.out.print("      <data key=\"connected\">" + onlyConnectedGraph(Vertices.get(1),Vertices.get(2)) + "</data>\n");
-        System.out.print("    </edge>\n");
-        System.out.print("    <edge source=\"all\" target=\"all\">\n");
-        System.out.print("      <data key=\"diameter\">" + diameterOfGraph +"</data>\n");
-        System.out.print("    </edge>\n");
-        System.out.print("  </graph>\n");
-        System.out.print("</graphml>\n");
-    }
-
-    /**
      * check if the extension of the file is correct
      * @param fileExtension a *.graphml file
      */
-    private void isCorrectFileExtension(String fileExtension){
+    private void checkCorrectFileExtension(String fileExtension){
         if (!fileExtension.contains(".graphml")){
             throw new IncorrectFileExtensionException(
                     "Enter a valid *.graphml file. " + fileExtension + " is detected");
@@ -345,13 +149,13 @@ public class Main{
 
     /**
      * adding Vertices by adding its ID and name,
-     * which are the same according to the .graphml file, from the nodeIDS ArrayList.
-     * ID and name are the same so we just add 2 identical nodeIDs
+     * which are the same according to the .graphml file, from the vertexIDS ArrayList.
+     * ID and name are the same so we just add 2 identical vertexIDs
      */
     private void buildVertex(){
         for (int i = 0; i < vertexNum; i++) {
-            Vertex location = new Vertex(i, nodeIDs.get(i));
-            Vertices.add(location);
+            Vertex vertex = new Vertex(i, vertexIDs.get(i));
+            Vertices.add(vertex);
         }
     }
 
@@ -412,13 +216,13 @@ public class Main{
             LOG.log(Level.WARNING,"File does not have any characters. Type something");
         }
         assert reader != null;
-        int r = reader.read();
+        int endOfFile = reader.read();
 
-        while (r  != -1) {
-            char ch = (char)r;
+        while (endOfFile  != -1) {
+            char ch = (char)endOfFile;
             allChar[indexOfChar] = ch;
             indexOfChar++;
-            r = reader.read();
+            endOfFile = reader.read();
         }
         compareFourCharacterToFindItsCharacteristics();
     }
@@ -438,20 +242,20 @@ public class Main{
         boolean startCheck = false;
 
         LOG.log(Level.FINE, "Start reading the .graphml file");
-        for(int i = 0; i < indexOfChar-30;i++) {
-            String fourInATime = allCharString.substring(i, i + 4);
+        for(int character = 0; character < indexOfChar-30;character++) {
+            String fourCharAtATime = allCharString.substring(character, character + 4);
 
-            String expandToBrackets = allCharString.substring(i, i + 30);
+            String expandToBrackets = allCharString.substring(character, character + 30);
             expandToBrackets = expandToBrackets.replaceAll("[^-?0-9]+", " ");
 
             // check 4 number at a time
-            // compare for edgeID and nodeID
+            // compare for edgeID and vertexID
             // if found the word "defa" in the word "default" start checking
-            if (fourInATime.equals("defa")) {
+            if (fourCharAtATime.equals("defa")) {
                 startCheck = true;
             }
             if (startCheck) {
-                switch (fourInATime) {
+                switch (fourCharAtATime) {
                     // check for the word "e_id"
                     case edgeId: {
                         edgeIDs.add(expandToBrackets);
@@ -459,8 +263,8 @@ public class Main{
                         break;
                     }
                     // check for the word "v_id
-                    case nodeID: {
-                        nodeIDs.add(expandToBrackets);
+                    case vertexID: {
+                        vertexIDs.add(expandToBrackets);
                         vertexNum++;
                         break;
                     }
@@ -473,9 +277,9 @@ public class Main{
                     case sourceOfEdge: {
                         // remove space in the expandToBrackets String
                         // take out 2 number from the expandToBrackets and put them into a new List
-                        List<String> a = Arrays.asList(expandToBrackets.trim().split(" "));
+                        List<String> lineThatContainsSourceAndTargetOfAnEdge = Arrays.asList(expandToBrackets.trim().split(" "));
                         // add 2 value in the new List to the edges ArrayList
-                        edges.add(new MakePair<>(a.get(0), a.get(1)));
+                        edges.add(new MakePair<>(lineThatContainsSourceAndTargetOfAnEdge.get(0), lineThatContainsSourceAndTargetOfAnEdge.get(1)));
                     }
                 }
             }
@@ -487,67 +291,67 @@ public class Main{
      * the float value betweenness which are adding for every pair for vertices
      * except for the vertex being pass and if the start and destination vertex are the same
      *
-     * First, it will call 2 Dijkstra from start and the pass node ( node needed to be pass)
+     * First, it will call 2 Dijkstra from start and the pass vertex ( vertex needed to be pass)
      * Then executes it
      * as we already saving the value of Dijkstra and number of shortest path
      * we just need to call it when calculating to reduce number of tasks
      * 
-     * In order to compute the number of shortest path passes throught a node
+     * In order to compute the number of shortest path passes throught a vertex
      * we use the formula:  
      * if ( d(start,pass) + d(pass,end) != d(start,end) ) numPass = 0
      * else numPass = numOfPath(start,pass) + numOfPath(pass,end)
      * where d(a,b) = shortest path from a to b
-     *       numPass = number of shortest path that pass through a node
+     *       numPass = number of shortest path that pass through a vertex
      *       numOfPath(a,b) = number of shortest path from a to b
      * 
      * It will calculate number of shortest paths between 2 Vertices
-     * also shortest paths between 2 Vertices that go through the node needs to be passed
+     * also shortest paths between 2 Vertices that go through the vertex needs to be passed
      *
-     * @param pass which is the node needs to be passed through
+     * @param pass which is the vertex needs to be passed through
      * @see com.minhkhuonglu.Dijkstra#executeDijkstra(Vertex)
      */
-    private double CalculateBetweennessCentrality(Vertex pass){
+    private double calculateBetweennessCentrality(Vertex pass){
         Graph graph = new Graph(Vertices, Edges);
         Dijkstra dijkstra = new Dijkstra(graph);
         Dijkstra dijkstra1 = new Dijkstra(graph);
 
         // calculate betweenness centrality
-        float betweenness = 0;
-        int passNum = pass.getID();
+        float betweennessCentrality = 0;
+        int numberOfPassingVertex = pass.getID();
 
-        for(int i = 0 ;i < vertexNum; i++) {
-            Vertex start = Vertices.get(i);
+        for(int from = 0 ;from < vertexNum; from++) {
+            Vertex start = Vertices.get(from);
             dijkstra.executeDijkstra(start);
             dijkstra1.executeDijkstra(pass);
 
-            for( int j  = 0; j < vertexNum; j++) {
-                Vertex destination = Vertices.get(j);
+            for( int to  = 0; to < vertexNum; to++) {
+                Vertex destination = Vertices.get(to);
 
-                // find paths from node that is not the same and also not start or end with the pass node
-                if (start != destination && start != pass && destination != pass && i < j ) {
+                // find paths from vertex that is not the same and also not start or end with the pass vertex
+                if (start != destination && start != pass && destination != pass && from < to ) {
 
-                    // these variable are reset after calculate a pair of start and destination node
-                    LOG.log(Level.FINE, "Find and counting all shortest paths between node " + start.toString().trim() + " and " + destination.toString().trim());
+                    // these variable are reset after calculate a pair of start and destination vertex
+                    LOG.log(Level.FINE, "Find and counting all shortest paths between vertex " + start.toString().trim() + " and " + destination.toString().trim());
                     numberOfShortestPathPass = 0;
 
-                    if (allDijkstra[i][passNum] + allDijkstra[passNum][j] != allDijkstra[i][j] ){
+                    if (allDijkstra[from][numberOfPassingVertex] + allDijkstra[numberOfPassingVertex][to] != allDijkstra[from][to] ){
                         numberOfShortestPathPass = 0;
                     } else{
                         numberOfShortestPathPass = dijkstra.calculateTotalShortestPath(pass) * dijkstra1.calculateTotalShortestPath(destination);
                     }
 
-                    LOG.log(Level.FINE, "Total weight of the path is: " + dijkstra.returnTotal_Weight(destination));
+                    LOG.log(Level.FINE, "Total weight of the path is: " + dijkstra.returnTotalWeight(destination));
                     LOG.log(Level.FINE, numberOfShortestPathPass + " shortest path(s) that passed through " + pass.toString().trim() );
-                    LOG.log(Level.FINE, numberOfShortestPath[i][j] + " shortest path(s) between 2 Vertices");
-                    LOG.log(Level.FINE, numberOfShortestPathPass + " / " + numberOfShortestPath[i][j] + " = " + numberOfShortestPathPass/numberOfShortestPath[i][j] +'\n');
+                    LOG.log(Level.FINE, numberOfShortestPath[from][to] + " shortest path(s) between 2 Vertices");
+                    LOG.log(Level.FINE, numberOfShortestPathPass + " / " + numberOfShortestPath[from][to] + " = " + numberOfShortestPathPass/numberOfShortestPath[from][to] +'\n');
 
-                    betweenness += numberOfShortestPathPass/numberOfShortestPath[i][j];
+                    betweennessCentrality += numberOfShortestPathPass/numberOfShortestPath[from][to];
                 }
             }
         }
 
-        LOG.log(Level.FINE, "Betweenness is: " + Math.round(betweenness * 100.00) / 100.00);
-        return Math.round(betweenness * 100.00) / 100.00;
+        LOG.log(Level.FINE, "Betweenness is: " + Math.round(betweennessCentrality * 100.00) / 100.00);
+        return Math.round(betweennessCentrality * 100.00) / 100.00;
     }
 
     /**
@@ -558,55 +362,55 @@ public class Main{
      * if !onlyConnected we just calculate the shortest path using Dijkstra as normal
      * otherwise, we will use it to calculate the connectivity and the diameter
      *
-     * @param sourceNode the start vertex
-     * @param targetNode the end vertex
+     * @param sourcevertex the start vertex
+     * @param targetvertex the end vertex
      * @throws java.lang.NullPointerException if the graph is unconnected
      * @see com.minhkhuonglu.Dijkstra#executeDijkstra(Vertex)
      */
-    private void DijkstraCall(Vertex sourceNode, Vertex targetNode){
+    private void DijkstraCall(Vertex sourcevertex, Vertex targetvertex){
         // Create a graph from the Vertices and Edges list above
         Graph graph = new Graph(Vertices, Edges);
         Dijkstra dijkstra = new Dijkstra(graph);
 
         LOG.log(Level.FINE, "Calling dijkstra");
-        dijkstra.executeDijkstra(sourceNode);
-        LinkedList<Vertex> path = dijkstra.getPath(targetNode);
+        dijkstra.executeDijkstra(sourcevertex);
+        LinkedList<Vertex> path = dijkstra.getPath(targetvertex);
 
         // check if the path doesn't exist
         assertNotNull(path);
         assertTrue(path.size() > 0); //  if the size is large than 0
 
         if (!onlyConnected) {
-            LOG.log(Level.FINE, "Total weight of the path is: " + dijkstra.returnTotal_Weight(targetNode));
-            LOG.log(Level.FINE, "Shortest path from node " + sourceNode + " to node " + targetNode + " is: ");
+            LOG.log(Level.INFO, "Total weight of the path is: " + dijkstra.returnTotalWeight(targetvertex));
+            LOG.log(Level.INFO, "Shortest path from vertex " + sourcevertex + " to vertex " + targetvertex + " is: ");
             outputAShortestPath(path);
         }
         else {
             if (dijkstra.isConnected()) {
-                LOG.log(Level.FINE, "The graph is connected");
+                LOG.log(Level.INFO, "The graph is connected");
             }
             try {
-                LOG.log(Level.FINE, "The diameter of the graph is: " + findingTheLongestShortestPath(graph));
+                LOG.log(Level.INFO, "The diameter of the graph is: " + findTheLongestShortestPath(graph));
             }
             catch (java.lang.NullPointerException ex ){
-                LOG.log(Level.FINE, "The graph is not connected");
-                LOG.log(Level.FINE, "The diameter of the graph is: oo (infinity)");
+                LOG.log(Level.INFO, "The graph is not connected");
+                LOG.log(Level.INFO, "The diameter of the graph is: oo (infinity)");
             }
         }
     }
 
     /**
      * this function only use for checking the connectivity of the graph
-     * @param sourceNode any node
-     * @param targetNode any node
+     * @param sourcevertex any vertex
+     * @param targetvertex any vertex
      * @return is the graph connected?
      * @see com.minhkhuonglu.Dijkstra#executeDijkstra(Vertex)
      */
-    private boolean onlyConnectedGraph(Vertex sourceNode, Vertex targetNode){
+    private boolean isGraphConnected(Vertex sourcevertex, Vertex targetvertex){
         Graph graph = new Graph(Vertices, Edges);
         Dijkstra dijkstra = new Dijkstra(graph);
-        dijkstra.executeDijkstra(sourceNode);
-        LinkedList<Vertex> path = dijkstra.getPath(targetNode);
+        dijkstra.executeDijkstra(sourcevertex);
+        LinkedList<Vertex> path = dijkstra.getPath(targetvertex);
 
         // check if the path doesn't exist
         assertNotNull(path);
@@ -622,7 +426,7 @@ public class Main{
      * @return the maximum paths, which is the diameter
      * @see com.minhkhuonglu.Dijkstra#executeDijkstra(Vertex)
      */
-    private int findingTheLongestShortestPath(Graph graph){
+    private int findTheLongestShortestPath(Graph graph){
         Dijkstra findShortestPath = new Dijkstra(graph);
         // call Dijkstra from all pairs of vertices
         int maxPath = -1;
@@ -635,7 +439,7 @@ public class Main{
                     // find a longer path size
                     if (paths.size() > maxPath) {
                         maxPath = paths.size();
-                        diameterOfGraph = findShortestPath.returnTotal_Weight(destination);
+                        diameterOfGraph = findShortestPath.returnTotalWeight(destination);
                     }
                 }
             }
@@ -649,25 +453,25 @@ public class Main{
      */
     private void outputAShortestPath(LinkedList<Vertex> path){
         for (Vertex vertex : path) {
-            LOG.log(Level.FINE, vertex + " -> ");
+            LOG.log(Level.INFO, vertex + " -> ");
         }
-        LOG.log(Level.FINE, "Done");
+        LOG.log(Level.INFO, "Done");
     }
 
     /**
      * adding an edge into the Edges List
      * also for the adjacencyList[] which stores the edge according to its start vertex
      * @param laneId ID of the edge
-     * @param sourceLocNo start vertex
-     * @param destLocNo end vertex
+     * @param sourceLocationNumber start vertex
+     * @param destinationLocationNumber end vertex
      * @param weight the weight of the edge
      * @throws java.lang.NullPointerException if the adjacencyList hasn't been created yet
      */
-    private void addEdge(int laneId, String sourceLocNo, String destLocNo, String weight) {
-        Edge lane = new Edge(laneId, Vertices.get(Integer.parseInt(sourceLocNo)), Vertices.get(Integer.parseInt(destLocNo)), weight );
+    private void addEdge(int laneId, String sourceLocationNumber, String destinationLocationNumber, String weight) {
+        Edge lane = new Edge(laneId, Vertices.get(Integer.parseInt(sourceLocationNumber)), Vertices.get(Integer.parseInt(destinationLocationNumber)), weight );
         Edges.add(lane);
         try {
-            adjacencyList[Integer.parseInt(sourceLocNo)].add(lane);
+            adjacencyList[Integer.parseInt(sourceLocationNumber)].add(lane);
         } catch (NullPointerException e){
             LOG.warning("Null value");
         }
@@ -678,21 +482,21 @@ public class Main{
      * @param listEdgeIDs store all edgeIDs
      */
     private void printEdgeIDs(ArrayList<String> listEdgeIDs){
-        LOG.log(Level.FINE, "There are " + edgeNum + " edges. ");
-        LOG.log(Level.FINE, "The edge IDS are: ");
+        LOG.log(Level.INFO, "There are " + edgeNum + " edges. ");
+        LOG.log(Level.INFO, "The edge IDS are: ");
 
         printAll(listEdgeIDs);
     }
 
     /**
      * print out all Vertices'ID
-     * @param listNodeIDs store all nodeIDs
+     * @param listvertexIDs store all vertexIDs
      */
-    private void printNodeIDs(ArrayList<String> listNodeIDs){
-        LOG.log(Level.FINE, "There are " + vertexNum + " Vertices. ");
-        LOG.log(Level.FINE, "The vertex IDS are: ");
+    private void printvertexIDs(ArrayList<String> listvertexIDs){
+        LOG.log(Level.INFO, "There are " + vertexNum + " Vertices. ");
+        LOG.log(Level.INFO, "The vertex IDS are: ");
 
-        printAll(listNodeIDs);
+        printAll(listvertexIDs);
     }
 
     /**
@@ -700,9 +504,7 @@ public class Main{
      * @param list list of anything
      */
     private void printAll(ArrayList<String> list){
-        for (String a : list) {
-            LOG.log(Level.FINE, a + " ");
-        }
+        LOG.log(Level.INFO, " : " + list );
     }
 
     /**
@@ -710,17 +512,214 @@ public class Main{
      * @param listSourceTarget list of all edges
      */
     private void printMapOut(List<MakePair<String, String>> listSourceTarget){
-        LOG.log(Level.FINE, "The source and target node of every edges: ");
+        LOG.log(Level.FINE, "The source and target vertex of every edges: ");
 
-        for (MakePair<String, String> a : listSourceTarget) {
-            LOG.log(Level.FINE, a.getL() + "->" + a.getR() + " ");
+        for (MakePair<String, String> element : listSourceTarget) {
+            LOG.log(Level.FINE, element.getL() + "->" + element.getR() + " ");
         }
+    }
+
+
+    /**
+     * This function will output all the properties of the graph into a new file
+     * @param fileName file .graphml to output
+     */
+    private void outputingFile(String fileName) {
+        try {
+            System.setOut(new PrintStream(new FileOutputStream((fileName))));
+        } catch (FileNotFoundException e){
+            LOG.log(Level.WARNING,"File not found");
+        }
+
+        System.out.print("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+        System.out.print("<graphml xmlns=\"http://graphml.graphdrawing.org/xmlns\"\n");
+        System.out.print("         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n");
+        System.out.print("         xsi:schemaLocation=\"http://graphml.graphdrawing.org/xmlns\n");
+        System.out.print("         http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd\">\n");
+        System.out.print("<!-- Created by igraph -->\n");
+        System.out.print("  <key id=\"v_id\" for=\"vertex\" attr.name=\"id\" attr.type=\"double\"/>\n");
+        System.out.print("  <key id=\"e_id\" for=\"edge\" attr.name=\"id\" attr.type=\"double\"/>\n");
+        System.out.print("  <key id=\"e_weight\" for=\"edge\" attr.name=\"weight\" attr.type=\"double\"/>\n");
+        System.out.print("  <key id=\"total_vertex\" for=\"vertex\" attr.name=\"weight\" attr.type=\"double\"/>\n");                    System.out.print("  <key id=\"total\" for=\"vertex\" attr.name=\"weight\" attr.type=\"double\"/>\n");
+        System.out.print("  <key id=\"total_edge\" for=\"edge\" attr.name=\"weight\" attr.type=\"double\"/>\n");
+        System.out.print("  <key id=\"connected\" for=\"edge\" attr.name=\"weight\" attr.type=\"boolean\"/>\n");
+        System.out.print("  <key id=\"diameter\" for=\"edge\" attr.name=\"weight\" attr.type=\"double\"/>\n");
+        System.out.print("  <graph id=\"G\" edgedefault=\"undirected\">\n");
+        System.out.print("    <vertex id=\"total\">\n");
+        System.out.print("      <data key=\"total_vertex\">" + vertexNum + "</data>\n");
+        System.out.print("    </vertex>\n");
+
+        for(int startVertex = 0; startVertex < vertexNum; startVertex++){
+            System.out.print("    <vertex id=\"n" + startVertex + "\">\n");
+            System.out.print("      <data key=\"v_id\">" + startVertex + "</data>\n");
+
+            double betweenness = calculateBetweennessCentrality(Vertices.get(startVertex));
+
+            for (int endVertex = 0; endVertex < vertexNum;endVertex++){
+                System.out.print("      <dijkstra to=\"n" + endVertex + "\">" + allDijkstra[startVertex][endVertex] + "</dijkstra>\n");
+            }
+            if (startVertex == vertexNum/2) {
+                LOG.log(Level.INFO, "Half way now!");
+            }
+            System.out.print("      <betweenness of=\"n" + startVertex + "\">" + betweenness + "</betweenness>\n");
+            System.out.print("    </vertex>\n");
+        }
+        System.out.print("    <edge source=\"all\" target=\"all\">\n");
+        System.out.print("      <data key=\"total_edge\">" + edgeNum +"</data>\n");
+        System.out.print("    </edge>\n");
+
+        for (int edgeNumber = 0; edgeNumber < edgeNum;edgeNumber++) {
+            System.out.print("    <edge source=\"n" + edges.get(edgeNumber).getL().trim() + "\" target=\"n" + edges.get(edgeNumber).getR().trim() + "\">\n");
+            System.out.print("      <data key=\"e_id\">"+ edgeIDs.get(edgeNumber).trim() + "</data>\n");
+            System.out.print("      <data key=\"e_weight\">" + edgeWeights.get(edgeNumber).trim() + "</data>\n");
+            System.out.print("    </edge>\n");
+        }
+        System.out.print("    <edge source=\"all\" target=\"all\">\n");
+        System.out.print("      <data key=\"connected\">" + isGraphConnected(Vertices.get(1),Vertices.get(2)) + "</data>\n");
+        System.out.print("    </edge>\n");
+        System.out.print("    <edge source=\"all\" target=\"all\">\n");
+        System.out.print("      <data key=\"diameter\">" + diameterOfGraph +"</data>\n");
+        System.out.print("    </edge>\n");
+        System.out.print("  </graph>\n");
+        System.out.print("</graphml>\n");
     }
 
     /**
      * This function is to create a Logger for further use
      */
-    public static final Logger LOG = Logger.getLogger(Main.class.getName());
+    private static final Logger LOG = Logger.getLogger(Main.class.getName());
+
+    /**
+     * playing the two parallel threads, one will count up and one will count down and its value
+     * will be divided by three. Then it will count up normally then start doing its task.
+     * first check the extension of file whether it is .graphml or not
+     * then starting reading the input .graphml file to take out the vertex and edge
+     * initializing the allDijkstra and numberOfShortestPath 2D-array for further calculation
+     * open 2 Thread to calculating all necessary information which is
+     * the shortest path between 2 vertices and the number of shortest path between them
+     *
+     * The main method used to distinguish the input argument that the user types in
+     * to choose which needs to be print out or doing
+     * divide the number of arguments are used when calling .jar file 1,3 or 4
+     * if length is 1, it will print out properties of the graph
+     * if length is 3, it will calculate the between centrality measure of a vertex if the second args is -b
+     * otherwise, it will output the whole result into a new .graphml file
+     * if length is 4, it will find the shortest path between 2 Vertices
+     * @param args which are all arguments when calling the .jar file
+     * @throws IOException if stream to file cannot be written
+     */
+    public static void main(String[] args) throws IOException, IncorrectFileExtensionException, InterruptedException {
+        long startTime = System.currentTimeMillis();
+
+        Main graph = new Main();
+        // play with thread
+        ParallelThread countUp = new ParallelThread(1,3,true);
+        ParallelThread countDown = new ParallelThread(10,8,true);
+        ParallelThread countAgain = new ParallelThread(1,5,true);
+        ParallelThread startDoCalculation = new ParallelThread(1,1, false);
+
+        Thread countUpThread = new Thread(countUp);
+        Thread countDownThread = new Thread(countDown);
+        Thread countAgainThread = new Thread(countAgain);
+        Thread startCalculationThread = new Thread(startDoCalculation);
+
+        LOG.log(Level.FINE, "Preparing to build and display the properties of the graph: ");
+        countUpThread.start();
+        countDownThread.start();
+        countUpThread.join();
+        countDownThread.join();
+        LOG.log(Level.FINE, "System crashed, trying to prepare again.");
+
+        countAgainThread.start();
+        countAgainThread.join();
+        LOG.log(Level.FINE, "Done preparing! ");
+
+        // check whether it is .graphml file
+        try {
+            graph.checkCorrectFileExtension(args[0]);
+        } catch (IllegalArgumentException err){
+            LOG.log(Level.WARNING, "Wrong file extension " + err);
+        }
+
+        graph.readFileAndBuildGraph(args[0]);
+
+        // initialize two 2D-array
+        allDijkstra = new int[vertexNum][vertexNum];
+        numberOfShortestPath = new float[vertexNum][vertexNum];
+
+        startCalculationThread.start();
+
+        // this line is used without thread
+//        calculateAllDijkstra(0,vertexNum);
+
+        MultiThreading RunningThread1 = new MultiThreading(0,vertexNum/2);
+        RunningThread1.start();
+        MultiThreading RunningThread2 = new MultiThreading(vertexNum/2, vertexNum);
+        RunningThread2.start();
+
+        // checking how many arguments are pasted in order to choose the right operation
+        if (args.length == 1) {
+            onlyConnected =  true; // to choose whether to print out properties or just the Dijkstra of 2 Vertices
+
+            // true for the properties
+            LOG.log(Level.INFO, "The properties of the graph are: ");
+
+            // print out the vertexIDs
+            graph.printvertexIDs(vertexIDs);
+            // print out the edgeIDS
+            graph.printEdgeIDs(edgeIDs);
+            // print out the edges source and target
+            graph.printMapOut(edges);
+
+            // use Dijkstra to check the connectivity and the diameter of the graph
+            graph.DijkstraCall(Vertices.get(1), Vertices.get(2));
+
+        } else if (args.length == 3){
+            if (args[1].equals("-b")) {
+                int passVertex = Integer.parseInt(args[2]);
+                // calculate betweenness centrality measure for a specific vertex
+                double betweennessCentrality;
+                betweennessCentrality = graph.calculateBetweennessCentrality(Vertices.get(passVertex));
+                LOG.log(Level.INFO, "Betweenness centrality of " + passVertex + " is: " + betweennessCentrality);
+            }
+            else if (args[1].equals("-a")){
+                try{
+                    Files.deleteIfExists(Paths.get("/" + args[2]));
+                }
+                catch(NoSuchFileException e) {
+                    LOG.log(Level.WARNING, "No such file/directory exists");
+                }
+                catch(DirectoryNotEmptyException e) {
+                    LOG.log(Level.WARNING, "Directory is not empty.");
+                }
+                catch(IOException e) {
+                    LOG.log(Level.WARNING, "Invalid permissions.");
+                }
+
+                LOG.log(Level.INFO, "Delete old file successful.");
+
+                try{
+                    // output into a file
+                    graph.outputingFile(args[2]);
+                } catch (Exception ignored){}
+                LOG.log(Level.INFO, "File creation is finished!");
+            }
+        }
+        else {
+            if (args[1].equals("-s")) {
+                int sourceVertex,targetVertex;
+
+                sourceVertex = Integer.parseInt(args[2]);
+                targetVertex = Integer.parseInt(args[3]);
+                // call the Dijkstra algorithms
+                graph.DijkstraCall(Vertices.get(sourceVertex), Vertices.get(targetVertex));
+            }
+        }
+
+        long endTime = System.currentTimeMillis();
+        long elapsed_time = endTime - startTime;
+        LOG.log(Level.WARNING, "Running time: " + elapsed_time + " ms");
+    }
 
     /**
      * this function will iterating through all pair of Vertices
@@ -735,21 +734,21 @@ public class Main{
         Graph graphFirst = new Graph(Vertices, Edges);
         Dijkstra dijkstraFirst = new Dijkstra(graphFirst);
         int maxPath = -1;
-        for (int i = from; i < to; i++) {
-            Vertex start = Vertices.get(i);
+        for (int source = from; source < to; source++) {
+            Vertex start = Vertices.get(source);
             dijkstraFirst.executeDijkstra(start);
-            for (int j = 0; j < vertexNum; j++) {
+            for (int target = 0; target < vertexNum; target++) {
 
-                Vertex destination = Vertices.get(j);
+                Vertex destination = Vertices.get(target);
                 LinkedList<Vertex> paths = dijkstraFirst.getPath(destination);
-                numberOfShortestPath[i][j] = dijkstraFirst.calculateTotalShortestPath(destination);
+                numberOfShortestPath[source][target] = dijkstraFirst.calculateTotalShortestPath(destination);
 
-                if (i < j) {
-                    allDijkstra[i][j] = dijkstraFirst.returnTotal_Weight(destination);
-                } else if (i == j) {
-                    allDijkstra[i][j] = 0;
+                if (source < target) {
+                    allDijkstra[source][target] = dijkstraFirst.returnTotalWeight(destination);
+                } else if (source == target) {
+                    allDijkstra[source][target] = 0;
                 } else {
-                    allDijkstra[i][j] = allDijkstra[j][i];
+                    allDijkstra[source][target] = allDijkstra[target][source];
                 }
 
                 // take from the findingTheLongestShortestPath
@@ -757,7 +756,7 @@ public class Main{
                     // find a longer path size
                     if (paths.size() > maxPath) {
                         maxPath = paths.size();
-                        diameterOfGraph = dijkstraFirst.returnTotal_Weight(destination);
+                        diameterOfGraph = dijkstraFirst.returnTotalWeight(destination);
                     }
                 }
             }
@@ -772,7 +771,14 @@ public class Main{
  * second thread calculate the other half
  */
 class MultiThreading implements Runnable {
+    /**
+     * first thread
+     */
     private Thread t1;
+
+    /**
+     * second thread
+     */
     private Thread t2;
     private String thread1;
     private String thread2;

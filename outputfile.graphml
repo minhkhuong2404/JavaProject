@@ -4,423 +4,3174 @@
          xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
          http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
 <!-- Created by igraph -->
-  <key id="v_id" for="node" attr.name="id" attr.type="double"/>
+  <key id="v_id" for="vertex" attr.name="id" attr.type="double"/>
   <key id="e_id" for="edge" attr.name="id" attr.type="double"/>
   <key id="e_weight" for="edge" attr.name="weight" attr.type="double"/>
-  <key id="total_node" for="node" attr.name="weight" attr.type="double"/>
-  <key id="total" for="node" attr.name="weight" attr.type="double"/>
+  <key id="total_vertex" for="vertex" attr.name="weight" attr.type="double"/>
+  <key id="total" for="vertex" attr.name="weight" attr.type="double"/>
   <key id="total_edge" for="edge" attr.name="weight" attr.type="double"/>
   <key id="connected" for="edge" attr.name="weight" attr.type="boolean"/>
   <key id="diameter" for="edge" attr.name="weight" attr.type="double"/>
   <graph id="G" edgedefault="undirected">
-    <node id="total">
-      <data key="total_node">15</data>
-    </node>
-    <node id="n0">
+    <vertex id="total">
+      <data key="total_vertex">50</data>
+    </vertex>
+    <vertex id="n0">
       <data key="v_id">0</data>
       <dijkstra to="n0">0</dijkstra>
-      <dijkstra to="n1">10</dijkstra>
-      <dijkstra to="n2">8</dijkstra>
-      <dijkstra to="n3">7</dijkstra>
-      <dijkstra to="n4">17</dijkstra>
-      <dijkstra to="n5">9</dijkstra>
-      <dijkstra to="n6">7</dijkstra>
-      <dijkstra to="n7">3</dijkstra>
-      <dijkstra to="n8">8</dijkstra>
-      <dijkstra to="n9">3</dijkstra>
-      <dijkstra to="n10">6</dijkstra>
-      <dijkstra to="n11">10</dijkstra>
-      <dijkstra to="n12">15</dijkstra>
-      <dijkstra to="n13">10</dijkstra>
-      <dijkstra to="n14">9</dijkstra>
-      <betweenness of="n0">15.0</betweenness>
-    </node>
-    <node id="n1">
-      <data key="v_id">1</data>
-      <dijkstra to="n0">10</dijkstra>
-      <dijkstra to="n1">0</dijkstra>
-      <dijkstra to="n2">18</dijkstra>
-      <dijkstra to="n3">3</dijkstra>
-      <dijkstra to="n4">9</dijkstra>
-      <dijkstra to="n5">5</dijkstra>
-      <dijkstra to="n6">7</dijkstra>
-      <dijkstra to="n7">7</dijkstra>
-      <dijkstra to="n8">4</dijkstra>
-      <dijkstra to="n9">7</dijkstra>
-      <dijkstra to="n10">4</dijkstra>
-      <dijkstra to="n11">8</dijkstra>
-      <dijkstra to="n12">15</dijkstra>
-      <dijkstra to="n13">14</dijkstra>
-      <dijkstra to="n14">9</dijkstra>
-      <betweenness of="n1">0.0</betweenness>
-    </node>
-    <node id="n2">
-      <data key="v_id">2</data>
-      <dijkstra to="n0">8</dijkstra>
-      <dijkstra to="n1">18</dijkstra>
-      <dijkstra to="n2">0</dijkstra>
-      <dijkstra to="n3">15</dijkstra>
-      <dijkstra to="n4">25</dijkstra>
-      <dijkstra to="n5">17</dijkstra>
-      <dijkstra to="n6">15</dijkstra>
-      <dijkstra to="n7">11</dijkstra>
-      <dijkstra to="n8">16</dijkstra>
-      <dijkstra to="n9">11</dijkstra>
-      <dijkstra to="n10">14</dijkstra>
-      <dijkstra to="n11">18</dijkstra>
-      <dijkstra to="n12">23</dijkstra>
-      <dijkstra to="n13">18</dijkstra>
-      <dijkstra to="n14">17</dijkstra>
-      <betweenness of="n2">0.0</betweenness>
-    </node>
-    <node id="n3">
-      <data key="v_id">3</data>
-      <dijkstra to="n0">7</dijkstra>
-      <dijkstra to="n1">3</dijkstra>
-      <dijkstra to="n2">15</dijkstra>
-      <dijkstra to="n3">0</dijkstra>
-      <dijkstra to="n4">10</dijkstra>
-      <dijkstra to="n5">2</dijkstra>
-      <dijkstra to="n6">4</dijkstra>
-      <dijkstra to="n7">4</dijkstra>
-      <dijkstra to="n8">1</dijkstra>
-      <dijkstra to="n9">4</dijkstra>
-      <dijkstra to="n10">1</dijkstra>
-      <dijkstra to="n11">5</dijkstra>
-      <dijkstra to="n12">12</dijkstra>
-      <dijkstra to="n13">11</dijkstra>
-      <dijkstra to="n14">6</dijkstra>
-      <betweenness of="n3">36.5</betweenness>
-    </node>
-    <node id="n4">
-      <data key="v_id">4</data>
-      <dijkstra to="n0">17</dijkstra>
-      <dijkstra to="n1">9</dijkstra>
-      <dijkstra to="n2">25</dijkstra>
+      <dijkstra to="n1">12</dijkstra>
+      <dijkstra to="n2">7</dijkstra>
       <dijkstra to="n3">10</dijkstra>
-      <dijkstra to="n4">0</dijkstra>
-      <dijkstra to="n5">8</dijkstra>
-      <dijkstra to="n6">11</dijkstra>
-      <dijkstra to="n7">14</dijkstra>
-      <dijkstra to="n8">9</dijkstra>
-      <dijkstra to="n9">14</dijkstra>
-      <dijkstra to="n10">11</dijkstra>
-      <dijkstra to="n11">15</dijkstra>
-      <dijkstra to="n12">19</dijkstra>
-      <dijkstra to="n13">21</dijkstra>
-      <dijkstra to="n14">13</dijkstra>
-      <betweenness of="n4">0.0</betweenness>
-    </node>
-    <node id="n5">
-      <data key="v_id">5</data>
-      <dijkstra to="n0">9</dijkstra>
-      <dijkstra to="n1">5</dijkstra>
-      <dijkstra to="n2">17</dijkstra>
-      <dijkstra to="n3">2</dijkstra>
-      <dijkstra to="n4">8</dijkstra>
-      <dijkstra to="n5">0</dijkstra>
-      <dijkstra to="n6">3</dijkstra>
-      <dijkstra to="n7">6</dijkstra>
-      <dijkstra to="n8">1</dijkstra>
-      <dijkstra to="n9">6</dijkstra>
-      <dijkstra to="n10">3</dijkstra>
-      <dijkstra to="n11">7</dijkstra>
-      <dijkstra to="n12">11</dijkstra>
-      <dijkstra to="n13">13</dijkstra>
-      <dijkstra to="n14">5</dijkstra>
-      <betweenness of="n5">15.0</betweenness>
-    </node>
-    <node id="n6">
-      <data key="v_id">6</data>
-      <dijkstra to="n0">7</dijkstra>
-      <dijkstra to="n1">7</dijkstra>
-      <dijkstra to="n2">15</dijkstra>
-      <dijkstra to="n3">4</dijkstra>
-      <dijkstra to="n4">11</dijkstra>
-      <dijkstra to="n5">3</dijkstra>
-      <dijkstra to="n6">0</dijkstra>
-      <dijkstra to="n7">4</dijkstra>
-      <dijkstra to="n8">4</dijkstra>
-      <dijkstra to="n9">8</dijkstra>
-      <dijkstra to="n10">3</dijkstra>
-      <dijkstra to="n11">7</dijkstra>
-      <dijkstra to="n12">8</dijkstra>
-      <dijkstra to="n13">10</dijkstra>
-      <dijkstra to="n14">2</dijkstra>
-      <betweenness of="n6">19.0</betweenness>
-    </node>
-    <node id="n7">
-      <data key="v_id">7</data>
-      <dijkstra to="n0">3</dijkstra>
-      <dijkstra to="n1">7</dijkstra>
-      <dijkstra to="n2">11</dijkstra>
-      <dijkstra to="n3">4</dijkstra>
-      <dijkstra to="n4">14</dijkstra>
-      <dijkstra to="n5">6</dijkstra>
-      <dijkstra to="n6">4</dijkstra>
-      <dijkstra to="n7">0</dijkstra>
-      <dijkstra to="n8">5</dijkstra>
-      <dijkstra to="n9">6</dijkstra>
-      <dijkstra to="n10">3</dijkstra>
-      <dijkstra to="n11">7</dijkstra>
-      <dijkstra to="n12">12</dijkstra>
-      <dijkstra to="n13">13</dijkstra>
-      <dijkstra to="n14">6</dijkstra>
-      <betweenness of="n7">12.0</betweenness>
-    </node>
-    <node id="n8">
-      <data key="v_id">8</data>
-      <dijkstra to="n0">8</dijkstra>
-      <dijkstra to="n1">4</dijkstra>
-      <dijkstra to="n2">16</dijkstra>
-      <dijkstra to="n3">1</dijkstra>
-      <dijkstra to="n4">9</dijkstra>
-      <dijkstra to="n5">1</dijkstra>
-      <dijkstra to="n6">4</dijkstra>
-      <dijkstra to="n7">5</dijkstra>
-      <dijkstra to="n8">0</dijkstra>
-      <dijkstra to="n9">5</dijkstra>
-      <dijkstra to="n10">2</dijkstra>
-      <dijkstra to="n11">6</dijkstra>
-      <dijkstra to="n12">12</dijkstra>
-      <dijkstra to="n13">12</dijkstra>
-      <dijkstra to="n14">6</dijkstra>
-      <betweenness of="n8">16.0</betweenness>
-    </node>
-    <node id="n9">
-      <data key="v_id">9</data>
-      <dijkstra to="n0">3</dijkstra>
-      <dijkstra to="n1">7</dijkstra>
-      <dijkstra to="n2">11</dijkstra>
-      <dijkstra to="n3">4</dijkstra>
-      <dijkstra to="n4">14</dijkstra>
-      <dijkstra to="n5">6</dijkstra>
-      <dijkstra to="n6">8</dijkstra>
-      <dijkstra to="n7">6</dijkstra>
-      <dijkstra to="n8">5</dijkstra>
-      <dijkstra to="n9">0</dijkstra>
-      <dijkstra to="n10">5</dijkstra>
-      <dijkstra to="n11">9</dijkstra>
-      <dijkstra to="n12">14</dijkstra>
-      <dijkstra to="n13">7</dijkstra>
-      <dijkstra to="n14">8</dijkstra>
-      <betweenness of="n9">13.5</betweenness>
-    </node>
-    <node id="n10">
-      <data key="v_id">10</data>
-      <dijkstra to="n0">6</dijkstra>
-      <dijkstra to="n1">4</dijkstra>
-      <dijkstra to="n2">14</dijkstra>
-      <dijkstra to="n3">1</dijkstra>
-      <dijkstra to="n4">11</dijkstra>
-      <dijkstra to="n5">3</dijkstra>
-      <dijkstra to="n6">3</dijkstra>
-      <dijkstra to="n7">3</dijkstra>
-      <dijkstra to="n8">2</dijkstra>
-      <dijkstra to="n9">5</dijkstra>
-      <dijkstra to="n10">0</dijkstra>
-      <dijkstra to="n11">4</dijkstra>
-      <dijkstra to="n12">11</dijkstra>
-      <dijkstra to="n13">12</dijkstra>
-      <dijkstra to="n14">5</dijkstra>
-      <betweenness of="n10">27.5</betweenness>
-    </node>
-    <node id="n11">
-      <data key="v_id">11</data>
-      <dijkstra to="n0">10</dijkstra>
-      <dijkstra to="n1">8</dijkstra>
-      <dijkstra to="n2">18</dijkstra>
-      <dijkstra to="n3">5</dijkstra>
-      <dijkstra to="n4">15</dijkstra>
+      <dijkstra to="n4">5</dijkstra>
       <dijkstra to="n5">7</dijkstra>
-      <dijkstra to="n6">7</dijkstra>
-      <dijkstra to="n7">7</dijkstra>
+      <dijkstra to="n6">5</dijkstra>
+      <dijkstra to="n7">5</dijkstra>
       <dijkstra to="n8">6</dijkstra>
-      <dijkstra to="n9">9</dijkstra>
-      <dijkstra to="n10">4</dijkstra>
-      <dijkstra to="n11">0</dijkstra>
-      <dijkstra to="n12">14</dijkstra>
-      <dijkstra to="n13">16</dijkstra>
-      <dijkstra to="n14">8</dijkstra>
-      <betweenness of="n11">0.0</betweenness>
-    </node>
-    <node id="n12">
-      <data key="v_id">12</data>
-      <dijkstra to="n0">15</dijkstra>
-      <dijkstra to="n1">15</dijkstra>
-      <dijkstra to="n2">23</dijkstra>
-      <dijkstra to="n3">12</dijkstra>
-      <dijkstra to="n4">19</dijkstra>
-      <dijkstra to="n5">11</dijkstra>
-      <dijkstra to="n6">8</dijkstra>
-      <dijkstra to="n7">12</dijkstra>
-      <dijkstra to="n8">12</dijkstra>
-      <dijkstra to="n9">14</dijkstra>
-      <dijkstra to="n10">11</dijkstra>
-      <dijkstra to="n11">14</dijkstra>
-      <dijkstra to="n12">0</dijkstra>
-      <dijkstra to="n13">14</dijkstra>
-      <dijkstra to="n14">6</dijkstra>
-      <betweenness of="n12">0.0</betweenness>
-    </node>
-    <node id="n13">
-      <data key="v_id">13</data>
-      <dijkstra to="n0">10</dijkstra>
-      <dijkstra to="n1">14</dijkstra>
-      <dijkstra to="n2">18</dijkstra>
-      <dijkstra to="n3">11</dijkstra>
-      <dijkstra to="n4">21</dijkstra>
-      <dijkstra to="n5">13</dijkstra>
-      <dijkstra to="n6">10</dijkstra>
-      <dijkstra to="n7">13</dijkstra>
-      <dijkstra to="n8">12</dijkstra>
-      <dijkstra to="n9">7</dijkstra>
-      <dijkstra to="n10">12</dijkstra>
-      <dijkstra to="n11">16</dijkstra>
-      <dijkstra to="n12">14</dijkstra>
-      <dijkstra to="n13">0</dijkstra>
-      <dijkstra to="n14">8</dijkstra>
-      <betweenness of="n13">0.0</betweenness>
-    </node>
-    <node id="n14">
-      <data key="v_id">14</data>
-      <dijkstra to="n0">9</dijkstra>
-      <dijkstra to="n1">9</dijkstra>
-      <dijkstra to="n2">17</dijkstra>
-      <dijkstra to="n3">6</dijkstra>
+      <dijkstra to="n9">15</dijkstra>
+      <dijkstra to="n10">14</dijkstra>
+      <dijkstra to="n11">5</dijkstra>
+      <dijkstra to="n12">10</dijkstra>
+      <dijkstra to="n13">10</dijkstra>
+      <dijkstra to="n14">5</dijkstra>
+      <dijkstra to="n15">10</dijkstra>
+      <dijkstra to="n16">6</dijkstra>
+      <dijkstra to="n17">10</dijkstra>
+      <dijkstra to="n18">7</dijkstra>
+      <dijkstra to="n19">11</dijkstra>
+      <dijkstra to="n20">7</dijkstra>
+      <dijkstra to="n21">1</dijkstra>
+      <dijkstra to="n22">2</dijkstra>
+      <dijkstra to="n23">10</dijkstra>
+      <dijkstra to="n24">9</dijkstra>
+      <dijkstra to="n25">7</dijkstra>
+      <dijkstra to="n26">12</dijkstra>
+      <dijkstra to="n27">3</dijkstra>
+      <dijkstra to="n28">3</dijkstra>
+      <dijkstra to="n29">3</dijkstra>
+      <dijkstra to="n30">5</dijkstra>
+      <dijkstra to="n31">7</dijkstra>
+      <dijkstra to="n32">13</dijkstra>
+      <dijkstra to="n33">9</dijkstra>
+      <dijkstra to="n34">4</dijkstra>
+      <dijkstra to="n35">10</dijkstra>
+      <dijkstra to="n36">4</dijkstra>
+      <dijkstra to="n37">6</dijkstra>
+      <dijkstra to="n38">9</dijkstra>
+      <dijkstra to="n39">9</dijkstra>
+      <dijkstra to="n40">3</dijkstra>
+      <dijkstra to="n41">12</dijkstra>
+      <dijkstra to="n42">1</dijkstra>
+      <dijkstra to="n43">5</dijkstra>
+      <dijkstra to="n44">9</dijkstra>
+      <dijkstra to="n45">5</dijkstra>
+      <dijkstra to="n46">3</dijkstra>
+      <dijkstra to="n47">4</dijkstra>
+      <dijkstra to="n48">7</dijkstra>
+      <dijkstra to="n49">19</dijkstra>
+      <betweenness of="n0">83.25</betweenness>
+    </vertex>
+    <vertex id="n1">
+      <data key="v_id">1</data>
+      <dijkstra to="n0">12</dijkstra>
+      <dijkstra to="n1">0</dijkstra>
+      <dijkstra to="n2">13</dijkstra>
+      <dijkstra to="n3">10</dijkstra>
       <dijkstra to="n4">13</dijkstra>
       <dijkstra to="n5">5</dijkstra>
+      <dijkstra to="n6">13</dijkstra>
+      <dijkstra to="n7">12</dijkstra>
+      <dijkstra to="n8">10</dijkstra>
+      <dijkstra to="n9">13</dijkstra>
+      <dijkstra to="n10">20</dijkstra>
+      <dijkstra to="n11">11</dijkstra>
+      <dijkstra to="n12">18</dijkstra>
+      <dijkstra to="n13">15</dijkstra>
+      <dijkstra to="n14">11</dijkstra>
+      <dijkstra to="n15">3</dijkstra>
+      <dijkstra to="n16">11</dijkstra>
+      <dijkstra to="n17">16</dijkstra>
+      <dijkstra to="n18">12</dijkstra>
+      <dijkstra to="n19">16</dijkstra>
+      <dijkstra to="n20">16</dijkstra>
+      <dijkstra to="n21">11</dijkstra>
+      <dijkstra to="n22">10</dijkstra>
+      <dijkstra to="n23">13</dijkstra>
+      <dijkstra to="n24">14</dijkstra>
+      <dijkstra to="n25">13</dijkstra>
+      <dijkstra to="n26">16</dijkstra>
+      <dijkstra to="n27">13</dijkstra>
+      <dijkstra to="n28">9</dijkstra>
+      <dijkstra to="n29">10</dijkstra>
+      <dijkstra to="n30">9</dijkstra>
+      <dijkstra to="n31">15</dijkstra>
+      <dijkstra to="n32">17</dijkstra>
+      <dijkstra to="n33">7</dijkstra>
+      <dijkstra to="n34">10</dijkstra>
+      <dijkstra to="n35">8</dijkstra>
+      <dijkstra to="n36">14</dijkstra>
+      <dijkstra to="n37">12</dijkstra>
+      <dijkstra to="n38">8</dijkstra>
+      <dijkstra to="n39">17</dijkstra>
+      <dijkstra to="n40">11</dijkstra>
+      <dijkstra to="n41">17</dijkstra>
+      <dijkstra to="n42">13</dijkstra>
+      <dijkstra to="n43">15</dijkstra>
+      <dijkstra to="n44">14</dijkstra>
+      <dijkstra to="n45">8</dijkstra>
+      <dijkstra to="n46">15</dijkstra>
+      <dijkstra to="n47">9</dijkstra>
+      <dijkstra to="n48">12</dijkstra>
+      <dijkstra to="n49">24</dijkstra>
+      <betweenness of="n1">6.5</betweenness>
+    </vertex>
+    <vertex id="n2">
+      <data key="v_id">2</data>
+      <dijkstra to="n0">7</dijkstra>
+      <dijkstra to="n1">13</dijkstra>
+      <dijkstra to="n2">0</dijkstra>
+      <dijkstra to="n3">13</dijkstra>
+      <dijkstra to="n4">8</dijkstra>
+      <dijkstra to="n5">10</dijkstra>
+      <dijkstra to="n6">7</dijkstra>
+      <dijkstra to="n7">6</dijkstra>
+      <dijkstra to="n8">3</dijkstra>
+      <dijkstra to="n9">11</dijkstra>
+      <dijkstra to="n10">17</dijkstra>
+      <dijkstra to="n11">2</dijkstra>
+      <dijkstra to="n12">11</dijkstra>
+      <dijkstra to="n13">11</dijkstra>
+      <dijkstra to="n14">8</dijkstra>
+      <dijkstra to="n15">10</dijkstra>
+      <dijkstra to="n16">7</dijkstra>
+      <dijkstra to="n17">7</dijkstra>
+      <dijkstra to="n18">8</dijkstra>
+      <dijkstra to="n19">7</dijkstra>
+      <dijkstra to="n20">6</dijkstra>
+      <dijkstra to="n21">6</dijkstra>
+      <dijkstra to="n22">7</dijkstra>
+      <dijkstra to="n23">10</dijkstra>
+      <dijkstra to="n24">5</dijkstra>
+      <dijkstra to="n25">4</dijkstra>
+      <dijkstra to="n26">8</dijkstra>
+      <dijkstra to="n27">8</dijkstra>
+      <dijkstra to="n28">6</dijkstra>
+      <dijkstra to="n29">6</dijkstra>
+      <dijkstra to="n30">4</dijkstra>
+      <dijkstra to="n31">12</dijkstra>
+      <dijkstra to="n32">9</dijkstra>
+      <dijkstra to="n33">12</dijkstra>
+      <dijkstra to="n34">7</dijkstra>
+      <dijkstra to="n35">11</dijkstra>
+      <dijkstra to="n36">8</dijkstra>
+      <dijkstra to="n37">6</dijkstra>
+      <dijkstra to="n38">8</dijkstra>
+      <dijkstra to="n39">4</dijkstra>
+      <dijkstra to="n40">8</dijkstra>
+      <dijkstra to="n41">8</dijkstra>
+      <dijkstra to="n42">8</dijkstra>
+      <dijkstra to="n43">8</dijkstra>
+      <dijkstra to="n44">10</dijkstra>
+      <dijkstra to="n45">6</dijkstra>
+      <dijkstra to="n46">8</dijkstra>
+      <dijkstra to="n47">5</dijkstra>
+      <dijkstra to="n48">3</dijkstra>
+      <dijkstra to="n49">18</dijkstra>
+      <betweenness of="n2">67.33</betweenness>
+    </vertex>
+    <vertex id="n3">
+      <data key="v_id">3</data>
+      <dijkstra to="n0">10</dijkstra>
+      <dijkstra to="n1">10</dijkstra>
+      <dijkstra to="n2">13</dijkstra>
+      <dijkstra to="n3">0</dijkstra>
+      <dijkstra to="n4">13</dijkstra>
+      <dijkstra to="n5">5</dijkstra>
+      <dijkstra to="n6">13</dijkstra>
+      <dijkstra to="n7">8</dijkstra>
+      <dijkstra to="n8">11</dijkstra>
+      <dijkstra to="n9">13</dijkstra>
+      <dijkstra to="n10">20</dijkstra>
+      <dijkstra to="n11">11</dijkstra>
+      <dijkstra to="n12">14</dijkstra>
+      <dijkstra to="n13">11</dijkstra>
+      <dijkstra to="n14">11</dijkstra>
+      <dijkstra to="n15">13</dijkstra>
+      <dijkstra to="n16">7</dijkstra>
+      <dijkstra to="n17">11</dijkstra>
+      <dijkstra to="n18">6</dijkstra>
+      <dijkstra to="n19">10</dijkstra>
+      <dijkstra to="n20">7</dijkstra>
+      <dijkstra to="n21">11</dijkstra>
+      <dijkstra to="n22">10</dijkstra>
+      <dijkstra to="n23">3</dijkstra>
+      <dijkstra to="n24">15</dijkstra>
+      <dijkstra to="n25">9</dijkstra>
+      <dijkstra to="n26">13</dijkstra>
+      <dijkstra to="n27">13</dijkstra>
+      <dijkstra to="n28">9</dijkstra>
+      <dijkstra to="n29">10</dijkstra>
+      <dijkstra to="n30">12</dijkstra>
+      <dijkstra to="n31">12</dijkstra>
+      <dijkstra to="n32">15</dijkstra>
+      <dijkstra to="n33">7</dijkstra>
+      <dijkstra to="n34">10</dijkstra>
+      <dijkstra to="n35">8</dijkstra>
+      <dijkstra to="n36">13</dijkstra>
+      <dijkstra to="n37">11</dijkstra>
+      <dijkstra to="n38">10</dijkstra>
+      <dijkstra to="n39">9</dijkstra>
+      <dijkstra to="n40">11</dijkstra>
+      <dijkstra to="n41">18</dijkstra>
+      <dijkstra to="n42">9</dijkstra>
+      <dijkstra to="n43">5</dijkstra>
+      <dijkstra to="n44">16</dijkstra>
+      <dijkstra to="n45">10</dijkstra>
+      <dijkstra to="n46">7</dijkstra>
+      <dijkstra to="n47">11</dijkstra>
+      <dijkstra to="n48">13</dijkstra>
+      <dijkstra to="n49">20</dijkstra>
+      <betweenness of="n3">15.33</betweenness>
+    </vertex>
+    <vertex id="n4">
+      <data key="v_id">4</data>
+      <dijkstra to="n0">5</dijkstra>
+      <dijkstra to="n1">13</dijkstra>
+      <dijkstra to="n2">8</dijkstra>
+      <dijkstra to="n3">13</dijkstra>
+      <dijkstra to="n4">0</dijkstra>
+      <dijkstra to="n5">8</dijkstra>
+      <dijkstra to="n6">4</dijkstra>
+      <dijkstra to="n7">8</dijkstra>
+      <dijkstra to="n8">7</dijkstra>
+      <dijkstra to="n9">14</dijkstra>
+      <dijkstra to="n10">13</dijkstra>
+      <dijkstra to="n11">6</dijkstra>
+      <dijkstra to="n12">13</dijkstra>
+      <dijkstra to="n13">13</dijkstra>
+      <dijkstra to="n14">4</dijkstra>
+      <dijkstra to="n15">13</dijkstra>
+      <dijkstra to="n16">9</dijkstra>
+      <dijkstra to="n17">7</dijkstra>
+      <dijkstra to="n18">10</dijkstra>
+      <dijkstra to="n19">8</dijkstra>
+      <dijkstra to="n20">9</dijkstra>
+      <dijkstra to="n21">4</dijkstra>
+      <dijkstra to="n22">5</dijkstra>
+      <dijkstra to="n23">10</dijkstra>
+      <dijkstra to="n24">12</dijkstra>
+      <dijkstra to="n25">4</dijkstra>
+      <dijkstra to="n26">11</dijkstra>
+      <dijkstra to="n27">6</dijkstra>
+      <dijkstra to="n28">4</dijkstra>
+      <dijkstra to="n29">6</dijkstra>
+      <dijkstra to="n30">8</dijkstra>
+      <dijkstra to="n31">10</dijkstra>
+      <dijkstra to="n32">13</dijkstra>
+      <dijkstra to="n33">10</dijkstra>
+      <dijkstra to="n34">3</dijkstra>
+      <dijkstra to="n35">11</dijkstra>
+      <dijkstra to="n36">7</dijkstra>
+      <dijkstra to="n37">5</dijkstra>
+      <dijkstra to="n38">12</dijkstra>
+      <dijkstra to="n39">11</dijkstra>
+      <dijkstra to="n40">2</dijkstra>
+      <dijkstra to="n41">15</dijkstra>
+      <dijkstra to="n42">6</dijkstra>
+      <dijkstra to="n43">10</dijkstra>
+      <dijkstra to="n44">12</dijkstra>
+      <dijkstra to="n45">8</dijkstra>
+      <dijkstra to="n46">8</dijkstra>
+      <dijkstra to="n47">7</dijkstra>
+      <dijkstra to="n48">10</dijkstra>
+      <dijkstra to="n49">22</dijkstra>
+      <betweenness of="n4">3.17</betweenness>
+    </vertex>
+    <vertex id="n5">
+      <data key="v_id">5</data>
+      <dijkstra to="n0">7</dijkstra>
+      <dijkstra to="n1">5</dijkstra>
+      <dijkstra to="n2">10</dijkstra>
+      <dijkstra to="n3">5</dijkstra>
+      <dijkstra to="n4">8</dijkstra>
+      <dijkstra to="n5">0</dijkstra>
+      <dijkstra to="n6">8</dijkstra>
+      <dijkstra to="n7">9</dijkstra>
+      <dijkstra to="n8">9</dijkstra>
+      <dijkstra to="n9">8</dijkstra>
+      <dijkstra to="n10">15</dijkstra>
+      <dijkstra to="n11">8</dijkstra>
+      <dijkstra to="n12">13</dijkstra>
+      <dijkstra to="n13">14</dijkstra>
+      <dijkstra to="n14">6</dijkstra>
+      <dijkstra to="n15">8</dijkstra>
+      <dijkstra to="n16">10</dijkstra>
+      <dijkstra to="n17">12</dijkstra>
+      <dijkstra to="n18">11</dijkstra>
+      <dijkstra to="n19">13</dijkstra>
+      <dijkstra to="n20">11</dijkstra>
+      <dijkstra to="n21">6</dijkstra>
+      <dijkstra to="n22">5</dijkstra>
+      <dijkstra to="n23">8</dijkstra>
+      <dijkstra to="n24">11</dijkstra>
+      <dijkstra to="n25">10</dijkstra>
+      <dijkstra to="n26">11</dijkstra>
+      <dijkstra to="n27">8</dijkstra>
+      <dijkstra to="n28">4</dijkstra>
+      <dijkstra to="n29">7</dijkstra>
+      <dijkstra to="n30">10</dijkstra>
+      <dijkstra to="n31">10</dijkstra>
+      <dijkstra to="n32">15</dijkstra>
+      <dijkstra to="n33">2</dijkstra>
+      <dijkstra to="n34">5</dijkstra>
+      <dijkstra to="n35">3</dijkstra>
+      <dijkstra to="n36">9</dijkstra>
+      <dijkstra to="n37">7</dijkstra>
+      <dijkstra to="n38">13</dijkstra>
+      <dijkstra to="n39">13</dijkstra>
+      <dijkstra to="n40">6</dijkstra>
+      <dijkstra to="n41">14</dijkstra>
+      <dijkstra to="n42">8</dijkstra>
+      <dijkstra to="n43">10</dijkstra>
+      <dijkstra to="n44">11</dijkstra>
+      <dijkstra to="n45">5</dijkstra>
+      <dijkstra to="n46">10</dijkstra>
+      <dijkstra to="n47">6</dijkstra>
+      <dijkstra to="n48">9</dijkstra>
+      <dijkstra to="n49">23</dijkstra>
+      <betweenness of="n5">118.17</betweenness>
+    </vertex>
+    <vertex id="n6">
+      <data key="v_id">6</data>
+      <dijkstra to="n0">5</dijkstra>
+      <dijkstra to="n1">13</dijkstra>
+      <dijkstra to="n2">7</dijkstra>
+      <dijkstra to="n3">13</dijkstra>
+      <dijkstra to="n4">4</dijkstra>
+      <dijkstra to="n5">8</dijkstra>
+      <dijkstra to="n6">0</dijkstra>
+      <dijkstra to="n7">8</dijkstra>
+      <dijkstra to="n8">6</dijkstra>
+      <dijkstra to="n9">16</dijkstra>
+      <dijkstra to="n10">13</dijkstra>
+      <dijkstra to="n11">5</dijkstra>
+      <dijkstra to="n12">13</dijkstra>
+      <dijkstra to="n13">13</dijkstra>
+      <dijkstra to="n14">4</dijkstra>
+      <dijkstra to="n15">13</dijkstra>
+      <dijkstra to="n16">9</dijkstra>
+      <dijkstra to="n17">10</dijkstra>
+      <dijkstra to="n18">10</dijkstra>
+      <dijkstra to="n19">11</dijkstra>
+      <dijkstra to="n20">9</dijkstra>
+      <dijkstra to="n21">4</dijkstra>
+      <dijkstra to="n22">5</dijkstra>
+      <dijkstra to="n23">13</dijkstra>
+      <dijkstra to="n24">12</dijkstra>
+      <dijkstra to="n25">7</dijkstra>
+      <dijkstra to="n26">14</dijkstra>
+      <dijkstra to="n27">6</dijkstra>
+      <dijkstra to="n28">4</dijkstra>
+      <dijkstra to="n29">6</dijkstra>
+      <dijkstra to="n30">7</dijkstra>
+      <dijkstra to="n31">10</dijkstra>
+      <dijkstra to="n32">16</dijkstra>
+      <dijkstra to="n33">10</dijkstra>
+      <dijkstra to="n34">3</dijkstra>
+      <dijkstra to="n35">11</dijkstra>
+      <dijkstra to="n36">7</dijkstra>
+      <dijkstra to="n37">5</dijkstra>
+      <dijkstra to="n38">12</dijkstra>
+      <dijkstra to="n39">11</dijkstra>
+      <dijkstra to="n40">2</dijkstra>
+      <dijkstra to="n41">15</dijkstra>
+      <dijkstra to="n42">6</dijkstra>
+      <dijkstra to="n43">10</dijkstra>
+      <dijkstra to="n44">12</dijkstra>
+      <dijkstra to="n45">8</dijkstra>
+      <dijkstra to="n46">8</dijkstra>
+      <dijkstra to="n47">7</dijkstra>
+      <dijkstra to="n48">10</dijkstra>
+      <dijkstra to="n49">22</dijkstra>
+      <betweenness of="n6">0.0</betweenness>
+    </vertex>
+    <vertex id="n7">
+      <data key="v_id">7</data>
+      <dijkstra to="n0">5</dijkstra>
+      <dijkstra to="n1">12</dijkstra>
+      <dijkstra to="n2">6</dijkstra>
+      <dijkstra to="n3">8</dijkstra>
+      <dijkstra to="n4">8</dijkstra>
+      <dijkstra to="n5">9</dijkstra>
+      <dijkstra to="n6">8</dijkstra>
+      <dijkstra to="n7">0</dijkstra>
+      <dijkstra to="n8">3</dijkstra>
+      <dijkstra to="n9">16</dijkstra>
+      <dijkstra to="n10">17</dijkstra>
+      <dijkstra to="n11">4</dijkstra>
+      <dijkstra to="n12">9</dijkstra>
+      <dijkstra to="n13">5</dijkstra>
+      <dijkstra to="n14">8</dijkstra>
+      <dijkstra to="n15">9</dijkstra>
+      <dijkstra to="n16">1</dijkstra>
+      <dijkstra to="n17">9</dijkstra>
+      <dijkstra to="n18">2</dijkstra>
+      <dijkstra to="n19">10</dijkstra>
+      <dijkstra to="n20">12</dijkstra>
+      <dijkstra to="n21">4</dijkstra>
+      <dijkstra to="n22">5</dijkstra>
+      <dijkstra to="n23">5</dijkstra>
+      <dijkstra to="n24">8</dijkstra>
+      <dijkstra to="n25">6</dijkstra>
+      <dijkstra to="n26">13</dijkstra>
+      <dijkstra to="n27">6</dijkstra>
+      <dijkstra to="n28">6</dijkstra>
+      <dijkstra to="n29">2</dijkstra>
+      <dijkstra to="n30">4</dijkstra>
+      <dijkstra to="n31">6</dijkstra>
+      <dijkstra to="n32">12</dijkstra>
+      <dijkstra to="n33">9</dijkstra>
+      <dijkstra to="n34">7</dijkstra>
+      <dijkstra to="n35">7</dijkstra>
+      <dijkstra to="n36">7</dijkstra>
+      <dijkstra to="n37">9</dijkstra>
+      <dijkstra to="n38">4</dijkstra>
+      <dijkstra to="n39">10</dijkstra>
+      <dijkstra to="n40">6</dijkstra>
+      <dijkstra to="n41">11</dijkstra>
+      <dijkstra to="n42">6</dijkstra>
+      <dijkstra to="n43">10</dijkstra>
+      <dijkstra to="n44">8</dijkstra>
+      <dijkstra to="n45">4</dijkstra>
+      <dijkstra to="n46">8</dijkstra>
+      <dijkstra to="n47">3</dijkstra>
+      <dijkstra to="n48">6</dijkstra>
+      <dijkstra to="n49">14</dijkstra>
+      <betweenness of="n7">182.0</betweenness>
+    </vertex>
+    <vertex id="n8">
+      <data key="v_id">8</data>
+      <dijkstra to="n0">6</dijkstra>
+      <dijkstra to="n1">10</dijkstra>
+      <dijkstra to="n2">3</dijkstra>
+      <dijkstra to="n3">11</dijkstra>
+      <dijkstra to="n4">7</dijkstra>
+      <dijkstra to="n5">9</dijkstra>
+      <dijkstra to="n6">6</dijkstra>
+      <dijkstra to="n7">3</dijkstra>
+      <dijkstra to="n8">0</dijkstra>
+      <dijkstra to="n9">13</dijkstra>
+      <dijkstra to="n10">16</dijkstra>
+      <dijkstra to="n11">1</dijkstra>
+      <dijkstra to="n12">12</dijkstra>
+      <dijkstra to="n13">8</dijkstra>
+      <dijkstra to="n14">7</dijkstra>
+      <dijkstra to="n15">7</dijkstra>
+      <dijkstra to="n16">4</dijkstra>
+      <dijkstra to="n17">6</dijkstra>
+      <dijkstra to="n18">5</dijkstra>
+      <dijkstra to="n19">7</dijkstra>
+      <dijkstra to="n20">9</dijkstra>
+      <dijkstra to="n21">5</dijkstra>
+      <dijkstra to="n22">6</dijkstra>
+      <dijkstra to="n23">8</dijkstra>
+      <dijkstra to="n24">8</dijkstra>
+      <dijkstra to="n25">3</dijkstra>
+      <dijkstra to="n26">10</dijkstra>
+      <dijkstra to="n27">7</dijkstra>
+      <dijkstra to="n28">5</dijkstra>
+      <dijkstra to="n29">5</dijkstra>
+      <dijkstra to="n30">1</dijkstra>
+      <dijkstra to="n31">9</dijkstra>
+      <dijkstra to="n32">12</dijkstra>
+      <dijkstra to="n33">11</dijkstra>
+      <dijkstra to="n34">6</dijkstra>
+      <dijkstra to="n35">8</dijkstra>
+      <dijkstra to="n36">8</dijkstra>
+      <dijkstra to="n37">8</dijkstra>
+      <dijkstra to="n38">7</dijkstra>
+      <dijkstra to="n39">7</dijkstra>
+      <dijkstra to="n40">7</dijkstra>
+      <dijkstra to="n41">11</dijkstra>
+      <dijkstra to="n42">5</dijkstra>
+      <dijkstra to="n43">9</dijkstra>
+      <dijkstra to="n44">9</dijkstra>
+      <dijkstra to="n45">5</dijkstra>
+      <dijkstra to="n46">7</dijkstra>
+      <dijkstra to="n47">4</dijkstra>
+      <dijkstra to="n48">6</dijkstra>
+      <dijkstra to="n49">17</dijkstra>
+      <betweenness of="n8">83.58</betweenness>
+    </vertex>
+    <vertex id="n9">
+      <data key="v_id">9</data>
+      <dijkstra to="n0">15</dijkstra>
+      <dijkstra to="n1">13</dijkstra>
+      <dijkstra to="n2">11</dijkstra>
+      <dijkstra to="n3">13</dijkstra>
+      <dijkstra to="n4">14</dijkstra>
+      <dijkstra to="n5">8</dijkstra>
+      <dijkstra to="n6">16</dijkstra>
+      <dijkstra to="n7">16</dijkstra>
+      <dijkstra to="n8">13</dijkstra>
+      <dijkstra to="n9">0</dijkstra>
+      <dijkstra to="n10">23</dijkstra>
+      <dijkstra to="n11">12</dijkstra>
+      <dijkstra to="n12">14</dijkstra>
+      <dijkstra to="n13">18</dijkstra>
+      <dijkstra to="n14">14</dijkstra>
+      <dijkstra to="n15">16</dijkstra>
+      <dijkstra to="n16">17</dijkstra>
+      <dijkstra to="n17">13</dijkstra>
+      <dijkstra to="n18">18</dijkstra>
+      <dijkstra to="n19">14</dijkstra>
+      <dijkstra to="n20">9</dijkstra>
+      <dijkstra to="n21">14</dijkstra>
+      <dijkstra to="n22">13</dijkstra>
+      <dijkstra to="n23">16</dijkstra>
+      <dijkstra to="n24">16</dijkstra>
+      <dijkstra to="n25">10</dijkstra>
+      <dijkstra to="n26">3</dijkstra>
+      <dijkstra to="n27">16</dijkstra>
+      <dijkstra to="n28">12</dijkstra>
+      <dijkstra to="n29">15</dijkstra>
+      <dijkstra to="n30">14</dijkstra>
+      <dijkstra to="n31">17</dijkstra>
+      <dijkstra to="n32">19</dijkstra>
+      <dijkstra to="n33">10</dijkstra>
+      <dijkstra to="n34">13</dijkstra>
+      <dijkstra to="n35">11</dijkstra>
+      <dijkstra to="n36">17</dijkstra>
+      <dijkstra to="n37">13</dijkstra>
+      <dijkstra to="n38">19</dijkstra>
+      <dijkstra to="n39">7</dijkstra>
+      <dijkstra to="n40">14</dijkstra>
+      <dijkstra to="n41">19</dijkstra>
+      <dijkstra to="n42">14</dijkstra>
+      <dijkstra to="n43">11</dijkstra>
+      <dijkstra to="n44">19</dijkstra>
+      <dijkstra to="n45">13</dijkstra>
+      <dijkstra to="n46">12</dijkstra>
+      <dijkstra to="n47">14</dijkstra>
+      <dijkstra to="n48">14</dijkstra>
+      <dijkstra to="n49">27</dijkstra>
+      <betweenness of="n9">4.0</betweenness>
+    </vertex>
+    <vertex id="n10">
+      <data key="v_id">10</data>
+      <dijkstra to="n0">14</dijkstra>
+      <dijkstra to="n1">20</dijkstra>
+      <dijkstra to="n2">17</dijkstra>
+      <dijkstra to="n3">20</dijkstra>
+      <dijkstra to="n4">13</dijkstra>
+      <dijkstra to="n5">15</dijkstra>
+      <dijkstra to="n6">13</dijkstra>
+      <dijkstra to="n7">17</dijkstra>
+      <dijkstra to="n8">16</dijkstra>
+      <dijkstra to="n9">23</dijkstra>
+      <dijkstra to="n10">0</dijkstra>
+      <dijkstra to="n11">15</dijkstra>
+      <dijkstra to="n12">20</dijkstra>
+      <dijkstra to="n13">22</dijkstra>
+      <dijkstra to="n14">9</dijkstra>
+      <dijkstra to="n15">20</dijkstra>
+      <dijkstra to="n16">18</dijkstra>
+      <dijkstra to="n17">15</dijkstra>
+      <dijkstra to="n18">19</dijkstra>
+      <dijkstra to="n19">16</dijkstra>
+      <dijkstra to="n20">16</dijkstra>
+      <dijkstra to="n21">13</dijkstra>
+      <dijkstra to="n22">12</dijkstra>
+      <dijkstra to="n23">22</dijkstra>
+      <dijkstra to="n24">21</dijkstra>
+      <dijkstra to="n25">17</dijkstra>
+      <dijkstra to="n26">22</dijkstra>
+      <dijkstra to="n27">15</dijkstra>
+      <dijkstra to="n28">11</dijkstra>
+      <dijkstra to="n29">15</dijkstra>
+      <dijkstra to="n30">17</dijkstra>
+      <dijkstra to="n31">17</dijkstra>
+      <dijkstra to="n32">21</dijkstra>
+      <dijkstra to="n33">17</dijkstra>
+      <dijkstra to="n34">10</dijkstra>
+      <dijkstra to="n35">18</dijkstra>
+      <dijkstra to="n36">16</dijkstra>
+      <dijkstra to="n37">12</dijkstra>
+      <dijkstra to="n38">21</dijkstra>
+      <dijkstra to="n39">18</dijkstra>
+      <dijkstra to="n40">11</dijkstra>
+      <dijkstra to="n41">24</dijkstra>
+      <dijkstra to="n42">15</dijkstra>
+      <dijkstra to="n43">18</dijkstra>
+      <dijkstra to="n44">21</dijkstra>
+      <dijkstra to="n45">15</dijkstra>
+      <dijkstra to="n46">17</dijkstra>
+      <dijkstra to="n47">16</dijkstra>
+      <dijkstra to="n48">19</dijkstra>
+      <dijkstra to="n49">30</dijkstra>
+      <betweenness of="n10">0.0</betweenness>
+    </vertex>
+    <vertex id="n11">
+      <data key="v_id">11</data>
+      <dijkstra to="n0">5</dijkstra>
+      <dijkstra to="n1">11</dijkstra>
+      <dijkstra to="n2">2</dijkstra>
+      <dijkstra to="n3">11</dijkstra>
+      <dijkstra to="n4">6</dijkstra>
+      <dijkstra to="n5">8</dijkstra>
+      <dijkstra to="n6">5</dijkstra>
+      <dijkstra to="n7">4</dijkstra>
+      <dijkstra to="n8">1</dijkstra>
+      <dijkstra to="n9">12</dijkstra>
+      <dijkstra to="n10">15</dijkstra>
+      <dijkstra to="n11">0</dijkstra>
+      <dijkstra to="n12">13</dijkstra>
+      <dijkstra to="n13">9</dijkstra>
+      <dijkstra to="n14">6</dijkstra>
+      <dijkstra to="n15">8</dijkstra>
+      <dijkstra to="n16">5</dijkstra>
+      <dijkstra to="n17">5</dijkstra>
+      <dijkstra to="n18">6</dijkstra>
+      <dijkstra to="n19">6</dijkstra>
+      <dijkstra to="n20">8</dijkstra>
+      <dijkstra to="n21">4</dijkstra>
+      <dijkstra to="n22">5</dijkstra>
+      <dijkstra to="n23">8</dijkstra>
+      <dijkstra to="n24">7</dijkstra>
+      <dijkstra to="n25">2</dijkstra>
+      <dijkstra to="n26">9</dijkstra>
+      <dijkstra to="n27">6</dijkstra>
+      <dijkstra to="n28">4</dijkstra>
+      <dijkstra to="n29">4</dijkstra>
+      <dijkstra to="n30">2</dijkstra>
+      <dijkstra to="n31">10</dijkstra>
+      <dijkstra to="n32">11</dijkstra>
+      <dijkstra to="n33">10</dijkstra>
+      <dijkstra to="n34">5</dijkstra>
+      <dijkstra to="n35">9</dijkstra>
+      <dijkstra to="n36">7</dijkstra>
+      <dijkstra to="n37">7</dijkstra>
+      <dijkstra to="n38">8</dijkstra>
+      <dijkstra to="n39">6</dijkstra>
+      <dijkstra to="n40">6</dijkstra>
+      <dijkstra to="n41">10</dijkstra>
+      <dijkstra to="n42">6</dijkstra>
+      <dijkstra to="n43">10</dijkstra>
+      <dijkstra to="n44">8</dijkstra>
+      <dijkstra to="n45">4</dijkstra>
+      <dijkstra to="n46">8</dijkstra>
+      <dijkstra to="n47">3</dijkstra>
+      <dijkstra to="n48">5</dijkstra>
+      <dijkstra to="n49">18</dijkstra>
+      <betweenness of="n11">165.58</betweenness>
+    </vertex>
+    <vertex id="n12">
+      <data key="v_id">12</data>
+      <dijkstra to="n0">10</dijkstra>
+      <dijkstra to="n1">18</dijkstra>
+      <dijkstra to="n2">11</dijkstra>
+      <dijkstra to="n3">14</dijkstra>
+      <dijkstra to="n4">13</dijkstra>
+      <dijkstra to="n5">13</dijkstra>
+      <dijkstra to="n6">13</dijkstra>
+      <dijkstra to="n7">9</dijkstra>
+      <dijkstra to="n8">12</dijkstra>
+      <dijkstra to="n9">14</dijkstra>
+      <dijkstra to="n10">20</dijkstra>
+      <dijkstra to="n11">13</dijkstra>
+      <dijkstra to="n12">0</dijkstra>
+      <dijkstra to="n13">12</dijkstra>
+      <dijkstra to="n14">11</dijkstra>
+      <dijkstra to="n15">18</dijkstra>
+      <dijkstra to="n16">8</dijkstra>
+      <dijkstra to="n17">17</dijkstra>
+      <dijkstra to="n18">9</dijkstra>
+      <dijkstra to="n19">16</dijkstra>
+      <dijkstra to="n20">9</dijkstra>
+      <dijkstra to="n21">9</dijkstra>
+      <dijkstra to="n22">8</dijkstra>
+      <dijkstra to="n23">12</dijkstra>
+      <dijkstra to="n24">16</dijkstra>
+      <dijkstra to="n25">15</dijkstra>
+      <dijkstra to="n26">11</dijkstra>
+      <dijkstra to="n27">11</dijkstra>
+      <dijkstra to="n28">9</dijkstra>
+      <dijkstra to="n29">11</dijkstra>
+      <dijkstra to="n30">13</dijkstra>
+      <dijkstra to="n31">3</dijkstra>
+      <dijkstra to="n32">20</dijkstra>
+      <dijkstra to="n33">15</dijkstra>
+      <dijkstra to="n34">10</dijkstra>
+      <dijkstra to="n35">16</dijkstra>
+      <dijkstra to="n36">12</dijkstra>
+      <dijkstra to="n37">12</dijkstra>
+      <dijkstra to="n38">11</dijkstra>
+      <dijkstra to="n39">7</dijkstra>
+      <dijkstra to="n40">11</dijkstra>
+      <dijkstra to="n41">19</dijkstra>
+      <dijkstra to="n42">9</dijkstra>
+      <dijkstra to="n43">9</dijkstra>
+      <dijkstra to="n44">17</dijkstra>
+      <dijkstra to="n45">13</dijkstra>
+      <dijkstra to="n46">7</dijkstra>
+      <dijkstra to="n47">12</dijkstra>
+      <dijkstra to="n48">14</dijkstra>
+      <dijkstra to="n49">21</dijkstra>
+      <betweenness of="n12">5.0</betweenness>
+    </vertex>
+    <vertex id="n13">
+      <data key="v_id">13</data>
+      <dijkstra to="n0">10</dijkstra>
+      <dijkstra to="n1">15</dijkstra>
+      <dijkstra to="n2">11</dijkstra>
+      <dijkstra to="n3">11</dijkstra>
+      <dijkstra to="n4">13</dijkstra>
+      <dijkstra to="n5">14</dijkstra>
+      <dijkstra to="n6">13</dijkstra>
+      <dijkstra to="n7">5</dijkstra>
+      <dijkstra to="n8">8</dijkstra>
+      <dijkstra to="n9">18</dijkstra>
+      <dijkstra to="n10">22</dijkstra>
+      <dijkstra to="n11">9</dijkstra>
+      <dijkstra to="n12">12</dijkstra>
+      <dijkstra to="n13">0</dijkstra>
+      <dijkstra to="n14">13</dijkstra>
+      <dijkstra to="n15">14</dijkstra>
+      <dijkstra to="n16">4</dijkstra>
+      <dijkstra to="n17">14</dijkstra>
+      <dijkstra to="n18">5</dijkstra>
+      <dijkstra to="n19">15</dijkstra>
+      <dijkstra to="n20">9</dijkstra>
+      <dijkstra to="n21">9</dijkstra>
+      <dijkstra to="n22">10</dijkstra>
+      <dijkstra to="n23">8</dijkstra>
+      <dijkstra to="n24">13</dijkstra>
+      <dijkstra to="n25">11</dijkstra>
+      <dijkstra to="n26">15</dijkstra>
+      <dijkstra to="n27">11</dijkstra>
+      <dijkstra to="n28">11</dijkstra>
+      <dijkstra to="n29">7</dijkstra>
+      <dijkstra to="n30">9</dijkstra>
+      <dijkstra to="n31">9</dijkstra>
+      <dijkstra to="n32">16</dijkstra>
+      <dijkstra to="n33">14</dijkstra>
+      <dijkstra to="n34">12</dijkstra>
+      <dijkstra to="n35">12</dijkstra>
+      <dijkstra to="n36">12</dijkstra>
+      <dijkstra to="n37">13</dijkstra>
+      <dijkstra to="n38">7</dijkstra>
+      <dijkstra to="n39">11</dijkstra>
+      <dijkstra to="n40">11</dijkstra>
+      <dijkstra to="n41">16</dijkstra>
+      <dijkstra to="n42">11</dijkstra>
+      <dijkstra to="n43">7</dijkstra>
+      <dijkstra to="n44">13</dijkstra>
+      <dijkstra to="n45">9</dijkstra>
+      <dijkstra to="n46">9</dijkstra>
+      <dijkstra to="n47">8</dijkstra>
+      <dijkstra to="n48">11</dijkstra>
+      <dijkstra to="n49">9</dijkstra>
+      <betweenness of="n13">38.83</betweenness>
+    </vertex>
+    <vertex id="n14">
+      <data key="v_id">14</data>
+      <dijkstra to="n0">5</dijkstra>
+      <dijkstra to="n1">11</dijkstra>
+      <dijkstra to="n2">8</dijkstra>
+      <dijkstra to="n3">11</dijkstra>
+      <dijkstra to="n4">4</dijkstra>
+      <dijkstra to="n5">6</dijkstra>
+      <dijkstra to="n6">4</dijkstra>
+      <dijkstra to="n7">8</dijkstra>
+      <dijkstra to="n8">7</dijkstra>
+      <dijkstra to="n9">14</dijkstra>
+      <dijkstra to="n10">9</dijkstra>
+      <dijkstra to="n11">6</dijkstra>
+      <dijkstra to="n12">11</dijkstra>
+      <dijkstra to="n13">13</dijkstra>
+      <dijkstra to="n14">0</dijkstra>
+      <dijkstra to="n15">11</dijkstra>
+      <dijkstra to="n16">9</dijkstra>
+      <dijkstra to="n17">6</dijkstra>
+      <dijkstra to="n18">10</dijkstra>
+      <dijkstra to="n19">7</dijkstra>
+      <dijkstra to="n20">7</dijkstra>
+      <dijkstra to="n21">4</dijkstra>
+      <dijkstra to="n22">3</dijkstra>
+      <dijkstra to="n23">13</dijkstra>
+      <dijkstra to="n24">12</dijkstra>
+      <dijkstra to="n25">8</dijkstra>
+      <dijkstra to="n26">13</dijkstra>
+      <dijkstra to="n27">6</dijkstra>
+      <dijkstra to="n28">2</dijkstra>
+      <dijkstra to="n29">6</dijkstra>
+      <dijkstra to="n30">8</dijkstra>
+      <dijkstra to="n31">8</dijkstra>
+      <dijkstra to="n32">12</dijkstra>
+      <dijkstra to="n33">8</dijkstra>
+      <dijkstra to="n34">1</dijkstra>
+      <dijkstra to="n35">9</dijkstra>
+      <dijkstra to="n36">7</dijkstra>
+      <dijkstra to="n37">3</dijkstra>
+      <dijkstra to="n38">12</dijkstra>
+      <dijkstra to="n39">9</dijkstra>
+      <dijkstra to="n40">2</dijkstra>
+      <dijkstra to="n41">15</dijkstra>
+      <dijkstra to="n42">6</dijkstra>
+      <dijkstra to="n43">9</dijkstra>
+      <dijkstra to="n44">12</dijkstra>
+      <dijkstra to="n45">6</dijkstra>
+      <dijkstra to="n46">8</dijkstra>
+      <dijkstra to="n47">7</dijkstra>
+      <dijkstra to="n48">10</dijkstra>
+      <dijkstra to="n49">21</dijkstra>
+      <betweenness of="n14">66.92</betweenness>
+    </vertex>
+    <vertex id="n15">
+      <data key="v_id">15</data>
+      <dijkstra to="n0">10</dijkstra>
+      <dijkstra to="n1">3</dijkstra>
+      <dijkstra to="n2">10</dijkstra>
+      <dijkstra to="n3">13</dijkstra>
+      <dijkstra to="n4">13</dijkstra>
+      <dijkstra to="n5">8</dijkstra>
+      <dijkstra to="n6">13</dijkstra>
+      <dijkstra to="n7">9</dijkstra>
+      <dijkstra to="n8">7</dijkstra>
+      <dijkstra to="n9">16</dijkstra>
+      <dijkstra to="n10">20</dijkstra>
+      <dijkstra to="n11">8</dijkstra>
+      <dijkstra to="n12">18</dijkstra>
+      <dijkstra to="n13">14</dijkstra>
+      <dijkstra to="n14">11</dijkstra>
+      <dijkstra to="n15">0</dijkstra>
+      <dijkstra to="n16">10</dijkstra>
+      <dijkstra to="n17">13</dijkstra>
+      <dijkstra to="n18">11</dijkstra>
+      <dijkstra to="n19">13</dijkstra>
+      <dijkstra to="n20">16</dijkstra>
+      <dijkstra to="n21">9</dijkstra>
+      <dijkstra to="n22">10</dijkstra>
+      <dijkstra to="n23">14</dijkstra>
+      <dijkstra to="n24">11</dijkstra>
+      <dijkstra to="n25">10</dijkstra>
+      <dijkstra to="n26">17</dijkstra>
+      <dijkstra to="n27">11</dijkstra>
+      <dijkstra to="n28">9</dijkstra>
+      <dijkstra to="n29">7</dijkstra>
+      <dijkstra to="n30">6</dijkstra>
+      <dijkstra to="n31">15</dijkstra>
+      <dijkstra to="n32">15</dijkstra>
+      <dijkstra to="n33">10</dijkstra>
+      <dijkstra to="n34">10</dijkstra>
+      <dijkstra to="n35">11</dijkstra>
+      <dijkstra to="n36">12</dijkstra>
+      <dijkstra to="n37">12</dijkstra>
+      <dijkstra to="n38">11</dijkstra>
+      <dijkstra to="n39">14</dijkstra>
+      <dijkstra to="n40">11</dijkstra>
+      <dijkstra to="n41">14</dijkstra>
+      <dijkstra to="n42">10</dijkstra>
+      <dijkstra to="n43">14</dijkstra>
+      <dijkstra to="n44">11</dijkstra>
+      <dijkstra to="n45">5</dijkstra>
+      <dijkstra to="n46">12</dijkstra>
+      <dijkstra to="n47">6</dijkstra>
+      <dijkstra to="n48">9</dijkstra>
+      <dijkstra to="n49">23</dijkstra>
+      <betweenness of="n15">16.5</betweenness>
+    </vertex>
+    <vertex id="n16">
+      <data key="v_id">16</data>
+      <dijkstra to="n0">6</dijkstra>
+      <dijkstra to="n1">11</dijkstra>
+      <dijkstra to="n2">7</dijkstra>
+      <dijkstra to="n3">7</dijkstra>
+      <dijkstra to="n4">9</dijkstra>
+      <dijkstra to="n5">10</dijkstra>
+      <dijkstra to="n6">9</dijkstra>
+      <dijkstra to="n7">1</dijkstra>
+      <dijkstra to="n8">4</dijkstra>
+      <dijkstra to="n9">17</dijkstra>
+      <dijkstra to="n10">18</dijkstra>
+      <dijkstra to="n11">5</dijkstra>
+      <dijkstra to="n12">8</dijkstra>
+      <dijkstra to="n13">4</dijkstra>
+      <dijkstra to="n14">9</dijkstra>
+      <dijkstra to="n15">10</dijkstra>
+      <dijkstra to="n16">0</dijkstra>
+      <dijkstra to="n17">10</dijkstra>
+      <dijkstra to="n18">1</dijkstra>
+      <dijkstra to="n19">11</dijkstra>
+      <dijkstra to="n20">13</dijkstra>
+      <dijkstra to="n21">5</dijkstra>
+      <dijkstra to="n22">6</dijkstra>
+      <dijkstra to="n23">4</dijkstra>
+      <dijkstra to="n24">9</dijkstra>
+      <dijkstra to="n25">7</dijkstra>
+      <dijkstra to="n26">14</dijkstra>
+      <dijkstra to="n27">7</dijkstra>
+      <dijkstra to="n28">7</dijkstra>
+      <dijkstra to="n29">3</dijkstra>
+      <dijkstra to="n30">5</dijkstra>
+      <dijkstra to="n31">5</dijkstra>
+      <dijkstra to="n32">12</dijkstra>
+      <dijkstra to="n33">10</dijkstra>
+      <dijkstra to="n34">8</dijkstra>
+      <dijkstra to="n35">8</dijkstra>
+      <dijkstra to="n36">8</dijkstra>
+      <dijkstra to="n37">10</dijkstra>
+      <dijkstra to="n38">3</dijkstra>
+      <dijkstra to="n39">11</dijkstra>
+      <dijkstra to="n40">7</dijkstra>
+      <dijkstra to="n41">12</dijkstra>
+      <dijkstra to="n42">7</dijkstra>
+      <dijkstra to="n43">11</dijkstra>
+      <dijkstra to="n44">9</dijkstra>
+      <dijkstra to="n45">5</dijkstra>
+      <dijkstra to="n46">9</dijkstra>
+      <dijkstra to="n47">4</dijkstra>
+      <dijkstra to="n48">7</dijkstra>
+      <dijkstra to="n49">13</dijkstra>
+      <betweenness of="n16">180.5</betweenness>
+    </vertex>
+    <vertex id="n17">
+      <data key="v_id">17</data>
+      <dijkstra to="n0">10</dijkstra>
+      <dijkstra to="n1">16</dijkstra>
+      <dijkstra to="n2">7</dijkstra>
+      <dijkstra to="n3">11</dijkstra>
+      <dijkstra to="n4">7</dijkstra>
+      <dijkstra to="n5">12</dijkstra>
+      <dijkstra to="n6">10</dijkstra>
+      <dijkstra to="n7">9</dijkstra>
+      <dijkstra to="n8">6</dijkstra>
+      <dijkstra to="n9">13</dijkstra>
+      <dijkstra to="n10">15</dijkstra>
+      <dijkstra to="n11">5</dijkstra>
+      <dijkstra to="n12">17</dijkstra>
+      <dijkstra to="n13">14</dijkstra>
+      <dijkstra to="n14">6</dijkstra>
+      <dijkstra to="n15">13</dijkstra>
+      <dijkstra to="n16">10</dijkstra>
+      <dijkstra to="n17">0</dijkstra>
+      <dijkstra to="n18">11</dijkstra>
+      <dijkstra to="n19">1</dijkstra>
+      <dijkstra to="n20">12</dijkstra>
+      <dijkstra to="n21">9</dijkstra>
+      <dijkstra to="n22">9</dijkstra>
+      <dijkstra to="n23">8</dijkstra>
+      <dijkstra to="n24">7</dijkstra>
+      <dijkstra to="n25">3</dijkstra>
+      <dijkstra to="n26">10</dijkstra>
+      <dijkstra to="n27">11</dijkstra>
+      <dijkstra to="n28">8</dijkstra>
+      <dijkstra to="n29">9</dijkstra>
+      <dijkstra to="n30">7</dijkstra>
+      <dijkstra to="n31">14</dijkstra>
+      <dijkstra to="n32">6</dijkstra>
+      <dijkstra to="n33">14</dijkstra>
+      <dijkstra to="n34">7</dijkstra>
+      <dijkstra to="n35">14</dijkstra>
+      <dijkstra to="n36">12</dijkstra>
+      <dijkstra to="n37">9</dijkstra>
+      <dijkstra to="n38">10</dijkstra>
+      <dijkstra to="n39">10</dijkstra>
+      <dijkstra to="n40">8</dijkstra>
+      <dijkstra to="n41">10</dijkstra>
+      <dijkstra to="n42">11</dijkstra>
+      <dijkstra to="n43">14</dijkstra>
+      <dijkstra to="n44">13</dijkstra>
+      <dijkstra to="n45">9</dijkstra>
+      <dijkstra to="n46">13</dijkstra>
+      <dijkstra to="n47">8</dijkstra>
+      <dijkstra to="n48">5</dijkstra>
+      <dijkstra to="n49">15</dijkstra>
+      <betweenness of="n17">36.33</betweenness>
+    </vertex>
+    <vertex id="n18">
+      <data key="v_id">18</data>
+      <dijkstra to="n0">7</dijkstra>
+      <dijkstra to="n1">12</dijkstra>
+      <dijkstra to="n2">8</dijkstra>
+      <dijkstra to="n3">6</dijkstra>
+      <dijkstra to="n4">10</dijkstra>
+      <dijkstra to="n5">11</dijkstra>
+      <dijkstra to="n6">10</dijkstra>
+      <dijkstra to="n7">2</dijkstra>
+      <dijkstra to="n8">5</dijkstra>
+      <dijkstra to="n9">18</dijkstra>
+      <dijkstra to="n10">19</dijkstra>
+      <dijkstra to="n11">6</dijkstra>
+      <dijkstra to="n12">9</dijkstra>
+      <dijkstra to="n13">5</dijkstra>
+      <dijkstra to="n14">10</dijkstra>
+      <dijkstra to="n15">11</dijkstra>
+      <dijkstra to="n16">1</dijkstra>
+      <dijkstra to="n17">11</dijkstra>
+      <dijkstra to="n18">0</dijkstra>
+      <dijkstra to="n19">10</dijkstra>
+      <dijkstra to="n20">13</dijkstra>
+      <dijkstra to="n21">6</dijkstra>
+      <dijkstra to="n22">7</dijkstra>
+      <dijkstra to="n23">3</dijkstra>
+      <dijkstra to="n24">9</dijkstra>
+      <dijkstra to="n25">8</dijkstra>
+      <dijkstra to="n26">15</dijkstra>
+      <dijkstra to="n27">8</dijkstra>
+      <dijkstra to="n28">8</dijkstra>
+      <dijkstra to="n29">4</dijkstra>
+      <dijkstra to="n30">6</dijkstra>
+      <dijkstra to="n31">6</dijkstra>
+      <dijkstra to="n32">13</dijkstra>
+      <dijkstra to="n33">11</dijkstra>
+      <dijkstra to="n34">9</dijkstra>
+      <dijkstra to="n35">9</dijkstra>
+      <dijkstra to="n36">9</dijkstra>
+      <dijkstra to="n37">11</dijkstra>
+      <dijkstra to="n38">4</dijkstra>
+      <dijkstra to="n39">12</dijkstra>
+      <dijkstra to="n40">8</dijkstra>
+      <dijkstra to="n41">12</dijkstra>
+      <dijkstra to="n42">8</dijkstra>
+      <dijkstra to="n43">11</dijkstra>
+      <dijkstra to="n44">10</dijkstra>
+      <dijkstra to="n45">6</dijkstra>
+      <dijkstra to="n46">10</dijkstra>
+      <dijkstra to="n47">5</dijkstra>
+      <dijkstra to="n48">7</dijkstra>
+      <dijkstra to="n49">14</dijkstra>
+      <betweenness of="n18">42.83</betweenness>
+    </vertex>
+    <vertex id="n19">
+      <data key="v_id">19</data>
+      <dijkstra to="n0">11</dijkstra>
+      <dijkstra to="n1">16</dijkstra>
+      <dijkstra to="n2">7</dijkstra>
+      <dijkstra to="n3">10</dijkstra>
+      <dijkstra to="n4">8</dijkstra>
+      <dijkstra to="n5">13</dijkstra>
+      <dijkstra to="n6">11</dijkstra>
+      <dijkstra to="n7">10</dijkstra>
+      <dijkstra to="n8">7</dijkstra>
+      <dijkstra to="n9">14</dijkstra>
+      <dijkstra to="n10">16</dijkstra>
+      <dijkstra to="n11">6</dijkstra>
+      <dijkstra to="n12">16</dijkstra>
+      <dijkstra to="n13">15</dijkstra>
+      <dijkstra to="n14">7</dijkstra>
+      <dijkstra to="n15">13</dijkstra>
+      <dijkstra to="n16">11</dijkstra>
+      <dijkstra to="n17">1</dijkstra>
+      <dijkstra to="n18">10</dijkstra>
+      <dijkstra to="n19">0</dijkstra>
+      <dijkstra to="n20">11</dijkstra>
+      <dijkstra to="n21">10</dijkstra>
+      <dijkstra to="n22">10</dijkstra>
+      <dijkstra to="n23">7</dijkstra>
+      <dijkstra to="n24">6</dijkstra>
+      <dijkstra to="n25">4</dijkstra>
+      <dijkstra to="n26">11</dijkstra>
+      <dijkstra to="n27">12</dijkstra>
+      <dijkstra to="n28">9</dijkstra>
+      <dijkstra to="n29">8</dijkstra>
+      <dijkstra to="n30">8</dijkstra>
+      <dijkstra to="n31">15</dijkstra>
+      <dijkstra to="n32">5</dijkstra>
+      <dijkstra to="n33">15</dijkstra>
+      <dijkstra to="n34">8</dijkstra>
+      <dijkstra to="n35">15</dijkstra>
+      <dijkstra to="n36">13</dijkstra>
+      <dijkstra to="n37">10</dijkstra>
+      <dijkstra to="n38">9</dijkstra>
+      <dijkstra to="n39">9</dijkstra>
+      <dijkstra to="n40">9</dijkstra>
+      <dijkstra to="n41">9</dijkstra>
+      <dijkstra to="n42">12</dijkstra>
+      <dijkstra to="n43">13</dijkstra>
+      <dijkstra to="n44">12</dijkstra>
+      <dijkstra to="n45">8</dijkstra>
+      <dijkstra to="n46">14</dijkstra>
+      <dijkstra to="n47">7</dijkstra>
+      <dijkstra to="n48">4</dijkstra>
+      <dijkstra to="n49">14</dijkstra>
+      <betweenness of="n19">29.83</betweenness>
+    </vertex>
+    <vertex id="n20">
+      <data key="v_id">20</data>
+      <dijkstra to="n0">7</dijkstra>
+      <dijkstra to="n1">16</dijkstra>
+      <dijkstra to="n2">6</dijkstra>
+      <dijkstra to="n3">7</dijkstra>
+      <dijkstra to="n4">9</dijkstra>
+      <dijkstra to="n5">11</dijkstra>
+      <dijkstra to="n6">9</dijkstra>
+      <dijkstra to="n7">12</dijkstra>
+      <dijkstra to="n8">9</dijkstra>
+      <dijkstra to="n9">9</dijkstra>
+      <dijkstra to="n10">16</dijkstra>
+      <dijkstra to="n11">8</dijkstra>
+      <dijkstra to="n12">9</dijkstra>
+      <dijkstra to="n13">9</dijkstra>
+      <dijkstra to="n14">7</dijkstra>
+      <dijkstra to="n15">16</dijkstra>
+      <dijkstra to="n16">13</dijkstra>
+      <dijkstra to="n17">12</dijkstra>
+      <dijkstra to="n18">13</dijkstra>
+      <dijkstra to="n19">11</dijkstra>
+      <dijkstra to="n20">0</dijkstra>
+      <dijkstra to="n21">8</dijkstra>
+      <dijkstra to="n22">8</dijkstra>
+      <dijkstra to="n23">10</dijkstra>
+      <dijkstra to="n24">11</dijkstra>
+      <dijkstra to="n25">10</dijkstra>
+      <dijkstra to="n26">6</dijkstra>
+      <dijkstra to="n27">10</dijkstra>
+      <dijkstra to="n28">7</dijkstra>
+      <dijkstra to="n29">10</dijkstra>
+      <dijkstra to="n30">10</dijkstra>
+      <dijkstra to="n31">12</dijkstra>
+      <dijkstra to="n32">15</dijkstra>
+      <dijkstra to="n33">13</dijkstra>
+      <dijkstra to="n34">6</dijkstra>
+      <dijkstra to="n35">14</dijkstra>
+      <dijkstra to="n36">10</dijkstra>
+      <dijkstra to="n37">4</dijkstra>
+      <dijkstra to="n38">14</dijkstra>
+      <dijkstra to="n39">2</dijkstra>
+      <dijkstra to="n40">7</dijkstra>
+      <dijkstra to="n41">14</dijkstra>
+      <dijkstra to="n42">6</dijkstra>
+      <dijkstra to="n43">2</dijkstra>
+      <dijkstra to="n44">16</dijkstra>
+      <dijkstra to="n45">11</dijkstra>
+      <dijkstra to="n46">4</dijkstra>
+      <dijkstra to="n47">11</dijkstra>
+      <dijkstra to="n48">9</dijkstra>
+      <dijkstra to="n49">18</dijkstra>
+      <betweenness of="n20">49.83</betweenness>
+    </vertex>
+    <vertex id="n21">
+      <data key="v_id">21</data>
+      <dijkstra to="n0">1</dijkstra>
+      <dijkstra to="n1">11</dijkstra>
+      <dijkstra to="n2">6</dijkstra>
+      <dijkstra to="n3">11</dijkstra>
+      <dijkstra to="n4">4</dijkstra>
+      <dijkstra to="n5">6</dijkstra>
+      <dijkstra to="n6">4</dijkstra>
+      <dijkstra to="n7">4</dijkstra>
+      <dijkstra to="n8">5</dijkstra>
+      <dijkstra to="n9">14</dijkstra>
+      <dijkstra to="n10">13</dijkstra>
+      <dijkstra to="n11">4</dijkstra>
+      <dijkstra to="n12">9</dijkstra>
+      <dijkstra to="n13">9</dijkstra>
+      <dijkstra to="n14">4</dijkstra>
+      <dijkstra to="n15">9</dijkstra>
+      <dijkstra to="n16">5</dijkstra>
+      <dijkstra to="n17">9</dijkstra>
+      <dijkstra to="n18">6</dijkstra>
+      <dijkstra to="n19">10</dijkstra>
+      <dijkstra to="n20">8</dijkstra>
+      <dijkstra to="n21">0</dijkstra>
+      <dijkstra to="n22">1</dijkstra>
+      <dijkstra to="n23">9</dijkstra>
+      <dijkstra to="n24">8</dijkstra>
+      <dijkstra to="n25">6</dijkstra>
+      <dijkstra to="n26">13</dijkstra>
+      <dijkstra to="n27">2</dijkstra>
+      <dijkstra to="n28">2</dijkstra>
+      <dijkstra to="n29">2</dijkstra>
+      <dijkstra to="n30">6</dijkstra>
+      <dijkstra to="n31">6</dijkstra>
+      <dijkstra to="n32">12</dijkstra>
+      <dijkstra to="n33">8</dijkstra>
+      <dijkstra to="n34">3</dijkstra>
+      <dijkstra to="n35">9</dijkstra>
+      <dijkstra to="n36">3</dijkstra>
+      <dijkstra to="n37">5</dijkstra>
+      <dijkstra to="n38">8</dijkstra>
+      <dijkstra to="n39">10</dijkstra>
+      <dijkstra to="n40">2</dijkstra>
+      <dijkstra to="n41">11</dijkstra>
+      <dijkstra to="n42">2</dijkstra>
+      <dijkstra to="n43">6</dijkstra>
+      <dijkstra to="n44">8</dijkstra>
+      <dijkstra to="n45">4</dijkstra>
+      <dijkstra to="n46">4</dijkstra>
+      <dijkstra to="n47">3</dijkstra>
+      <dijkstra to="n48">6</dijkstra>
+      <dijkstra to="n49">18</dijkstra>
+      <betweenness of="n21">312.67</betweenness>
+    </vertex>
+    <vertex id="n22">
+      <data key="v_id">22</data>
+      <dijkstra to="n0">2</dijkstra>
+      <dijkstra to="n1">10</dijkstra>
+      <dijkstra to="n2">7</dijkstra>
+      <dijkstra to="n3">10</dijkstra>
+      <dijkstra to="n4">5</dijkstra>
+      <dijkstra to="n5">5</dijkstra>
+      <dijkstra to="n6">5</dijkstra>
+      <dijkstra to="n7">5</dijkstra>
+      <dijkstra to="n8">6</dijkstra>
+      <dijkstra to="n9">13</dijkstra>
+      <dijkstra to="n10">12</dijkstra>
+      <dijkstra to="n11">5</dijkstra>
+      <dijkstra to="n12">8</dijkstra>
+      <dijkstra to="n13">10</dijkstra>
+      <dijkstra to="n14">3</dijkstra>
+      <dijkstra to="n15">10</dijkstra>
+      <dijkstra to="n16">6</dijkstra>
+      <dijkstra to="n17">9</dijkstra>
+      <dijkstra to="n18">7</dijkstra>
+      <dijkstra to="n19">10</dijkstra>
+      <dijkstra to="n20">8</dijkstra>
+      <dijkstra to="n21">1</dijkstra>
+      <dijkstra to="n22">0</dijkstra>
+      <dijkstra to="n23">10</dijkstra>
+      <dijkstra to="n24">9</dijkstra>
+      <dijkstra to="n25">7</dijkstra>
+      <dijkstra to="n26">14</dijkstra>
+      <dijkstra to="n27">3</dijkstra>
+      <dijkstra to="n28">1</dijkstra>
+      <dijkstra to="n29">3</dijkstra>
+      <dijkstra to="n30">7</dijkstra>
+      <dijkstra to="n31">5</dijkstra>
+      <dijkstra to="n32">13</dijkstra>
+      <dijkstra to="n33">7</dijkstra>
+      <dijkstra to="n34">2</dijkstra>
+      <dijkstra to="n35">8</dijkstra>
+      <dijkstra to="n36">4</dijkstra>
+      <dijkstra to="n37">4</dijkstra>
+      <dijkstra to="n38">9</dijkstra>
+      <dijkstra to="n39">10</dijkstra>
+      <dijkstra to="n40">3</dijkstra>
+      <dijkstra to="n41">12</dijkstra>
+      <dijkstra to="n42">3</dijkstra>
+      <dijkstra to="n43">7</dijkstra>
+      <dijkstra to="n44">9</dijkstra>
+      <dijkstra to="n45">5</dijkstra>
+      <dijkstra to="n46">5</dijkstra>
+      <dijkstra to="n47">4</dijkstra>
+      <dijkstra to="n48">7</dijkstra>
+      <dijkstra to="n49">19</dijkstra>
+      <betweenness of="n22">120.0</betweenness>
+    </vertex>
+    <vertex id="n23">
+      <data key="v_id">23</data>
+      <dijkstra to="n0">10</dijkstra>
+      <dijkstra to="n1">13</dijkstra>
+      <dijkstra to="n2">10</dijkstra>
+      <dijkstra to="n3">3</dijkstra>
+      <dijkstra to="n4">10</dijkstra>
+      <dijkstra to="n5">8</dijkstra>
+      <dijkstra to="n6">13</dijkstra>
+      <dijkstra to="n7">5</dijkstra>
+      <dijkstra to="n8">8</dijkstra>
+      <dijkstra to="n9">16</dijkstra>
+      <dijkstra to="n10">22</dijkstra>
+      <dijkstra to="n11">8</dijkstra>
+      <dijkstra to="n12">12</dijkstra>
+      <dijkstra to="n13">8</dijkstra>
+      <dijkstra to="n14">13</dijkstra>
+      <dijkstra to="n15">14</dijkstra>
+      <dijkstra to="n16">4</dijkstra>
+      <dijkstra to="n17">8</dijkstra>
+      <dijkstra to="n18">3</dijkstra>
+      <dijkstra to="n19">7</dijkstra>
+      <dijkstra to="n20">10</dijkstra>
+      <dijkstra to="n21">9</dijkstra>
+      <dijkstra to="n22">10</dijkstra>
+      <dijkstra to="n23">0</dijkstra>
+      <dijkstra to="n24">12</dijkstra>
+      <dijkstra to="n25">6</dijkstra>
+      <dijkstra to="n26">13</dijkstra>
+      <dijkstra to="n27">11</dijkstra>
+      <dijkstra to="n28">11</dijkstra>
+      <dijkstra to="n29">7</dijkstra>
+      <dijkstra to="n30">9</dijkstra>
+      <dijkstra to="n31">9</dijkstra>
+      <dijkstra to="n32">12</dijkstra>
+      <dijkstra to="n33">10</dijkstra>
+      <dijkstra to="n34">12</dijkstra>
+      <dijkstra to="n35">11</dijkstra>
+      <dijkstra to="n36">12</dijkstra>
+      <dijkstra to="n37">14</dijkstra>
+      <dijkstra to="n38">7</dijkstra>
+      <dijkstra to="n39">12</dijkstra>
+      <dijkstra to="n40">11</dijkstra>
+      <dijkstra to="n41">15</dijkstra>
+      <dijkstra to="n42">11</dijkstra>
+      <dijkstra to="n43">8</dijkstra>
+      <dijkstra to="n44">13</dijkstra>
+      <dijkstra to="n45">9</dijkstra>
+      <dijkstra to="n46">10</dijkstra>
+      <dijkstra to="n47">8</dijkstra>
+      <dijkstra to="n48">10</dijkstra>
+      <dijkstra to="n49">17</dijkstra>
+      <betweenness of="n23">24.67</betweenness>
+    </vertex>
+    <vertex id="n24">
+      <data key="v_id">24</data>
+      <dijkstra to="n0">9</dijkstra>
+      <dijkstra to="n1">14</dijkstra>
+      <dijkstra to="n2">5</dijkstra>
+      <dijkstra to="n3">15</dijkstra>
+      <dijkstra to="n4">12</dijkstra>
+      <dijkstra to="n5">11</dijkstra>
+      <dijkstra to="n6">12</dijkstra>
+      <dijkstra to="n7">8</dijkstra>
+      <dijkstra to="n8">8</dijkstra>
+      <dijkstra to="n9">16</dijkstra>
+      <dijkstra to="n10">21</dijkstra>
+      <dijkstra to="n11">7</dijkstra>
+      <dijkstra to="n12">16</dijkstra>
+      <dijkstra to="n13">13</dijkstra>
+      <dijkstra to="n14">12</dijkstra>
+      <dijkstra to="n15">11</dijkstra>
+      <dijkstra to="n16">9</dijkstra>
+      <dijkstra to="n17">7</dijkstra>
+      <dijkstra to="n18">9</dijkstra>
+      <dijkstra to="n19">6</dijkstra>
+      <dijkstra to="n20">11</dijkstra>
+      <dijkstra to="n21">8</dijkstra>
+      <dijkstra to="n22">9</dijkstra>
+      <dijkstra to="n23">12</dijkstra>
+      <dijkstra to="n24">0</dijkstra>
+      <dijkstra to="n25">9</dijkstra>
+      <dijkstra to="n26">13</dijkstra>
+      <dijkstra to="n27">10</dijkstra>
+      <dijkstra to="n28">10</dijkstra>
+      <dijkstra to="n29">6</dijkstra>
+      <dijkstra to="n30">9</dijkstra>
+      <dijkstra to="n31">14</dijkstra>
+      <dijkstra to="n32">8</dijkstra>
+      <dijkstra to="n33">13</dijkstra>
+      <dijkstra to="n34">11</dijkstra>
+      <dijkstra to="n35">14</dijkstra>
+      <dijkstra to="n36">11</dijkstra>
+      <dijkstra to="n37">11</dijkstra>
+      <dijkstra to="n38">7</dijkstra>
+      <dijkstra to="n39">9</dijkstra>
+      <dijkstra to="n40">10</dijkstra>
+      <dijkstra to="n41">3</dijkstra>
+      <dijkstra to="n42">10</dijkstra>
+      <dijkstra to="n43">13</dijkstra>
+      <dijkstra to="n44">10</dijkstra>
+      <dijkstra to="n45">6</dijkstra>
+      <dijkstra to="n46">12</dijkstra>
+      <dijkstra to="n47">5</dijkstra>
+      <dijkstra to="n48">2</dijkstra>
+      <dijkstra to="n49">17</dijkstra>
+      <betweenness of="n24">48.0</betweenness>
+    </vertex>
+    <vertex id="n25">
+      <data key="v_id">25</data>
+      <dijkstra to="n0">7</dijkstra>
+      <dijkstra to="n1">13</dijkstra>
+      <dijkstra to="n2">4</dijkstra>
+      <dijkstra to="n3">9</dijkstra>
+      <dijkstra to="n4">4</dijkstra>
+      <dijkstra to="n5">10</dijkstra>
+      <dijkstra to="n6">7</dijkstra>
+      <dijkstra to="n7">6</dijkstra>
+      <dijkstra to="n8">3</dijkstra>
+      <dijkstra to="n9">10</dijkstra>
+      <dijkstra to="n10">17</dijkstra>
+      <dijkstra to="n11">2</dijkstra>
+      <dijkstra to="n12">15</dijkstra>
+      <dijkstra to="n13">11</dijkstra>
+      <dijkstra to="n14">8</dijkstra>
+      <dijkstra to="n15">10</dijkstra>
+      <dijkstra to="n16">7</dijkstra>
+      <dijkstra to="n17">3</dijkstra>
+      <dijkstra to="n18">8</dijkstra>
+      <dijkstra to="n19">4</dijkstra>
+      <dijkstra to="n20">10</dijkstra>
+      <dijkstra to="n21">6</dijkstra>
+      <dijkstra to="n22">7</dijkstra>
+      <dijkstra to="n23">6</dijkstra>
+      <dijkstra to="n24">9</dijkstra>
+      <dijkstra to="n25">0</dijkstra>
+      <dijkstra to="n26">7</dijkstra>
+      <dijkstra to="n27">8</dijkstra>
+      <dijkstra to="n28">6</dijkstra>
+      <dijkstra to="n29">6</dijkstra>
+      <dijkstra to="n30">4</dijkstra>
+      <dijkstra to="n31">12</dijkstra>
+      <dijkstra to="n32">9</dijkstra>
+      <dijkstra to="n33">12</dijkstra>
+      <dijkstra to="n34">7</dijkstra>
+      <dijkstra to="n35">11</dijkstra>
+      <dijkstra to="n36">9</dijkstra>
+      <dijkstra to="n37">9</dijkstra>
+      <dijkstra to="n38">10</dijkstra>
+      <dijkstra to="n39">8</dijkstra>
+      <dijkstra to="n40">6</dijkstra>
+      <dijkstra to="n41">12</dijkstra>
+      <dijkstra to="n42">8</dijkstra>
+      <dijkstra to="n43">12</dijkstra>
+      <dijkstra to="n44">10</dijkstra>
+      <dijkstra to="n45">6</dijkstra>
+      <dijkstra to="n46">10</dijkstra>
+      <dijkstra to="n47">5</dijkstra>
+      <dijkstra to="n48">7</dijkstra>
+      <dijkstra to="n49">18</dijkstra>
+      <betweenness of="n25">73.17</betweenness>
+    </vertex>
+    <vertex id="n26">
+      <data key="v_id">26</data>
+      <dijkstra to="n0">12</dijkstra>
+      <dijkstra to="n1">16</dijkstra>
+      <dijkstra to="n2">8</dijkstra>
+      <dijkstra to="n3">13</dijkstra>
+      <dijkstra to="n4">11</dijkstra>
+      <dijkstra to="n5">11</dijkstra>
+      <dijkstra to="n6">14</dijkstra>
+      <dijkstra to="n7">13</dijkstra>
+      <dijkstra to="n8">10</dijkstra>
+      <dijkstra to="n9">3</dijkstra>
+      <dijkstra to="n10">22</dijkstra>
+      <dijkstra to="n11">9</dijkstra>
+      <dijkstra to="n12">11</dijkstra>
+      <dijkstra to="n13">15</dijkstra>
+      <dijkstra to="n14">13</dijkstra>
+      <dijkstra to="n15">17</dijkstra>
+      <dijkstra to="n16">14</dijkstra>
+      <dijkstra to="n17">10</dijkstra>
+      <dijkstra to="n18">15</dijkstra>
+      <dijkstra to="n19">11</dijkstra>
+      <dijkstra to="n20">6</dijkstra>
+      <dijkstra to="n21">13</dijkstra>
+      <dijkstra to="n22">14</dijkstra>
+      <dijkstra to="n23">13</dijkstra>
+      <dijkstra to="n24">13</dijkstra>
+      <dijkstra to="n25">7</dijkstra>
+      <dijkstra to="n26">0</dijkstra>
+      <dijkstra to="n27">15</dijkstra>
+      <dijkstra to="n28">13</dijkstra>
+      <dijkstra to="n29">13</dijkstra>
+      <dijkstra to="n30">11</dijkstra>
+      <dijkstra to="n31">14</dijkstra>
+      <dijkstra to="n32">16</dijkstra>
+      <dijkstra to="n33">13</dijkstra>
+      <dijkstra to="n34">12</dijkstra>
+      <dijkstra to="n35">14</dijkstra>
+      <dijkstra to="n36">16</dijkstra>
+      <dijkstra to="n37">10</dijkstra>
+      <dijkstra to="n38">16</dijkstra>
+      <dijkstra to="n39">4</dijkstra>
+      <dijkstra to="n40">13</dijkstra>
+      <dijkstra to="n41">16</dijkstra>
+      <dijkstra to="n42">11</dijkstra>
+      <dijkstra to="n43">8</dijkstra>
+      <dijkstra to="n44">17</dijkstra>
+      <dijkstra to="n45">13</dijkstra>
+      <dijkstra to="n46">9</dijkstra>
+      <dijkstra to="n47">12</dijkstra>
+      <dijkstra to="n48">11</dijkstra>
+      <dijkstra to="n49">24</dijkstra>
+      <betweenness of="n26">27.0</betweenness>
+    </vertex>
+    <vertex id="n27">
+      <data key="v_id">27</data>
+      <dijkstra to="n0">3</dijkstra>
+      <dijkstra to="n1">13</dijkstra>
+      <dijkstra to="n2">8</dijkstra>
+      <dijkstra to="n3">13</dijkstra>
+      <dijkstra to="n4">6</dijkstra>
+      <dijkstra to="n5">8</dijkstra>
+      <dijkstra to="n6">6</dijkstra>
+      <dijkstra to="n7">6</dijkstra>
+      <dijkstra to="n8">7</dijkstra>
+      <dijkstra to="n9">16</dijkstra>
+      <dijkstra to="n10">15</dijkstra>
+      <dijkstra to="n11">6</dijkstra>
+      <dijkstra to="n12">11</dijkstra>
+      <dijkstra to="n13">11</dijkstra>
+      <dijkstra to="n14">6</dijkstra>
+      <dijkstra to="n15">11</dijkstra>
+      <dijkstra to="n16">7</dijkstra>
+      <dijkstra to="n17">11</dijkstra>
+      <dijkstra to="n18">8</dijkstra>
+      <dijkstra to="n19">12</dijkstra>
+      <dijkstra to="n20">10</dijkstra>
+      <dijkstra to="n21">2</dijkstra>
+      <dijkstra to="n22">3</dijkstra>
+      <dijkstra to="n23">11</dijkstra>
+      <dijkstra to="n24">10</dijkstra>
+      <dijkstra to="n25">8</dijkstra>
+      <dijkstra to="n26">15</dijkstra>
+      <dijkstra to="n27">0</dijkstra>
+      <dijkstra to="n28">4</dijkstra>
+      <dijkstra to="n29">4</dijkstra>
+      <dijkstra to="n30">8</dijkstra>
+      <dijkstra to="n31">8</dijkstra>
+      <dijkstra to="n32">14</dijkstra>
+      <dijkstra to="n33">10</dijkstra>
+      <dijkstra to="n34">5</dijkstra>
+      <dijkstra to="n35">11</dijkstra>
+      <dijkstra to="n36">1</dijkstra>
+      <dijkstra to="n37">7</dijkstra>
+      <dijkstra to="n38">10</dijkstra>
+      <dijkstra to="n39">12</dijkstra>
+      <dijkstra to="n40">4</dijkstra>
+      <dijkstra to="n41">13</dijkstra>
+      <dijkstra to="n42">4</dijkstra>
+      <dijkstra to="n43">8</dijkstra>
+      <dijkstra to="n44">10</dijkstra>
+      <dijkstra to="n45">6</dijkstra>
+      <dijkstra to="n46">6</dijkstra>
+      <dijkstra to="n47">5</dijkstra>
+      <dijkstra to="n48">8</dijkstra>
+      <dijkstra to="n49">20</dijkstra>
+      <betweenness of="n27">42.0</betweenness>
+    </vertex>
+    <vertex id="n28">
+      <data key="v_id">28</data>
+      <dijkstra to="n0">3</dijkstra>
+      <dijkstra to="n1">9</dijkstra>
+      <dijkstra to="n2">6</dijkstra>
+      <dijkstra to="n3">9</dijkstra>
+      <dijkstra to="n4">4</dijkstra>
+      <dijkstra to="n5">4</dijkstra>
+      <dijkstra to="n6">4</dijkstra>
+      <dijkstra to="n7">6</dijkstra>
+      <dijkstra to="n8">5</dijkstra>
+      <dijkstra to="n9">12</dijkstra>
+      <dijkstra to="n10">11</dijkstra>
+      <dijkstra to="n11">4</dijkstra>
+      <dijkstra to="n12">9</dijkstra>
+      <dijkstra to="n13">11</dijkstra>
+      <dijkstra to="n14">2</dijkstra>
+      <dijkstra to="n15">9</dijkstra>
+      <dijkstra to="n16">7</dijkstra>
+      <dijkstra to="n17">8</dijkstra>
+      <dijkstra to="n18">8</dijkstra>
+      <dijkstra to="n19">9</dijkstra>
+      <dijkstra to="n20">7</dijkstra>
+      <dijkstra to="n21">2</dijkstra>
+      <dijkstra to="n22">1</dijkstra>
+      <dijkstra to="n23">11</dijkstra>
+      <dijkstra to="n24">10</dijkstra>
+      <dijkstra to="n25">6</dijkstra>
+      <dijkstra to="n26">13</dijkstra>
+      <dijkstra to="n27">4</dijkstra>
+      <dijkstra to="n28">0</dijkstra>
+      <dijkstra to="n29">4</dijkstra>
+      <dijkstra to="n30">6</dijkstra>
+      <dijkstra to="n31">6</dijkstra>
+      <dijkstra to="n32">14</dijkstra>
+      <dijkstra to="n33">6</dijkstra>
+      <dijkstra to="n34">1</dijkstra>
+      <dijkstra to="n35">7</dijkstra>
+      <dijkstra to="n36">5</dijkstra>
+      <dijkstra to="n37">3</dijkstra>
+      <dijkstra to="n38">10</dijkstra>
+      <dijkstra to="n39">9</dijkstra>
+      <dijkstra to="n40">2</dijkstra>
+      <dijkstra to="n41">13</dijkstra>
+      <dijkstra to="n42">4</dijkstra>
+      <dijkstra to="n43">8</dijkstra>
+      <dijkstra to="n44">10</dijkstra>
+      <dijkstra to="n45">4</dijkstra>
+      <dijkstra to="n46">6</dijkstra>
+      <dijkstra to="n47">5</dijkstra>
+      <dijkstra to="n48">8</dijkstra>
+      <dijkstra to="n49">20</dijkstra>
+      <betweenness of="n28">187.92</betweenness>
+    </vertex>
+    <vertex id="n29">
+      <data key="v_id">29</data>
+      <dijkstra to="n0">3</dijkstra>
+      <dijkstra to="n1">10</dijkstra>
+      <dijkstra to="n2">6</dijkstra>
+      <dijkstra to="n3">10</dijkstra>
+      <dijkstra to="n4">6</dijkstra>
+      <dijkstra to="n5">7</dijkstra>
+      <dijkstra to="n6">6</dijkstra>
+      <dijkstra to="n7">2</dijkstra>
+      <dijkstra to="n8">5</dijkstra>
+      <dijkstra to="n9">15</dijkstra>
+      <dijkstra to="n10">15</dijkstra>
+      <dijkstra to="n11">4</dijkstra>
+      <dijkstra to="n12">11</dijkstra>
+      <dijkstra to="n13">7</dijkstra>
+      <dijkstra to="n14">6</dijkstra>
+      <dijkstra to="n15">7</dijkstra>
+      <dijkstra to="n16">3</dijkstra>
+      <dijkstra to="n17">9</dijkstra>
+      <dijkstra to="n18">4</dijkstra>
+      <dijkstra to="n19">8</dijkstra>
+      <dijkstra to="n20">10</dijkstra>
+      <dijkstra to="n21">2</dijkstra>
+      <dijkstra to="n22">3</dijkstra>
+      <dijkstra to="n23">7</dijkstra>
+      <dijkstra to="n24">6</dijkstra>
+      <dijkstra to="n25">6</dijkstra>
+      <dijkstra to="n26">13</dijkstra>
+      <dijkstra to="n27">4</dijkstra>
+      <dijkstra to="n28">4</dijkstra>
+      <dijkstra to="n29">0</dijkstra>
+      <dijkstra to="n30">6</dijkstra>
+      <dijkstra to="n31">8</dijkstra>
+      <dijkstra to="n32">10</dijkstra>
+      <dijkstra to="n33">7</dijkstra>
+      <dijkstra to="n34">5</dijkstra>
+      <dijkstra to="n35">9</dijkstra>
+      <dijkstra to="n36">5</dijkstra>
+      <dijkstra to="n37">7</dijkstra>
+      <dijkstra to="n38">6</dijkstra>
+      <dijkstra to="n39">10</dijkstra>
+      <dijkstra to="n40">4</dijkstra>
+      <dijkstra to="n41">9</dijkstra>
+      <dijkstra to="n42">4</dijkstra>
+      <dijkstra to="n43">8</dijkstra>
+      <dijkstra to="n44">6</dijkstra>
+      <dijkstra to="n45">2</dijkstra>
+      <dijkstra to="n46">6</dijkstra>
+      <dijkstra to="n47">1</dijkstra>
+      <dijkstra to="n48">4</dijkstra>
+      <dijkstra to="n49">16</dijkstra>
+      <betweenness of="n29">251.83</betweenness>
+    </vertex>
+    <vertex id="n30">
+      <data key="v_id">30</data>
+      <dijkstra to="n0">5</dijkstra>
+      <dijkstra to="n1">9</dijkstra>
+      <dijkstra to="n2">4</dijkstra>
+      <dijkstra to="n3">12</dijkstra>
+      <dijkstra to="n4">8</dijkstra>
+      <dijkstra to="n5">10</dijkstra>
+      <dijkstra to="n6">7</dijkstra>
+      <dijkstra to="n7">4</dijkstra>
+      <dijkstra to="n8">1</dijkstra>
+      <dijkstra to="n9">14</dijkstra>
+      <dijkstra to="n10">17</dijkstra>
+      <dijkstra to="n11">2</dijkstra>
+      <dijkstra to="n12">13</dijkstra>
+      <dijkstra to="n13">9</dijkstra>
+      <dijkstra to="n14">8</dijkstra>
+      <dijkstra to="n15">6</dijkstra>
+      <dijkstra to="n16">5</dijkstra>
+      <dijkstra to="n17">7</dijkstra>
+      <dijkstra to="n18">6</dijkstra>
+      <dijkstra to="n19">8</dijkstra>
+      <dijkstra to="n20">10</dijkstra>
+      <dijkstra to="n21">6</dijkstra>
+      <dijkstra to="n22">7</dijkstra>
+      <dijkstra to="n23">9</dijkstra>
+      <dijkstra to="n24">9</dijkstra>
+      <dijkstra to="n25">4</dijkstra>
+      <dijkstra to="n26">11</dijkstra>
+      <dijkstra to="n27">8</dijkstra>
+      <dijkstra to="n28">6</dijkstra>
+      <dijkstra to="n29">6</dijkstra>
+      <dijkstra to="n30">0</dijkstra>
+      <dijkstra to="n31">10</dijkstra>
+      <dijkstra to="n32">13</dijkstra>
+      <dijkstra to="n33">12</dijkstra>
+      <dijkstra to="n34">7</dijkstra>
+      <dijkstra to="n35">7</dijkstra>
+      <dijkstra to="n36">9</dijkstra>
+      <dijkstra to="n37">9</dijkstra>
+      <dijkstra to="n38">8</dijkstra>
+      <dijkstra to="n39">8</dijkstra>
+      <dijkstra to="n40">8</dijkstra>
+      <dijkstra to="n41">12</dijkstra>
+      <dijkstra to="n42">4</dijkstra>
+      <dijkstra to="n43">8</dijkstra>
+      <dijkstra to="n44">10</dijkstra>
+      <dijkstra to="n45">6</dijkstra>
+      <dijkstra to="n46">6</dijkstra>
+      <dijkstra to="n47">5</dijkstra>
+      <dijkstra to="n48">7</dijkstra>
+      <dijkstra to="n49">18</dijkstra>
+      <betweenness of="n30">22.42</betweenness>
+    </vertex>
+    <vertex id="n31">
+      <data key="v_id">31</data>
+      <dijkstra to="n0">7</dijkstra>
+      <dijkstra to="n1">15</dijkstra>
+      <dijkstra to="n2">12</dijkstra>
+      <dijkstra to="n3">12</dijkstra>
+      <dijkstra to="n4">10</dijkstra>
+      <dijkstra to="n5">10</dijkstra>
+      <dijkstra to="n6">10</dijkstra>
+      <dijkstra to="n7">6</dijkstra>
+      <dijkstra to="n8">9</dijkstra>
+      <dijkstra to="n9">17</dijkstra>
+      <dijkstra to="n10">17</dijkstra>
+      <dijkstra to="n11">10</dijkstra>
+      <dijkstra to="n12">3</dijkstra>
+      <dijkstra to="n13">9</dijkstra>
+      <dijkstra to="n14">8</dijkstra>
+      <dijkstra to="n15">15</dijkstra>
+      <dijkstra to="n16">5</dijkstra>
+      <dijkstra to="n17">14</dijkstra>
+      <dijkstra to="n18">6</dijkstra>
+      <dijkstra to="n19">15</dijkstra>
+      <dijkstra to="n20">12</dijkstra>
+      <dijkstra to="n21">6</dijkstra>
+      <dijkstra to="n22">5</dijkstra>
+      <dijkstra to="n23">9</dijkstra>
+      <dijkstra to="n24">14</dijkstra>
+      <dijkstra to="n25">12</dijkstra>
+      <dijkstra to="n26">14</dijkstra>
+      <dijkstra to="n27">8</dijkstra>
+      <dijkstra to="n28">6</dijkstra>
+      <dijkstra to="n29">8</dijkstra>
+      <dijkstra to="n30">10</dijkstra>
+      <dijkstra to="n31">0</dijkstra>
+      <dijkstra to="n32">17</dijkstra>
+      <dijkstra to="n33">12</dijkstra>
+      <dijkstra to="n34">7</dijkstra>
+      <dijkstra to="n35">13</dijkstra>
+      <dijkstra to="n36">9</dijkstra>
+      <dijkstra to="n37">9</dijkstra>
+      <dijkstra to="n38">8</dijkstra>
+      <dijkstra to="n39">10</dijkstra>
+      <dijkstra to="n40">8</dijkstra>
+      <dijkstra to="n41">17</dijkstra>
+      <dijkstra to="n42">8</dijkstra>
+      <dijkstra to="n43">12</dijkstra>
+      <dijkstra to="n44">14</dijkstra>
+      <dijkstra to="n45">10</dijkstra>
+      <dijkstra to="n46">10</dijkstra>
+      <dijkstra to="n47">9</dijkstra>
+      <dijkstra to="n48">12</dijkstra>
+      <dijkstra to="n49">18</dijkstra>
+      <betweenness of="n31">32.5</betweenness>
+    </vertex>
+    <vertex id="n32">
+      <data key="v_id">32</data>
+      <dijkstra to="n0">13</dijkstra>
+      <dijkstra to="n1">17</dijkstra>
+      <dijkstra to="n2">9</dijkstra>
+      <dijkstra to="n3">15</dijkstra>
+      <dijkstra to="n4">13</dijkstra>
+      <dijkstra to="n5">15</dijkstra>
+      <dijkstra to="n6">16</dijkstra>
+      <dijkstra to="n7">12</dijkstra>
+      <dijkstra to="n8">12</dijkstra>
+      <dijkstra to="n9">19</dijkstra>
+      <dijkstra to="n10">21</dijkstra>
+      <dijkstra to="n11">11</dijkstra>
+      <dijkstra to="n12">20</dijkstra>
+      <dijkstra to="n13">16</dijkstra>
+      <dijkstra to="n14">12</dijkstra>
+      <dijkstra to="n15">15</dijkstra>
+      <dijkstra to="n16">12</dijkstra>
+      <dijkstra to="n17">6</dijkstra>
+      <dijkstra to="n18">13</dijkstra>
+      <dijkstra to="n19">5</dijkstra>
+      <dijkstra to="n20">15</dijkstra>
+      <dijkstra to="n21">12</dijkstra>
+      <dijkstra to="n22">13</dijkstra>
+      <dijkstra to="n23">12</dijkstra>
+      <dijkstra to="n24">8</dijkstra>
+      <dijkstra to="n25">9</dijkstra>
+      <dijkstra to="n26">16</dijkstra>
+      <dijkstra to="n27">14</dijkstra>
+      <dijkstra to="n28">14</dijkstra>
+      <dijkstra to="n29">10</dijkstra>
+      <dijkstra to="n30">13</dijkstra>
+      <dijkstra to="n31">17</dijkstra>
+      <dijkstra to="n32">0</dijkstra>
+      <dijkstra to="n33">17</dijkstra>
+      <dijkstra to="n34">13</dijkstra>
+      <dijkstra to="n35">18</dijkstra>
+      <dijkstra to="n36">15</dijkstra>
+      <dijkstra to="n37">15</dijkstra>
+      <dijkstra to="n38">9</dijkstra>
+      <dijkstra to="n39">13</dijkstra>
+      <dijkstra to="n40">14</dijkstra>
+      <dijkstra to="n41">11</dijkstra>
+      <dijkstra to="n42">14</dijkstra>
+      <dijkstra to="n43">17</dijkstra>
+      <dijkstra to="n44">14</dijkstra>
+      <dijkstra to="n45">10</dijkstra>
+      <dijkstra to="n46">16</dijkstra>
+      <dijkstra to="n47">9</dijkstra>
+      <dijkstra to="n48">6</dijkstra>
+      <dijkstra to="n49">9</dijkstra>
+      <betweenness of="n32">9.5</betweenness>
+    </vertex>
+    <vertex id="n33">
+      <data key="v_id">33</data>
+      <dijkstra to="n0">9</dijkstra>
+      <dijkstra to="n1">7</dijkstra>
+      <dijkstra to="n2">12</dijkstra>
+      <dijkstra to="n3">7</dijkstra>
+      <dijkstra to="n4">10</dijkstra>
+      <dijkstra to="n5">2</dijkstra>
+      <dijkstra to="n6">10</dijkstra>
+      <dijkstra to="n7">9</dijkstra>
+      <dijkstra to="n8">11</dijkstra>
+      <dijkstra to="n9">10</dijkstra>
+      <dijkstra to="n10">17</dijkstra>
+      <dijkstra to="n11">10</dijkstra>
+      <dijkstra to="n12">15</dijkstra>
+      <dijkstra to="n13">14</dijkstra>
+      <dijkstra to="n14">8</dijkstra>
+      <dijkstra to="n15">10</dijkstra>
+      <dijkstra to="n16">10</dijkstra>
+      <dijkstra to="n17">14</dijkstra>
+      <dijkstra to="n18">11</dijkstra>
+      <dijkstra to="n19">15</dijkstra>
+      <dijkstra to="n20">13</dijkstra>
+      <dijkstra to="n21">8</dijkstra>
+      <dijkstra to="n22">7</dijkstra>
+      <dijkstra to="n23">10</dijkstra>
+      <dijkstra to="n24">13</dijkstra>
+      <dijkstra to="n25">12</dijkstra>
+      <dijkstra to="n26">13</dijkstra>
+      <dijkstra to="n27">10</dijkstra>
+      <dijkstra to="n28">6</dijkstra>
+      <dijkstra to="n29">7</dijkstra>
+      <dijkstra to="n30">12</dijkstra>
+      <dijkstra to="n31">12</dijkstra>
+      <dijkstra to="n32">17</dijkstra>
+      <dijkstra to="n33">0</dijkstra>
+      <dijkstra to="n34">7</dijkstra>
+      <dijkstra to="n35">5</dijkstra>
+      <dijkstra to="n36">11</dijkstra>
+      <dijkstra to="n37">9</dijkstra>
+      <dijkstra to="n38">13</dijkstra>
+      <dijkstra to="n39">15</dijkstra>
+      <dijkstra to="n40">8</dijkstra>
+      <dijkstra to="n41">16</dijkstra>
+      <dijkstra to="n42">10</dijkstra>
+      <dijkstra to="n43">12</dijkstra>
+      <dijkstra to="n44">13</dijkstra>
+      <dijkstra to="n45">7</dijkstra>
+      <dijkstra to="n46">12</dijkstra>
+      <dijkstra to="n47">8</dijkstra>
+      <dijkstra to="n48">11</dijkstra>
+      <dijkstra to="n49">23</dijkstra>
+      <betweenness of="n33">0.0</betweenness>
+    </vertex>
+    <vertex id="n34">
+      <data key="v_id">34</data>
+      <dijkstra to="n0">4</dijkstra>
+      <dijkstra to="n1">10</dijkstra>
+      <dijkstra to="n2">7</dijkstra>
+      <dijkstra to="n3">10</dijkstra>
+      <dijkstra to="n4">3</dijkstra>
+      <dijkstra to="n5">5</dijkstra>
+      <dijkstra to="n6">3</dijkstra>
+      <dijkstra to="n7">7</dijkstra>
+      <dijkstra to="n8">6</dijkstra>
+      <dijkstra to="n9">13</dijkstra>
+      <dijkstra to="n10">10</dijkstra>
+      <dijkstra to="n11">5</dijkstra>
+      <dijkstra to="n12">10</dijkstra>
+      <dijkstra to="n13">12</dijkstra>
+      <dijkstra to="n14">1</dijkstra>
+      <dijkstra to="n15">10</dijkstra>
+      <dijkstra to="n16">8</dijkstra>
+      <dijkstra to="n17">7</dijkstra>
+      <dijkstra to="n18">9</dijkstra>
+      <dijkstra to="n19">8</dijkstra>
+      <dijkstra to="n20">6</dijkstra>
+      <dijkstra to="n21">3</dijkstra>
+      <dijkstra to="n22">2</dijkstra>
+      <dijkstra to="n23">12</dijkstra>
+      <dijkstra to="n24">11</dijkstra>
+      <dijkstra to="n25">7</dijkstra>
+      <dijkstra to="n26">12</dijkstra>
+      <dijkstra to="n27">5</dijkstra>
+      <dijkstra to="n28">1</dijkstra>
+      <dijkstra to="n29">5</dijkstra>
+      <dijkstra to="n30">7</dijkstra>
+      <dijkstra to="n31">7</dijkstra>
+      <dijkstra to="n32">13</dijkstra>
+      <dijkstra to="n33">7</dijkstra>
+      <dijkstra to="n34">0</dijkstra>
+      <dijkstra to="n35">8</dijkstra>
+      <dijkstra to="n36">6</dijkstra>
+      <dijkstra to="n37">2</dijkstra>
+      <dijkstra to="n38">11</dijkstra>
+      <dijkstra to="n39">8</dijkstra>
+      <dijkstra to="n40">1</dijkstra>
+      <dijkstra to="n41">14</dijkstra>
+      <dijkstra to="n42">5</dijkstra>
+      <dijkstra to="n43">8</dijkstra>
+      <dijkstra to="n44">11</dijkstra>
+      <dijkstra to="n45">5</dijkstra>
+      <dijkstra to="n46">7</dijkstra>
+      <dijkstra to="n47">6</dijkstra>
+      <dijkstra to="n48">9</dijkstra>
+      <dijkstra to="n49">21</dijkstra>
+      <betweenness of="n34">177.83</betweenness>
+    </vertex>
+    <vertex id="n35">
+      <data key="v_id">35</data>
+      <dijkstra to="n0">10</dijkstra>
+      <dijkstra to="n1">8</dijkstra>
+      <dijkstra to="n2">11</dijkstra>
+      <dijkstra to="n3">8</dijkstra>
+      <dijkstra to="n4">11</dijkstra>
+      <dijkstra to="n5">3</dijkstra>
+      <dijkstra to="n6">11</dijkstra>
+      <dijkstra to="n7">7</dijkstra>
+      <dijkstra to="n8">8</dijkstra>
+      <dijkstra to="n9">11</dijkstra>
+      <dijkstra to="n10">18</dijkstra>
+      <dijkstra to="n11">9</dijkstra>
+      <dijkstra to="n12">16</dijkstra>
+      <dijkstra to="n13">12</dijkstra>
+      <dijkstra to="n14">9</dijkstra>
+      <dijkstra to="n15">11</dijkstra>
+      <dijkstra to="n16">8</dijkstra>
+      <dijkstra to="n17">14</dijkstra>
+      <dijkstra to="n18">9</dijkstra>
+      <dijkstra to="n19">15</dijkstra>
+      <dijkstra to="n20">14</dijkstra>
+      <dijkstra to="n21">9</dijkstra>
+      <dijkstra to="n22">8</dijkstra>
+      <dijkstra to="n23">11</dijkstra>
+      <dijkstra to="n24">14</dijkstra>
+      <dijkstra to="n25">11</dijkstra>
+      <dijkstra to="n26">14</dijkstra>
+      <dijkstra to="n27">11</dijkstra>
+      <dijkstra to="n28">7</dijkstra>
+      <dijkstra to="n29">9</dijkstra>
+      <dijkstra to="n30">7</dijkstra>
+      <dijkstra to="n31">13</dijkstra>
+      <dijkstra to="n32">18</dijkstra>
+      <dijkstra to="n33">5</dijkstra>
+      <dijkstra to="n34">8</dijkstra>
+      <dijkstra to="n35">0</dijkstra>
+      <dijkstra to="n36">12</dijkstra>
+      <dijkstra to="n37">10</dijkstra>
+      <dijkstra to="n38">11</dijkstra>
+      <dijkstra to="n39">15</dijkstra>
+      <dijkstra to="n40">9</dijkstra>
+      <dijkstra to="n41">17</dijkstra>
+      <dijkstra to="n42">11</dijkstra>
+      <dijkstra to="n43">13</dijkstra>
+      <dijkstra to="n44">14</dijkstra>
+      <dijkstra to="n45">8</dijkstra>
+      <dijkstra to="n46">13</dijkstra>
+      <dijkstra to="n47">9</dijkstra>
+      <dijkstra to="n48">12</dijkstra>
+      <dijkstra to="n49">21</dijkstra>
+      <betweenness of="n35">1.0</betweenness>
+    </vertex>
+    <vertex id="n36">
+      <data key="v_id">36</data>
+      <dijkstra to="n0">4</dijkstra>
+      <dijkstra to="n1">14</dijkstra>
+      <dijkstra to="n2">8</dijkstra>
+      <dijkstra to="n3">13</dijkstra>
+      <dijkstra to="n4">7</dijkstra>
+      <dijkstra to="n5">9</dijkstra>
+      <dijkstra to="n6">7</dijkstra>
+      <dijkstra to="n7">7</dijkstra>
+      <dijkstra to="n8">8</dijkstra>
+      <dijkstra to="n9">17</dijkstra>
+      <dijkstra to="n10">16</dijkstra>
+      <dijkstra to="n11">7</dijkstra>
+      <dijkstra to="n12">12</dijkstra>
+      <dijkstra to="n13">12</dijkstra>
+      <dijkstra to="n14">7</dijkstra>
+      <dijkstra to="n15">12</dijkstra>
+      <dijkstra to="n16">8</dijkstra>
+      <dijkstra to="n17">12</dijkstra>
+      <dijkstra to="n18">9</dijkstra>
+      <dijkstra to="n19">13</dijkstra>
+      <dijkstra to="n20">10</dijkstra>
+      <dijkstra to="n21">3</dijkstra>
+      <dijkstra to="n22">4</dijkstra>
+      <dijkstra to="n23">12</dijkstra>
+      <dijkstra to="n24">11</dijkstra>
+      <dijkstra to="n25">9</dijkstra>
+      <dijkstra to="n26">16</dijkstra>
+      <dijkstra to="n27">1</dijkstra>
+      <dijkstra to="n28">5</dijkstra>
+      <dijkstra to="n29">5</dijkstra>
+      <dijkstra to="n30">9</dijkstra>
+      <dijkstra to="n31">9</dijkstra>
+      <dijkstra to="n32">15</dijkstra>
+      <dijkstra to="n33">11</dijkstra>
+      <dijkstra to="n34">6</dijkstra>
+      <dijkstra to="n35">12</dijkstra>
+      <dijkstra to="n36">0</dijkstra>
+      <dijkstra to="n37">8</dijkstra>
+      <dijkstra to="n38">11</dijkstra>
+      <dijkstra to="n39">12</dijkstra>
+      <dijkstra to="n40">5</dijkstra>
+      <dijkstra to="n41">14</dijkstra>
+      <dijkstra to="n42">5</dijkstra>
+      <dijkstra to="n43">8</dijkstra>
+      <dijkstra to="n44">11</dijkstra>
+      <dijkstra to="n45">7</dijkstra>
+      <dijkstra to="n46">7</dijkstra>
+      <dijkstra to="n47">6</dijkstra>
+      <dijkstra to="n48">9</dijkstra>
+      <dijkstra to="n49">21</dijkstra>
+      <betweenness of="n36">0.0</betweenness>
+    </vertex>
+    <vertex id="n37">
+      <data key="v_id">37</data>
+      <dijkstra to="n0">6</dijkstra>
+      <dijkstra to="n1">12</dijkstra>
+      <dijkstra to="n2">6</dijkstra>
+      <dijkstra to="n3">11</dijkstra>
+      <dijkstra to="n4">5</dijkstra>
+      <dijkstra to="n5">7</dijkstra>
+      <dijkstra to="n6">5</dijkstra>
+      <dijkstra to="n7">9</dijkstra>
+      <dijkstra to="n8">8</dijkstra>
+      <dijkstra to="n9">13</dijkstra>
+      <dijkstra to="n10">12</dijkstra>
+      <dijkstra to="n11">7</dijkstra>
+      <dijkstra to="n12">12</dijkstra>
+      <dijkstra to="n13">13</dijkstra>
+      <dijkstra to="n14">3</dijkstra>
+      <dijkstra to="n15">12</dijkstra>
+      <dijkstra to="n16">10</dijkstra>
+      <dijkstra to="n17">9</dijkstra>
+      <dijkstra to="n18">11</dijkstra>
+      <dijkstra to="n19">10</dijkstra>
+      <dijkstra to="n20">4</dijkstra>
+      <dijkstra to="n21">5</dijkstra>
+      <dijkstra to="n22">4</dijkstra>
+      <dijkstra to="n23">14</dijkstra>
+      <dijkstra to="n24">11</dijkstra>
+      <dijkstra to="n25">9</dijkstra>
+      <dijkstra to="n26">10</dijkstra>
+      <dijkstra to="n27">7</dijkstra>
+      <dijkstra to="n28">3</dijkstra>
+      <dijkstra to="n29">7</dijkstra>
+      <dijkstra to="n30">9</dijkstra>
+      <dijkstra to="n31">9</dijkstra>
+      <dijkstra to="n32">15</dijkstra>
+      <dijkstra to="n33">9</dijkstra>
+      <dijkstra to="n34">2</dijkstra>
+      <dijkstra to="n35">10</dijkstra>
+      <dijkstra to="n36">8</dijkstra>
+      <dijkstra to="n37">0</dijkstra>
+      <dijkstra to="n38">13</dijkstra>
+      <dijkstra to="n39">6</dijkstra>
+      <dijkstra to="n40">3</dijkstra>
+      <dijkstra to="n41">14</dijkstra>
+      <dijkstra to="n42">7</dijkstra>
+      <dijkstra to="n43">6</dijkstra>
+      <dijkstra to="n44">13</dijkstra>
+      <dijkstra to="n45">7</dijkstra>
+      <dijkstra to="n46">8</dijkstra>
+      <dijkstra to="n47">8</dijkstra>
+      <dijkstra to="n48">9</dijkstra>
+      <dijkstra to="n49">22</dijkstra>
+      <betweenness of="n37">30.0</betweenness>
+    </vertex>
+    <vertex id="n38">
+      <data key="v_id">38</data>
+      <dijkstra to="n0">9</dijkstra>
+      <dijkstra to="n1">8</dijkstra>
+      <dijkstra to="n2">8</dijkstra>
+      <dijkstra to="n3">10</dijkstra>
+      <dijkstra to="n4">12</dijkstra>
+      <dijkstra to="n5">13</dijkstra>
+      <dijkstra to="n6">12</dijkstra>
+      <dijkstra to="n7">4</dijkstra>
+      <dijkstra to="n8">7</dijkstra>
+      <dijkstra to="n9">19</dijkstra>
+      <dijkstra to="n10">21</dijkstra>
+      <dijkstra to="n11">8</dijkstra>
+      <dijkstra to="n12">11</dijkstra>
+      <dijkstra to="n13">7</dijkstra>
+      <dijkstra to="n14">12</dijkstra>
+      <dijkstra to="n15">11</dijkstra>
+      <dijkstra to="n16">3</dijkstra>
+      <dijkstra to="n17">10</dijkstra>
+      <dijkstra to="n18">4</dijkstra>
+      <dijkstra to="n19">9</dijkstra>
+      <dijkstra to="n20">14</dijkstra>
+      <dijkstra to="n21">8</dijkstra>
+      <dijkstra to="n22">9</dijkstra>
+      <dijkstra to="n23">7</dijkstra>
+      <dijkstra to="n24">7</dijkstra>
+      <dijkstra to="n25">10</dijkstra>
+      <dijkstra to="n26">16</dijkstra>
+      <dijkstra to="n27">10</dijkstra>
+      <dijkstra to="n28">10</dijkstra>
+      <dijkstra to="n29">6</dijkstra>
+      <dijkstra to="n30">8</dijkstra>
+      <dijkstra to="n31">8</dijkstra>
+      <dijkstra to="n32">9</dijkstra>
+      <dijkstra to="n33">13</dijkstra>
+      <dijkstra to="n34">11</dijkstra>
+      <dijkstra to="n35">11</dijkstra>
+      <dijkstra to="n36">11</dijkstra>
+      <dijkstra to="n37">13</dijkstra>
+      <dijkstra to="n38">0</dijkstra>
+      <dijkstra to="n39">12</dijkstra>
+      <dijkstra to="n40">10</dijkstra>
+      <dijkstra to="n41">10</dijkstra>
+      <dijkstra to="n42">10</dijkstra>
+      <dijkstra to="n43">14</dijkstra>
+      <dijkstra to="n44">12</dijkstra>
+      <dijkstra to="n45">8</dijkstra>
+      <dijkstra to="n46">12</dijkstra>
+      <dijkstra to="n47">7</dijkstra>
+      <dijkstra to="n48">5</dijkstra>
+      <dijkstra to="n49">16</dijkstra>
+      <betweenness of="n38">9.5</betweenness>
+    </vertex>
+    <vertex id="n39">
+      <data key="v_id">39</data>
+      <dijkstra to="n0">9</dijkstra>
+      <dijkstra to="n1">17</dijkstra>
+      <dijkstra to="n2">4</dijkstra>
+      <dijkstra to="n3">9</dijkstra>
+      <dijkstra to="n4">11</dijkstra>
+      <dijkstra to="n5">13</dijkstra>
+      <dijkstra to="n6">11</dijkstra>
+      <dijkstra to="n7">10</dijkstra>
+      <dijkstra to="n8">7</dijkstra>
+      <dijkstra to="n9">7</dijkstra>
+      <dijkstra to="n10">18</dijkstra>
+      <dijkstra to="n11">6</dijkstra>
+      <dijkstra to="n12">7</dijkstra>
+      <dijkstra to="n13">11</dijkstra>
+      <dijkstra to="n14">9</dijkstra>
+      <dijkstra to="n15">14</dijkstra>
+      <dijkstra to="n16">11</dijkstra>
+      <dijkstra to="n17">10</dijkstra>
+      <dijkstra to="n18">12</dijkstra>
+      <dijkstra to="n19">9</dijkstra>
+      <dijkstra to="n20">2</dijkstra>
+      <dijkstra to="n21">10</dijkstra>
+      <dijkstra to="n22">10</dijkstra>
+      <dijkstra to="n23">12</dijkstra>
+      <dijkstra to="n24">9</dijkstra>
+      <dijkstra to="n25">8</dijkstra>
+      <dijkstra to="n26">4</dijkstra>
+      <dijkstra to="n27">12</dijkstra>
+      <dijkstra to="n28">9</dijkstra>
+      <dijkstra to="n29">10</dijkstra>
+      <dijkstra to="n30">8</dijkstra>
+      <dijkstra to="n31">10</dijkstra>
+      <dijkstra to="n32">13</dijkstra>
+      <dijkstra to="n33">15</dijkstra>
+      <dijkstra to="n34">8</dijkstra>
+      <dijkstra to="n35">15</dijkstra>
+      <dijkstra to="n36">12</dijkstra>
+      <dijkstra to="n37">6</dijkstra>
+      <dijkstra to="n38">12</dijkstra>
+      <dijkstra to="n39">0</dijkstra>
+      <dijkstra to="n40">9</dijkstra>
+      <dijkstra to="n41">12</dijkstra>
+      <dijkstra to="n42">8</dijkstra>
+      <dijkstra to="n43">4</dijkstra>
+      <dijkstra to="n44">14</dijkstra>
+      <dijkstra to="n45">10</dijkstra>
+      <dijkstra to="n46">6</dijkstra>
+      <dijkstra to="n47">9</dijkstra>
+      <dijkstra to="n48">7</dijkstra>
+      <dijkstra to="n49">20</dijkstra>
+      <betweenness of="n39">60.08</betweenness>
+    </vertex>
+    <vertex id="n40">
+      <data key="v_id">40</data>
+      <dijkstra to="n0">3</dijkstra>
+      <dijkstra to="n1">11</dijkstra>
+      <dijkstra to="n2">8</dijkstra>
+      <dijkstra to="n3">11</dijkstra>
+      <dijkstra to="n4">2</dijkstra>
+      <dijkstra to="n5">6</dijkstra>
       <dijkstra to="n6">2</dijkstra>
       <dijkstra to="n7">6</dijkstra>
-      <dijkstra to="n8">6</dijkstra>
-      <dijkstra to="n9">8</dijkstra>
-      <dijkstra to="n10">5</dijkstra>
+      <dijkstra to="n8">7</dijkstra>
+      <dijkstra to="n9">14</dijkstra>
+      <dijkstra to="n10">11</dijkstra>
+      <dijkstra to="n11">6</dijkstra>
+      <dijkstra to="n12">11</dijkstra>
+      <dijkstra to="n13">11</dijkstra>
+      <dijkstra to="n14">2</dijkstra>
+      <dijkstra to="n15">11</dijkstra>
+      <dijkstra to="n16">7</dijkstra>
+      <dijkstra to="n17">8</dijkstra>
+      <dijkstra to="n18">8</dijkstra>
+      <dijkstra to="n19">9</dijkstra>
+      <dijkstra to="n20">7</dijkstra>
+      <dijkstra to="n21">2</dijkstra>
+      <dijkstra to="n22">3</dijkstra>
+      <dijkstra to="n23">11</dijkstra>
+      <dijkstra to="n24">10</dijkstra>
+      <dijkstra to="n25">6</dijkstra>
+      <dijkstra to="n26">13</dijkstra>
+      <dijkstra to="n27">4</dijkstra>
+      <dijkstra to="n28">2</dijkstra>
+      <dijkstra to="n29">4</dijkstra>
+      <dijkstra to="n30">8</dijkstra>
+      <dijkstra to="n31">8</dijkstra>
+      <dijkstra to="n32">14</dijkstra>
+      <dijkstra to="n33">8</dijkstra>
+      <dijkstra to="n34">1</dijkstra>
+      <dijkstra to="n35">9</dijkstra>
+      <dijkstra to="n36">5</dijkstra>
+      <dijkstra to="n37">3</dijkstra>
+      <dijkstra to="n38">10</dijkstra>
+      <dijkstra to="n39">9</dijkstra>
+      <dijkstra to="n40">0</dijkstra>
+      <dijkstra to="n41">13</dijkstra>
+      <dijkstra to="n42">4</dijkstra>
+      <dijkstra to="n43">8</dijkstra>
+      <dijkstra to="n44">10</dijkstra>
+      <dijkstra to="n45">6</dijkstra>
+      <dijkstra to="n46">6</dijkstra>
+      <dijkstra to="n47">5</dijkstra>
+      <dijkstra to="n48">8</dijkstra>
+      <dijkstra to="n49">20</dijkstra>
+      <betweenness of="n40">104.17</betweenness>
+    </vertex>
+    <vertex id="n41">
+      <data key="v_id">41</data>
+      <dijkstra to="n0">12</dijkstra>
+      <dijkstra to="n1">17</dijkstra>
+      <dijkstra to="n2">8</dijkstra>
+      <dijkstra to="n3">18</dijkstra>
+      <dijkstra to="n4">15</dijkstra>
+      <dijkstra to="n5">14</dijkstra>
+      <dijkstra to="n6">15</dijkstra>
+      <dijkstra to="n7">11</dijkstra>
+      <dijkstra to="n8">11</dijkstra>
+      <dijkstra to="n9">19</dijkstra>
+      <dijkstra to="n10">24</dijkstra>
+      <dijkstra to="n11">10</dijkstra>
+      <dijkstra to="n12">19</dijkstra>
+      <dijkstra to="n13">16</dijkstra>
+      <dijkstra to="n14">15</dijkstra>
+      <dijkstra to="n15">14</dijkstra>
+      <dijkstra to="n16">12</dijkstra>
+      <dijkstra to="n17">10</dijkstra>
+      <dijkstra to="n18">12</dijkstra>
+      <dijkstra to="n19">9</dijkstra>
+      <dijkstra to="n20">14</dijkstra>
+      <dijkstra to="n21">11</dijkstra>
+      <dijkstra to="n22">12</dijkstra>
+      <dijkstra to="n23">15</dijkstra>
+      <dijkstra to="n24">3</dijkstra>
+      <dijkstra to="n25">12</dijkstra>
+      <dijkstra to="n26">16</dijkstra>
+      <dijkstra to="n27">13</dijkstra>
+      <dijkstra to="n28">13</dijkstra>
+      <dijkstra to="n29">9</dijkstra>
+      <dijkstra to="n30">12</dijkstra>
+      <dijkstra to="n31">17</dijkstra>
+      <dijkstra to="n32">11</dijkstra>
+      <dijkstra to="n33">16</dijkstra>
+      <dijkstra to="n34">14</dijkstra>
+      <dijkstra to="n35">17</dijkstra>
+      <dijkstra to="n36">14</dijkstra>
+      <dijkstra to="n37">14</dijkstra>
+      <dijkstra to="n38">10</dijkstra>
+      <dijkstra to="n39">12</dijkstra>
+      <dijkstra to="n40">13</dijkstra>
+      <dijkstra to="n41">0</dijkstra>
+      <dijkstra to="n42">13</dijkstra>
+      <dijkstra to="n43">16</dijkstra>
+      <dijkstra to="n44">13</dijkstra>
+      <dijkstra to="n45">9</dijkstra>
+      <dijkstra to="n46">15</dijkstra>
+      <dijkstra to="n47">8</dijkstra>
+      <dijkstra to="n48">5</dijkstra>
+      <dijkstra to="n49">20</dijkstra>
+      <betweenness of="n41">0.0</betweenness>
+    </vertex>
+    <vertex id="n42">
+      <data key="v_id">42</data>
+      <dijkstra to="n0">1</dijkstra>
+      <dijkstra to="n1">13</dijkstra>
+      <dijkstra to="n2">8</dijkstra>
+      <dijkstra to="n3">9</dijkstra>
+      <dijkstra to="n4">6</dijkstra>
+      <dijkstra to="n5">8</dijkstra>
+      <dijkstra to="n6">6</dijkstra>
+      <dijkstra to="n7">6</dijkstra>
+      <dijkstra to="n8">5</dijkstra>
+      <dijkstra to="n9">14</dijkstra>
+      <dijkstra to="n10">15</dijkstra>
+      <dijkstra to="n11">6</dijkstra>
+      <dijkstra to="n12">9</dijkstra>
+      <dijkstra to="n13">11</dijkstra>
+      <dijkstra to="n14">6</dijkstra>
+      <dijkstra to="n15">10</dijkstra>
+      <dijkstra to="n16">7</dijkstra>
+      <dijkstra to="n17">11</dijkstra>
+      <dijkstra to="n18">8</dijkstra>
+      <dijkstra to="n19">12</dijkstra>
+      <dijkstra to="n20">6</dijkstra>
+      <dijkstra to="n21">2</dijkstra>
+      <dijkstra to="n22">3</dijkstra>
+      <dijkstra to="n23">11</dijkstra>
+      <dijkstra to="n24">10</dijkstra>
+      <dijkstra to="n25">8</dijkstra>
+      <dijkstra to="n26">11</dijkstra>
+      <dijkstra to="n27">4</dijkstra>
+      <dijkstra to="n28">4</dijkstra>
+      <dijkstra to="n29">4</dijkstra>
+      <dijkstra to="n30">4</dijkstra>
+      <dijkstra to="n31">8</dijkstra>
+      <dijkstra to="n32">14</dijkstra>
+      <dijkstra to="n33">10</dijkstra>
+      <dijkstra to="n34">5</dijkstra>
+      <dijkstra to="n35">11</dijkstra>
+      <dijkstra to="n36">5</dijkstra>
+      <dijkstra to="n37">7</dijkstra>
+      <dijkstra to="n38">10</dijkstra>
+      <dijkstra to="n39">8</dijkstra>
+      <dijkstra to="n40">4</dijkstra>
+      <dijkstra to="n41">13</dijkstra>
+      <dijkstra to="n42">0</dijkstra>
+      <dijkstra to="n43">4</dijkstra>
+      <dijkstra to="n44">10</dijkstra>
+      <dijkstra to="n45">6</dijkstra>
+      <dijkstra to="n46">2</dijkstra>
+      <dijkstra to="n47">5</dijkstra>
+      <dijkstra to="n48">8</dijkstra>
+      <dijkstra to="n49">20</dijkstra>
+      <betweenness of="n42">71.83</betweenness>
+    </vertex>
+    <vertex id="n43">
+      <data key="v_id">43</data>
+      <dijkstra to="n0">5</dijkstra>
+      <dijkstra to="n1">15</dijkstra>
+      <dijkstra to="n2">8</dijkstra>
+      <dijkstra to="n3">5</dijkstra>
+      <dijkstra to="n4">10</dijkstra>
+      <dijkstra to="n5">10</dijkstra>
+      <dijkstra to="n6">10</dijkstra>
+      <dijkstra to="n7">10</dijkstra>
+      <dijkstra to="n8">9</dijkstra>
+      <dijkstra to="n9">11</dijkstra>
+      <dijkstra to="n10">18</dijkstra>
+      <dijkstra to="n11">10</dijkstra>
+      <dijkstra to="n12">9</dijkstra>
+      <dijkstra to="n13">7</dijkstra>
+      <dijkstra to="n14">9</dijkstra>
+      <dijkstra to="n15">14</dijkstra>
+      <dijkstra to="n16">11</dijkstra>
+      <dijkstra to="n17">14</dijkstra>
+      <dijkstra to="n18">11</dijkstra>
+      <dijkstra to="n19">13</dijkstra>
+      <dijkstra to="n20">2</dijkstra>
+      <dijkstra to="n21">6</dijkstra>
+      <dijkstra to="n22">7</dijkstra>
+      <dijkstra to="n23">8</dijkstra>
+      <dijkstra to="n24">13</dijkstra>
+      <dijkstra to="n25">12</dijkstra>
+      <dijkstra to="n26">8</dijkstra>
+      <dijkstra to="n27">8</dijkstra>
+      <dijkstra to="n28">8</dijkstra>
+      <dijkstra to="n29">8</dijkstra>
+      <dijkstra to="n30">8</dijkstra>
+      <dijkstra to="n31">12</dijkstra>
+      <dijkstra to="n32">17</dijkstra>
+      <dijkstra to="n33">12</dijkstra>
+      <dijkstra to="n34">8</dijkstra>
+      <dijkstra to="n35">13</dijkstra>
+      <dijkstra to="n36">8</dijkstra>
+      <dijkstra to="n37">6</dijkstra>
+      <dijkstra to="n38">14</dijkstra>
+      <dijkstra to="n39">4</dijkstra>
+      <dijkstra to="n40">8</dijkstra>
+      <dijkstra to="n41">16</dijkstra>
+      <dijkstra to="n42">4</dijkstra>
+      <dijkstra to="n43">0</dijkstra>
+      <dijkstra to="n44">14</dijkstra>
+      <dijkstra to="n45">10</dijkstra>
+      <dijkstra to="n46">2</dijkstra>
+      <dijkstra to="n47">9</dijkstra>
+      <dijkstra to="n48">11</dijkstra>
+      <dijkstra to="n49">16</dijkstra>
+      <betweenness of="n43">43.5</betweenness>
+    </vertex>
+    <vertex id="n44">
+      <data key="v_id">44</data>
+      <dijkstra to="n0">9</dijkstra>
+      <dijkstra to="n1">14</dijkstra>
+      <dijkstra to="n2">10</dijkstra>
+      <dijkstra to="n3">16</dijkstra>
+      <dijkstra to="n4">12</dijkstra>
+      <dijkstra to="n5">11</dijkstra>
+      <dijkstra to="n6">12</dijkstra>
+      <dijkstra to="n7">8</dijkstra>
+      <dijkstra to="n8">9</dijkstra>
+      <dijkstra to="n9">19</dijkstra>
+      <dijkstra to="n10">21</dijkstra>
       <dijkstra to="n11">8</dijkstra>
-      <dijkstra to="n12">6</dijkstra>
+      <dijkstra to="n12">17</dijkstra>
+      <dijkstra to="n13">13</dijkstra>
+      <dijkstra to="n14">12</dijkstra>
+      <dijkstra to="n15">11</dijkstra>
+      <dijkstra to="n16">9</dijkstra>
+      <dijkstra to="n17">13</dijkstra>
+      <dijkstra to="n18">10</dijkstra>
+      <dijkstra to="n19">12</dijkstra>
+      <dijkstra to="n20">16</dijkstra>
+      <dijkstra to="n21">8</dijkstra>
+      <dijkstra to="n22">9</dijkstra>
+      <dijkstra to="n23">13</dijkstra>
+      <dijkstra to="n24">10</dijkstra>
+      <dijkstra to="n25">10</dijkstra>
+      <dijkstra to="n26">17</dijkstra>
+      <dijkstra to="n27">10</dijkstra>
+      <dijkstra to="n28">10</dijkstra>
+      <dijkstra to="n29">6</dijkstra>
+      <dijkstra to="n30">10</dijkstra>
+      <dijkstra to="n31">14</dijkstra>
+      <dijkstra to="n32">14</dijkstra>
+      <dijkstra to="n33">13</dijkstra>
+      <dijkstra to="n34">11</dijkstra>
+      <dijkstra to="n35">14</dijkstra>
+      <dijkstra to="n36">11</dijkstra>
+      <dijkstra to="n37">13</dijkstra>
+      <dijkstra to="n38">12</dijkstra>
+      <dijkstra to="n39">14</dijkstra>
+      <dijkstra to="n40">10</dijkstra>
+      <dijkstra to="n41">13</dijkstra>
+      <dijkstra to="n42">10</dijkstra>
+      <dijkstra to="n43">14</dijkstra>
+      <dijkstra to="n44">0</dijkstra>
+      <dijkstra to="n45">6</dijkstra>
+      <dijkstra to="n46">12</dijkstra>
+      <dijkstra to="n47">5</dijkstra>
+      <dijkstra to="n48">8</dijkstra>
+      <dijkstra to="n49">22</dijkstra>
+      <betweenness of="n44">0.0</betweenness>
+    </vertex>
+    <vertex id="n45">
+      <data key="v_id">45</data>
+      <dijkstra to="n0">5</dijkstra>
+      <dijkstra to="n1">8</dijkstra>
+      <dijkstra to="n2">6</dijkstra>
+      <dijkstra to="n3">10</dijkstra>
+      <dijkstra to="n4">8</dijkstra>
+      <dijkstra to="n5">5</dijkstra>
+      <dijkstra to="n6">8</dijkstra>
+      <dijkstra to="n7">4</dijkstra>
+      <dijkstra to="n8">5</dijkstra>
+      <dijkstra to="n9">13</dijkstra>
+      <dijkstra to="n10">15</dijkstra>
+      <dijkstra to="n11">4</dijkstra>
+      <dijkstra to="n12">13</dijkstra>
+      <dijkstra to="n13">9</dijkstra>
+      <dijkstra to="n14">6</dijkstra>
+      <dijkstra to="n15">5</dijkstra>
+      <dijkstra to="n16">5</dijkstra>
+      <dijkstra to="n17">9</dijkstra>
+      <dijkstra to="n18">6</dijkstra>
+      <dijkstra to="n19">8</dijkstra>
+      <dijkstra to="n20">11</dijkstra>
+      <dijkstra to="n21">4</dijkstra>
+      <dijkstra to="n22">5</dijkstra>
+      <dijkstra to="n23">9</dijkstra>
+      <dijkstra to="n24">6</dijkstra>
+      <dijkstra to="n25">6</dijkstra>
+      <dijkstra to="n26">13</dijkstra>
+      <dijkstra to="n27">6</dijkstra>
+      <dijkstra to="n28">4</dijkstra>
+      <dijkstra to="n29">2</dijkstra>
+      <dijkstra to="n30">6</dijkstra>
+      <dijkstra to="n31">10</dijkstra>
+      <dijkstra to="n32">10</dijkstra>
+      <dijkstra to="n33">7</dijkstra>
+      <dijkstra to="n34">5</dijkstra>
+      <dijkstra to="n35">8</dijkstra>
+      <dijkstra to="n36">7</dijkstra>
+      <dijkstra to="n37">7</dijkstra>
+      <dijkstra to="n38">8</dijkstra>
+      <dijkstra to="n39">10</dijkstra>
+      <dijkstra to="n40">6</dijkstra>
+      <dijkstra to="n41">9</dijkstra>
+      <dijkstra to="n42">6</dijkstra>
+      <dijkstra to="n43">10</dijkstra>
+      <dijkstra to="n44">6</dijkstra>
+      <dijkstra to="n45">0</dijkstra>
+      <dijkstra to="n46">8</dijkstra>
+      <dijkstra to="n47">1</dijkstra>
+      <dijkstra to="n48">4</dijkstra>
+      <dijkstra to="n49">18</dijkstra>
+      <betweenness of="n45">70.58</betweenness>
+    </vertex>
+    <vertex id="n46">
+      <data key="v_id">46</data>
+      <dijkstra to="n0">3</dijkstra>
+      <dijkstra to="n1">15</dijkstra>
+      <dijkstra to="n2">8</dijkstra>
+      <dijkstra to="n3">7</dijkstra>
+      <dijkstra to="n4">8</dijkstra>
+      <dijkstra to="n5">10</dijkstra>
+      <dijkstra to="n6">8</dijkstra>
+      <dijkstra to="n7">8</dijkstra>
+      <dijkstra to="n8">7</dijkstra>
+      <dijkstra to="n9">12</dijkstra>
+      <dijkstra to="n10">17</dijkstra>
+      <dijkstra to="n11">8</dijkstra>
+      <dijkstra to="n12">7</dijkstra>
+      <dijkstra to="n13">9</dijkstra>
+      <dijkstra to="n14">8</dijkstra>
+      <dijkstra to="n15">12</dijkstra>
+      <dijkstra to="n16">9</dijkstra>
+      <dijkstra to="n17">13</dijkstra>
+      <dijkstra to="n18">10</dijkstra>
+      <dijkstra to="n19">14</dijkstra>
+      <dijkstra to="n20">4</dijkstra>
+      <dijkstra to="n21">4</dijkstra>
+      <dijkstra to="n22">5</dijkstra>
+      <dijkstra to="n23">10</dijkstra>
+      <dijkstra to="n24">12</dijkstra>
+      <dijkstra to="n25">10</dijkstra>
+      <dijkstra to="n26">9</dijkstra>
+      <dijkstra to="n27">6</dijkstra>
+      <dijkstra to="n28">6</dijkstra>
+      <dijkstra to="n29">6</dijkstra>
+      <dijkstra to="n30">6</dijkstra>
+      <dijkstra to="n31">10</dijkstra>
+      <dijkstra to="n32">16</dijkstra>
+      <dijkstra to="n33">12</dijkstra>
+      <dijkstra to="n34">7</dijkstra>
+      <dijkstra to="n35">13</dijkstra>
+      <dijkstra to="n36">7</dijkstra>
+      <dijkstra to="n37">8</dijkstra>
+      <dijkstra to="n38">12</dijkstra>
+      <dijkstra to="n39">6</dijkstra>
+      <dijkstra to="n40">6</dijkstra>
+      <dijkstra to="n41">15</dijkstra>
+      <dijkstra to="n42">2</dijkstra>
+      <dijkstra to="n43">2</dijkstra>
+      <dijkstra to="n44">12</dijkstra>
+      <dijkstra to="n45">8</dijkstra>
+      <dijkstra to="n46">0</dijkstra>
+      <dijkstra to="n47">7</dijkstra>
+      <dijkstra to="n48">10</dijkstra>
+      <dijkstra to="n49">18</dijkstra>
+      <betweenness of="n46">44.08</betweenness>
+    </vertex>
+    <vertex id="n47">
+      <data key="v_id">47</data>
+      <dijkstra to="n0">4</dijkstra>
+      <dijkstra to="n1">9</dijkstra>
+      <dijkstra to="n2">5</dijkstra>
+      <dijkstra to="n3">11</dijkstra>
+      <dijkstra to="n4">7</dijkstra>
+      <dijkstra to="n5">6</dijkstra>
+      <dijkstra to="n6">7</dijkstra>
+      <dijkstra to="n7">3</dijkstra>
+      <dijkstra to="n8">4</dijkstra>
+      <dijkstra to="n9">14</dijkstra>
+      <dijkstra to="n10">16</dijkstra>
+      <dijkstra to="n11">3</dijkstra>
+      <dijkstra to="n12">12</dijkstra>
       <dijkstra to="n13">8</dijkstra>
-      <dijkstra to="n14">0</dijkstra>
-      <betweenness of="n14">15.5</betweenness>
-    </node>
+      <dijkstra to="n14">7</dijkstra>
+      <dijkstra to="n15">6</dijkstra>
+      <dijkstra to="n16">4</dijkstra>
+      <dijkstra to="n17">8</dijkstra>
+      <dijkstra to="n18">5</dijkstra>
+      <dijkstra to="n19">7</dijkstra>
+      <dijkstra to="n20">11</dijkstra>
+      <dijkstra to="n21">3</dijkstra>
+      <dijkstra to="n22">4</dijkstra>
+      <dijkstra to="n23">8</dijkstra>
+      <dijkstra to="n24">5</dijkstra>
+      <dijkstra to="n25">5</dijkstra>
+      <dijkstra to="n26">12</dijkstra>
+      <dijkstra to="n27">5</dijkstra>
+      <dijkstra to="n28">5</dijkstra>
+      <dijkstra to="n29">1</dijkstra>
+      <dijkstra to="n30">5</dijkstra>
+      <dijkstra to="n31">9</dijkstra>
+      <dijkstra to="n32">9</dijkstra>
+      <dijkstra to="n33">8</dijkstra>
+      <dijkstra to="n34">6</dijkstra>
+      <dijkstra to="n35">9</dijkstra>
+      <dijkstra to="n36">6</dijkstra>
+      <dijkstra to="n37">8</dijkstra>
+      <dijkstra to="n38">7</dijkstra>
+      <dijkstra to="n39">9</dijkstra>
+      <dijkstra to="n40">5</dijkstra>
+      <dijkstra to="n41">8</dijkstra>
+      <dijkstra to="n42">5</dijkstra>
+      <dijkstra to="n43">9</dijkstra>
+      <dijkstra to="n44">5</dijkstra>
+      <dijkstra to="n45">1</dijkstra>
+      <dijkstra to="n46">7</dijkstra>
+      <dijkstra to="n47">0</dijkstra>
+      <dijkstra to="n48">3</dijkstra>
+      <dijkstra to="n49">17</dijkstra>
+      <betweenness of="n47">201.67</betweenness>
+    </vertex>
+    <vertex id="n48">
+      <data key="v_id">48</data>
+      <dijkstra to="n0">7</dijkstra>
+      <dijkstra to="n1">12</dijkstra>
+      <dijkstra to="n2">3</dijkstra>
+      <dijkstra to="n3">13</dijkstra>
+      <dijkstra to="n4">10</dijkstra>
+      <dijkstra to="n5">9</dijkstra>
+      <dijkstra to="n6">10</dijkstra>
+      <dijkstra to="n7">6</dijkstra>
+      <dijkstra to="n8">6</dijkstra>
+      <dijkstra to="n9">14</dijkstra>
+      <dijkstra to="n10">19</dijkstra>
+      <dijkstra to="n11">5</dijkstra>
+      <dijkstra to="n12">14</dijkstra>
+      <dijkstra to="n13">11</dijkstra>
+      <dijkstra to="n14">10</dijkstra>
+      <dijkstra to="n15">9</dijkstra>
+      <dijkstra to="n16">7</dijkstra>
+      <dijkstra to="n17">5</dijkstra>
+      <dijkstra to="n18">7</dijkstra>
+      <dijkstra to="n19">4</dijkstra>
+      <dijkstra to="n20">9</dijkstra>
+      <dijkstra to="n21">6</dijkstra>
+      <dijkstra to="n22">7</dijkstra>
+      <dijkstra to="n23">10</dijkstra>
+      <dijkstra to="n24">2</dijkstra>
+      <dijkstra to="n25">7</dijkstra>
+      <dijkstra to="n26">11</dijkstra>
+      <dijkstra to="n27">8</dijkstra>
+      <dijkstra to="n28">8</dijkstra>
+      <dijkstra to="n29">4</dijkstra>
+      <dijkstra to="n30">7</dijkstra>
+      <dijkstra to="n31">12</dijkstra>
+      <dijkstra to="n32">6</dijkstra>
+      <dijkstra to="n33">11</dijkstra>
+      <dijkstra to="n34">9</dijkstra>
+      <dijkstra to="n35">12</dijkstra>
+      <dijkstra to="n36">9</dijkstra>
+      <dijkstra to="n37">9</dijkstra>
+      <dijkstra to="n38">5</dijkstra>
+      <dijkstra to="n39">7</dijkstra>
+      <dijkstra to="n40">8</dijkstra>
+      <dijkstra to="n41">5</dijkstra>
+      <dijkstra to="n42">8</dijkstra>
+      <dijkstra to="n43">11</dijkstra>
+      <dijkstra to="n44">8</dijkstra>
+      <dijkstra to="n45">4</dijkstra>
+      <dijkstra to="n46">10</dijkstra>
+      <dijkstra to="n47">3</dijkstra>
+      <dijkstra to="n48">0</dijkstra>
+      <dijkstra to="n49">15</dijkstra>
+      <betweenness of="n48">140.5</betweenness>
+    </vertex>
+    <vertex id="n49">
+      <data key="v_id">49</data>
+      <dijkstra to="n0">19</dijkstra>
+      <dijkstra to="n1">24</dijkstra>
+      <dijkstra to="n2">18</dijkstra>
+      <dijkstra to="n3">20</dijkstra>
+      <dijkstra to="n4">22</dijkstra>
+      <dijkstra to="n5">23</dijkstra>
+      <dijkstra to="n6">22</dijkstra>
+      <dijkstra to="n7">14</dijkstra>
+      <dijkstra to="n8">17</dijkstra>
+      <dijkstra to="n9">27</dijkstra>
+      <dijkstra to="n10">30</dijkstra>
+      <dijkstra to="n11">18</dijkstra>
+      <dijkstra to="n12">21</dijkstra>
+      <dijkstra to="n13">9</dijkstra>
+      <dijkstra to="n14">21</dijkstra>
+      <dijkstra to="n15">23</dijkstra>
+      <dijkstra to="n16">13</dijkstra>
+      <dijkstra to="n17">15</dijkstra>
+      <dijkstra to="n18">14</dijkstra>
+      <dijkstra to="n19">14</dijkstra>
+      <dijkstra to="n20">18</dijkstra>
+      <dijkstra to="n21">18</dijkstra>
+      <dijkstra to="n22">19</dijkstra>
+      <dijkstra to="n23">17</dijkstra>
+      <dijkstra to="n24">17</dijkstra>
+      <dijkstra to="n25">18</dijkstra>
+      <dijkstra to="n26">24</dijkstra>
+      <dijkstra to="n27">20</dijkstra>
+      <dijkstra to="n28">20</dijkstra>
+      <dijkstra to="n29">16</dijkstra>
+      <dijkstra to="n30">18</dijkstra>
+      <dijkstra to="n31">18</dijkstra>
+      <dijkstra to="n32">9</dijkstra>
+      <dijkstra to="n33">23</dijkstra>
+      <dijkstra to="n34">21</dijkstra>
+      <dijkstra to="n35">21</dijkstra>
+      <dijkstra to="n36">21</dijkstra>
+      <dijkstra to="n37">22</dijkstra>
+      <dijkstra to="n38">16</dijkstra>
+      <dijkstra to="n39">20</dijkstra>
+      <dijkstra to="n40">20</dijkstra>
+      <dijkstra to="n41">20</dijkstra>
+      <dijkstra to="n42">20</dijkstra>
+      <dijkstra to="n43">16</dijkstra>
+      <dijkstra to="n44">22</dijkstra>
+      <dijkstra to="n45">18</dijkstra>
+      <dijkstra to="n46">18</dijkstra>
+      <dijkstra to="n47">17</dijkstra>
+      <dijkstra to="n48">15</dijkstra>
+      <dijkstra to="n49">0</dijkstra>
+      <betweenness of="n49">0.0</betweenness>
+    </vertex>
     <edge source="all" target="all">
-      <data key="total_edge">28</data>
+      <data key="total_edge">112</data>
     </edge>
-    <edge source="n0" target="n2">
+    <edge source="n1" target="n5">
       <data key="e_id">0</data>
-      <data key="e_weight">8</data>
-    </edge>
-    <edge source="n1" target="n3">
-      <data key="e_id">1</data>
-      <data key="e_weight">3</data>
-    </edge>
-    <edge source="n1" target="n4">
-      <data key="e_id">2</data>
-      <data key="e_weight">9</data>
-    </edge>
-    <edge source="n3" target="n5">
-      <data key="e_id">3</data>
-      <data key="e_weight">7</data>
-    </edge>
-    <edge source="n4" target="n5">
-      <data key="e_id">4</data>
-      <data key="e_weight">8</data>
-    </edge>
-    <edge source="n0" target="n6">
-      <data key="e_id">5</data>
-      <data key="e_weight">7</data>
-    </edge>
-    <edge source="n1" target="n6">
-      <data key="e_id">6</data>
-      <data key="e_weight">9</data>
-    </edge>
-    <edge source="n5" target="n6">
-      <data key="e_id">7</data>
-      <data key="e_weight">3</data>
-    </edge>
-    <edge source="n0" target="n7">
-      <data key="e_id">8</data>
-      <data key="e_weight">3</data>
-    </edge>
-    <edge source="n6" target="n7">
-      <data key="e_id">9</data>
-      <data key="e_weight">4</data>
-    </edge>
-    <edge source="n0" target="n8">
-      <data key="e_id">10</data>
-      <data key="e_weight">9</data>
-    </edge>
-    <edge source="n1" target="n8">
-      <data key="e_id">11</data>
       <data key="e_weight">5</data>
     </edge>
-    <edge source="n3" target="n8">
+    <edge source="n3" target="n5">
+      <data key="e_id">1</data>
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n4" target="n6">
+      <data key="e_id">2</data>
+      <data key="e_weight">6</data>
+    </edge>
+    <edge source="n2" target="n7">
+      <data key="e_id">3</data>
+      <data key="e_weight">9</data>
+    </edge>
+    <edge source="n7" target="n8">
+      <data key="e_id">4</data>
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n5" target="n9">
+      <data key="e_id">5</data>
+      <data key="e_weight">8</data>
+    </edge>
+    <edge source="n2" target="n11">
+      <data key="e_id">6</data>
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n6" target="n11">
+      <data key="e_id">7</data>
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n8" target="n11">
+      <data key="e_id">8</data>
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n10" target="n14">
+      <data key="e_id">9</data>
+      <data key="e_weight">9</data>
+    </edge>
+    <edge source="n1" target="n15">
+      <data key="e_id">10</data>
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n11" target="n15">
+      <data key="e_id">11</data>
+      <data key="e_weight">8</data>
+    </edge>
+    <edge source="n7" target="n16">
       <data key="e_id">12</data>
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n5" target="n8">
+    <edge source="n13" target="n16">
       <data key="e_id">13</data>
-      <data key="e_weight">1</data>
-    </edge>
-    <edge source="n0" target="n9">
-      <data key="e_id">14</data>
-      <data key="e_weight">3</data>
-    </edge>
-    <edge source="n3" target="n9">
-      <data key="e_id">15</data>
       <data key="e_weight">4</data>
     </edge>
-    <edge source="n1" target="n10">
-      <data key="e_id">16</data>
-      <data key="e_weight">9</data>
+    <edge source="n14" target="n17">
+      <data key="e_id">14</data>
+      <data key="e_weight">6</data>
     </edge>
-    <edge source="n3" target="n10">
+    <edge source="n16" target="n18">
+      <data key="e_id">15</data>
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n17" target="n19">
+      <data key="e_id">16</data>
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n0" target="n21">
       <data key="e_id">17</data>
       <data key="e_weight">1</data>
     </edge>
-    <edge source="n6" target="n10">
+    <edge source="n11" target="n21">
       <data key="e_id">18</data>
-      <data key="e_weight">3</data>
-    </edge>
-    <edge source="n7" target="n10">
-      <data key="e_id">19</data>
-      <data key="e_weight">3</data>
-    </edge>
-    <edge source="n3" target="n11">
-      <data key="e_id">20</data>
-      <data key="e_weight">8</data>
-    </edge>
-    <edge source="n10" target="n11">
-      <data key="e_id">21</data>
       <data key="e_weight">4</data>
     </edge>
-    <edge source="n9" target="n13">
+    <edge source="n21" target="n22">
+      <data key="e_id">19</data>
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n3" target="n23">
+      <data key="e_id">20</data>
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n13" target="n23">
+      <data key="e_id">21</data>
+      <data key="e_weight">9</data>
+    </edge>
+    <edge source="n18" target="n23">
       <data key="e_id">22</data>
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n19" target="n23">
+      <data key="e_id">23</data>
       <data key="e_weight">7</data>
     </edge>
-    <edge source="n6" target="n14">
-      <data key="e_id">23</data>
+    <edge source="n4" target="n25">
+      <data key="e_id">24</data>
+      <data key="e_weight">4</data>
+    </edge>
+    <edge source="n11" target="n25">
+      <data key="e_id">25</data>
       <data key="e_weight">2</data>
     </edge>
-    <edge source="n9" target="n14">
-      <data key="e_id">24</data>
-      <data key="e_weight">8</data>
-    </edge>
-    <edge source="n11" target="n14">
-      <data key="e_id">25</data>
-      <data key="e_weight">8</data>
-    </edge>
-    <edge source="n12" target="n14">
+    <edge source="n14" target="n25">
       <data key="e_id">26</data>
+      <data key="e_weight">8</data>
+    </edge>
+    <edge source="n17" target="n25">
+      <data key="e_id">27</data>
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n19" target="n25">
+      <data key="e_id">28</data>
+      <data key="e_weight">7</data>
+    </edge>
+    <edge source="n23" target="n25">
+      <data key="e_id">29</data>
       <data key="e_weight">6</data>
     </edge>
-    <edge source="n13" target="n14">
-      <data key="e_id">27</data>
+    <edge source="n9" target="n26">
+      <data key="e_id">30</data>
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n25" target="n26">
+      <data key="e_id">31</data>
+      <data key="e_weight">7</data>
+    </edge>
+    <edge source="n21" target="n27">
+      <data key="e_id">32</data>
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n22" target="n27">
+      <data key="e_id">33</data>
+      <data key="e_weight">6</data>
+    </edge>
+    <edge source="n5" target="n28">
+      <data key="e_id">34</data>
+      <data key="e_weight">4</data>
+    </edge>
+    <edge source="n11" target="n28">
+      <data key="e_id">35</data>
+      <data key="e_weight">4</data>
+    </edge>
+    <edge source="n22" target="n28">
+      <data key="e_id">36</data>
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n4" target="n29">
+      <data key="e_id">37</data>
+      <data key="e_weight">9</data>
+    </edge>
+    <edge source="n7" target="n29">
+      <data key="e_id">38</data>
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n21" target="n29">
+      <data key="e_id">39</data>
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n8" target="n30">
+      <data key="e_id">40</data>
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n15" target="n30">
+      <data key="e_id">41</data>
+      <data key="e_weight">6</data>
+    </edge>
+    <edge source="n12" target="n31">
+      <data key="e_id">42</data>
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n16" target="n31">
+      <data key="e_id">43</data>
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n22" target="n31">
+      <data key="e_id">44</data>
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n19" target="n32">
+      <data key="e_id">45</data>
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n5" target="n33">
+      <data key="e_id">46</data>
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n29" target="n33">
+      <data key="e_id">47</data>
+      <data key="e_weight">7</data>
+    </edge>
+    <edge source="n6" target="n34">
+      <data key="e_id">48</data>
+      <data key="e_weight">9</data>
+    </edge>
+    <edge source="n8" target="n34">
+      <data key="e_id">49</data>
+      <data key="e_weight">6</data>
+    </edge>
+    <edge source="n14" target="n34">
+      <data key="e_id">50</data>
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n28" target="n34">
+      <data key="e_id">51</data>
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n5" target="n35">
+      <data key="e_id">52</data>
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n7" target="n35">
+      <data key="e_id">53</data>
+      <data key="e_weight">7</data>
+    </edge>
+    <edge source="n11" target="n35">
+      <data key="e_id">54</data>
+      <data key="e_weight">9</data>
+    </edge>
+    <edge source="n30" target="n35">
+      <data key="e_id">55</data>
+      <data key="e_weight">7</data>
+    </edge>
+    <edge source="n2" target="n36">
+      <data key="e_id">56</data>
       <data key="e_weight">8</data>
+    </edge>
+    <edge source="n4" target="n36">
+      <data key="e_id">57</data>
+      <data key="e_weight">7</data>
+    </edge>
+    <edge source="n27" target="n36">
+      <data key="e_id">58</data>
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n29" target="n36">
+      <data key="e_id">59</data>
+      <data key="e_weight">8</data>
+    </edge>
+    <edge source="n2" target="n37">
+      <data key="e_id">60</data>
+      <data key="e_weight">6</data>
+    </edge>
+    <edge source="n20" target="n37">
+      <data key="e_id">61</data>
+      <data key="e_weight">4</data>
+    </edge>
+    <edge source="n34" target="n37">
+      <data key="e_id">62</data>
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n1" target="n38">
+      <data key="e_id">63</data>
+      <data key="e_weight">8</data>
+    </edge>
+    <edge source="n16" target="n38">
+      <data key="e_id">64</data>
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n32" target="n38">
+      <data key="e_id">65</data>
+      <data key="e_weight">9</data>
+    </edge>
+    <edge source="n2" target="n39">
+      <data key="e_id">66</data>
+      <data key="e_weight">4</data>
+    </edge>
+    <edge source="n12" target="n39">
+      <data key="e_id">67</data>
+      <data key="e_weight">7</data>
+    </edge>
+    <edge source="n19" target="n39">
+      <data key="e_id">68</data>
+      <data key="e_weight">9</data>
+    </edge>
+    <edge source="n20" target="n39">
+      <data key="e_id">69</data>
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n26" target="n39">
+      <data key="e_id">70</data>
+      <data key="e_weight">4</data>
+    </edge>
+    <edge source="n4" target="n40">
+      <data key="e_id">71</data>
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n6" target="n40">
+      <data key="e_id">72</data>
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n21" target="n40">
+      <data key="e_id">73</data>
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n34" target="n40">
+      <data key="e_id">74</data>
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n24" target="n41">
+      <data key="e_id">75</data>
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n0" target="n42">
+      <data key="e_id">76</data>
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n4" target="n42">
+      <data key="e_id">77</data>
+      <data key="e_weight">8</data>
+    </edge>
+    <edge source="n8" target="n42">
+      <data key="e_id">78</data>
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n22" target="n42">
+      <data key="e_id">79</data>
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n29" target="n42">
+      <data key="e_id">80</data>
+      <data key="e_weight">7</data>
+    </edge>
+    <edge source="n30" target="n42">
+      <data key="e_id">81</data>
+      <data key="e_weight">4</data>
+    </edge>
+    <edge source="n3" target="n43">
+      <data key="e_id">82</data>
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n13" target="n43">
+      <data key="e_id">83</data>
+      <data key="e_weight">7</data>
+    </edge>
+    <edge source="n20" target="n43">
+      <data key="e_id">84</data>
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n36" target="n43">
+      <data key="e_id">85</data>
+      <data key="e_weight">8</data>
+    </edge>
+    <edge source="n5" target="n45">
+      <data key="e_id">86</data>
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n15" target="n45">
+      <data key="e_id">87</data>
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n28" target="n45">
+      <data key="e_id">88</data>
+      <data key="e_weight">4</data>
+    </edge>
+    <edge source="n2" target="n46">
+      <data key="e_id">89</data>
+      <data key="e_weight">8</data>
+    </edge>
+    <edge source="n12" target="n46">
+      <data key="e_id">90</data>
+      <data key="e_weight">7</data>
+    </edge>
+    <edge source="n20" target="n46">
+      <data key="e_id">91</data>
+      <data key="e_weight">7</data>
+    </edge>
+    <edge source="n26" target="n46">
+      <data key="e_id">92</data>
+      <data key="e_weight">9</data>
+    </edge>
+    <edge source="n34" target="n46">
+      <data key="e_id">93</data>
+      <data key="e_weight">7</data>
+    </edge>
+    <edge source="n42" target="n46">
+      <data key="e_id">94</data>
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n43" target="n46">
+      <data key="e_id">95</data>
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n7" target="n47">
+      <data key="e_id">96</data>
+      <data key="e_weight">6</data>
+    </edge>
+    <edge source="n11" target="n47">
+      <data key="e_id">97</data>
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n24" target="n47">
+      <data key="e_id">98</data>
+      <data key="e_weight">8</data>
+    </edge>
+    <edge source="n29" target="n47">
+      <data key="e_id">99</data>
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n44" target="n47">
+      <data key="e_id">100</data>
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n45" target="n47">
+      <data key="e_id">101</data>
+      <data key="e_weight">1</data>
+    </edge>
+    <edge source="n2" target="n48">
+      <data key="e_id">102</data>
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n11" target="n48">
+      <data key="e_id">103</data>
+      <data key="e_weight">7</data>
+    </edge>
+    <edge source="n18" target="n48">
+      <data key="e_id">104</data>
+      <data key="e_weight">7</data>
+    </edge>
+    <edge source="n19" target="n48">
+      <data key="e_id">105</data>
+      <data key="e_weight">4</data>
+    </edge>
+    <edge source="n24" target="n48">
+      <data key="e_id">106</data>
+      <data key="e_weight">2</data>
+    </edge>
+    <edge source="n32" target="n48">
+      <data key="e_id">107</data>
+      <data key="e_weight">6</data>
+    </edge>
+    <edge source="n38" target="n48">
+      <data key="e_id">108</data>
+      <data key="e_weight">5</data>
+    </edge>
+    <edge source="n47" target="n48">
+      <data key="e_id">109</data>
+      <data key="e_weight">3</data>
+    </edge>
+    <edge source="n13" target="n49">
+      <data key="e_id">110</data>
+      <data key="e_weight">9</data>
+    </edge>
+    <edge source="n32" target="n49">
+      <data key="e_id">111</data>
+      <data key="e_weight">9</data>
     </edge>
     <edge source="all" target="all">
       <data key="connected">true</data>
     </edge>
     <edge source="all" target="all">
-      <data key="diameter">14</data>
+      <data key="diameter">21</data>
     </edge>
   </graph>
 </graphml>

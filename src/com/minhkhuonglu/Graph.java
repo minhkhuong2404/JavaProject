@@ -8,17 +8,17 @@ import java.util.*;
  * @version 1.0
  */
 public class Graph {
-    private final List<Vertex> vertexes;
+    private final List<Vertex> vertices;
     private final List<Edge> edges;
     public static LinkedList<Edge>[] adjacencyList = new LinkedList[100000];
 
     /**
      * Constructor for creating the Graph with list of Vertex and Edge
-     * @param vertexes List of vertex
+     * @param vertices List of vertex
      * @param edges List of Edge
      */
-    public Graph(List<Vertex> vertexes, List<Edge> edges) {
-        this.vertexes = vertexes;
+    public Graph(List<Vertex> vertices, List<Edge> edges) {
+        this.vertices = vertices;
         this.edges = edges;
     }
 
@@ -36,8 +36,8 @@ public class Graph {
      *
      * @return list of vertices
      */
-    public List<Vertex> getVertexes() {
-        return vertexes;
+    public List<Vertex> getVertices() {
+        return vertices;
     }
 
     /**

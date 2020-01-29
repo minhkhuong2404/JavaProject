@@ -14,16 +14,16 @@ import java.util.logging.*;
 public class Dijkstra {
 
     /**
-     * 2 list interfaces below is used to store all nodes and edges of a graph
+     * 2 list interfaces below is used to store all vertices and edges of a graph
      */
-    private final List<Vertex> nodes;
+    private final List<Vertex> vertices;
     private final List<Edge> edges;
 
     /**
-     * 2 set interfaces below is used to store all nodes that have been visited or not
+     * 2 set interfaces below is used to store all vertices that have been visited or not
      */
-    private Set<Vertex> visitedNodes;
-    private Set<Vertex> unVisitedNodes;
+    private Set<Vertex> visitedVertices;
+    private Set<Vertex> unVisitedVertices;
 
     /**
      * The map interface predecessors contains the previous vertex that will create the shortest path
@@ -34,7 +34,7 @@ public class Dijkstra {
     private Map<Vertex, Integer> distance;
 
     /**
-     * this ArrayList is used when there are more than 1 shortest path between 2 nodes
+     * this ArrayList is used when there are more than 1 shortest path between 2 vertices
      * storing all predecessor that have the same length into a List
      */
     private Map<Vertex, List<Vertex>> multiplePredecessors;
@@ -45,38 +45,38 @@ public class Dijkstra {
      * using all neighbors, which mean other vertices when combine with this vertex will create an edge
      *
      * if it is smaller, add its distance to the distance HashMap and its predecessors
-     * and also add it into the unvisitedNodes as we are just checking its neighbors only
+     * and also add it into the unvisitedVertices as we are just checking its neighbors only
      *
      * add its distance to the multiple_distance if there are more than 1 shortest path
-     * @param node the vertex is being checked
+     * @param vertex the vertex is being checked
      */
-    private void findMinimalDistances(Vertex node) {
-        List<Vertex> adjacentNodes = getNeighbors(node);
+    private void findMinimalDistances(Vertex vertex) {
+        List<Vertex> adjacentVertices = getNeighbors(vertex);
 
-        for (Vertex target : adjacentNodes) {
-            if (getShortestDistance(target) > getShortestDistance(node) + getDistance(node, target)) {
-                distance.put(target, getShortestDistance(node) + getDistance(node, target));
-                // add the following node into the list of step in the shortest path
-                predecessors.put(target, node);
+        for (Vertex target : adjacentVertices) {
+            if (getShortestDistance(target) > getShortestDistance(vertex) + getDistance(vertex, target)) {
+                distance.put(target, getShortestDistance(vertex) + getDistance(vertex, target));
+                // add the following vertex into the list of step in the shortest path
+                predecessors.put(target, vertex);
                 multiplePredecessors.get(target).clear();
-                multiplePredecessors.get(target).add(node);
-                unVisitedNodes.add(target);
+                multiplePredecessors.get(target).add(vertex);
+                unVisitedVertices.add(target);
             }
-            else if (getShortestDistance(target) == getShortestDistance(node) + getDistance(node, target)){
-                multiplePredecessors.get(target).add(node);
+            else if (getShortestDistance(target) == getShortestDistance(vertex) + getDistance(vertex, target)){
+                multiplePredecessors.get(target).add(vertex);
             }
         }
     }
 
     /**
-     * calculate the distance between 2 node by return its weight
-     * @param node the start vertex
+     * calculate the distance between 2 vertex by return its weight
+     * @param source the start vertex
      * @param target the end vertex
-     * @return the weight of path between 2 nodes
+     * @return the weight of path between 2 vertices
      */
-    private int getDistance(Vertex node, Vertex target) {
+    private int getDistance(Vertex source, Vertex target) {
         for (Edge edge : edges) {
-            if (edge.getSource().equals(node) && edge.getDestination().equals(target)) {
+            if (edge.getSource().equals(source) && edge.getDestination().equals(target)) {
                 return edge.getWeight();
             }
         }
@@ -84,17 +84,17 @@ public class Dijkstra {
     }
 
     /**
-     * take out all the neighbor vertices of a node
+     * take out all the neighbor vertices of a vertex
      * by checking if the start of vertex of an edge is the same as the vertex we want
      * and its end vertex has been visited
      *
-     * @param node node needs to find its neighbor
+     * @param vertex vertex needs to find its neighbor
      * @return neighbor of the vertex, which are the vertices that have the same edge
      */
-    private List<Vertex> getNeighbors(Vertex node) {
+    private List<Vertex> getNeighbors(Vertex vertex) {
         List<Vertex> neighbors = new ArrayList<>();
         for (Edge edge : edges) {
-            if (edge.getSource().equals(node) && !isVisited(edge.getDestination())) {
+            if (edge.getSource().equals(vertex) && !isVisited(edge.getDestination())) {
                 neighbors.add(edge.getDestination());
             }
         }
@@ -124,10 +124,10 @@ public class Dijkstra {
     /**
      * check if a vertex has been visited
      * @param vertex vertex that needs checking
-     * @return if that vertex appeared in the visitedNodes set
+     * @return if that vertex appeared in the visitedVertices set
      */
     private boolean isVisited(Vertex vertex) {
-        return visitedNodes.contains(vertex);
+        return visitedVertices.contains(vertex);
     }
 
     /**
@@ -146,12 +146,12 @@ public class Dijkstra {
     private final Logger LOG = Logger.getLogger(Main.class.getName());
 
     /**
-     * first create ArrayList of nodes and edges
+     * first create ArrayList of vertices and edges
      * @param graph graph needs to be calculated
      */
     public Dijkstra(Graph graph) {
         // create a copy of the array so that we can operate on this array
-        this.nodes = new ArrayList<>(graph.getVertexes());
+        this.vertices = new ArrayList<>(graph.getVertices());
         this.edges = new ArrayList<>(graph.getEdges());
     }
 
@@ -160,22 +160,22 @@ public class Dijkstra {
      * the end vertex will be defined in other function
      * see them in JavaDoc
      *
-     * create 2 HashSet of visited and unvisited nodes
+     * create 2 HashSet of visited and unvisited vertices
      * create 2 HashMap of distance and predecessors
      * create HashMap of multiplePredecessors
      *
-     * add the distance of the source, which is 0 and add it into the unvisited node set
+     * add the distance of the source, which is 0 and add it into the unvisited vertex set
      * also add the distance of the source into the multiplePredecessors array
      *
-     * keep add node that has been visited and removed them
-     * until the unvisited nodes become 0
+     * keep add vertex that has been visited and removed them
+     * until the unvisited vertices become 0
      *
-     * at each step, find the shortest distance to reach that node
+     * at each step, find the shortest distance to reach that vertex
      * @param source the start vertex
      */
     public void executeDijkstra(Vertex source) {
-        visitedNodes = new HashSet<>();
-        unVisitedNodes = new HashSet<>();
+        visitedVertices = new HashSet<>();
+        unVisitedVertices = new HashSet<>();
 
         distance = new HashMap<>();
         predecessors = new HashMap<>();
@@ -183,19 +183,19 @@ public class Dijkstra {
         multiplePredecessors =  new HashMap<>();
 
         distance.put(source, 0);
-        unVisitedNodes.add(source);
+        unVisitedVertices.add(source);
 
-        for (Vertex target: nodes){
+        for (Vertex target: vertices){
             multiplePredecessors.put(target, new ArrayList<>());
         }
 
         multiplePredecessors.get(source).add(source);
-        while (unVisitedNodes.size() > 0) {
-            Vertex node = getMinimum(unVisitedNodes);
-            LOG.log(Level.FINE, "Node: " + node);
-            visitedNodes.add(node);
-            unVisitedNodes.remove(node);
-            findMinimalDistances(node);
+        while (unVisitedVertices.size() > 0) {
+            Vertex vertex = getMinimum(unVisitedVertices);
+            LOG.log(Level.FINE, "vertex: " + vertex);
+            visitedVertices.add(vertex);
+            unVisitedVertices.remove(vertex);
+            findMinimalDistances(vertex);
         }
         LOG.log(Level.FINE, "multi predecessor: "+ multiplePredecessors );
     }
@@ -205,7 +205,7 @@ public class Dijkstra {
      * @param destination the end vertex
      * @return the distance of the destination vertex
      */
-    public int returnTotal_Weight(Vertex destination){
+    public int returnTotalWeight(Vertex destination){
         return distance.get(destination);
     }
 
@@ -237,49 +237,49 @@ public class Dijkstra {
     }
 
     /**
-     * check if all vertices are visited by comparing the visitedNodes size
-     * @return true is the size of visitedNodes are the same as the number of vertex
+     * check if all vertices are visited by comparing the visitedVertices size
+     * @return true is the size of visitedVertices are the same as the number of vertex
      */
     public boolean isConnected(){
-        return visitedNodes.size() == vertexNum;
+        return visitedVertices.size() == vertexNum;
     }
 
     /**
      * this function will first iterate all vertex in the graph
-     * adding the size of nodes in the multiplePredecessors then put it into a realMultiplePre
+     * adding the size of vertices in the multiplePredecessors then put it into a realMultiplePre
      * then starting adding the new size by using a while loop
-     * calculating until all size of the nodes remained unchanged by comparing with tempMultiplePre
+     * calculating until all size of the vertices remained unchanged by comparing with tempMultiplePre
      * all value are stored in the realMultiplePre HashMap
      *
-     * @param node the end vertex needs
+     * @param target the end vertex needs
      * @return number shortest path from the start ( which in executedDijkstra function) to the end vertex
      * @see com.minhkhuonglu.Dijkstra#executeDijkstra(Vertex)
      */
-    public float calculateTotalShortestPath( Vertex node){
+    public float calculateTotalShortestPath( Vertex target){
 
-        HashMap<Vertex, Integer> tempMultiplePre = new HashMap<>();
-        HashMap<Vertex, Integer> realMultiplePre = new HashMap<>();
+        HashMap<Vertex, Integer> tempMultiplePredecessors = new HashMap<>();
+        HashMap<Vertex, Integer> realMultiplePredecessors = new HashMap<>();
 
-        for (Vertex vertex:nodes) {
-            int firstVertex = 0;
-            for (int j = 0; j < multiplePredecessors.get(vertex).size(); j++) {
-                firstVertex += multiplePredecessors.get(multiplePredecessors.get(vertex).get(j)).size();
+        for (Vertex vertex : vertices) {
+            int firstNumberOfPath = 0;
+            for (int indexOfPredecessor = 0; indexOfPredecessor < multiplePredecessors.get(vertex).size(); indexOfPredecessor++) {
+                firstNumberOfPath += multiplePredecessors.get(multiplePredecessors.get(vertex).get(indexOfPredecessor)).size();
             }
-            realMultiplePre.put(vertex, firstVertex);
+            realMultiplePredecessors.put(vertex, firstNumberOfPath);
         }
-        while ( !tempMultiplePre.equals(realMultiplePre)){
-            tempMultiplePre.putAll(realMultiplePre);
-            for (Vertex vertex:nodes){
-                int finalVertex = 0;
-                for (int j = 0; j < multiplePredecessors.get(vertex).size(); j++) {
-                    finalVertex += realMultiplePre.get(multiplePredecessors.get(vertex).get(j));
+        while ( !tempMultiplePredecessors.equals(realMultiplePredecessors)){
+            tempMultiplePredecessors.putAll(realMultiplePredecessors);
+            for (Vertex vertex : vertices){
+                int finalNumberOfPath = 0;
+                for (int indexOfPredecessor = 0; indexOfPredecessor < multiplePredecessors.get(vertex).size(); indexOfPredecessor++) {
+                    finalNumberOfPath += realMultiplePredecessors.get(multiplePredecessors.get(vertex).get(indexOfPredecessor));
                 }
-                realMultiplePre.put(vertex, finalVertex);
+                realMultiplePredecessors.put(vertex, finalNumberOfPath);
             }
         }
-        LOG.log(Level.FINE, tempMultiplePre + " all " + realMultiplePre);
+        LOG.log(Level.FINE, tempMultiplePredecessors + " all " + realMultiplePredecessors);
 
-        return realMultiplePre.get(node);
+        return realMultiplePredecessors.get(target);
     }
 
 }
