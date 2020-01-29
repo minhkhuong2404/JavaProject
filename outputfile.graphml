@@ -33,7 +33,7 @@
       <dijkstra to="n12">15</dijkstra>
       <dijkstra to="n13">10</dijkstra>
       <dijkstra to="n14">9</dijkstra>
-      <betweenness of="n0">14.5</betweenness>
+      <betweenness of="n0">15.0</betweenness>
     </node>
     <node id="n1">
       <data key="v_id">1</data>
@@ -90,7 +90,7 @@
       <dijkstra to="n12">12</dijkstra>
       <dijkstra to="n13">11</dijkstra>
       <dijkstra to="n14">6</dijkstra>
-      <betweenness of="n3">33.0</betweenness>
+      <betweenness of="n3">36.5</betweenness>
     </node>
     <node id="n4">
       <data key="v_id">4</data>
@@ -128,7 +128,7 @@
       <dijkstra to="n12">11</dijkstra>
       <dijkstra to="n13">13</dijkstra>
       <dijkstra to="n14">5</dijkstra>
-      <betweenness of="n5">14.0</betweenness>
+      <betweenness of="n5">15.0</betweenness>
     </node>
     <node id="n6">
       <data key="v_id">6</data>
@@ -147,7 +147,7 @@
       <dijkstra to="n12">8</dijkstra>
       <dijkstra to="n13">10</dijkstra>
       <dijkstra to="n14">2</dijkstra>
-      <betweenness of="n6">17.0</betweenness>
+      <betweenness of="n6">19.0</betweenness>
     </node>
     <node id="n7">
       <data key="v_id">7</data>
@@ -185,7 +185,7 @@
       <dijkstra to="n12">12</dijkstra>
       <dijkstra to="n13">12</dijkstra>
       <dijkstra to="n14">6</dijkstra>
-      <betweenness of="n8">14.0</betweenness>
+      <betweenness of="n8">16.0</betweenness>
     </node>
     <node id="n9">
       <data key="v_id">9</data>
@@ -299,7 +299,7 @@
       <dijkstra to="n12">6</dijkstra>
       <dijkstra to="n13">8</dijkstra>
       <dijkstra to="n14">0</dijkstra>
-      <betweenness of="n14">14.5</betweenness>
+      <betweenness of="n14">15.5</betweenness>
     </node>
     <edge source="all" target="all">
       <data key="total_edge">28</data>
@@ -420,7 +420,7 @@
       <data key="connected">true</data>
     </edge>
     <edge source="all" target="all">
-      <data key="diameter">25</data>
+      <data key="diameter">14</data>
     </edge>
   </graph>
 </graphml>

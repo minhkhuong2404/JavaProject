@@ -6,7 +6,20 @@ package com.minhkhuonglu;
  * @version 1.0
  */
 interface Interface {
-    String getID();
+    /**
+     * get ID of an object
+     * @return ID of an object
+     */
+    int getID();
+
+    /**
+     * change object into String
+     * @return String
+     */
     String toString();
+
+    /**
+     * print out the object
+     */
     void printMe();
 }

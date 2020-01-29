@@ -6,7 +6,7 @@ package com.minhkhuonglu;
  * @version 1.0
  */
 public class Vertex extends Abstract{
-    final private String id;
+    private int id;
     private String name;
 
     /**
@@ -14,7 +14,7 @@ public class Vertex extends Abstract{
      * @param id id of Vertex
      * @param name name of Vertex
      */
-    public Vertex(String id, String name) {
+    public Vertex(int id, String name) {
         super(id);
         this.id = id;
         this.name = name;
@@ -25,28 +25,12 @@ public class Vertex extends Abstract{
      * @return ID of edge
      */
     @Override
-    public String getID() {
+    public int getID() {
         return super.getID();
     }
 
-    /**
-     * override method in Object to make it for specific when comparing object
-     * @param obj object needs to be compared
-     * @return if the object are null or not and if they are the same
-     */
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-
-        Vertex other = (Vertex) obj;
-        if (id == null) {
-            return other.id == null;
-        } else return id.equals(other.id);
+    public String getName(){
+        return this.name;
     }
 
     /**
