@@ -1,11 +1,13 @@
 package com.minhkhuonglu;
 
+import static java.lang.System.*;
 import static org.junit.Assert.*;
 
 import java.io.*;
 import java.nio.charset.*;
 import java.nio.file.*;
 import java.util.*;
+import java.util.logging.Logger;
 import java.util.logging.*;
 
 /**
@@ -154,6 +156,15 @@ public class Main{
         countAgainThread.join();
         LOG.log(Level.FINE, "Done preparing! ");
 
+        try{
+            if (args[0] == null){
+                LOG.log(Level.INFO,"Missing file");
+            }
+        } catch (ArrayIndexOutOfBoundsException e){
+            LOG.log(Level.INFO, "Please provide a .graphml file to continue");
+            exit(0);
+        }
+
         // check whether it is .graphml file
         try {
             graph.checkCorrectFileExtension(args[0]);
@@ -197,45 +208,123 @@ public class Main{
             // use Dijkstra to check the connectivity and the diameter of the graph
             graph.DijkstraCall(Vertices.get(1), Vertices.get(2));
 
-        } else if (args.length == 3){
-            if (args[1].equals("-b")) {
-                int passVertex = Integer.parseInt(args[2]);
-                // calculate betweenness centrality measure for a specific vertex
-                double betweennessCentrality;
-                betweennessCentrality = graph.calculateBetweennessCentrality(Vertices.get(passVertex));
-                LOG.log(Level.INFO, "Betweenness centrality of " + passVertex + " is: " + betweennessCentrality);
+        }
+        else if (args.length == 3){
+            if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a")){
+                LOG.log(Level.WARNING, "Adding behind your file \n \"-s\" to calculate Dijkstra between 2 nodes " +
+                        "\n \"-b\" to calculate betweenness centrality of node " +
+                        "\n \"-a\" to print the result into a new .graphml file");
             }
-            else if (args[1].equals("-a")){
-                try{
-                    Files.deleteIfExists(Paths.get("/" + args[2]));
-                }
-                catch(IOException e) {
-                    LOG.log(Level.WARNING, "Invalid permissions.");
-                }
 
-                LOG.log(Level.INFO, "Delete old file successful.");
+            switch (args[1]) {
+                case "-b":
+                    // calculate betweenness centrality measure for a specific vertex
+                    double betweennessCentrality;
+                    if (args[2] == null) {
+                        LOG.log(Level.INFO, "Please input a number");
+                    }
 
-                try{
-                    // output into a file
-                    graph.outputingFile(args[2]);
-                } catch (Exception ignored){}
-                LOG.log(Level.INFO, "File creation is finished!");
+                    try {
+                        betweennessCentrality = graph.calculateBetweennessCentrality(Vertices.get(Integer.parseInt(args[2])));
+                        LOG.log(Level.INFO, "Betweenness centrality of " + Integer.parseInt(args[2]) + " is: " + betweennessCentrality);
+                    } catch (NumberFormatException e) {
+                        LOG.log(Level.WARNING, "Please type in a number: '" + args[2] + "' is not valid");
+                        exit(0);
+                    }
+
+                    break;
+                case "-a":
+                    if (!args[2].contains(".graphml") && !args[2].contains(".xml")){
+                        throw new IncorrectFileExtensionException(
+                                "Enter a valid *.graphml or *.xml file. " + args[2] + " is detected");
+                    }
+
+                    try {
+                        Files.deleteIfExists(Paths.get("/" + args[2]));
+                    } catch (IOException e) {
+                        LOG.log(Level.WARNING, "Invalid permissions.");
+                    }
+
+                    LOG.log(Level.INFO, "Delete old file successful.");
+
+                    try {
+                        // output into a file
+                        graph.outputingFile(args[2]);
+                    } catch (Exception ignored) {
+                    }
+                    LOG.log(Level.INFO, "File creation is finished!");
+                    break;
+                case "-s":
+
+                    try {
+                        int checkIfItIsANumber = Integer.parseInt(args[2]);
+                        LOG.log(Level.INFO, "Please enter 1 more number: only '" + checkIfItIsANumber + "' found");
+                    } catch ( NumberFormatException e){
+                        LOG.log(Level.INFO, "Please change '" + args[2] + "' into a number and add another number");
+
+                    }
+                    break;
+            }
+        }
+        else if (args.length == 4 ){
+            if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a")){
+                LOG.log(Level.WARNING, "Adding behind your file \n \"-s\" to calculate Dijkstra between 2 nodes " +
+                        "\n \"-b\" to calculate betweenness centrality of a node" +
+                        "\n \"-a\" to print the result into a new .graphml file");
+            }
+            switch (args[1]) {
+                case "-s":
+                    try {
+                        graph.DijkstraCall(Vertices.get(Integer.parseInt(args[2])), Vertices.get(Integer.parseInt(args[3])));
+                    } catch (NumberFormatException e) {
+                        LOG.log(Level.WARNING, "Please type in 2 numbers not 1 or 2 character(s): '" + args[2] + "' and '" + args[3] + "'");
+                        exit(0);
+                    }
+
+                    int sourceVertex, targetVertex;
+
+                    sourceVertex = Integer.parseInt(args[2]);
+                    targetVertex = Integer.parseInt(args[3]);
+
+                    try {
+                        // call the Dijkstra algorithms
+                        graph.DijkstraCall(Vertices.get(sourceVertex), Vertices.get(targetVertex));
+                    } catch (AssertionError e) {
+                        LOG.log(Level.WARNING, "Oops!! Please choose 2 different vertices.");
+                    }
+                    break;
+                case "-a":
+                    LOG.log(Level.INFO, "You only need to type into the name of the file only");
+                    LOG.log(Level.INFO, "Please delete '" + args[3] +"'");
+
+                    break;
+                case "-b":
+                    LOG.log(Level.INFO, "You only need to type 1 number to calculate th betweenness");
+                    LOG.log(Level.INFO, "Please delete '" + args[3] +"'");
+
+                    break;
+            }
+        }
+        else if (args.length == 2){
+            if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a")){
+                LOG.log(Level.WARNING, "Adding behind your file \n \"-s\" to calculate Dijkstra between 2 nodes " +
+                        "\n \"-b\" to calculate betweenness centrality of a node" +
+                        "\n \"-a\" to print the result into a new .graphml file");
+            }
+            switch (args[1]) {
+                case "-s":
+                    LOG.log(Level.INFO, "Please enter 2 more number to calculate Dijkstra");
+                    break;
+                case "-a":
+                    LOG.log(Level.INFO, "Please enter a *.graphml file to print out the result");
+                    break;
+                case "-b":
+                    LOG.log(Level.INFO, "Please enter 1 number to calculate the betweenness centrality");
+                    break;
             }
         }
         else {
-            if (args[1].equals("-s")) {
-
-                int sourceVertex,targetVertex;
-
-                sourceVertex = Integer.parseInt(args[2]);
-                targetVertex = Integer.parseInt(args[3]);
-                // call the Dijkstra algorithms
-                try {
-                    graph.DijkstraCall(Vertices.get(sourceVertex), Vertices.get(targetVertex));
-                } catch (AssertionError e){
-                    LOG.log(Level.INFO, "Oops!! Please choose 2 different vertices.");
-                }
-            }
+            LOG.log(Level.INFO, "Look like you entered too many values. Please check again the syntax");
         }
 
         long endTime = System.currentTimeMillis();
@@ -295,9 +384,9 @@ public class Main{
      * @param fileExtension a *.graphml file
      */
     private void checkCorrectFileExtension(String fileExtension){
-        if (!fileExtension.contains(".graphml")){
+        if (!fileExtension.contains(".graphml") && !fileExtension.contains(".xml")){
             throw new IncorrectFileExtensionException(
-                    "Enter a valid *.graphml file. " + fileExtension + " is detected");
+                    "Enter a valid *.graphml or *.xml file. " + fileExtension + " is detected");
         }else{
             LOG.log(Level.FINE, "Correct file extension");
         }
@@ -380,11 +469,14 @@ public class Main{
         // error handling if file does not exist
         assert file != null;
 
+
         try (InputStream in = new FileInputStream(file);
              Reader reader = new InputStreamReader(in, encoding);
              // buffer for efficiency
              Reader buffer = new BufferedReader(reader)) {
             handleCharacters(buffer);
+        } catch (FileNotFoundException e){
+            LOG.log(Level.WARNING, "File not found. Please check the name again");
         }
     }
 
