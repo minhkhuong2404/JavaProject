@@ -39,112 +39,6 @@ public class Dijkstra {
      */
     private Map<Vertex, List<Vertex>> multiplePredecessors;
 
-
-    /**
-     * find the minimal distances to get to a vertex by comparing the shortest distance to reach them
-     * using all neighbors, which mean other vertices when combine with this vertex will create an edge
-     *
-     * if it is smaller, add its distance to the distance HashMap and its predecessors
-     * and also add it into the unvisitedVertices as we are just checking its neighbors only
-     *
-     * add its distance to the multiple_distance if there are more than 1 shortest path
-     * @param vertex the vertex is being checked
-     */
-    private void findMinimalDistances(Vertex vertex) {
-        List<Vertex> adjacentVertices = getNeighbors(vertex);
-
-        for (Vertex target : adjacentVertices) {
-            if (getShortestDistance(target) > getShortestDistance(vertex) + getDistance(vertex, target)) {
-                distance.put(target, getShortestDistance(vertex) + getDistance(vertex, target));
-                // add the following vertex into the list of step in the shortest path
-                predecessors.put(target, vertex);
-                multiplePredecessors.get(target).clear();
-                multiplePredecessors.get(target).add(vertex);
-                unVisitedVertices.add(target);
-            }
-            else if (getShortestDistance(target) == getShortestDistance(vertex) + getDistance(vertex, target)){
-                multiplePredecessors.get(target).add(vertex);
-            }
-        }
-    }
-
-    /**
-     * calculate the distance between 2 vertex by return its weight
-     * @param source the start vertex
-     * @param target the end vertex
-     * @return the weight of path between 2 vertices
-     */
-    private int getDistance(Vertex source, Vertex target) {
-        for (Edge edge : edges) {
-            if (edge.getSource().equals(source) && edge.getDestination().equals(target)) {
-                return edge.getWeight();
-            }
-        }
-        throw new RuntimeException("Should not happen");
-    }
-
-    /**
-     * take out all the neighbor vertices of a vertex
-     * by checking if the start of vertex of an edge is the same as the vertex we want
-     * and its end vertex has been visited
-     *
-     * @param vertex vertex needs to find its neighbor
-     * @return neighbor of the vertex, which are the vertices that have the same edge
-     */
-    private List<Vertex> getNeighbors(Vertex vertex) {
-        List<Vertex> neighbors = new ArrayList<>();
-        for (Edge edge : edges) {
-            if (edge.getSource().equals(vertex) && !isVisited(edge.getDestination())) {
-                neighbors.add(edge.getDestination());
-            }
-        }
-        LOG.log(Level.FINE, "Neighbors: " + neighbors);
-        return neighbors;
-    }
-
-    /**
-     * find the minimum weight to get to a vertex by comparing to a set of all vertices
-     * @param vertexes set of vertices
-     * @return the minimum distance to reach that vertex
-     */
-    private Vertex getMinimum(Set<Vertex> vertexes) {
-        Vertex minimum = null;
-        for (Vertex vertex : vertexes) {
-            if (minimum == null) {
-                minimum = vertex;
-            } else {
-                if (getShortestDistance(vertex) < getShortestDistance(minimum)) {
-                    minimum = vertex;
-                }
-            }
-        }
-        return minimum;
-    }
-
-    /**
-     * check if a vertex has been visited
-     * @param vertex vertex that needs checking
-     * @return if that vertex appeared in the visitedVertices set
-     */
-    private boolean isVisited(Vertex vertex) {
-        return visitedVertices.contains(vertex);
-    }
-
-    /**
-     * get the shortest distance to get to a vertex
-     * @param destination vertex that needs to be reached
-     * @return the value of the vertex in the distance HashSet only when it is not null
-     */
-    private int getShortestDistance(Vertex destination) {
-        Integer d = distance.get(destination);
-        return Objects.requireNonNullElse(d, Integer.MAX_VALUE);
-    }
-
-    /**
-     * This function is to create a Logger for further use
-     */
-    private final Logger LOG = Logger.getLogger(Main.class.getName());
-
     /**
      * first create ArrayList of vertices and edges
      * @param graph graph needs to be calculated
@@ -281,6 +175,115 @@ public class Dijkstra {
 
         return realMultiplePredecessors.get(target);
     }
+
+    /**
+     * find the minimal distances to get to a vertex by comparing the shortest distance to reach them
+     * using all neighbors, which mean other vertices when combine with this vertex will create an edge
+     *
+     * if it is smaller, add its distance to the distance HashMap and its predecessors
+     * and also add it into the unvisitedVertices as we are just checking its neighbors only
+     *
+     * add its distance to the multiple_distance if there are more than 1 shortest path
+     * @param vertex the vertex is being checked
+     */
+    private void findMinimalDistances(Vertex vertex) {
+        List<Vertex> adjacentVertices = getNeighbors(vertex);
+
+        for (Vertex target : adjacentVertices) {
+            if (getShortestDistance(target) > getShortestDistance(vertex) + getDistance(vertex, target)) {
+                distance.put(target, getShortestDistance(vertex) + getDistance(vertex, target));
+                // add the following vertex into the list of step in the shortest path
+                predecessors.put(target, vertex);
+                multiplePredecessors.get(target).clear();
+                multiplePredecessors.get(target).add(vertex);
+                unVisitedVertices.add(target);
+            }
+            else if (getShortestDistance(target) == getShortestDistance(vertex) + getDistance(vertex, target)){
+                multiplePredecessors.get(target).add(vertex);
+            }
+        }
+    }
+
+    /**
+     * calculate the distance between 2 vertex by return its weight
+     * @param source the start vertex
+     * @param target the end vertex
+     * @return the weight of path between 2 vertices
+     */
+    private int getDistance(Vertex source, Vertex target) {
+        try {
+            for (Edge edge : edges) {
+                if (edge.getSource().equals(source) && edge.getDestination().equals(target)) {
+                    return edge.getWeight();
+                }
+            }
+        } catch (NullPointerException e){
+            LOG.log(Level.WARNING, "Weight of edge not found");
+        }
+        throw new RuntimeException("Should not happen");
+    }
+
+    /**
+     * take out all the neighbor vertices of a vertex
+     * by checking if the start of vertex of an edge is the same as the vertex we want
+     * and its end vertex has been visited
+     *
+     * @param vertex vertex needs to find its neighbor
+     * @return neighbor of the vertex, which are the vertices that have the same edge
+     */
+    private List<Vertex> getNeighbors(Vertex vertex) {
+        List<Vertex> neighbors = new ArrayList<>();
+        for (Edge edge : edges) {
+            if (edge.getSource().equals(vertex) && !isVisited(edge.getDestination())) {
+                neighbors.add(edge.getDestination());
+            }
+        }
+        LOG.log(Level.FINE, "Neighbors: " + neighbors);
+        return neighbors;
+    }
+
+    /**
+     * find the minimum weight to get to a vertex by comparing to a set of all vertices
+     * @param vertexes set of vertices
+     * @return the minimum distance to reach that vertex
+     */
+    private Vertex getMinimum(Set<Vertex> vertexes) {
+        Vertex minimum = null;
+        for (Vertex vertex : vertexes) {
+            if (minimum == null) {
+                minimum = vertex;
+            } else {
+                if (getShortestDistance(vertex) < getShortestDistance(minimum)) {
+                    minimum = vertex;
+                }
+            }
+        }
+        return minimum;
+    }
+
+    /**
+     * check if a vertex has been visited
+     * @param vertex vertex that needs checking
+     * @return if that vertex appeared in the visitedVertices set
+     */
+    private boolean isVisited(Vertex vertex) {
+        return visitedVertices.contains(vertex);
+    }
+
+    /**
+     * get the shortest distance to get to a vertex
+     * @param destination vertex that needs to be reached
+     * @return the value of the vertex in the distance HashSet only when it is not null
+     */
+    private int getShortestDistance(Vertex destination) {
+        Integer d = distance.get(destination);
+        return Objects.requireNonNullElse(d, Integer.MAX_VALUE);
+    }
+
+    /**
+     * This function is to create a Logger for further use
+     */
+    private final Logger LOG = Logger.getLogger(Main.class.getName());
 
 }
 
