@@ -116,6 +116,7 @@ public class Main{
      * first check the extension of file whether it is .graphml or not
      * then starting reading the input .graphml file to take out the vertex and edge
      * initializing the allDijkstra and numberOfShortestPath 2D-array for further calculation
+     *
      * open 2 Thread to calculating all necessary information which is
      * the shortest path between 2 vertices and the number of shortest path between them
      *
@@ -137,31 +138,43 @@ public class Main{
         // play with thread
         ParallelThread countUp = new ParallelThread(1,3,true);
         ParallelThread countDown = new ParallelThread(10,8,true);
-        ParallelThread countAgain = new ParallelThread(1,5,true);
+        ParallelThread countAgain = new ParallelThread(1,3,true);
+        ParallelThread countAgain2 = new ParallelThread(1,3,true);
         ParallelThread startDoCalculation = new ParallelThread(1,1, false);
 
         Thread countUpThread = new Thread(countUp);
         Thread countDownThread = new Thread(countDown);
         Thread countAgainThread = new Thread(countAgain);
+        Thread countAgainThread2 = new Thread(countAgain2);
         Thread startCalculationThread = new Thread(startDoCalculation);
 
-        LOG.log(Level.FINE, "Preparing to build and display the properties of the graph: ");
-        countUpThread.start();
-        countDownThread.start();
-        countUpThread.join();
-        countDownThread.join();
-        LOG.log(Level.FINE, "System crashed, trying to prepare again.");
+        LOG.log(Level.INFO, "Preparing our program. Please hold on ");
 
         countAgainThread.start();
         countAgainThread.join();
-        LOG.log(Level.FINE, "Done preparing! ");
 
         try{
             if (args[0] == null){
                 LOG.log(Level.INFO,"Missing file");
             }
         } catch (ArrayIndexOutOfBoundsException e){
-            LOG.log(Level.INFO, "Please provide a .graphml file to continue");
+            System.out.println("==================================================");
+            System.out.println("|   Welcome to our OOP Java Project -  Group 8   |");
+            System.out.println("==================================================");
+            System.out.println("                                                  ");
+            System.out.println("**********  COMPUTER NETWORK ANALYSIS  ***********");
+            System.out.println("                                                  ");
+            System.out.println("==================================================");
+            System.out.println("                                                  ");
+            System.out.println("     Please provide a .graphml file to continue   ");
+            System.out.println("We will show you step by step on how to use the program");
+            System.out.println("                                                  ");
+            System.out.println("==================================================");
+            System.out.println("|             @Made by MinhKhuongLu              |");
+            System.out.println("|            And members in Group 8              |");
+            System.out.println("|                 @Github 2020                   |");
+            System.out.println("==================================================");
+
             exit(0);
         }
 
@@ -169,7 +182,8 @@ public class Main{
         try {
             graph.checkCorrectFileExtension(args[0]);
         } catch (IllegalArgumentException err){
-            LOG.log(Level.WARNING, "Wrong file extension " + err);
+            LOG.log(Level.WARNING, "Oh no! Look like you enter the wrong graph extension. " + err);
+            exit(0);
         }
 
         graph.readFileAndBuildGraph(args[0]);
@@ -183,9 +197,20 @@ public class Main{
 
         // this line is used without thread
 //        calculateAllDijkstra(0,vertexNum);
+
         if (vertexNum > 150){
+            countUpThread.start();
+            countDownThread.start();
+            countUpThread.join();
+            countDownThread.join();
+            LOG.log(Level.INFO, "System crashed, trying to prepare again.");
+
+            countAgainThread2.start();
+            countAgainThread2.join();
             LOG.log(Level.INFO, "This file is quite large. So it may take a little bit longer. Please be patient");
         }
+
+        // start 2 threads for faster calculation
         MultiThreading RunningThread1 = new MultiThreading(0,vertexNum/2);
         RunningThread1.start();
         MultiThreading RunningThread2 = new MultiThreading(vertexNum/2, vertexNum);
@@ -211,9 +236,13 @@ public class Main{
         }
         else if (args.length == 3){
             if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a")){
-                LOG.log(Level.WARNING, "Adding behind your file \n \"-s\" to calculate Dijkstra between 2 nodes " +
-                        "\n \"-b\" to calculate betweenness centrality of node " +
-                        "\n \"-a\" to print the result into a new .graphml file");
+                System.out.println("Make sure that you use the right syntax of the program!");
+                System.out.println("\"-s x y\" to calculate Dijkstra between 2 nodes ");
+                System.out.println("\"-b x\" to calculate betweenness centrality of a node");
+                System.out.println("\"-a output.graphml\" to print the result into output.graphml file");
+                System.out.println("where x, y are numbers");
+                System.out.println("      *.graphml is the file you need.");
+                exit(0);
             }
 
             switch (args[1]) {
@@ -222,6 +251,7 @@ public class Main{
                     double betweennessCentrality;
                     if (args[2] == null) {
                         LOG.log(Level.INFO, "Please input a number");
+                        exit(0);
                     }
 
                     try {
@@ -235,8 +265,8 @@ public class Main{
                     break;
                 case "-a":
                     if (!args[2].contains(".graphml") && !args[2].contains(".xml")){
-                        throw new IncorrectFileExtensionException(
-                                "Enter a valid *.graphml or *.xml file. " + args[2] + " is detected");
+                        LOG.log(Level.WARNING,"Please enter a valid *.graphml or *.xml file. '" + args[2] + "' is detected");
+                        exit(0);
                     }
 
                     try {
@@ -263,21 +293,27 @@ public class Main{
                         LOG.log(Level.INFO, "Please change '" + args[2] + "' into a number and add another number");
 
                     }
+                    exit(0);
                     break;
             }
         }
         else if (args.length == 4 ){
             if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a")){
-                LOG.log(Level.WARNING, "Adding behind your file \n \"-s\" to calculate Dijkstra between 2 nodes " +
-                        "\n \"-b\" to calculate betweenness centrality of a node" +
-                        "\n \"-a\" to print the result into a new .graphml file");
+                System.out.println("Make sure that you use the right syntax of the program!");
+                System.out.println("\"-s x y\" to calculate Dijkstra between 2 nodes ");
+                System.out.println("\"-b x\" to calculate betweenness centrality of a node");
+                System.out.println("\"-a output.graphml\" to print the result into output.graphml file");
+                System.out.println("where x, y are numbers");
+                System.out.println("      *.graphml is the file you need.");
+                exit(0);
             }
             switch (args[1]) {
                 case "-s":
                     try {
-                        graph.DijkstraCall(Vertices.get(Integer.parseInt(args[2])), Vertices.get(Integer.parseInt(args[3])));
+                        int checkIfFirstCharIsANumber = Integer.parseInt(args[2]);
+                        int checkIfSecondCharIsANumber = Integer.parseInt(args[3]);
                     } catch (NumberFormatException e) {
-                        LOG.log(Level.WARNING, "Please type in 2 numbers not 1 or 2 character(s): '" + args[2] + "' and '" + args[3] + "'");
+                        LOG.log(Level.WARNING, "Please type in 2 numbers not 1 or 2 character(s): '" + args[2] + "' and '" + args[3] + "' found");
                         exit(0);
                     }
 
@@ -290,30 +326,34 @@ public class Main{
                         // call the Dijkstra algorithms
                         graph.DijkstraCall(Vertices.get(sourceVertex), Vertices.get(targetVertex));
                     } catch (AssertionError e) {
-                        LOG.log(Level.WARNING, "Oops!! Please choose 2 different vertices.");
+                        LOG.log(Level.WARNING, "Oops!! Please choose 2 different vertices.");                        exit(0);
+                        exit(0);
                     }
                     break;
                 case "-a":
                     LOG.log(Level.INFO, "You only need to type into the name of the file only");
                     LOG.log(Level.INFO, "Please delete '" + args[3] +"'");
-
+                    exit(0);
                     break;
                 case "-b":
                     LOG.log(Level.INFO, "You only need to type 1 number to calculate th betweenness");
                     LOG.log(Level.INFO, "Please delete '" + args[3] +"'");
-
+                    exit(0);
                     break;
             }
         }
         else if (args.length == 2){
             if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a")){
-                LOG.log(Level.WARNING, "Adding behind your file \n \"-s\" to calculate Dijkstra between 2 nodes " +
-                        "\n \"-b\" to calculate betweenness centrality of a node" +
-                        "\n \"-a\" to print the result into a new .graphml file");
+                System.out.println("Then add next to your file");
+                System.out.println("\"-s x y\" to calculate Dijkstra between 2 nodes ");
+                System.out.println("\"-b x\" to calculate betweenness centrality of a node");
+                System.out.println("\"-a output.graphml\" to print the result into output.graphml file");
+                System.out.println("where x, y are numbers");
+                System.out.println("      *.graphml is the file you need.");
             }
             switch (args[1]) {
                 case "-s":
-                    LOG.log(Level.INFO, "Please enter 2 more number to calculate Dijkstra");
+                    LOG.log(Level.INFO, "Please enter 2 more numbers to calculate Dijkstra");
                     break;
                 case "-a":
                     LOG.log(Level.INFO, "Please enter a *.graphml file to print out the result");
@@ -322,14 +362,21 @@ public class Main{
                     LOG.log(Level.INFO, "Please enter 1 number to calculate the betweenness centrality");
                     break;
             }
+            exit(0);
         }
         else {
             LOG.log(Level.INFO, "Look like you entered too many values. Please check again the syntax");
+            exit(0);
         }
 
         long endTime = System.currentTimeMillis();
         long elapsed_time = endTime - startTime;
         LOG.log(Level.WARNING, "Running time: " + elapsed_time + " ms");
+        System.out.println("==================================================");
+        System.out.println("You can re-run the project to see other functions as well");
+        System.out.println("Exiting the project");
+        System.out.println("Hope you enjoy our project in computer network analysis");
+        System.out.println("Good bye. Have a nice day! <3");
     }
 
     /**
@@ -477,6 +524,7 @@ public class Main{
             handleCharacters(buffer);
         } catch (FileNotFoundException e){
             LOG.log(Level.WARNING, "File not found. Please check the name again");
+            exit(0);
         }
     }
 

@@ -49,7 +49,7 @@ public class ParallelThread implements Runnable {
                 for (int i = start; i <= end; i++) {
                     LOG.log(Level.FINE, i + " ...");
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(200);
                     } catch (InterruptedException e) {
                         LOG.log(Level.WARNING,"Thread is interrupted");
                     }
@@ -58,7 +58,7 @@ public class ParallelThread implements Runnable {
                 for (int i = start; i >= end; i--) {
                     LOG.log(Level.FINE, i / 3 + " ...");
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(200);
                     } catch (InterruptedException e) {
                         LOG.log(Level.WARNING,"Thread is interrupted");
                     }
@@ -66,7 +66,7 @@ public class ParallelThread implements Runnable {
             }
         }
         else{
-            LOG.log(Level.FINE, "Now we start!");
+            LOG.log(Level.INFO, "Now we start!");
         }
     }
 
