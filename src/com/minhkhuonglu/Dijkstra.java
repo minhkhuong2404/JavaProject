@@ -177,6 +177,25 @@ public class Dijkstra {
     }
 
     /**
+     * take out all the neighbor vertices of a vertex
+     * by checking if the start of vertex of an edge is the same as the vertex we want
+     * and its end vertex has been visited
+     *
+     * @param vertex vertex needs to find its neighbor
+     * @return neighbor of the vertex, which are the vertices that have the same edge
+     */
+    private List<Vertex> getNeighbors(Vertex vertex) {
+        List<Vertex> neighbors = new ArrayList<>();
+        for (Edge edge : edges) {
+            if (edge.getSource().equals(vertex) && !isVisited(edge.getDestination())) {
+                neighbors.add(edge.getDestination());
+            }
+        }
+        LOG.log(Level.FINE, "Neighbors: " + neighbors);
+        return neighbors;
+    }
+
+    /**
      * find the minimal distances to get to a vertex by comparing the shortest distance to reach them
      * using all neighbors, which mean other vertices when combine with this vertex will create an edge
      *
@@ -221,25 +240,6 @@ public class Dijkstra {
             LOG.log(Level.WARNING, "Weight of edge not found");
         }
         throw new RuntimeException("Should not happen");
-    }
-
-    /**
-     * take out all the neighbor vertices of a vertex
-     * by checking if the start of vertex of an edge is the same as the vertex we want
-     * and its end vertex has been visited
-     *
-     * @param vertex vertex needs to find its neighbor
-     * @return neighbor of the vertex, which are the vertices that have the same edge
-     */
-    private List<Vertex> getNeighbors(Vertex vertex) {
-        List<Vertex> neighbors = new ArrayList<>();
-        for (Edge edge : edges) {
-            if (edge.getSource().equals(vertex) && !isVisited(edge.getDestination())) {
-                neighbors.add(edge.getDestination());
-            }
-        }
-        LOG.log(Level.FINE, "Neighbors: " + neighbors);
-        return neighbors;
     }
 
     /**

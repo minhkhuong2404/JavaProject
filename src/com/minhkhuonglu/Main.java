@@ -238,22 +238,27 @@ public class Main{
             System.out.println("\"-s x y\" to calculate Dijkstra between 2 nodes ");
             System.out.println("\"-b x\" to calculate betweenness centrality of a node");
             System.out.println("\"-a output.graphml\" to print the result into output.graphml file");
+            System.out.println("\"-v x\" to see the properties of vertex with ID x");
+            System.out.println("\"-e x\" to see the properties of edge with ID x");
             System.out.println("where x, y are numbers");
             System.out.println("      *.graphml is the file you need.");
 
         }
         else if (args.length == 3){
-            if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a")){
+            if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a") && !args[1].equals("-v") && !args[1].equals("-e")){
                 System.out.println("Make sure that you use the right syntax of the program!");
                 System.out.println("\"-s x y\" to calculate Dijkstra between 2 nodes ");
                 System.out.println("\"-b x\" to calculate betweenness centrality of a node");
                 System.out.println("\"-a output.graphml\" to print the result into output.graphml file");
+                System.out.println("\"-v x\" to see the properties of vertex with ID x");
+                System.out.println("\"-e x\" to see the properties of edge with ID x");
                 System.out.println("where x, y are numbers");
                 System.out.println("      *.graphml is the file you need.");
                 exit(0);
             }
 
             switch (args[1]) {
+
                 case "-b":
                     // calculate betweenness centrality measure for a specific vertex
                     double betweennessCentrality;
@@ -298,19 +303,52 @@ public class Main{
                         int checkIfItIsANumber = Integer.parseInt(args[2]);
                         LOG.log(Level.INFO, "Please enter 1 more number: only '" + checkIfItIsANumber + "' found");
                     } catch ( NumberFormatException e){
-                        LOG.log(Level.INFO, "Please change '" + args[2] + "' into a number and add another number");
-
+                        LOG.log(Level.WARNING, "Please change '" + args[2] + "' into a number and add another number");
+                    }
+                    exit(0);
+                    break;
+                case "-v":
+                    try {
+                        if (Integer.parseInt(args[2]) <= vertexNum) {
+                            LOG.log(Level.INFO, "The properties of vertex '" + args[2] + "' are: ");
+                            LOG.log(Level.INFO, "Vertex ID: " + Vertices.get(Integer.parseInt(args[2])));
+                            LOG.log(Level.INFO, "Number of edges pass through: " + graph.getNeighborsVertex(args[2]).size());
+                            LOG.log(Level.INFO, "Neighbor vertices are: " + graph.getNeighborsVertex(args[2]));
+                        } else {
+                            LOG.log(Level.INFO, "Please type in a number no larger than " + vertexNum + " as we only have " + vertexNum + " vertices");
+                            exit(0);
+                        }
+                    } catch (NumberFormatException e){
+                        LOG.log(Level.WARNING, "Please change '" + args[2] + "' into a number");
+                    }
+                    exit(0);
+                    break;
+                case "-e":
+                    try {
+                        if (Integer.parseInt(args[2]) <= edgeNum) {
+                            LOG.log(Level.INFO, "The properties of edge '" + args[2] + "' are: ");
+                            LOG.log(Level.INFO, "Edge ID: " + args[2]);
+                            LOG.log(Level.INFO, "Made from 2 vertices '" + Edges.get(Integer.parseInt(args[2])).getSource() + "' and '" + Edges.get(Integer.parseInt(args[2])).getDestination() + "'");
+                            LOG.log(Level.INFO, "Edge weight is: " + Edges.get(Integer.parseInt(args[2])).getWeight());
+                        } else {
+                            LOG.log(Level.INFO, "Please type in a number no larger than " + edgeNum + " as we only have " + edgeNum + " edges");
+                            exit(0);
+                        }
+                    } catch (NumberFormatException e) {
+                        LOG.log(Level.WARNING, "Please change '" + args[2] + "' into a number");
                     }
                     exit(0);
                     break;
             }
         }
         else if (args.length == 4 ){
-            if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a")){
+            if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a") && !args[1].equals("-v") && !args[1].equals("-e")){
                 System.out.println("Make sure that you use the right syntax of the program!");
                 System.out.println("\"-s x y\" to calculate Dijkstra between 2 nodes ");
                 System.out.println("\"-b x\" to calculate betweenness centrality of a node");
                 System.out.println("\"-a output.graphml\" to print the result into output.graphml file");
+                System.out.println("\"-v x\" to see the properties of vertex with ID x");
+                System.out.println("\"-e x\" to see the properties of edge with ID x");
                 System.out.println("where x, y are numbers");
                 System.out.println("      *.graphml is the file you need.");
                 exit(0);
@@ -344,18 +382,31 @@ public class Main{
                     exit(0);
                     break;
                 case "-b":
-                    LOG.log(Level.INFO, "You only need to type 1 number to calculate th betweenness");
+                    LOG.log(Level.INFO, "You only need to type 1 number to calculate the betweenness");
                     LOG.log(Level.INFO, "Please delete '" + args[3] +"'");
                     exit(0);
                     break;
+                case "-v":
+                    LOG.log(Level.INFO, "You only need to type 1 number to see the vertex properties");
+                    LOG.log(Level.INFO, "Please delete '" + args[3] +"'");
+                    exit(0);
+                    break;
+                case "-e":
+                    LOG.log(Level.INFO, "You only need to type 1 number to see the edge properties");
+                    LOG.log(Level.INFO, "Please delete '" + args[3] +"'");
+                    exit(0);
+                    break;
+
             }
         }
         else if (args.length == 2){
-            if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a")){
+            if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a") && !args[1].equals("-v") && !args[1].equals("-e")){
                 System.out.println("Make sure that you use the right syntax of the program!");
                 System.out.println("\"-s x y\" to calculate Dijkstra between 2 nodes ");
                 System.out.println("\"-b x\" to calculate betweenness centrality of a node");
                 System.out.println("\"-a output.graphml\" to print the result into output.graphml file");
+                System.out.println("\"-v x\" to see the properties of vertex with ID x");
+                System.out.println("\"-e x\" to see the properties of edge with ID x");
                 System.out.println("where x, y are numbers");
                 System.out.println("      *.graphml is the file you need.");
                 exit(0);
@@ -370,6 +421,12 @@ public class Main{
                     break;
                 case "-b":
                     LOG.log(Level.INFO, "Please enter 1 number to calculate the betweenness centrality");
+                    break;
+                case "-v":
+                    LOG.log(Level.INFO, "Please enter 1 number to see its vertex properties");
+                    break;
+                case "-e":
+                    LOG.log(Level.INFO, "Please enter 1 number to see its edge properties");
                     break;
                 default:
                     LOG.log(Level.INFO, "Maybe you enter the wrong syntax, please check it again");
@@ -436,6 +493,19 @@ public class Main{
                 }
             }
         }
+    }
+
+    private List<String> getNeighborsVertex(String vertex) {
+        List<String> neighbors = new ArrayList<>();
+        for (MakePair<String, String> edge : edges) {
+            if (edge.getL().equals(vertex)) {
+                neighbors.add(edge.getR());
+            } else if (edge.getR().equals(vertex)){
+                neighbors.add(edge.getL());
+            }
+        }
+        LOG.log(Level.FINE, "Neighbors: " + neighbors);
+        return neighbors;
     }
 
     /**
