@@ -60,6 +60,7 @@ public class Main{
      */
     static int diameterOfGraph = -1;
 
+    static String[] storeDiameter = new String[2];
     /**
      * Replaces some string in the .graphml file
      * The String edgeID replaces for the "e_id"
@@ -221,7 +222,7 @@ public class Main{
             onlyConnected =  true; // to choose whether to print out properties or just the Dijkstra of 2 Vertices
 
             // true for the properties
-            LOG.log(Level.INFO, "The properties of the graph are: ");
+            System.out.println("The properties of the graph are: ");
 
             // print out the vertexIDs
             graph.printvertexIDs(vertexIDs);
@@ -269,7 +270,7 @@ public class Main{
 
                     try {
                         betweennessCentrality = graph.calculateBetweennessCentrality(Vertices.get(Integer.parseInt(args[2])));
-                        LOG.log(Level.INFO, "Betweenness centrality of " + Integer.parseInt(args[2]) + " is: " + betweennessCentrality);
+                        System.out.println("Betweenness centrality of " + Integer.parseInt(args[2]) + " is: " + betweennessCentrality);
                     } catch (NumberFormatException e) {
                         LOG.log(Level.WARNING, "Please type in a number: '" + args[2] + "' is not valid");
                         exit(0);
@@ -295,7 +296,7 @@ public class Main{
                         graph.outputingFile(args[2]);
                     } catch (Exception ignored) {
                     }
-                    LOG.log(Level.INFO, "File creation is finished!");
+                    System.out.println("File creation is finished. You can now open your file to check the result.");
                     break;
                 case "-s":
 
@@ -310,10 +311,10 @@ public class Main{
                 case "-v":
                     try {
                         if (Integer.parseInt(args[2]) <= vertexNum) {
-                            LOG.log(Level.INFO, "The properties of vertex '" + args[2] + "' are: ");
-                            LOG.log(Level.INFO, "Vertex ID: " + Vertices.get(Integer.parseInt(args[2])));
-                            LOG.log(Level.INFO, "Number of edges pass through: " + graph.getNeighborsVertex(args[2]).size());
-                            LOG.log(Level.INFO, "Neighbor vertices are: " + graph.getNeighborsVertex(args[2]));
+                            System.out.println( "The properties of vertex '" + args[2] + "' are: ");
+                            System.out.println( "Vertex ID: " + Vertices.get(Integer.parseInt(args[2])));
+                            System.out.println( "Number of edges pass through: " + graph.getNeighborsVertex(args[2]).size());
+                            System.out.println( "Neighbor vertices are: " + graph.getNeighborsVertex(args[2]));
                         } else {
                             LOG.log(Level.INFO, "Please type in a number no larger than " + vertexNum + " as we only have " + vertexNum + " vertices");
                             exit(0);
@@ -326,10 +327,10 @@ public class Main{
                 case "-e":
                     try {
                         if (Integer.parseInt(args[2]) <= edgeNum) {
-                            LOG.log(Level.INFO, "The properties of edge '" + args[2] + "' are: ");
-                            LOG.log(Level.INFO, "Edge ID: " + args[2]);
-                            LOG.log(Level.INFO, "Made from 2 vertices '" + Edges.get(Integer.parseInt(args[2])).getSource() + "' and '" + Edges.get(Integer.parseInt(args[2])).getDestination() + "'");
-                            LOG.log(Level.INFO, "Edge weight is: " + Edges.get(Integer.parseInt(args[2])).getWeight());
+                            System.out.println( "The properties of edge '" + args[2] + "' are: ");
+                            System.out.println( "Edge ID: " + args[2]);
+                            System.out.println( "Made from 2 vertices '" + Edges.get(Integer.parseInt(args[2])).getSource() + "' and '" + Edges.get(Integer.parseInt(args[2])).getDestination() + "'");
+                            System.out.println( "Edge weight is: " + Edges.get(Integer.parseInt(args[2])).getWeight());
                         } else {
                             LOG.log(Level.INFO, "Please type in a number no larger than " + edgeNum + " as we only have " + edgeNum + " edges");
                             exit(0);
@@ -791,20 +792,21 @@ public class Main{
         assertTrue(path.size() > 0); //  if the size is large than 0
 
         if (!onlyConnected) {
-            LOG.log(Level.INFO, "Total weight of the path is: " + dijkstra.returnTotalWeight(targetVertex));
-            LOG.log(Level.INFO, "Shortest path from vertex " + sourceVertex + " to vertex " + targetVertex + " is: ");
+            System.out.println("Total weight of the path is: " + dijkstra.returnTotalWeight(targetVertex));
+            System.out.println("Shortest path from vertex " + sourceVertex + " to vertex " + targetVertex + " is: ");
             outputAShortestPath(path);
         }
         else {
             if (dijkstra.isConnected()) {
-                LOG.log(Level.INFO, "The graph is connected");
+                System.out.println("The graph is connected");
             }
             try {
-                LOG.log(Level.INFO, "The diameter of the graph is: " + findTheLongestShortestPath(graph));
+                System.out.println("The diameter of the graph is: " + findTheLongestShortestPath(graph));
+                System.out.println("From node '" + storeDiameter[0] + "' to '" + storeDiameter[1] + "'");
             }
             catch (java.lang.NullPointerException ex ){
-                LOG.log(Level.INFO, "The graph is not connected");
-                LOG.log(Level.INFO, "The diameter of the graph is: oo (infinity)");
+                System.out.println("The graph is not connected");
+                System.out.println("The diameter of the graph is: oo (infinity)");
             }
         }
     }
@@ -848,14 +850,18 @@ public class Main{
             for (Vertex destination : Vertices) {
                 if (start != destination) {
                     LinkedList<Vertex> paths = findShortestPath.getPath(destination);
+
                     // find a longer path size
                     if (paths.size() > maxPath) {
                         maxPath = paths.size();
                         diameterOfGraph = findShortestPath.returnTotalWeight(destination);
+                        storeDiameter[0] = String.valueOf(paths.getFirst());
+                        storeDiameter[1] = String.valueOf(paths.getLast());
                     }
                 }
             }
         }
+
         return diameterOfGraph;
     }
 
@@ -865,9 +871,9 @@ public class Main{
      */
     private void outputAShortestPath(LinkedList<Vertex> path){
         for (Vertex vertex : path) {
-            LOG.log(Level.INFO, vertex + " -> ");
+            System.out.print(vertex + " -> ");
         }
-        LOG.log(Level.INFO, "Done");
+        System.out.println("Done");
     }
 
     /**
@@ -889,8 +895,8 @@ public class Main{
      * @param listEdgeIDs store all edgeIDs
      */
     private void printEdgeIDs(ArrayList<String> listEdgeIDs){
-        LOG.log(Level.INFO, "There are " + edgeNum + " edges. ");
-        LOG.log(Level.INFO, "The edge IDS are: ");
+        System.out.println("There are " + edgeNum + " edges. ");
+        System.out.println("The edge IDS are: ");
 
         printAll(listEdgeIDs);
     }
@@ -900,8 +906,8 @@ public class Main{
      * @param listvertexIDs store all vertexIDs
      */
     private void printvertexIDs(ArrayList<String> listvertexIDs){
-        LOG.log(Level.INFO, "There are " + vertexNum + " Vertices. ");
-        LOG.log(Level.INFO, "The vertex IDS are: ");
+        System.out.println("There are " + vertexNum + " Vertices. ");
+        System.out.println("The vertex IDS are: ");
 
         printAll(listvertexIDs);
     }
@@ -911,7 +917,7 @@ public class Main{
      * @param list list of anything
      */
     private void printAll(ArrayList<String> list){
-        LOG.log(Level.INFO, " : " + list );
+        System.out.println(list);
     }
 
     /**
@@ -919,11 +925,16 @@ public class Main{
      * @param listSourceTarget list of all edges
      */
     private void printMapOut(List<MakePair<String, String>> listSourceTarget){
-        LOG.log(Level.FINE, "The source and target vertex of every edges: ");
-
+        System.out.println("The source and target vertex of every edges: ");
+        int i = 0;
         for (MakePair<String, String> element : listSourceTarget) {
-            LOG.log(Level.FINE, element.getL() + "->" + element.getR() + " ");
+            System.out.print(element.getL() + "->" + element.getR() + " ; ");
+            if (i % 10 == 0 && i != 0) {
+                System.out.println();
+            }
+            i++;
         }
+        System.out.println();
     }
 
     /**
