@@ -233,6 +233,14 @@ public class Main{
             // use Dijkstra to check the connectivity and the diameter of the graph
             graph.DijkstraCall(Vertices.get(1), Vertices.get(2));
 
+            System.out.println("==================================================");
+            System.out.println("Adding some new syntax to see more powerful function");
+            System.out.println("\"-s x y\" to calculate Dijkstra between 2 nodes ");
+            System.out.println("\"-b x\" to calculate betweenness centrality of a node");
+            System.out.println("\"-a output.graphml\" to print the result into output.graphml file");
+            System.out.println("where x, y are numbers");
+            System.out.println("      *.graphml is the file you need.");
+
         }
         else if (args.length == 3){
             if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a")){
@@ -344,13 +352,15 @@ public class Main{
         }
         else if (args.length == 2){
             if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a")){
-                System.out.println("Then add next to your file");
+                System.out.println("Make sure that you use the right syntax of the program!");
                 System.out.println("\"-s x y\" to calculate Dijkstra between 2 nodes ");
                 System.out.println("\"-b x\" to calculate betweenness centrality of a node");
                 System.out.println("\"-a output.graphml\" to print the result into output.graphml file");
                 System.out.println("where x, y are numbers");
                 System.out.println("      *.graphml is the file you need.");
+                exit(0);
             }
+
             switch (args[1]) {
                 case "-s":
                     LOG.log(Level.INFO, "Please enter 2 more numbers to calculate Dijkstra");
@@ -361,6 +371,8 @@ public class Main{
                 case "-b":
                     LOG.log(Level.INFO, "Please enter 1 number to calculate the betweenness centrality");
                     break;
+                default:
+                    LOG.log(Level.INFO, "Maybe you enter the wrong syntax, please check it again");
             }
             exit(0);
         }
