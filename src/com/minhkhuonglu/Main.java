@@ -223,13 +223,18 @@ public class Main{
 
             // true for the properties
             System.out.println("The properties of the graph are: ");
-
+            System.out.println("==================================================");
             // print out the vertexIDs
             graph.printvertexIDs(vertexIDs);
+            System.out.println("==================================================");
+
             // print out the edgeIDS
             graph.printEdgeIDs(edgeIDs);
+            System.out.println("==================================================");
+
             // print out the edges source and target
             graph.printMapOut(edges);
+            System.out.println("==================================================");
 
             // use Dijkstra to check the connectivity and the diameter of the graph
             graph.DijkstraCall(Vertices.get(1), Vertices.get(2));
@@ -269,6 +274,13 @@ public class Main{
                     }
 
                     try {
+                        if (Integer.parseInt(args[2]) < 0){
+                            LOG.log(Level.WARNING, "A vertix cannot be negative");
+                            exit(0);
+                        } else if ( Integer.parseInt(args[2]) > vertexNum){
+                            LOG.log(Level.WARNING,"Please enter a number that is not larger than "+ vertexNum +" as we only have " + vertexNum + " vertices");
+                            exit(0);
+                        }
                         betweennessCentrality = graph.calculateBetweennessCentrality(Vertices.get(Integer.parseInt(args[2])));
                         System.out.println("Betweenness centrality of " + Integer.parseInt(args[2]) + " is: " + betweennessCentrality);
                     } catch (NumberFormatException e) {
@@ -291,15 +303,15 @@ public class Main{
 
                     LOG.log(Level.INFO, "Delete old file successful.");
 
-                    try {
-                        // output into a file
-                        graph.outputingFile(args[2]);
-                    } catch (Exception ignored) {
-                    }
-                    System.out.println("File creation is finished. You can now open your file to check the result.");
+
+                    // output into a file
+                    graph.outputingFile(args[2]);
                     break;
                 case "-s":
-
+                    if (Integer.parseInt(args[2]) < 0){
+                        LOG.log(Level.WARNING, "A vertix cannot be negative");
+                        exit(0);
+                    }
                     try {
                         int checkIfItIsANumber = Integer.parseInt(args[2]);
                         LOG.log(Level.INFO, "Please enter 1 more number: only '" + checkIfItIsANumber + "' found");
@@ -310,13 +322,16 @@ public class Main{
                     break;
                 case "-v":
                     try {
-                        if (Integer.parseInt(args[2]) <= vertexNum) {
+                        if (Integer.parseInt(args[2]) <= vertexNum && Integer.parseInt(args[2]) >= 0) {
                             System.out.println( "The properties of vertex '" + args[2] + "' are: ");
                             System.out.println( "Vertex ID: " + Vertices.get(Integer.parseInt(args[2])));
                             System.out.println( "Number of edges pass through: " + graph.getNeighborsVertex(args[2]).size());
                             System.out.println( "Neighbor vertices are: " + graph.getNeighborsVertex(args[2]));
-                        } else {
+                        } else if (Integer.parseInt(args[2]) > vertexNum){
                             LOG.log(Level.INFO, "Please type in a number no larger than " + vertexNum + " as we only have " + vertexNum + " vertices");
+                            exit(0);
+                        } else if (Integer.parseInt(args[2]) < 0){
+                            LOG.log(Level.INFO, "Please type in a positive number " + Integer.parseInt(args[2]) + " found");
                             exit(0);
                         }
                     } catch (NumberFormatException e){
@@ -326,13 +341,16 @@ public class Main{
                     break;
                 case "-e":
                     try {
-                        if (Integer.parseInt(args[2]) <= edgeNum) {
+                        if (Integer.parseInt(args[2]) <= edgeNum && Integer.parseInt(args[2]) >= 0 ) {
                             System.out.println( "The properties of edge '" + args[2] + "' are: ");
                             System.out.println( "Edge ID: " + args[2]);
                             System.out.println( "Made from 2 vertices '" + Edges.get(Integer.parseInt(args[2])).getSource() + "' and '" + Edges.get(Integer.parseInt(args[2])).getDestination() + "'");
                             System.out.println( "Edge weight is: " + Edges.get(Integer.parseInt(args[2])).getWeight());
-                        } else {
+                        } else if (Integer.parseInt(args[2]) > edgeNum){
                             LOG.log(Level.INFO, "Please type in a number no larger than " + edgeNum + " as we only have " + edgeNum + " edges");
+                            exit(0);
+                        } else if (Integer.parseInt(args[2]) < 0){
+                            LOG.log(Level.INFO, "Please type in a positive number " + Integer.parseInt(args[2]) + " found");
                             exit(0);
                         }
                     } catch (NumberFormatException e) {
@@ -359,6 +377,14 @@ public class Main{
                     try {
                         int checkIfFirstCharIsANumber = Integer.parseInt(args[2]);
                         int checkIfSecondCharIsANumber = Integer.parseInt(args[3]);
+                        if (checkIfFirstCharIsANumber < 0 || checkIfSecondCharIsANumber < 0){
+                            LOG.log(Level.WARNING, "A vertix cannot be negative");
+                            exit(0);
+                        } else if (checkIfFirstCharIsANumber > vertexNum || checkIfSecondCharIsANumber > vertexNum){
+                            LOG.log(Level.WARNING,"Please enter a number that is not larger than "+ vertexNum +" as we only have " + vertexNum + " vertices");
+                            exit(0);
+                        }
+
                     } catch (NumberFormatException e) {
                         LOG.log(Level.WARNING, "Please type in 2 numbers not 1 or 2 character(s): '" + args[2] + "' and '" + args[3] + "' found");
                         exit(0);
@@ -799,8 +825,10 @@ public class Main{
         else {
             if (dijkstra.isConnected()) {
                 System.out.println("The graph is connected");
+
             }
             try {
+                System.out.println("==================================================");
                 System.out.println("The diameter of the graph is: " + findTheLongestShortestPath(graph));
                 System.out.println("From node '" + storeDiameter[0] + "' to '" + storeDiameter[1] + "'");
             }
@@ -1005,6 +1033,7 @@ public class Main{
         System.out.print("    </edge>\n");
         System.out.print("  </graph>\n");
         System.out.print("</graphml>\n");
+        LOG.log(Level.INFO, "File creation is finished, you can now open your file to check the result.");
     }
 
     /**

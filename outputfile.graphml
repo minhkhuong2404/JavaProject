@@ -38,9 +38,9 @@
     </vertex>
     <vertex id="n1">
       <data key="v_id">1</data>
-      <dijkstra to="n0">[ 1 ,  3 ,  10 ,  7 ,  0 ] = 10</dijkstra>
+      <dijkstra to="n0">[ 1 ,  3 ,  9 ,  0 ] = 10</dijkstra>
       <dijkstra to="n1">[ 1 ] = 0</dijkstra>
-      <dijkstra to="n2">[ 1 ,  3 ,  10 ,  7 ,  0 ,  2 ] = 18</dijkstra>
+      <dijkstra to="n2">[ 1 ,  3 ,  9 ,  0 ,  2 ] = 18</dijkstra>
       <dijkstra to="n3">[ 1 ,  3 ] = 3</dijkstra>
       <dijkstra to="n4">[ 1 ,  4 ] = 9</dijkstra>
       <dijkstra to="n5">[ 1 ,  3 ,  8 ,  5 ] = 5</dijkstra>
@@ -76,9 +76,9 @@
     </vertex>
     <vertex id="n3">
       <data key="v_id">3</data>
-      <dijkstra to="n0">[ 3 ,  10 ,  7 ,  0 ] = 7</dijkstra>
+      <dijkstra to="n0">[ 3 ,  9 ,  0 ] = 7</dijkstra>
       <dijkstra to="n1">[ 3 ,  1 ] = 3</dijkstra>
-      <dijkstra to="n2">[ 3 ,  10 ,  7 ,  0 ,  2 ] = 15</dijkstra>
+      <dijkstra to="n2">[ 3 ,  9 ,  0 ,  2 ] = 15</dijkstra>
       <dijkstra to="n3">[ 3 ] = 0</dijkstra>
       <dijkstra to="n4">[ 3 ,  8 ,  5 ,  4 ] = 10</dijkstra>
       <dijkstra to="n5">[ 3 ,  8 ,  5 ] = 2</dijkstra>
@@ -95,9 +95,9 @@
     </vertex>
     <vertex id="n4">
       <data key="v_id">4</data>
-      <dijkstra to="n0">[ 4 ,  5 ,  8 ,  3 ,  10 ,  7 ,  0 ] = 17</dijkstra>
+      <dijkstra to="n0">[ 4 ,  5 ,  8 ,  3 ,  9 ,  0 ] = 17</dijkstra>
       <dijkstra to="n1">[ 4 ,  1 ] = 9</dijkstra>
-      <dijkstra to="n2">[ 4 ,  5 ,  8 ,  3 ,  10 ,  7 ,  0 ,  2 ] = 25</dijkstra>
+      <dijkstra to="n2">[ 4 ,  5 ,  8 ,  3 ,  9 ,  0 ,  2 ] = 25</dijkstra>
       <dijkstra to="n3">[ 4 ,  5 ,  8 ,  3 ] = 10</dijkstra>
       <dijkstra to="n4">[ 4 ] = 0</dijkstra>
       <dijkstra to="n5">[ 4 ,  5 ] = 8</dijkstra>
@@ -114,9 +114,9 @@
     </vertex>
     <vertex id="n5">
       <data key="v_id">5</data>
-      <dijkstra to="n0">[ 5 ,  8 ,  3 ,  10 ,  7 ,  0 ] = 9</dijkstra>
+      <dijkstra to="n0">[ 5 ,  8 ,  3 ,  9 ,  0 ] = 9</dijkstra>
       <dijkstra to="n1">[ 5 ,  8 ,  3 ,  1 ] = 5</dijkstra>
-      <dijkstra to="n2">[ 5 ,  8 ,  3 ,  10 ,  7 ,  0 ,  2 ] = 17</dijkstra>
+      <dijkstra to="n2">[ 5 ,  8 ,  3 ,  9 ,  0 ,  2 ] = 17</dijkstra>
       <dijkstra to="n3">[ 5 ,  8 ,  3 ] = 2</dijkstra>
       <dijkstra to="n4">[ 5 ,  4 ] = 8</dijkstra>
       <dijkstra to="n5">[ 5 ] = 0</dijkstra>
@@ -171,9 +171,9 @@
     </vertex>
     <vertex id="n8">
       <data key="v_id">8</data>
-      <dijkstra to="n0">[ 8 ,  3 ,  10 ,  7 ,  0 ] = 8</dijkstra>
+      <dijkstra to="n0">[ 8 ,  3 ,  9 ,  0 ] = 8</dijkstra>
       <dijkstra to="n1">[ 8 ,  3 ,  1 ] = 4</dijkstra>
-      <dijkstra to="n2">[ 8 ,  3 ,  10 ,  7 ,  0 ,  2 ] = 16</dijkstra>
+      <dijkstra to="n2">[ 8 ,  3 ,  9 ,  0 ,  2 ] = 16</dijkstra>
       <dijkstra to="n3">[ 8 ,  3 ] = 1</dijkstra>
       <dijkstra to="n4">[ 8 ,  5 ,  4 ] = 9</dijkstra>
       <dijkstra to="n5">[ 8 ,  5 ] = 1</dijkstra>
@@ -426,3 +426,8 @@
     </edge>
   </graph>
 </graphml>
+==================================================
+You can re-run the project to see other functions as well
+Exiting the project
+Hope you enjoy our project in computer network analysis
+Good bye. Have a nice day! <3
