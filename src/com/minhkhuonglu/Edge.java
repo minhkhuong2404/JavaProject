@@ -6,9 +6,24 @@ package com.minhkhuonglu;
  * @version 1.0
  */
 public class Edge extends Abstract{
+    /**
+     * The id of an edge from 0 to the number of edges
+     */
     private int id;
+
+    /**
+     * The first vertex of an edge
+     */
     private Vertex source;
+
+    /**
+     * The second vertex of an edge
+     */
     private Vertex destination;
+
+    /**
+     * The weight of an edge from the first to second, = 1 if it is an unweighted graph
+     */
     private String weight;
 
     /**

@@ -1,8 +1,10 @@
 package com.minhkhuonglu;
 
 import static com.minhkhuonglu.Main.*;
+import static java.lang.System.*;
 
 import java.util.*;
+import java.util.logging.Logger;
 import java.util.logging.*;
 
 /**
@@ -85,13 +87,11 @@ public class Dijkstra {
 
         multiplePredecessors.get(source).add(source);
         while (unVisitedVertices.size() > 0) {
-            Vertex vertex = getMinimum(unVisitedVertices);
-            LOG.log(Level.FINE, "vertex: " + vertex);
+            Vertex vertex = getMinimumDistanceToAVertex(unVisitedVertices);
             visitedVertices.add(vertex);
             unVisitedVertices.remove(vertex);
             findMinimalDistances(vertex);
         }
-        LOG.log(Level.FINE, "multi predecessor: "+ multiplePredecessors );
     }
 
     /**
@@ -100,7 +100,14 @@ public class Dijkstra {
      * @return the distance of the destination vertex
      */
     public int returnTotalWeight(Vertex destination){
-        return distance.get(destination);
+        try {
+            return distance.get(destination);
+        } catch (NullPointerException unconnected){
+            System.out.println("The graph is not connected");
+            System.out.println("The diameter of the graph is: oo (infinity)");
+            exit(0);
+            return 0;
+        }
     }
 
     /**
@@ -110,8 +117,8 @@ public class Dijkstra {
      *
      * @param target vertex needs to be reached
      */
-    public LinkedList<Vertex> getPath(Vertex target) {
-        LinkedList<Vertex> path = new LinkedList<>();
+    public ArrayList<Vertex> getPathFromAVertexToAnother(Vertex target) {
+        ArrayList<Vertex> path = new ArrayList<>();
         Vertex step = target;
         // check if a path exists
         if (predecessors.get(target) == null) {
@@ -125,7 +132,6 @@ public class Dijkstra {
         }
         // Put it into the correct order
         Collections.reverse(path);
-        LOG.log(Level.FINE, "number of shortest path: " + path.getLast() +" --- "+ calculateTotalShortestPath(path.getLast()));
 
         return path;
     }
@@ -171,7 +177,6 @@ public class Dijkstra {
                 realMultiplePredecessors.put(vertex, finalNumberOfPath);
             }
         }
-        LOG.log(Level.FINE, tempMultiplePredecessors + " all " + realMultiplePredecessors);
 
         return realMultiplePredecessors.get(target);
     }
@@ -191,7 +196,6 @@ public class Dijkstra {
                 neighbors.add(edge.getDestination());
             }
         }
-        LOG.log(Level.FINE, "Neighbors: " + neighbors);
         return neighbors;
     }
 
@@ -247,18 +251,18 @@ public class Dijkstra {
      * @param vertexes set of vertices
      * @return the minimum distance to reach that vertex
      */
-    private Vertex getMinimum(Set<Vertex> vertexes) {
-        Vertex minimum = null;
+    private Vertex getMinimumDistanceToAVertex(Set<Vertex> vertexes) {
+        Vertex minimumDistanceTOGetFromAVertex = null;
         for (Vertex vertex : vertexes) {
-            if (minimum == null) {
-                minimum = vertex;
+            if (minimumDistanceTOGetFromAVertex == null) {
+                minimumDistanceTOGetFromAVertex = vertex;
             } else {
-                if (getShortestDistance(vertex) < getShortestDistance(minimum)) {
-                    minimum = vertex;
+                if (getShortestDistance(vertex) < getShortestDistance(minimumDistanceTOGetFromAVertex)) {
+                    minimumDistanceTOGetFromAVertex = vertex;
                 }
             }
         }
-        return minimum;
+        return minimumDistanceTOGetFromAVertex;
     }
 
     /**

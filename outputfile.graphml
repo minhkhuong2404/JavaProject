@@ -38,9 +38,9 @@
     </vertex>
     <vertex id="n1">
       <data key="v_id">1</data>
-      <dijkstra to="n0">[ 1 ,  3 ,  9 ,  0 ] = 10</dijkstra>
+      <dijkstra to="n0">[ 0 ,  9 ,  3 ,  1 ] = 10</dijkstra>
       <dijkstra to="n1">[ 1 ] = 0</dijkstra>
-      <dijkstra to="n2">[ 1 ,  3 ,  9 ,  0 ,  2 ] = 18</dijkstra>
+      <dijkstra to="n2">[ 1 ,  3 ,  10 ,  7 ,  0 ,  2 ] = 18</dijkstra>
       <dijkstra to="n3">[ 1 ,  3 ] = 3</dijkstra>
       <dijkstra to="n4">[ 1 ,  4 ] = 9</dijkstra>
       <dijkstra to="n5">[ 1 ,  3 ,  8 ,  5 ] = 5</dijkstra>
@@ -57,8 +57,8 @@
     </vertex>
     <vertex id="n2">
       <data key="v_id">2</data>
-      <dijkstra to="n0">[ 2 ,  0 ] = 8</dijkstra>
-      <dijkstra to="n1">[ 2 ,  0 ,  9 ,  3 ,  1 ] = 18</dijkstra>
+      <dijkstra to="n0">[ 0 ,  2 ] = 8</dijkstra>
+      <dijkstra to="n1">[ 1 ,  3 ,  10 ,  7 ,  0 ,  2 ] = 18</dijkstra>
       <dijkstra to="n2">[ 2 ] = 0</dijkstra>
       <dijkstra to="n3">[ 2 ,  0 ,  9 ,  3 ] = 15</dijkstra>
       <dijkstra to="n4">[ 2 ,  0 ,  9 ,  3 ,  8 ,  5 ,  4 ] = 25</dijkstra>
@@ -76,9 +76,9 @@
     </vertex>
     <vertex id="n3">
       <data key="v_id">3</data>
-      <dijkstra to="n0">[ 3 ,  9 ,  0 ] = 7</dijkstra>
-      <dijkstra to="n1">[ 3 ,  1 ] = 3</dijkstra>
-      <dijkstra to="n2">[ 3 ,  9 ,  0 ,  2 ] = 15</dijkstra>
+      <dijkstra to="n0">[ 0 ,  9 ,  3 ] = 7</dijkstra>
+      <dijkstra to="n1">[ 1 ,  3 ] = 3</dijkstra>
+      <dijkstra to="n2">[ 2 ,  0 ,  9 ,  3 ] = 15</dijkstra>
       <dijkstra to="n3">[ 3 ] = 0</dijkstra>
       <dijkstra to="n4">[ 3 ,  8 ,  5 ,  4 ] = 10</dijkstra>
       <dijkstra to="n5">[ 3 ,  8 ,  5 ] = 2</dijkstra>
@@ -95,10 +95,10 @@
     </vertex>
     <vertex id="n4">
       <data key="v_id">4</data>
-      <dijkstra to="n0">[ 4 ,  5 ,  8 ,  3 ,  9 ,  0 ] = 17</dijkstra>
-      <dijkstra to="n1">[ 4 ,  1 ] = 9</dijkstra>
-      <dijkstra to="n2">[ 4 ,  5 ,  8 ,  3 ,  9 ,  0 ,  2 ] = 25</dijkstra>
-      <dijkstra to="n3">[ 4 ,  5 ,  8 ,  3 ] = 10</dijkstra>
+      <dijkstra to="n0">[ 0 ,  9 ,  3 ,  8 ,  5 ,  4 ] = 17</dijkstra>
+      <dijkstra to="n1">[ 1 ,  4 ] = 9</dijkstra>
+      <dijkstra to="n2">[ 2 ,  0 ,  9 ,  3 ,  8 ,  5 ,  4 ] = 25</dijkstra>
+      <dijkstra to="n3">[ 3 ,  8 ,  5 ,  4 ] = 10</dijkstra>
       <dijkstra to="n4">[ 4 ] = 0</dijkstra>
       <dijkstra to="n5">[ 4 ,  5 ] = 8</dijkstra>
       <dijkstra to="n6">[ 4 ,  5 ,  6 ] = 11</dijkstra>
@@ -114,11 +114,11 @@
     </vertex>
     <vertex id="n5">
       <data key="v_id">5</data>
-      <dijkstra to="n0">[ 5 ,  8 ,  3 ,  9 ,  0 ] = 9</dijkstra>
-      <dijkstra to="n1">[ 5 ,  8 ,  3 ,  1 ] = 5</dijkstra>
-      <dijkstra to="n2">[ 5 ,  8 ,  3 ,  9 ,  0 ,  2 ] = 17</dijkstra>
-      <dijkstra to="n3">[ 5 ,  8 ,  3 ] = 2</dijkstra>
-      <dijkstra to="n4">[ 5 ,  4 ] = 8</dijkstra>
+      <dijkstra to="n0">[ 0 ,  9 ,  3 ,  8 ,  5 ] = 9</dijkstra>
+      <dijkstra to="n1">[ 1 ,  3 ,  8 ,  5 ] = 5</dijkstra>
+      <dijkstra to="n2">[ 2 ,  0 ,  9 ,  3 ,  8 ,  5 ] = 17</dijkstra>
+      <dijkstra to="n3">[ 3 ,  8 ,  5 ] = 2</dijkstra>
+      <dijkstra to="n4">[ 4 ,  5 ] = 8</dijkstra>
       <dijkstra to="n5">[ 5 ] = 0</dijkstra>
       <dijkstra to="n6">[ 5 ,  6 ] = 3</dijkstra>
       <dijkstra to="n7">[ 5 ,  8 ,  3 ,  10 ,  7 ] = 6</dijkstra>
@@ -133,12 +133,12 @@
     </vertex>
     <vertex id="n6">
       <data key="v_id">6</data>
-      <dijkstra to="n0">[ 6 ,  0 ] = 7</dijkstra>
-      <dijkstra to="n1">[ 6 ,  10 ,  3 ,  1 ] = 7</dijkstra>
-      <dijkstra to="n2">[ 6 ,  0 ,  2 ] = 15</dijkstra>
-      <dijkstra to="n3">[ 6 ,  10 ,  3 ] = 4</dijkstra>
-      <dijkstra to="n4">[ 6 ,  5 ,  4 ] = 11</dijkstra>
-      <dijkstra to="n5">[ 6 ,  5 ] = 3</dijkstra>
+      <dijkstra to="n0">[ 0 ,  6 ] = 7</dijkstra>
+      <dijkstra to="n1">[ 1 ,  3 ,  10 ,  6 ] = 7</dijkstra>
+      <dijkstra to="n2">[ 2 ,  0 ,  6 ] = 15</dijkstra>
+      <dijkstra to="n3">[ 3 ,  10 ,  6 ] = 4</dijkstra>
+      <dijkstra to="n4">[ 4 ,  5 ,  6 ] = 11</dijkstra>
+      <dijkstra to="n5">[ 5 ,  6 ] = 3</dijkstra>
       <dijkstra to="n6">[ 6 ] = 0</dijkstra>
       <dijkstra to="n7">[ 6 ,  7 ] = 4</dijkstra>
       <dijkstra to="n8">[ 6 ,  5 ,  8 ] = 4</dijkstra>
@@ -152,13 +152,13 @@
     </vertex>
     <vertex id="n7">
       <data key="v_id">7</data>
-      <dijkstra to="n0">[ 7 ,  0 ] = 3</dijkstra>
-      <dijkstra to="n1">[ 7 ,  10 ,  3 ,  1 ] = 7</dijkstra>
-      <dijkstra to="n2">[ 7 ,  0 ,  2 ] = 11</dijkstra>
-      <dijkstra to="n3">[ 7 ,  10 ,  3 ] = 4</dijkstra>
-      <dijkstra to="n4">[ 7 ,  10 ,  3 ,  8 ,  5 ,  4 ] = 14</dijkstra>
-      <dijkstra to="n5">[ 7 ,  10 ,  3 ,  8 ,  5 ] = 6</dijkstra>
-      <dijkstra to="n6">[ 7 ,  6 ] = 4</dijkstra>
+      <dijkstra to="n0">[ 0 ,  7 ] = 3</dijkstra>
+      <dijkstra to="n1">[ 1 ,  3 ,  10 ,  7 ] = 7</dijkstra>
+      <dijkstra to="n2">[ 2 ,  0 ,  7 ] = 11</dijkstra>
+      <dijkstra to="n3">[ 3 ,  10 ,  7 ] = 4</dijkstra>
+      <dijkstra to="n4">[ 4 ,  5 ,  8 ,  3 ,  10 ,  7 ] = 14</dijkstra>
+      <dijkstra to="n5">[ 5 ,  8 ,  3 ,  10 ,  7 ] = 6</dijkstra>
+      <dijkstra to="n6">[ 6 ,  7 ] = 4</dijkstra>
       <dijkstra to="n7">[ 7 ] = 0</dijkstra>
       <dijkstra to="n8">[ 7 ,  10 ,  3 ,  8 ] = 5</dijkstra>
       <dijkstra to="n9">[ 7 ,  0 ,  9 ] = 6</dijkstra>
@@ -171,14 +171,14 @@
     </vertex>
     <vertex id="n8">
       <data key="v_id">8</data>
-      <dijkstra to="n0">[ 8 ,  3 ,  9 ,  0 ] = 8</dijkstra>
-      <dijkstra to="n1">[ 8 ,  3 ,  1 ] = 4</dijkstra>
-      <dijkstra to="n2">[ 8 ,  3 ,  9 ,  0 ,  2 ] = 16</dijkstra>
-      <dijkstra to="n3">[ 8 ,  3 ] = 1</dijkstra>
-      <dijkstra to="n4">[ 8 ,  5 ,  4 ] = 9</dijkstra>
-      <dijkstra to="n5">[ 8 ,  5 ] = 1</dijkstra>
-      <dijkstra to="n6">[ 8 ,  5 ,  6 ] = 4</dijkstra>
-      <dijkstra to="n7">[ 8 ,  3 ,  10 ,  7 ] = 5</dijkstra>
+      <dijkstra to="n0">[ 0 ,  9 ,  3 ,  8 ] = 8</dijkstra>
+      <dijkstra to="n1">[ 1 ,  3 ,  8 ] = 4</dijkstra>
+      <dijkstra to="n2">[ 2 ,  0 ,  9 ,  3 ,  8 ] = 16</dijkstra>
+      <dijkstra to="n3">[ 3 ,  8 ] = 1</dijkstra>
+      <dijkstra to="n4">[ 4 ,  5 ,  8 ] = 9</dijkstra>
+      <dijkstra to="n5">[ 5 ,  8 ] = 1</dijkstra>
+      <dijkstra to="n6">[ 6 ,  5 ,  8 ] = 4</dijkstra>
+      <dijkstra to="n7">[ 7 ,  10 ,  3 ,  8 ] = 5</dijkstra>
       <dijkstra to="n8">[ 8 ] = 0</dijkstra>
       <dijkstra to="n9">[ 8 ,  3 ,  9 ] = 5</dijkstra>
       <dijkstra to="n10">[ 8 ,  3 ,  10 ] = 2</dijkstra>
@@ -190,15 +190,15 @@
     </vertex>
     <vertex id="n9">
       <data key="v_id">9</data>
-      <dijkstra to="n0">[ 9 ,  0 ] = 3</dijkstra>
-      <dijkstra to="n1">[ 9 ,  3 ,  1 ] = 7</dijkstra>
-      <dijkstra to="n2">[ 9 ,  0 ,  2 ] = 11</dijkstra>
-      <dijkstra to="n3">[ 9 ,  3 ] = 4</dijkstra>
-      <dijkstra to="n4">[ 9 ,  3 ,  8 ,  5 ,  4 ] = 14</dijkstra>
-      <dijkstra to="n5">[ 9 ,  3 ,  8 ,  5 ] = 6</dijkstra>
-      <dijkstra to="n6">[ 9 ,  3 ,  10 ,  6 ] = 8</dijkstra>
-      <dijkstra to="n7">[ 9 ,  0 ,  7 ] = 6</dijkstra>
-      <dijkstra to="n8">[ 9 ,  3 ,  8 ] = 5</dijkstra>
+      <dijkstra to="n0">[ 0 ,  9 ] = 3</dijkstra>
+      <dijkstra to="n1">[ 1 ,  3 ,  9 ] = 7</dijkstra>
+      <dijkstra to="n2">[ 2 ,  0 ,  9 ] = 11</dijkstra>
+      <dijkstra to="n3">[ 3 ,  9 ] = 4</dijkstra>
+      <dijkstra to="n4">[ 4 ,  5 ,  8 ,  3 ,  9 ] = 14</dijkstra>
+      <dijkstra to="n5">[ 5 ,  8 ,  3 ,  9 ] = 6</dijkstra>
+      <dijkstra to="n6">[ 6 ,  10 ,  3 ,  9 ] = 8</dijkstra>
+      <dijkstra to="n7">[ 7 ,  0 ,  9 ] = 6</dijkstra>
+      <dijkstra to="n8">[ 8 ,  3 ,  9 ] = 5</dijkstra>
       <dijkstra to="n9">[ 9 ] = 0</dijkstra>
       <dijkstra to="n10">[ 9 ,  3 ,  10 ] = 5</dijkstra>
       <dijkstra to="n11">[ 9 ,  3 ,  10 ,  11 ] = 9</dijkstra>
@@ -209,16 +209,16 @@
     </vertex>
     <vertex id="n10">
       <data key="v_id">10</data>
-      <dijkstra to="n0">[ 10 ,  7 ,  0 ] = 6</dijkstra>
-      <dijkstra to="n1">[ 10 ,  3 ,  1 ] = 4</dijkstra>
-      <dijkstra to="n2">[ 10 ,  7 ,  0 ,  2 ] = 14</dijkstra>
-      <dijkstra to="n3">[ 10 ,  3 ] = 1</dijkstra>
-      <dijkstra to="n4">[ 10 ,  3 ,  8 ,  5 ,  4 ] = 11</dijkstra>
-      <dijkstra to="n5">[ 10 ,  3 ,  8 ,  5 ] = 3</dijkstra>
-      <dijkstra to="n6">[ 10 ,  6 ] = 3</dijkstra>
-      <dijkstra to="n7">[ 10 ,  7 ] = 3</dijkstra>
-      <dijkstra to="n8">[ 10 ,  3 ,  8 ] = 2</dijkstra>
-      <dijkstra to="n9">[ 10 ,  3 ,  9 ] = 5</dijkstra>
+      <dijkstra to="n0">[ 0 ,  7 ,  10 ] = 6</dijkstra>
+      <dijkstra to="n1">[ 1 ,  3 ,  10 ] = 4</dijkstra>
+      <dijkstra to="n2">[ 2 ,  0 ,  7 ,  10 ] = 14</dijkstra>
+      <dijkstra to="n3">[ 3 ,  10 ] = 1</dijkstra>
+      <dijkstra to="n4">[ 4 ,  5 ,  8 ,  3 ,  10 ] = 11</dijkstra>
+      <dijkstra to="n5">[ 5 ,  8 ,  3 ,  10 ] = 3</dijkstra>
+      <dijkstra to="n6">[ 6 ,  10 ] = 3</dijkstra>
+      <dijkstra to="n7">[ 7 ,  10 ] = 3</dijkstra>
+      <dijkstra to="n8">[ 8 ,  3 ,  10 ] = 2</dijkstra>
+      <dijkstra to="n9">[ 9 ,  3 ,  10 ] = 5</dijkstra>
       <dijkstra to="n10">[ 10 ] = 0</dijkstra>
       <dijkstra to="n11">[ 10 ,  11 ] = 4</dijkstra>
       <dijkstra to="n12">[ 10 ,  6 ,  14 ,  12 ] = 11</dijkstra>
@@ -228,17 +228,17 @@
     </vertex>
     <vertex id="n11">
       <data key="v_id">11</data>
-      <dijkstra to="n0">[ 11 ,  10 ,  7 ,  0 ] = 10</dijkstra>
-      <dijkstra to="n1">[ 11 ,  10 ,  3 ,  1 ] = 8</dijkstra>
-      <dijkstra to="n2">[ 11 ,  10 ,  7 ,  0 ,  2 ] = 18</dijkstra>
-      <dijkstra to="n3">[ 11 ,  10 ,  3 ] = 5</dijkstra>
-      <dijkstra to="n4">[ 11 ,  10 ,  3 ,  8 ,  5 ,  4 ] = 15</dijkstra>
-      <dijkstra to="n5">[ 11 ,  10 ,  3 ,  8 ,  5 ] = 7</dijkstra>
-      <dijkstra to="n6">[ 11 ,  10 ,  6 ] = 7</dijkstra>
-      <dijkstra to="n7">[ 11 ,  10 ,  7 ] = 7</dijkstra>
-      <dijkstra to="n8">[ 11 ,  10 ,  3 ,  8 ] = 6</dijkstra>
-      <dijkstra to="n9">[ 11 ,  10 ,  3 ,  9 ] = 9</dijkstra>
-      <dijkstra to="n10">[ 11 ,  10 ] = 4</dijkstra>
+      <dijkstra to="n0">[ 0 ,  7 ,  10 ,  11 ] = 10</dijkstra>
+      <dijkstra to="n1">[ 1 ,  3 ,  10 ,  11 ] = 8</dijkstra>
+      <dijkstra to="n2">[ 2 ,  0 ,  7 ,  10 ,  11 ] = 18</dijkstra>
+      <dijkstra to="n3">[ 3 ,  10 ,  11 ] = 5</dijkstra>
+      <dijkstra to="n4">[ 4 ,  5 ,  8 ,  3 ,  10 ,  11 ] = 15</dijkstra>
+      <dijkstra to="n5">[ 5 ,  8 ,  3 ,  10 ,  11 ] = 7</dijkstra>
+      <dijkstra to="n6">[ 6 ,  10 ,  11 ] = 7</dijkstra>
+      <dijkstra to="n7">[ 7 ,  10 ,  11 ] = 7</dijkstra>
+      <dijkstra to="n8">[ 8 ,  3 ,  10 ,  11 ] = 6</dijkstra>
+      <dijkstra to="n9">[ 9 ,  3 ,  10 ,  11 ] = 9</dijkstra>
+      <dijkstra to="n10">[ 10 ,  11 ] = 4</dijkstra>
       <dijkstra to="n11">[ 11 ] = 0</dijkstra>
       <dijkstra to="n12">[ 11 ,  14 ,  12 ] = 14</dijkstra>
       <dijkstra to="n13">[ 11 ,  14 ,  13 ] = 16</dijkstra>
@@ -247,18 +247,18 @@
     </vertex>
     <vertex id="n12">
       <data key="v_id">12</data>
-      <dijkstra to="n0">[ 12 ,  14 ,  6 ,  0 ] = 15</dijkstra>
-      <dijkstra to="n1">[ 12 ,  14 ,  6 ,  10 ,  3 ,  1 ] = 15</dijkstra>
-      <dijkstra to="n2">[ 12 ,  14 ,  6 ,  0 ,  2 ] = 23</dijkstra>
-      <dijkstra to="n3">[ 12 ,  14 ,  6 ,  10 ,  3 ] = 12</dijkstra>
-      <dijkstra to="n4">[ 12 ,  14 ,  6 ,  5 ,  4 ] = 19</dijkstra>
-      <dijkstra to="n5">[ 12 ,  14 ,  6 ,  5 ] = 11</dijkstra>
-      <dijkstra to="n6">[ 12 ,  14 ,  6 ] = 8</dijkstra>
-      <dijkstra to="n7">[ 12 ,  14 ,  6 ,  7 ] = 12</dijkstra>
-      <dijkstra to="n8">[ 12 ,  14 ,  6 ,  5 ,  8 ] = 12</dijkstra>
-      <dijkstra to="n9">[ 12 ,  14 ,  9 ] = 14</dijkstra>
-      <dijkstra to="n10">[ 12 ,  14 ,  6 ,  10 ] = 11</dijkstra>
-      <dijkstra to="n11">[ 12 ,  14 ,  11 ] = 14</dijkstra>
+      <dijkstra to="n0">[ 0 ,  6 ,  14 ,  12 ] = 15</dijkstra>
+      <dijkstra to="n1">[ 1 ,  3 ,  10 ,  6 ,  14 ,  12 ] = 15</dijkstra>
+      <dijkstra to="n2">[ 2 ,  0 ,  6 ,  14 ,  12 ] = 23</dijkstra>
+      <dijkstra to="n3">[ 3 ,  10 ,  6 ,  14 ,  12 ] = 12</dijkstra>
+      <dijkstra to="n4">[ 4 ,  5 ,  6 ,  14 ,  12 ] = 19</dijkstra>
+      <dijkstra to="n5">[ 5 ,  6 ,  14 ,  12 ] = 11</dijkstra>
+      <dijkstra to="n6">[ 6 ,  14 ,  12 ] = 8</dijkstra>
+      <dijkstra to="n7">[ 7 ,  6 ,  14 ,  12 ] = 12</dijkstra>
+      <dijkstra to="n8">[ 8 ,  5 ,  6 ,  14 ,  12 ] = 12</dijkstra>
+      <dijkstra to="n9">[ 9 ,  14 ,  12 ] = 14</dijkstra>
+      <dijkstra to="n10">[ 10 ,  6 ,  14 ,  12 ] = 11</dijkstra>
+      <dijkstra to="n11">[ 11 ,  14 ,  12 ] = 14</dijkstra>
       <dijkstra to="n12">[ 12 ] = 0</dijkstra>
       <dijkstra to="n13">[ 12 ,  14 ,  13 ] = 14</dijkstra>
       <dijkstra to="n14">[ 12 ,  14 ] = 6</dijkstra>
@@ -266,39 +266,39 @@
     </vertex>
     <vertex id="n13">
       <data key="v_id">13</data>
-      <dijkstra to="n0">[ 13 ,  9 ,  0 ] = 10</dijkstra>
-      <dijkstra to="n1">[ 13 ,  9 ,  3 ,  1 ] = 14</dijkstra>
-      <dijkstra to="n2">[ 13 ,  9 ,  0 ,  2 ] = 18</dijkstra>
-      <dijkstra to="n3">[ 13 ,  9 ,  3 ] = 11</dijkstra>
-      <dijkstra to="n4">[ 13 ,  14 ,  6 ,  5 ,  4 ] = 21</dijkstra>
-      <dijkstra to="n5">[ 13 ,  14 ,  6 ,  5 ] = 13</dijkstra>
-      <dijkstra to="n6">[ 13 ,  14 ,  6 ] = 10</dijkstra>
-      <dijkstra to="n7">[ 13 ,  9 ,  0 ,  7 ] = 13</dijkstra>
-      <dijkstra to="n8">[ 13 ,  9 ,  3 ,  8 ] = 12</dijkstra>
-      <dijkstra to="n9">[ 13 ,  9 ] = 7</dijkstra>
-      <dijkstra to="n10">[ 13 ,  9 ,  3 ,  10 ] = 12</dijkstra>
-      <dijkstra to="n11">[ 13 ,  14 ,  11 ] = 16</dijkstra>
-      <dijkstra to="n12">[ 13 ,  14 ,  12 ] = 14</dijkstra>
+      <dijkstra to="n0">[ 0 ,  9 ,  13 ] = 10</dijkstra>
+      <dijkstra to="n1">[ 1 ,  3 ,  9 ,  13 ] = 14</dijkstra>
+      <dijkstra to="n2">[ 2 ,  0 ,  9 ,  13 ] = 18</dijkstra>
+      <dijkstra to="n3">[ 3 ,  9 ,  13 ] = 11</dijkstra>
+      <dijkstra to="n4">[ 4 ,  5 ,  6 ,  14 ,  13 ] = 21</dijkstra>
+      <dijkstra to="n5">[ 5 ,  6 ,  14 ,  13 ] = 13</dijkstra>
+      <dijkstra to="n6">[ 6 ,  14 ,  13 ] = 10</dijkstra>
+      <dijkstra to="n7">[ 7 ,  0 ,  9 ,  13 ] = 13</dijkstra>
+      <dijkstra to="n8">[ 8 ,  3 ,  9 ,  13 ] = 12</dijkstra>
+      <dijkstra to="n9">[ 9 ,  13 ] = 7</dijkstra>
+      <dijkstra to="n10">[ 10 ,  3 ,  9 ,  13 ] = 12</dijkstra>
+      <dijkstra to="n11">[ 11 ,  14 ,  13 ] = 16</dijkstra>
+      <dijkstra to="n12">[ 12 ,  14 ,  13 ] = 14</dijkstra>
       <dijkstra to="n13">[ 13 ] = 0</dijkstra>
       <dijkstra to="n14">[ 13 ,  14 ] = 8</dijkstra>
       <betweenness of="n13">0.0</betweenness>
     </vertex>
     <vertex id="n14">
       <data key="v_id">14</data>
-      <dijkstra to="n0">[ 14 ,  6 ,  0 ] = 9</dijkstra>
-      <dijkstra to="n1">[ 14 ,  6 ,  10 ,  3 ,  1 ] = 9</dijkstra>
-      <dijkstra to="n2">[ 14 ,  6 ,  0 ,  2 ] = 17</dijkstra>
-      <dijkstra to="n3">[ 14 ,  6 ,  10 ,  3 ] = 6</dijkstra>
-      <dijkstra to="n4">[ 14 ,  6 ,  5 ,  4 ] = 13</dijkstra>
-      <dijkstra to="n5">[ 14 ,  6 ,  5 ] = 5</dijkstra>
-      <dijkstra to="n6">[ 14 ,  6 ] = 2</dijkstra>
-      <dijkstra to="n7">[ 14 ,  6 ,  7 ] = 6</dijkstra>
-      <dijkstra to="n8">[ 14 ,  6 ,  5 ,  8 ] = 6</dijkstra>
-      <dijkstra to="n9">[ 14 ,  9 ] = 8</dijkstra>
-      <dijkstra to="n10">[ 14 ,  6 ,  10 ] = 5</dijkstra>
-      <dijkstra to="n11">[ 14 ,  11 ] = 8</dijkstra>
-      <dijkstra to="n12">[ 14 ,  12 ] = 6</dijkstra>
-      <dijkstra to="n13">[ 14 ,  13 ] = 8</dijkstra>
+      <dijkstra to="n0">[ 0 ,  6 ,  14 ] = 9</dijkstra>
+      <dijkstra to="n1">[ 1 ,  3 ,  10 ,  6 ,  14 ] = 9</dijkstra>
+      <dijkstra to="n2">[ 2 ,  0 ,  6 ,  14 ] = 17</dijkstra>
+      <dijkstra to="n3">[ 3 ,  10 ,  6 ,  14 ] = 6</dijkstra>
+      <dijkstra to="n4">[ 4 ,  5 ,  6 ,  14 ] = 13</dijkstra>
+      <dijkstra to="n5">[ 5 ,  6 ,  14 ] = 5</dijkstra>
+      <dijkstra to="n6">[ 6 ,  14 ] = 2</dijkstra>
+      <dijkstra to="n7">[ 7 ,  6 ,  14 ] = 6</dijkstra>
+      <dijkstra to="n8">[ 8 ,  5 ,  6 ,  14 ] = 6</dijkstra>
+      <dijkstra to="n9">[ 9 ,  14 ] = 8</dijkstra>
+      <dijkstra to="n10">[ 10 ,  6 ,  14 ] = 5</dijkstra>
+      <dijkstra to="n11">[ 11 ,  14 ] = 8</dijkstra>
+      <dijkstra to="n12">[ 12 ,  14 ] = 6</dijkstra>
+      <dijkstra to="n13">[ 13 ,  14 ] = 8</dijkstra>
       <dijkstra to="n14">[ 14 ] = 0</dijkstra>
       <betweenness of="n14">15.5</betweenness>
     </vertex>
@@ -422,12 +422,7 @@
       <data key="connected">true</data>
     </edge>
     <edge source="all" target="all">
-      <data key="diameter">14</data>
+      <data key="diameter">12</data>
     </edge>
   </graph>
 </graphml>
-==================================================
-You can re-run the project to see other functions as well
-Exiting the project
-Hope you enjoy our project in computer network analysis
-Good bye. Have a nice day! <3

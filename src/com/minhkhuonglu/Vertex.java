@@ -6,7 +6,14 @@ package com.minhkhuonglu;
  * @version 1.0
  */
 public class Vertex extends Abstract{
+    /**
+     * the id of a vertex from 0 upto the number of vertices
+     */
     private int id;
+
+    /**
+     * the name which is the same as the id of vertex, but in String format
+     */
     private String name;
 
     /**
@@ -29,6 +36,11 @@ public class Vertex extends Abstract{
         return super.getID();
     }
 
+    /**
+     * override getName in abstract
+     * @return name of edge
+     */
+    @Override
     public String getName(){
         return this.name;
     }
@@ -41,6 +53,7 @@ public class Vertex extends Abstract{
     public String toString() {
         return name;
     }
+
     /**
      * override printMe in abstract
      * print out ID of vertex
