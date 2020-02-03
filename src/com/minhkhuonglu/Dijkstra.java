@@ -96,6 +96,9 @@ public class Dijkstra {
 
     /**
      * calculate the total weight from the source to the destination vertex
+     * if there are no total weight, it means that the graph is unconnected, then stop the programme
+     * due to lack of information in the input file
+     *
      * @param destination the end vertex
      * @return the distance of the destination vertex
      */
@@ -138,6 +141,7 @@ public class Dijkstra {
 
     /**
      * check if all vertices are visited by comparing the visitedVertices size
+     * the graph will not connected if a weight of an edge is null.
      * @return true is the size of visitedVertices are the same as the number of vertex
      */
     public boolean isConnected(){
@@ -160,6 +164,7 @@ public class Dijkstra {
         HashMap<Vertex, Integer> tempMultiplePredecessors = new HashMap<>();
         HashMap<Vertex, Integer> realMultiplePredecessors = new HashMap<>();
 
+        // first calculate only the size of each vertex's multiplePredecessor Hash map
         for (Vertex vertex : vertices) {
             int firstNumberOfPath = 0;
             for (int indexOfPredecessor = 0; indexOfPredecessor < multiplePredecessors.get(vertex).size(); indexOfPredecessor++) {
@@ -167,6 +172,7 @@ public class Dijkstra {
             }
             realMultiplePredecessors.put(vertex, firstNumberOfPath);
         }
+        // check until there is no value needs to be updated
         while ( !tempMultiplePredecessors.equals(realMultiplePredecessors)){
             tempMultiplePredecessors.putAll(realMultiplePredecessors);
             for (Vertex vertex : vertices){
@@ -217,7 +223,9 @@ public class Dijkstra {
                 distance.put(target, getShortestDistance(vertex) + getDistance(vertex, target));
                 // add the following vertex into the list of step in the shortest path
                 predecessors.put(target, vertex);
+                // clear because we only store node that have the same weight
                 multiplePredecessors.get(target).clear();
+
                 multiplePredecessors.get(target).add(vertex);
                 unVisitedVertices.add(target);
             }

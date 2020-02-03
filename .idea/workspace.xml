@@ -7,25 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35e51c40-6e70-41d8-a8de-bccf3328d98f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/minhkhuonglu/MultiThreading.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Final_Java_Project_jar/Final_Java_Project.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Java_Project/com/minhkhuonglu/Dijkstra.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Java_Project/com/minhkhuonglu/Dijkstra.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Java_Project/com/minhkhuonglu/Edge.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Java_Project/com/minhkhuonglu/Edge.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Java_Project/com/minhkhuonglu/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Java_Project/com/minhkhuonglu/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Java_Project/com/minhkhuonglu/MultiThreading.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Java_Project/com/minhkhuonglu/MultiThreading.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Java_Project/com/minhkhuonglu/ParallelThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final_Java_Project/com/minhkhuonglu/Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final_Java_Project/com/minhkhuonglu/Vertex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputfile.graphml" beforeDir="false" afterPath="$PROJECT_DIR$/outputfile.graphml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputfile_large.graphml" beforeDir="false" afterPath="$PROJECT_DIR$/outputfile_large.graphml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputfile_med.graphml" beforeDir="false" afterPath="$PROJECT_DIR$/outputfile_med.graphml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/small_graph_un.graphml" beforeDir="false" afterPath="$PROJECT_DIR$/small_graph_un.graphml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/minhkhuonglu/Dijkstra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minhkhuonglu/Dijkstra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minhkhuonglu/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minhkhuonglu/Edge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/minhkhuonglu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minhkhuonglu/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minhkhuonglu/ParallelThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minhkhuonglu/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minhkhuonglu/Vertex.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +141,7 @@
       <workItem from="1580146726758" duration="1207000" />
       <workItem from="1580148898647" duration="68302000" />
       <workItem from="1580307575677" duration="47488000" />
-      <workItem from="1580669783610" duration="12865000" />
+      <workItem from="1580669783610" duration="15034000" />
     </task>
     <servers />
   </component>
@@ -196,10 +182,10 @@
     </state>
     <state x="675" y="253" key="#com.intellij.ide.util.MemberChooser/42.23.1638.1027@42.23.1638.1027" timestamp="1580308073078" />
     <state x="676" y="253" key="#com.intellij.ide.util.MemberChooser/44.23.1636.1027@44.23.1636.1027" timestamp="1576922201214" />
-    <state x="599" y="327" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1580686634840">
+    <state x="599" y="327" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1580688898044">
       <screen x="41" y="23" width="1639" height="1027" />
     </state>
-    <state x="599" y="327" key="#com.intellij.ide.util.TreeClassChooserDialog/41.23.1639.1027@41.23.1639.1027" timestamp="1580686634840" />
+    <state x="599" y="327" key="#com.intellij.ide.util.TreeClassChooserDialog/41.23.1639.1027@41.23.1639.1027" timestamp="1580688898044" />
     <state x="600" y="327" key="#com.intellij.ide.util.TreeClassChooserDialog/42.23.1638.1027@42.23.1638.1027" timestamp="1580461541965" />
     <state x="601" y="327" key="#com.intellij.ide.util.TreeClassChooserDialog/44.23.1636.1027@44.23.1636.1027" timestamp="1576534124928" />
     <state x="698" y="237" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1579602527794">
@@ -291,10 +277,10 @@
       <screen x="42" y="23" width="1638" height="1027" />
     </state>
     <state x="539" y="238" key="NewModule_or_Project.wizard/42.23.1638.1027@42.23.1638.1027" timestamp="1580228663151" />
-    <state x="348" y="118" key="SettingsEditor" timestamp="1580686636402">
+    <state x="348" y="118" key="SettingsEditor" timestamp="1580688899711">
       <screen x="41" y="23" width="1639" height="1027" />
     </state>
-    <state x="348" y="118" key="SettingsEditor/41.23.1639.1027@41.23.1639.1027" timestamp="1580686636402" />
+    <state x="348" y="118" key="SettingsEditor/41.23.1639.1027@41.23.1639.1027" timestamp="1580688899711" />
     <state x="349" y="118" key="SettingsEditor/42.23.1638.1027@42.23.1638.1027" timestamp="1580461544121" />
     <state x="350" y="118" key="SettingsEditor/43.23.1637.1027@43.23.1637.1027" timestamp="1578045779596" />
     <state x="351" y="118" key="SettingsEditor/44.23.1636.1027@44.23.1636.1027" timestamp="1577092201248" />

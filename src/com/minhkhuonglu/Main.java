@@ -31,6 +31,7 @@ public class Main{
      * Two-dimension because we need to have the start vertex and the destination vertex
      */
     static int[][] storeWeigh = new int[10000][10000];
+
     /**
      * The char array is used to store all characters that appear in the .graphml file
      * Large number of index just to ensure there won't be any character that is left unread
@@ -194,7 +195,7 @@ public class Main{
         APathBetweenTwoVertices = new String[vertexNum][vertexNum];
 
         // this line is used without thread
-//                    calculateAllDijkstra(0,vertexNum/2);
+//        calculateAllDijkstra(0,vertexNum);
 
         // start 2 threads for faster calculation
         MultiThreading RunningThread1 = new MultiThreading(0,vertexNum/2);
@@ -213,7 +214,7 @@ public class Main{
             System.out.println("The properties of the graph are: ");
             System.out.println("==================================================");
             // print out the vertexIDs
-            graph.printvertexIDs(vertexIDs);
+            graph.printVertexIDs(vertexIDs);
             System.out.println("==================================================");
 
             // print out the edgeIDS
@@ -234,26 +235,13 @@ public class Main{
             graph.calculateDiameter();
 
             System.out.println("==================================================");
-            System.out.println("Adding some new syntax to see more powerful function");
-            System.out.println("\"-s x y\" to calculate Dijkstra between 2 nodes ");
-            System.out.println("\"-b x\" to calculate betweenness centrality of a node");
-            System.out.println("\"-a output.graphml\" to print the result into output.graphml file");
-            System.out.println("\"-v x\" to see the properties of vertex with ID x");
-            System.out.println("\"-e x\" to see the properties of edge with ID x");
-            System.out.println("where x, y are numbers");
-            System.out.println("      *.graphml is the file you need.");
+            graph.showProgramSyntax();
 
         }
         else if (args.length == 3){
             if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a") && !args[1].equals("-v") && !args[1].equals("-e")){
                 System.out.println("Make sure that you use the right syntax of the program!");
-                System.out.println("\"-s x y\" to calculate Dijkstra between 2 nodes ");
-                System.out.println("\"-b x\" to calculate betweenness centrality of a node");
-                System.out.println("\"-a output.graphml\" to print the result into output.graphml file");
-                System.out.println("\"-v x\" to see the properties of vertex with ID x");
-                System.out.println("\"-e x\" to see the properties of edge with ID x");
-                System.out.println("where x, y are numbers");
-                System.out.println("      *.graphml is the file you need.");
+                graph.showProgramSyntax();
                 exit(0);
             }
 
@@ -355,13 +343,7 @@ public class Main{
         else if (args.length == 4 ){
             if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a") && !args[1].equals("-v") && !args[1].equals("-e")){
                 System.out.println("Make sure that you use the right syntax of the program!");
-                System.out.println("\"-s x y\" to calculate Dijkstra between 2 nodes ");
-                System.out.println("\"-b x\" to calculate betweenness centrality of a node");
-                System.out.println("\"-a output.graphml\" to print the result into output.graphml file");
-                System.out.println("\"-v x\" to see the properties of vertex with ID x");
-                System.out.println("\"-e x\" to see the properties of edge with ID x");
-                System.out.println("where x, y are numbers");
-                System.out.println("      *.graphml is the file you need.");
+                graph.showProgramSyntax();
                 exit(0);
             }
             switch (args[1]) {
@@ -415,19 +397,12 @@ public class Main{
                     LOG.log(Level.INFO, "Please delete '" + args[3] +"'");
                     exit(0);
                     break;
-
             }
         }
         else if (args.length == 2){
             if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a") && !args[1].equals("-v") && !args[1].equals("-e")){
                 System.out.println("Make sure that you use the right syntax of the program!");
-                System.out.println("\"-s x y\" to calculate Dijkstra between 2 nodes ");
-                System.out.println("\"-b x\" to calculate betweenness centrality of a node");
-                System.out.println("\"-a output.graphml\" to print the result into output.graphml file");
-                System.out.println("\"-v x\" to see the properties of vertex with ID x");
-                System.out.println("\"-e x\" to see the properties of edge with ID x");
-                System.out.println("where x, y are numbers");
-                System.out.println("      *.graphml is the file you need.");
+                graph.showProgramSyntax();
                 exit(0);
             }
 
@@ -488,6 +463,7 @@ public class Main{
                 Vertex destination = Vertices.get(target);
                 ArrayList<Vertex> paths = dijkstraFirst.getPathFromAVertexToAnother(destination);
 
+                // store all shortest path value, number of paths between 2 nodes and a path between them
                 if (source < target) {
                     allDijkstra[source][target] = dijkstraFirst.returnTotalWeight(destination);
                     numberOfShortestPath[source][target] = dijkstraFirst.calculateTotalShortestPath(destination);
@@ -497,11 +473,15 @@ public class Main{
                         maxPath = paths.size();
                         diameterOfGraph = dijkstraFirst.returnTotalWeight(destination);
                     }
-                } else if (source == target) {
+                }
+                // if the same, then return 0, except for the path, which is itself
+                else if (source == target) {
                     allDijkstra[source][target] = 0;
                     numberOfShortestPath[source][target] = 0;
                     APathBetweenTwoVertices[source][target] = String.valueOf(source);
-                } else {
+                }
+                // shortest path from 0 to 6 are the same for 6 to 0, due to undirected graph
+                else {
                     allDijkstra[source][target] = allDijkstra[target][source];
                     numberOfShortestPath[source][target] = numberOfShortestPath[target][source];
                     APathBetweenTwoVertices[source][target] = APathBetweenTwoVertices[target][source];
@@ -510,6 +490,24 @@ public class Main{
         }
     }
 
+    /**
+     * Show instruction on how to use the program correctly, without having errors
+     */
+    private void showProgramSyntax(){
+        System.out.println("\"-s x y\" to calculate Dijkstra between 2 nodes ");
+        System.out.println("\"-b x\" to calculate betweenness centrality of a node");
+        System.out.println("\"-a output.graphml\" to print the result into output.graphml file");
+        System.out.println("\"-v x\" to see the properties of vertex with ID x");
+        System.out.println("\"-e x\" to see the properties of edge with ID x");
+        System.out.println("where x, y are numbers");
+        System.out.println("      *.graphml is the file you need.");
+    }
+    /**
+     * get all vertices which are connected from a vertex by edges
+     * by checking all edges if have the same source vertex or target vertex in an edge.
+     * @param vertex start vertex
+     * @return destination vertices
+     */
     private List<String> getNeighborsVertex(String vertex) {
         List<String> neighbors = new ArrayList<>();
         for (MakePair<String, String> edge : edges) {
@@ -639,6 +637,7 @@ public class Main{
         assert reader != null;
         int endOfFile = reader.read();
 
+        // read until EOF
         while (endOfFile  != -1) {
             char ch = (char)endOfFile;
             allChar[indexOfChar] = ch;
@@ -664,8 +663,10 @@ public class Main{
         boolean startCheck = false;
 
         for(int character = 0; character < indexOfChar-30;character++) {
+            // take 4 characters from the allChar char array to calculate
             String compareFourCharacterAtATime = allCharacterInAFile.substring(character, character + 4);
 
+            // expand to get the value between 2 tags <>?<>
             String addValueBetweenTwoDataTags = allCharacterInAFile.substring(character, character + 30);
             addValueBetweenTwoDataTags = addValueBetweenTwoDataTags.replaceAll("[^-?0-9]+", " ");
 
@@ -717,7 +718,7 @@ public class Main{
      * as we already saving the value of Dijkstra and number of shortest path
      * we just need to call it when calculating to reduce number of tasks
      * 
-     * In order to compute the number of shortest path passes throught a vertex
+     * In order to compute the number of shortest path passes through a vertex
      * we use the formula:  
      * if ( d(start,pass) + d(pass,end) != d(start,end) ) numPass = 0
      * else numPass = numOfPath(start,pass) + numOfPath(pass,end)
@@ -755,6 +756,7 @@ public class Main{
                     // these variable are reset after calculate a pair of start and destination vertex
                     numberOfShortestPathPass = 0;
 
+                    // applying the above formula
                     if (allDijkstra[from][numberOfPassingVertex] + allDijkstra[numberOfPassingVertex][to] != allDijkstra[from][to] ){
                         numberOfShortestPathPass = 0;
                     } else{
@@ -857,7 +859,7 @@ public class Main{
                 if (start != destination) {
                     ArrayList<Vertex> paths = findShortestPath.getPathFromAVertexToAnother(destination);
 
-                    // find a longer path size
+                    // find a longer path size and store the start and end vertex of that path
                     if (paths.size() > maxPath) {
                         maxPath = paths.size();
                         diameterOfGraph = findShortestPath.returnTotalWeight(destination);
@@ -910,7 +912,7 @@ public class Main{
      * print out all Vertices'ID
      * @param listvertexIDs store all vertexIDs
      */
-    private void printvertexIDs(ArrayList<String> listvertexIDs){
+    private void printVertexIDs(ArrayList<String> listvertexIDs){
         System.out.println("There are " + vertexNum + " Vertices. ");
         System.out.println("The vertex IDS are: ");
 
