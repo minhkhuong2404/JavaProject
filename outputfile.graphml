@@ -422,7 +422,7 @@
       <data key="connected">true</data>
     </edge>
     <edge source="all" target="all">
-      <data key="diameter">12</data>
+      <data key="diameter">25</data>
     </edge>
   </graph>
 </graphml>
