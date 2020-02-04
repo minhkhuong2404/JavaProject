@@ -27,6 +27,15 @@ public class Edge extends Abstract{
     private String weight;
 
     /**
+     * create an edge with an id
+     * @param id of the edge
+     */
+    public Edge(int id){
+        super();
+        this.id = id;
+    }
+
+    /**
      * Constructor for creating an Edge object
      * @param id id of the edge
      * @param source source vertex of edge
@@ -34,7 +43,7 @@ public class Edge extends Abstract{
      * @param weight weight of edge
      */
     public Edge(int id, Vertex source, Vertex destination, String weight) {
-        super(id);
+        super();
         this.id = id;
         this.source = source;
         this.destination = destination;
@@ -47,7 +56,7 @@ public class Edge extends Abstract{
      */
     @Override
     public int getID() {
-        return super.getID();
+        return this.id;
     }
 
     /**
@@ -89,8 +98,7 @@ public class Edge extends Abstract{
      */
     @Override
     public void printMe() {
-        System.out.println("Edge " + id + " has weight " + weight);
+        System.out.println("Edge weight is: " + weight);
     }
-
 
 }

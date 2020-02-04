@@ -17,12 +17,21 @@ public class Vertex extends Abstract{
     private String name;
 
     /**
+     * create a vertex with an id
+     * @param id of the vertex
+     */
+    public Vertex(int id){
+        super();
+        this.id = id;
+    }
+
+    /**
      * Constructor for the vertex with id and name
      * @param id id of Vertex
      * @param name name of Vertex
      */
     public Vertex(int id, String name) {
-        super(id);
+        super();
         this.id = id;
         this.name = name;
     }
@@ -33,7 +42,7 @@ public class Vertex extends Abstract{
      */
     @Override
     public int getID() {
-        return super.getID();
+        return this.id;
     }
 
     /**

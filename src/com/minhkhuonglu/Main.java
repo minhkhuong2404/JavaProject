@@ -302,9 +302,10 @@ public class Main{
                     break;
                 case "-v":
                     try {
+                        Abstract vertexID = new Vertex(Integer.parseInt(args[2]));
                         if (Integer.parseInt(args[2]) <= vertexNum && Integer.parseInt(args[2]) >= 0) {
                             System.out.println( "The properties of vertex '" + args[2] + "' are: ");
-                            System.out.println( "Vertex ID: " + Vertices.get(Integer.parseInt(args[2])));
+                            System.out.println( "Vertex ID: " + vertexID.getID());
                             System.out.println( "Number of edges pass through: " + graph.getNeighborsVertex(args[2]).size());
                             System.out.println( "Neighbor vertices are: " + graph.getNeighborsVertex(args[2]));
                         } else if (Integer.parseInt(args[2]) > vertexNum){
@@ -321,9 +322,10 @@ public class Main{
                     break;
                 case "-e":
                     try {
+                        Edge edgeID = new Edge(Integer.parseInt(args[2]));
                         if (Integer.parseInt(args[2]) <= edgeNum && Integer.parseInt(args[2]) >= 0 ) {
                             System.out.println( "The properties of edge '" + args[2] + "' are: ");
-                            System.out.println( "Edge ID: " + args[2]);
+                            System.out.println( "Edge ID: " + edgeID.getID());
                             System.out.println( "Made from 2 vertices '" + Edges.get(Integer.parseInt(args[2])).getSource() + "' and '" + Edges.get(Integer.parseInt(args[2])).getDestination() + "'");
                             System.out.println( "Edge weight is: " + Edges.get(Integer.parseInt(args[2])).getWeight());
                         } else if (Integer.parseInt(args[2]) > edgeNum){
@@ -480,6 +482,7 @@ public class Main{
                     APathBetweenTwoVertices[source][target] = APathBetweenTwoVertices[target][source];
 
                 }
+                // find the longest path weight
                 tempPath = dijkstraFirst.returnTotalWeight(destination);
                 if (diameterOfGraph < tempPath){
                     diameterOfGraph = tempPath;
@@ -738,13 +741,13 @@ public class Main{
 
         // calculate betweenness centrality
         float betweennessCentrality = 0;
+
         int numberOfPassingVertex = pass.getID();
 
         for(int from = 0 ;from < vertexNum; from++) {
             Vertex start = Vertices.get(from);
             dijkstra.executeDijkstra(start);
             dijkstra1.executeDijkstra(pass);
-
             for( int to  = from; to < vertexNum; to++) {
                 Vertex destination = Vertices.get(to);
 
@@ -851,8 +854,7 @@ public class Main{
     private int findTheLongestShortestPath(Graph graph){
         Dijkstra findShortestPath = new Dijkstra(graph);
         // call Dijkstra from all pairs of vertices
-        int maxPath = -1;
-        int tempDiameter = -1;
+        int tempDiameter;
         int diameterOfGraph = -1;
         for (Vertex start : Vertices) {
             findShortestPath.executeDijkstra(start);
@@ -860,7 +862,7 @@ public class Main{
                 if (start != destination) {
                     ArrayList<Vertex> paths = findShortestPath.getPathFromAVertexToAnother(destination);
                     tempDiameter = findShortestPath.returnTotalWeight(destination);
-                    // find a longer path size and store the start and end vertex of that path
+                    // find a longer path weight and store the start and end vertex of that path
 
                     if (diameterOfGraph < tempDiameter){
                         diameterOfGraph = tempDiameter;
