@@ -259,7 +259,7 @@ public class Main{
                         if (Integer.parseInt(args[2]) < 0){
                             LOG.log(Level.WARNING, "A vertix cannot be negative");
                             exit(0);
-                        } else if ( Integer.parseInt(args[2]) > vertexNum){
+                        } else if ( Integer.parseInt(args[2]) >= vertexNum){
                             LOG.log(Level.WARNING,"Please enter a number that is not larger than "+ vertexNum +" as we only have " + vertexNum + " vertices");
                             exit(0);
                         }
@@ -303,12 +303,12 @@ public class Main{
                 case "-v":
                     try {
                         Abstract vertexID = new Vertex(Integer.parseInt(args[2]));
-                        if (Integer.parseInt(args[2]) <= vertexNum && Integer.parseInt(args[2]) >= 0) {
+                        if (Integer.parseInt(args[2]) < vertexNum && Integer.parseInt(args[2]) >= 0) {
                             System.out.println( "The properties of vertex '" + args[2] + "' are: ");
                             System.out.println( "Vertex ID: " + vertexID.getID());
                             System.out.println( "Number of edges pass through: " + graph.getNeighborsVertex(args[2]).size());
                             System.out.println( "Neighbor vertices are: " + graph.getNeighborsVertex(args[2]));
-                        } else if (Integer.parseInt(args[2]) > vertexNum){
+                        } else if (Integer.parseInt(args[2]) >= vertexNum){
                             LOG.log(Level.INFO, "Please type in a number no larger than " + vertexNum + " as we only have " + vertexNum + " vertices");
                             exit(0);
                         } else if (Integer.parseInt(args[2]) < 0){
@@ -323,12 +323,12 @@ public class Main{
                 case "-e":
                     try {
                         Edge edgeID = new Edge(Integer.parseInt(args[2]));
-                        if (Integer.parseInt(args[2]) <= edgeNum && Integer.parseInt(args[2]) >= 0 ) {
+                        if (Integer.parseInt(args[2]) < edgeNum && Integer.parseInt(args[2]) >= 0 ) {
                             System.out.println( "The properties of edge '" + args[2] + "' are: ");
                             System.out.println( "Edge ID: " + edgeID.getID());
-                            System.out.println( "Made from 2 vertices '" + Edges.get(Integer.parseInt(args[2])).getSource() + "' and '" + Edges.get(Integer.parseInt(args[2])).getDestination() + "'");
-                            System.out.println( "Edge weight is: " + Edges.get(Integer.parseInt(args[2])).getWeight());
-                        } else if (Integer.parseInt(args[2]) > edgeNum){
+                            System.out.println( "Made from 2 vertices '" + Edges.get(Integer.parseInt(args[2])*2).getSource() + "' and '" + Edges.get(Integer.parseInt(args[2])*2).getDestination() + "'");
+                            System.out.println( "Edge weight is: " + Edges.get(Integer.parseInt(args[2])*2).getWeight());
+                        } else if (Integer.parseInt(args[2]) >= edgeNum){
                             LOG.log(Level.INFO, "Please type in a number no larger than " + edgeNum + " as we only have " + edgeNum + " edges");
                             exit(0);
                         } else if (Integer.parseInt(args[2]) < 0){
@@ -356,7 +356,7 @@ public class Main{
                         if (checkIfFirstCharIsANumber < 0 || checkIfSecondCharIsANumber < 0){
                             LOG.log(Level.WARNING, "A vertix cannot be negative");
                             exit(0);
-                        } else if (checkIfFirstCharIsANumber > vertexNum || checkIfSecondCharIsANumber > vertexNum){
+                        } else if (checkIfFirstCharIsANumber >= vertexNum || checkIfSecondCharIsANumber >= vertexNum){
                             LOG.log(Level.WARNING,"Please enter a number that is not larger than "+ vertexNum +" as we only have " + vertexNum + " vertices");
                             exit(0);
                         }
