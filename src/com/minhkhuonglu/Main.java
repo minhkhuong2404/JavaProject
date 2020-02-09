@@ -285,13 +285,13 @@ public class Main{
                     graph.outputFile(args[2]);
                     break;
                 case "-s":
-                    if (Integer.parseInt(args[2]) < 0){
-                        LOG.log(Level.WARNING, "A vertix cannot be negative");
-                        exit(0);
-                    }
                     try {
                         int checkIfItIsANumber = Integer.parseInt(args[2]);
                         LOG.log(Level.INFO, "Please enter 1 more number: only '" + checkIfItIsANumber + "' found");
+                        if (Integer.parseInt(args[2]) < 0){
+                            LOG.log(Level.WARNING, "A vertix cannot be negative");
+                            exit(0);
+                        }
                     } catch ( NumberFormatException e){
                         LOG.log(Level.WARNING, "Please change '" + args[2] + "' into a number and add another number");
                     }
