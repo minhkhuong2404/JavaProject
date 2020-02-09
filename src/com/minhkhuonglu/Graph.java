@@ -10,7 +10,6 @@ import java.util.*;
 public class Graph {
     private final List<Vertex> vertices;
     private final List<Edge> edges;
-    public static LinkedList<Edge>[] adjacencyList = new LinkedList[100000];
 
     /**
      * Constructor for creating the Graph with list of Vertex and Edge
@@ -23,17 +22,6 @@ public class Graph {
     }
 
     /**
-     * create linked list to save
-     */
-    public void creatingNewLinkedList(){
-        for (int i = 0; i < 100000;i++) {
-            if (adjacencyList[i] == null)
-                adjacencyList[i] = new LinkedList<>();
-        }
-    }
-
-    /**
-     *
      * @return list of vertices
      */
     public List<Vertex> getVertices() {
@@ -41,7 +29,6 @@ public class Graph {
     }
 
     /**
-     *
      * @return list of edges
      */
     public List<Edge> getEdges() {

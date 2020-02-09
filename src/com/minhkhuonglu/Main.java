@@ -58,7 +58,7 @@ public class Main{
     static int diameterOfGraph = -1;
 
     /**
-     * This array will be used to save the value of the diameter
+     * This array will be used to save the start and end vertex of the diameter
      * to prevent further calculating in the future
      */
     static String[] storeDiameter = new String[2];
@@ -111,7 +111,7 @@ public class Main{
     /**
      * This 2D-array is used to storing 1 path between 2 vertices
      */
-    public static String [][] APathBetweenTwoVertices;
+    public static String [][] aPathBetweenTwoVertices;
 
     /**
      * first check the extension of file whether it is .graphml or not
@@ -192,7 +192,7 @@ public class Main{
         // initialize two 2D-array
         allDijkstra = new int[vertexNum][vertexNum];
         numberOfShortestPath = new float[vertexNum][vertexNum];
-        APathBetweenTwoVertices = new String[vertexNum][vertexNum];
+        aPathBetweenTwoVertices = new String[vertexNum][vertexNum];
 
         if (vertexNum > 150){
             LOG.log(Level.INFO, "This file is quite large. So it may take a little bit longer. Please be patient");
@@ -222,11 +222,8 @@ public class Main{
             System.out.println("==================================================");
 
             // print out the edges source and target
-            graph.printMapOut(edges);
+            graph.printEdgeOut(edges);
             System.out.println("==================================================");
-
-            // use Dijkstra to check the connectivity and the diameter of the graph
-//            graph.checkConnectivityAndCalculateDiameter(Vertices.get(1), Vertices.get(2));
 
             if (graph.isGraphConnected()){
                 System.out.println("The graph is connected");
@@ -235,13 +232,13 @@ public class Main{
             graph.calculateDiameter();
 
             System.out.println("==================================================");
-            graph.showProgramSyntax();
+            graph.showProgramInstruction();
 
         }
         else if (args.length == 3){
             if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a") && !args[1].equals("-v") && !args[1].equals("-e")){
                 System.out.println("Make sure that you use the right syntax of the program!");
-                graph.showProgramSyntax();
+                graph.showProgramInstruction();
                 exit(0);
             }
 
@@ -345,7 +342,7 @@ public class Main{
         else if (args.length == 4 ){
             if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a") && !args[1].equals("-v") && !args[1].equals("-e")){
                 System.out.println("Make sure that you use the right syntax of the program!");
-                graph.showProgramSyntax();
+                graph.showProgramInstruction();
                 exit(0);
             }
             switch (args[1]) {
@@ -404,7 +401,7 @@ public class Main{
         else if (args.length == 2){
             if (!args[1].equals("-s") && !args[1].equals("-b") && !args[1].equals("-a") && !args[1].equals("-v") && !args[1].equals("-e")){
                 System.out.println("Make sure that you use the right syntax of the program!");
-                graph.showProgramSyntax();
+                graph.showProgramInstruction();
                 exit(0);
             }
 
@@ -446,7 +443,7 @@ public class Main{
 
     /**
      * this function will iterating through all pair of Vertices
-     * calculate and save the dijsktra value in the array allDijkstra
+     * calculate and save the dijkstra value in the array allDijkstra
      * calculate and save the number of shortest path in the array numberOfShortestPath
      * calculate and comparing to find the diameter, which is the longest shortest path
      * @param from first half vertices
@@ -467,19 +464,19 @@ public class Main{
                 if (source < target) {
                     allDijkstra[source][target] = dijkstraFirst.returnTotalWeight(destination);
                     numberOfShortestPath[source][target] = dijkstraFirst.calculateTotalShortestPath(destination);
-                    APathBetweenTwoVertices[source][target] = String.valueOf(dijkstraFirst.getPathFromAVertexToAnother(Vertices.get(target)));
+                    aPathBetweenTwoVertices[source][target] = String.valueOf(dijkstraFirst.getPathFromAVertexToAnother(Vertices.get(target)));
                 }
                 // if the same, then return 0, except for the path, which is itself
                 else if (source == target){
                     allDijkstra[source][target] = 0;
                     numberOfShortestPath[source][target] = 0;
-                    APathBetweenTwoVertices[source][target] = String.valueOf(source);
+                    aPathBetweenTwoVertices[source][target] = String.valueOf(source);
                 }
                 // shortest path from 0 to 6 are the same for 6 to 0, due to undirected graph
                 else {
                     allDijkstra[source][target] = allDijkstra[target][source];
                     numberOfShortestPath[source][target] = numberOfShortestPath[target][source];
-                    APathBetweenTwoVertices[source][target] = APathBetweenTwoVertices[target][source];
+                    aPathBetweenTwoVertices[source][target] = aPathBetweenTwoVertices[target][source];
 
                 }
                 // find the longest path weight
@@ -494,7 +491,7 @@ public class Main{
     /**
      * Show instruction on how to use the program correctly, without having errors
      */
-    private void showProgramSyntax(){
+    private void showProgramInstruction(){
         System.out.println("\"-s x y\" to calculate Dijkstra between 2 nodes ");
         System.out.println("\"-b x\" to calculate betweenness centrality of a node");
         System.out.println("\"-a output.graphml\" to print the result into output.graphml file");
@@ -555,11 +552,8 @@ public class Main{
      * to calculate all paths between 2 Vertices
      */
     private void buildGraph() {
-        Graph graph_first = new Graph(Vertices, Edges); // don't DELETE this line. Error
         Vertices = new ArrayList<>();
         Edges = new ArrayList<>();
-
-        graph_first.creatingNewLinkedList();
 
         addVerticesIntoGraph();
         addEdgesIntoGraph();
@@ -704,6 +698,7 @@ public class Main{
                         List<String> lineThatContainsSourceAndTargetOfAnEdge = Arrays.asList(addValueBetweenTwoDataTags.trim().split(" "));
                         // add 2 value in the new List to the edges ArrayList
                         edges.add(new MakePair<>(lineThatContainsSourceAndTargetOfAnEdge.get(0), lineThatContainsSourceAndTargetOfAnEdge.get(1)));
+                        break;
                     }
                 }
             }
@@ -843,8 +838,8 @@ public class Main{
     /**
      * This function calculates all shortest paths between a pair of vertices
      * to find the shortest path that has the longest path
-     * which means if ( d(-1-2-3-4) == d(-1-2-3-4-5-6-7) )
-     * =>  -1-2-3-4-5-6-7 is the diameter because it contains more vertices
+     * which means if ( d(-1-2-3-4) > any other d(-x-y-z-...) )
+     * =>  d(-1-2-3-4) is the diameter because it contains more vertices
      * where d(-1-2-3-4): the weight of shortest path from 1 to 4
      *
      * @see com.minhkhuonglu.Dijkstra#executeDijkstra(Vertex)
@@ -862,14 +857,13 @@ public class Main{
                 if (start != destination) {
                     ArrayList<Vertex> paths = findShortestPath.getPathFromAVertexToAnother(destination);
                     tempDiameter = findShortestPath.returnTotalWeight(destination);
-                    // find a longer path weight and store the start and end vertex of that path
 
+                    // find a longer path weight and store the start and end vertex of that path
                     if (diameterOfGraph < tempDiameter){
                         diameterOfGraph = tempDiameter;
                         storeDiameter[0] = String.valueOf(paths.get(0));
                         storeDiameter[1] = String.valueOf(paths.get(paths.size()-1));
                     }
-
                 }
             }
         }
@@ -889,12 +883,10 @@ public class Main{
 
     /**
      * adding an edge into the Edges List
-     * also for the adjacencyList[] which stores the edge according to its start vertex
      * @param laneId ID of the edge
      * @param sourceLocationNumber start vertex
      * @param destinationLocationNumber end vertex
      * @param weight the weight of the edge
-     * @throws java.lang.NullPointerException if the adjacencyList hasn't been created yet
      */
     private void addEdge(int laneId, String sourceLocationNumber, String destinationLocationNumber, String weight) {
         Edge lane = new Edge(laneId, Vertices.get(Integer.parseInt(sourceLocationNumber)), Vertices.get(Integer.parseInt(destinationLocationNumber)), weight );
@@ -935,11 +927,11 @@ public class Main{
      * print out all pair of source and target vertices in an edge
      * @param listSourceTarget list of all edges
      */
-    private void printMapOut(List<MakePair<String, String>> listSourceTarget){
+    private void printEdgeOut(List<MakePair<String, String>> listSourceTarget){
         System.out.println("The source and target vertex of every edges: ");
         int i = 1;
         for (MakePair<String, String> element : listSourceTarget) {
-            System.out.print(element.getL() + "->" + element.getR() + " ; ");
+            System.out.print(element.getL() + "->" + element.getR() + ":" + storeWeigh[Integer.parseInt(element.getL())][Integer.parseInt(element.getR())] + " ; ");
             if (i % 10 == 0 && i != 0) {
                 System.out.println();
             }
@@ -985,9 +977,9 @@ public class Main{
 
                 for (int endVertex = 0; endVertex < vertexNum;endVertex++){
                     if (startVertex != endVertex) {
-                        out.write("      <dijkstra to=\"n" + endVertex + "\">" + APathBetweenTwoVertices[startVertex][endVertex] + " = " + allDijkstra[startVertex][endVertex] + "</dijkstra>\n");
+                        out.write("      <dijkstra to=\"n" + endVertex + "\">" + aPathBetweenTwoVertices[startVertex][endVertex] + " = " + allDijkstra[startVertex][endVertex] + "</dijkstra>\n");
                     }else{
-                        out.write("      <dijkstra to=\"n" + endVertex + "\">[ " + APathBetweenTwoVertices[startVertex][endVertex] + " ] = " + allDijkstra[startVertex][endVertex] + "</dijkstra>\n");
+                        out.write("      <dijkstra to=\"n" + endVertex + "\">[ " + aPathBetweenTwoVertices[startVertex][endVertex] + " ] = " + allDijkstra[startVertex][endVertex] + "</dijkstra>\n");
                     }
                 }
                 if (startVertex == vertexNum/2) {

@@ -12,7 +12,7 @@ abstract class Abstract implements Interface{
     /**
      * store a name for an object
      */
-    private String name;
+    protected String name;
 
     /**
      * Constructor for Edge
