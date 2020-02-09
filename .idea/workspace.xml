@@ -6,14 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35e51c40-6e70-41d8-a8de-bccf3328d98f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Final_Java_Project_jar/Final_Java_Project.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minhkhuonglu/Abstract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minhkhuonglu/Abstract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minhkhuonglu/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minhkhuonglu/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/minhkhuonglu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/minhkhuonglu/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="35e51c40-6e70-41d8-a8de-bccf3328d98f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,7 +141,7 @@
       <workItem from="1580850163671" duration="8899000" />
       <workItem from="1581103318692" duration="3291000" />
       <workItem from="1581162190152" duration="20000" />
-      <workItem from="1581254699541" duration="4953000" />
+      <workItem from="1581254699541" duration="5277000" />
     </task>
     <servers />
   </component>
