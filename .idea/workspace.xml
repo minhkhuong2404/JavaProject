@@ -6,10 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35e51c40-6e70-41d8-a8de-bccf3328d98f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/output.graphml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="35e51c40-6e70-41d8-a8de-bccf3328d98f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,6 +144,7 @@
       <workItem from="1581254699541" duration="6476000" />
       <workItem from="1581276965159" duration="4423000" />
       <workItem from="1581324493053" duration="205000" />
+      <workItem from="1584458709853" duration="27000" />
     </task>
     <servers />
   </component>
