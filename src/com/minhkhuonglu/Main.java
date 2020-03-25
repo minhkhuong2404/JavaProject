@@ -148,6 +148,7 @@ public class Main{
      */
     public static void main(String[] args) throws IOException, IncorrectFileExtensionException {
         // start counting execute time
+        System.out.println("Hello World");
         long startTime = System.currentTimeMillis();
 
         Main graph = new Main();
